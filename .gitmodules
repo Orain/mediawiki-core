@@ -491,3 +491,9 @@
 	path = skins/monaco
 	url = https://github.com/dantman/monaco-port.git
 
+[submodule "extensions/AdminLinks"]
+	path = extensions/AdminLinks
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AdminLinks.git
+[submodule "extensions/ReplaceText"]
+	path = extensions/ReplaceText
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ReplaceText.git
