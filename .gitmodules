@@ -469,6 +469,9 @@
 [submodule "extensions/CirrusSearch"]
 	path = extensions/CirrusSearch
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CirrusSearch.git
+[submodule "extensions/OAuth"]
+	path = extensions/OAuth
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OAuth.git
 [submodule "extensions/CreateWiki"]
 	path = extensions/CreateWiki
 	url = https://github.com/Orain/CreateWiki.git
