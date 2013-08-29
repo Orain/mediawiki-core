@@ -506,3 +506,6 @@
 	path = extensions/Variables
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Variables.git
 
+[submodule "extensions/HeaderTabs"]
+	path = extensions/HeaderTabs
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/HeaderTabs.git
