@@ -472,6 +472,7 @@
 [submodule "extensions/CreateWiki"]
 	path = extensions/CreateWiki
 	url = https://github.com/Orain/CreateWiki.git
+	branch = master
 [submodule "extensions/DPLforum"]
 	path = extensions/DPLforum
 	url = https://git.wikimedia.org/git/mediawiki/extensions/DPLforum.git
@@ -481,6 +482,7 @@
 [submodule "extensions/OrainMessages"]
 	path = extensions/OrainMessages
 	url = https://github.com/Orain/OrainMessages.git
+	branch = master
 [submodule "skins/filament"]
 	path = skins/filament
 	url = https://github.com/WikiWonders/filament.git
@@ -500,7 +502,4 @@
 [submodule "extensions/Variables"]
 	path = extensions/Variables
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Variables.git
-[submodule "OrainMessages"]
-	path = OrainMessages
-	url = https://github.com/Orain/OrainMessages.git
-	branch = master
+
