@@ -509,3 +509,6 @@
 [submodule "extensions/HeaderTabs"]
 	path = extensions/HeaderTabs
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/HeaderTabs.git
+[submodule "extensions/MyVariables"]
+	path = extensions/MyVariables
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MyVariables.git
