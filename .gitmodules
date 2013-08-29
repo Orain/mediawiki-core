@@ -500,3 +500,7 @@
 [submodule "extensions/Variables"]
 	path = extensions/Variables
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Variables.git
+[submodule "OrainMessages"]
+	path = OrainMessages
+	url = https://github.com/Orain/OrainMessages.git
+	branch = master
