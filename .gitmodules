@@ -515,3 +515,6 @@
 [submodule "extensions/Comments"]
 	path = extensions/Comments
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Comments.git
+[submodule "extensions/Tabber"]
+	path = extensions/Tabber
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabber.git
