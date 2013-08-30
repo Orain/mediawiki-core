@@ -512,3 +512,6 @@
 [submodule "extensions/MyVariables"]
 	path = extensions/MyVariables
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MyVariables.git
+[submodule "extensions/Comments"]
+	path = extensions/Comments
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Comments.git
