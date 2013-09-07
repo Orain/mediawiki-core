@@ -362,6 +362,9 @@ class Parser {
 		$this->startParse( $title, $options, self::OT_HTML, $clearState );
 
 		$this->mInputSize = strlen( $text );
+		if ( $this->mOptions->getEnableLimitReport() ) {
+			$this->mOutput->resetParseStartTime();
+		}
 
 		# Remove the strip marker tag prefix from the input, if present.
 		if ( $clearState ) {
@@ -492,22 +495,64 @@ class Parser {
 		# Information on include size limits, for the benefit of users who try to skirt them
 		if ( $this->mOptions->getEnableLimitReport() ) {
 			$max = $this->mOptions->getMaxIncludeSize();
-			$PFreport = "Expensive parser function count: {$this->mExpensiveFunctionCount}/{$this->mOptions->getExpensiveParserFunctionLimit()}\n";
-			$limitReport =
-				"NewPP limit report\n" .
-				"Preprocessor visited node count: {$this->mPPNodeCount}/{$this->mOptions->getMaxPPNodeCount()}\n" .
-				"Preprocessor generated node count: " .
-					"{$this->mGeneratedPPNodeCount}/{$this->mOptions->getMaxGeneratedPPNodeCount()}\n" .
-				"Post-expand include size: {$this->mIncludeSizes['post-expand']}/$max bytes\n" .
-				"Template argument size: {$this->mIncludeSizes['arg']}/$max bytes\n" .
-				"Highest expansion depth: {$this->mHighestExpansionDepth}/{$this->mOptions->getMaxPPExpandDepth()}\n" .
-				$PFreport;
+
+			$cpuTime = $this->mOutput->getTimeSinceStart( 'cpu' );
+			if ( $cpuTime !== null ) {
+				$this->mOutput->setLimitReportData( 'limitreport-cputime',
+					sprintf( "%.3f", $cpuTime )
+				);
+			}
+
+			$wallTime = $this->mOutput->getTimeSinceStart( 'wall' );
+			$this->mOutput->setLimitReportData( 'limitreport-walltime',
+				sprintf( "%.3f", $wallTime )
+			);
+
+			$this->mOutput->setLimitReportData( 'limitreport-ppvisitednodes',
+				array( $this->mPPNodeCount, $this->mOptions->getMaxPPNodeCount() )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-ppgeneratednodes',
+				array( $this->mGeneratedPPNodeCount, $this->mOptions->getMaxGeneratedPPNodeCount() )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-postexpandincludesize',
+				array( $this->mIncludeSizes['post-expand'], $max )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-templateargumentsize',
+				array( $this->mIncludeSizes['arg'], $max )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-expansiondepth',
+				array( $this->mHighestExpansionDepth, $this->mOptions->getMaxPPExpandDepth() )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-expensivefunctioncount',
+				array( $this->mExpensiveFunctionCount, $this->mOptions->getExpensiveParserFunctionLimit() )
+			);
+			wfRunHooks( 'ParserLimitReportPrepare', array( $this, $this->mOutput ) );
+
+			$limitReport = "NewPP limit report\n";
+			foreach ( $this->mOutput->getLimitReportData() as $key => $value ) {
+				if ( wfRunHooks( 'ParserLimitReportFormat',
+					array( $key, $value, &$limitReport, false, false )
+				) ) {
+					$keyMsg = wfMessage( $key )->inLanguage( 'en' )->useDatabase( false );
+					$valueMsg = wfMessage( array( "$key-value-text", "$key-value" ) )
+						->inLanguage( 'en' )->useDatabase( false );
+					if ( !$valueMsg->exists() ) {
+						$valueMsg = new RawMessage( '$1' );
+					}
+					if ( !$keyMsg->isDisabled() && !$valueMsg->isDisabled() ) {
+						$valueMsg->params( $value );
+						$limitReport .= "{$keyMsg->text()}: {$valueMsg->text()}\n";
+					}
+				}
+			}
+			// Since we're not really outputting HTML, decode the entities and
+			// then re-encode the things that need hiding inside HTML comments.
+			$limitReport = htmlspecialchars_decode( $limitReport );
 			wfRunHooks( 'ParserLimitReport', array( $this, &$limitReport ) );
 
 			// Sanitize for comment. Note '‐' in the replacement is U+2010,
 			// which looks much like the problematic '-'.
 			$limitReport = str_replace( array( '-', '&' ), array( '‐', '&amp;' ), $limitReport );
-
 			$text .= "\n<!-- \n$limitReport-->\n";
 
 			if ( $this->mGeneratedPPNodeCount > $this->mOptions->getMaxGeneratedPPNodeCount() / 10 ) {
@@ -1371,179 +1416,176 @@ class Parser {
 		$arr = preg_split( "/(''+)/", $text, -1, PREG_SPLIT_DELIM_CAPTURE );
 		if ( count( $arr ) == 1 ) {
 			return $text;
-		} else {
-			# First, do some preliminary work. This may shift some apostrophes from
-			# being mark-up to being text. It also counts the number of occurrences
-			# of bold and italics mark-ups.
-			$numbold = 0;
-			$numitalics = 0;
-			for ( $i = 0; $i < count( $arr ); $i++ ) {
-				if ( ( $i % 2 ) == 1 ) {
-					# If there are ever four apostrophes, assume the first is supposed to
-					# be text, and the remaining three constitute mark-up for bold text.
-					if ( strlen( $arr[$i] ) == 4 ) {
-						$arr[$i - 1] .= "'";
-						$arr[$i] = "'''";
-					} elseif ( strlen( $arr[$i] ) > 5 ) {
-						# If there are more than 5 apostrophes in a row, assume they're all
-						# text except for the last 5.
-						$arr[$i - 1] .= str_repeat( "'", strlen( $arr[$i] ) - 5 );
-						$arr[$i] = "'''''";
-					}
-					# Count the number of occurrences of bold and italics mark-ups.
-					# We are not counting sequences of five apostrophes.
-					if ( strlen( $arr[$i] ) == 2 ) {
-						$numitalics++;
-					} elseif ( strlen( $arr[$i] ) == 3 ) {
-						$numbold++;
-					} elseif ( strlen( $arr[$i] ) == 5 ) {
-						$numitalics++;
-						$numbold++;
-					}
-				}
-			}
-
-			# If there is an odd number of both bold and italics, it is likely
-			# that one of the bold ones was meant to be an apostrophe followed
-			# by italics. Which one we cannot know for certain, but it is more
-			# likely to be one that has a single-letter word before it.
-			if ( ( $numbold % 2 == 1 ) && ( $numitalics % 2 == 1 ) ) {
-				$i = 0;
-				$firstsingleletterword = -1;
-				$firstmultiletterword = -1;
-				$firstspace = -1;
-				foreach ( $arr as $r ) {
-					if ( ( $i % 2 == 1 ) and ( strlen( $r ) == 3 ) ) {
-						$x1 = substr( $arr[$i - 1], -1 );
-						$x2 = substr( $arr[$i - 1], -2, 1 );
-						if ( $x1 === ' ' ) {
-							if ( $firstspace == -1 ) {
-								$firstspace = $i;
-							}
-						} elseif ( $x2 === ' ' ) {
-							if ( $firstsingleletterword == -1 ) {
-								$firstsingleletterword = $i;
-							}
-						} else {
-							if ( $firstmultiletterword == -1 ) {
-								$firstmultiletterword = $i;
-							}
-						}
-					}
-					$i++;
-				}
-
-				# If there is a single-letter word, use it!
-				if ( $firstsingleletterword > -1 ) {
-					$arr[$firstsingleletterword] = "''";
-					$arr[$firstsingleletterword - 1] .= "'";
-				} elseif ( $firstmultiletterword > -1 ) {
-					# If not, but there's a multi-letter word, use that one.
-					$arr[$firstmultiletterword] = "''";
-					$arr[$firstmultiletterword - 1] .= "'";
-				} elseif ( $firstspace > -1 ) {
-					# ... otherwise use the first one that has neither.
-					# (notice that it is possible for all three to be -1 if, for example,
-					# there is only one pentuple-apostrophe in the line)
-					$arr[$firstspace] = "''";
-					$arr[$firstspace - 1] .= "'";
-				}
-			}
-
-			# Now let's actually convert our apostrophic mush to HTML!
-			$output = '';
-			$buffer = '';
-			$state = '';
-			$i = 0;
-			foreach ( $arr as $r ) {
-				if ( ( $i % 2 ) == 0 ) {
-					if ( $state === 'both' ) {
-						$buffer .= $r;
-					} else {
-						$output .= $r;
-					}
-				} else {
-					if ( strlen( $r ) == 2 ) {
-						if ( $state === 'i' ) {
-							$output .= '</i>';
-							$state = '';
-						} elseif ( $state === 'bi' ) {
-							$output .= '</i>';
-							$state = 'b';
-						} elseif ( $state === 'ib' ) {
-							$output .= '</b></i><b>';
-							$state = 'b';
-						} elseif ( $state === 'both' ) {
-							$output .= '<b><i>' . $buffer . '</i>';
-							$state = 'b';
-						} else { # $state can be 'b' or ''
-							$output .= '<i>';
-							$state .= 'i';
-						}
-					} elseif ( strlen( $r ) == 3 ) {
-						if ( $state === 'b' ) {
-							$output .= '</b>';
-							$state = '';
-						} elseif ( $state === 'bi' ) {
-							$output .= '</i></b><i>';
-							$state = 'i';
-						} elseif ( $state === 'ib' ) {
-							$output .= '</b>';
-							$state = 'i';
-						} elseif ( $state === 'both' ) {
-							$output .= '<i><b>' . $buffer . '</b>';
-							$state = 'i';
-						} else { # $state can be 'i' or ''
-							$output .= '<b>';
-							$state .= 'b';
-						}
-					} elseif ( strlen( $r ) == 5 ) {
-						if ( $state === 'b' ) {
-							$output .= '</b><i>';
-							$state = 'i';
-						} elseif ( $state === 'i' ) {
-							$output .= '</i><b>';
-							$state = 'b';
-						} elseif ( $state === 'bi' ) {
-							$output .= '</i></b>';
-							$state = '';
-						} elseif ( $state === 'ib' ) {
-							$output .= '</b></i>';
-							$state = '';
-						} elseif ( $state === 'both' ) {
-							$output .= '<i><b>' . $buffer . '</b></i>';
-							$state = '';
-						} else { # ($state == '')
-							$buffer = '';
-							$state = 'both';
-						}
-					}
-				}
-				$i++;
-			}
-			# Now close all remaining tags.  Notice that the order is important.
-			if ( $state === 'b' || $state === 'ib' ) {
-				$output .= '</b>';
-			}
-			if ( $state === 'i' || $state === 'bi' || $state === 'ib' ) {
-				$output .= '</i>';
-			}
-			if ( $state === 'bi' ) {
-				$output .= '</b>';
-			}
-			# There might be lonely ''''', so make sure we have a buffer
-			if ( $state === 'both' && $buffer ) {
-				$output .= '<b><i>' . $buffer . '</i></b>';
-			}
-			return $output;
 		}
+
+		// First, do some preliminary work. This may shift some apostrophes from
+		// being mark-up to being text. It also counts the number of occurrences
+		// of bold and italics mark-ups.
+		$numbold = 0;
+		$numitalics = 0;
+		for ( $i = 1; $i < count( $arr ); $i += 2 ) {
+			// If there are ever four apostrophes, assume the first is supposed to
+			// be text, and the remaining three constitute mark-up for bold text.
+			// (bug 13227: ''''foo'''' turns into ' ''' foo ' ''')
+			if ( strlen( $arr[$i] ) == 4 ) {
+				$arr[$i - 1] .= "'";
+				$arr[$i] = "'''";
+			} elseif ( strlen( $arr[$i] ) > 5 ) {
+				// If there are more than 5 apostrophes in a row, assume they're all
+				// text except for the last 5.
+				// (bug 13227: ''''''foo'''''' turns into ' ''''' foo ' ''''')
+				$arr[$i - 1] .= str_repeat( "'", strlen( $arr[$i] ) - 5 );
+				$arr[$i] = "'''''";
+			}
+			// Count the number of occurrences of bold and italics mark-ups.
+			if ( strlen( $arr[$i] ) == 2 ) {
+				$numitalics++;
+			} elseif ( strlen( $arr[$i] ) == 3 ) {
+				$numbold++;
+			} elseif ( strlen( $arr[$i] ) == 5 ) {
+				$numitalics++;
+				$numbold++;
+			}
+		}
+
+		// If there is an odd number of both bold and italics, it is likely
+		// that one of the bold ones was meant to be an apostrophe followed
+		// by italics. Which one we cannot know for certain, but it is more
+		// likely to be one that has a single-letter word before it.
+		if ( ( $numbold % 2 == 1 ) && ( $numitalics % 2 == 1 ) ) {
+			$firstsingleletterword = -1;
+			$firstmultiletterword = -1;
+			$firstspace = -1;
+			for ( $i = 1; $i < count( $arr ); $i += 2 ) {
+				if ( strlen( $arr[$i] ) == 3 ) {
+					$x1 = substr( $arr[$i - 1], -1 );
+					$x2 = substr( $arr[$i - 1], -2, 1 );
+					if ( $x1 === ' ' ) {
+						if ( $firstspace == -1 ) {
+							$firstspace = $i;
+						}
+					} elseif ( $x2 === ' ' ) {
+						if ( $firstsingleletterword == -1 ) {
+							$firstsingleletterword = $i;
+						}
+					} else {
+						if ( $firstmultiletterword == -1 ) {
+							$firstmultiletterword = $i;
+						}
+					}
+				}
+			}
+
+			// If there is a single-letter word, use it!
+			if ( $firstsingleletterword > -1 ) {
+				$arr[$firstsingleletterword] = "''";
+				$arr[$firstsingleletterword - 1] .= "'";
+			} elseif ( $firstmultiletterword > -1 ) {
+				// If not, but there's a multi-letter word, use that one.
+				$arr[$firstmultiletterword] = "''";
+				$arr[$firstmultiletterword - 1] .= "'";
+			} elseif ( $firstspace > -1 ) {
+				// ... otherwise use the first one that has neither.
+				// (notice that it is possible for all three to be -1 if, for example,
+				// there is only one pentuple-apostrophe in the line)
+				$arr[$firstspace] = "''";
+				$arr[$firstspace - 1] .= "'";
+			}
+		}
+
+		// Now let's actually convert our apostrophic mush to HTML!
+		$output = '';
+		$buffer = '';
+		$state = '';
+		$i = 0;
+		foreach ( $arr as $r ) {
+			if ( ( $i % 2 ) == 0 ) {
+				if ( $state === 'both' ) {
+					$buffer .= $r;
+				} else {
+					$output .= $r;
+				}
+			} else {
+				if ( strlen( $r ) == 2 ) {
+					if ( $state === 'i' ) {
+						$output .= '</i>';
+						$state = '';
+					} elseif ( $state === 'bi' ) {
+						$output .= '</i>';
+						$state = 'b';
+					} elseif ( $state === 'ib' ) {
+						$output .= '</b></i><b>';
+						$state = 'b';
+					} elseif ( $state === 'both' ) {
+						$output .= '<b><i>' . $buffer . '</i>';
+						$state = 'b';
+					} else { // $state can be 'b' or ''
+						$output .= '<i>';
+						$state .= 'i';
+					}
+				} elseif ( strlen( $r ) == 3 ) {
+					if ( $state === 'b' ) {
+						$output .= '</b>';
+						$state = '';
+					} elseif ( $state === 'bi' ) {
+						$output .= '</i></b><i>';
+						$state = 'i';
+					} elseif ( $state === 'ib' ) {
+						$output .= '</b>';
+						$state = 'i';
+					} elseif ( $state === 'both' ) {
+						$output .= '<i><b>' . $buffer . '</b>';
+						$state = 'i';
+					} else { // $state can be 'i' or ''
+						$output .= '<b>';
+						$state .= 'b';
+					}
+				} elseif ( strlen( $r ) == 5 ) {
+					if ( $state === 'b' ) {
+						$output .= '</b><i>';
+						$state = 'i';
+					} elseif ( $state === 'i' ) {
+						$output .= '</i><b>';
+						$state = 'b';
+					} elseif ( $state === 'bi' ) {
+						$output .= '</i></b>';
+						$state = '';
+					} elseif ( $state === 'ib' ) {
+						$output .= '</b></i>';
+						$state = '';
+					} elseif ( $state === 'both' ) {
+						$output .= '<i><b>' . $buffer . '</b></i>';
+						$state = '';
+					} else { // ($state == '')
+						$buffer = '';
+						$state = 'both';
+					}
+				}
+			}
+			$i++;
+		}
+		// Now close all remaining tags.  Notice that the order is important.
+		if ( $state === 'b' || $state === 'ib' ) {
+			$output .= '</b>';
+		}
+		if ( $state === 'i' || $state === 'bi' || $state === 'ib' ) {
+			$output .= '</i>';
+		}
+		if ( $state === 'bi' ) {
+			$output .= '</b>';
+		}
+		// There might be lonely ''''', so make sure we have a buffer
+		if ( $state === 'both' && $buffer ) {
+			$output .= '<b><i>' . $buffer . '</i></b>';
+		}
+		return $output;
 	}
 
 	/**
 	 * Replace external links (REL)
 	 *
 	 * Note: this is all very hackish and the order of execution matters a lot.
-	 * Make sure to run maintenance/parserTests.php if you change this code.
+	 * Make sure to run tests/parserTests.php if you change this code.
 	 *
 	 * @private
 	 *
@@ -2864,7 +2906,7 @@ class Parser {
 				$value = $this->mTitle->canTalk() ? wfUrlencode( $this->mTitle->getTalkNsText() ) : '';
 				break;
 			case 'subjectspace':
-				$value = $this->mTitle->getSubjectNsText();
+				$value = str_replace( '_', ' ', $this->mTitle->getSubjectNsText() );
 				break;
 			case 'subjectspacee':
 				$value = ( wfUrlencode( $this->mTitle->getSubjectNsText() ) );
@@ -3125,6 +3167,12 @@ class Parser {
 	 *   'post-expand-template-inclusion' (corresponding messages:
 	 *       'post-expand-template-inclusion-warning',
 	 *       'post-expand-template-inclusion-category')
+	 *   'node-count-exceeded' (corresponding messages:
+	 *       'node-count-exceeded-warning',
+	 *       'node-count-exceeded-category')
+	 *   'expansion-depth-exceeded' (corresponding messages:
+	 *       'expansion-depth-exceeded-warning',
+	 *       'expansion-depth-exceeded-category')
 	 * @param int|null $current Current value
 	 * @param int|null $max Maximum allowed, when an explicit limit has been
 	 *	 exceeded, provide the values (optional)
@@ -3132,7 +3180,7 @@ class Parser {
 	function limitationWarn( $limitationType, $current = '', $max = '' ) {
 		# does no harm if $current and $max are present but are unnecessary for the message
 		$warning = wfMessage( "$limitationType-warning" )->numParams( $current, $max )
-			->inContentLanguage()->escaped();
+			->inLanguage( $this->mOptions->getUserLangObj() )->text();
 		$this->mOutput->addWarning( $warning );
 		$this->addTrackingCategory( "$limitationType-category" );
 	}
@@ -5002,7 +5050,19 @@ class Parser {
 	 */
 	function renderImageGallery( $text, $params ) {
 		wfProfileIn( __METHOD__ );
-		$ig = new ImageGallery();
+
+		$mode = false;
+		if ( isset( $params['mode'] ) ) {
+			$mode = $params['mode'];
+		}
+
+		try {
+			$ig = ImageGalleryBase::factory( $mode );
+		} catch ( MWException $e ) {
+			// If invalid type set, fallback to default.
+			$ig = ImageGalleryBase::factory( false );
+		}
+
 		$ig->setContextTitle( $this->mTitle );
 		$ig->setShowBytes( false );
 		$ig->setShowFilename( false );
@@ -5030,6 +5090,7 @@ class Parser {
 		if ( isset( $params['heights'] ) ) {
 			$ig->setHeights( $params['heights'] );
 		}
+		$ig->setAdditionalOptions( $params );
 
 		wfRunHooks( 'BeforeParserrenderImageGallery', array( &$this, &$ig ) );
 
@@ -5098,7 +5159,7 @@ class Parser {
 					if ( $magicName ) {
 						$paramName = $paramMap[$magicName];
 
-						switch( $paramName ) {
+						switch ( $paramName ) {
 						case 'gallery-internal-alt':
 							$alt = $this->stripAltText( $match, false );
 							break;

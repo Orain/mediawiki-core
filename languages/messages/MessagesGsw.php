@@ -163,7 +163,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Aazahl Benutzer aazeige, wo ne Syten am Aaluege sy (i den Artikelsyte, i de «letschten Änderigen» und i der Beobachtigslischte)',
 'tog-oldsig' => 'Vorschau vu dr Unterschrift:',
 'tog-fancysig' => 'Signatur as Wikitext behandle (ohni automatischi Vergleichig)',
-'tog-showjumplinks' => '«Wächsle-zu»-Links ermügleche',
 'tog-uselivepreview' => 'Live-Vorschau bruche (JavaScript) (experimentell)',
 'tog-forceeditsummary' => 'Sag mer s, wänn i s Zämmefassigsfeld läär loss',
 'tog-watchlisthideown' => 'Eigeni Änderige uf d Beobachtigslischt usblände',
@@ -450,17 +449,6 @@ Alli verfiegbare Spezialsyte sin in dr [[Special:SpecialPages|Lischt vu Spezials
 # General errors
 'error' => 'Fähler',
 'databaseerror' => 'Fähler in dr Datebank',
-'dberrortext' => 'S isch e Datebankfähler ufträtte.
-Dr Grund cha ne e Programmierfähler syy.
-Di letscht Datebankabfrog isch
-<blockquote><code>$1</code></blockquote>
-us dr Funktion „<code>$2</code>“ gsi.
-D Datebank het dr Fähler „<samp>$3: $4</samp>“ gmäldet.',
-'dberrortextcl' => 'S het e Syntaxfähler gee in dr Abfrog vu dr Datebank.
-Di letscht Datebankabfrog isch
-„$1“
-us dr Funktion „$2“ gsi.
-D Datebank het dr Fähler „$3: $4“ gmäldet.',
 'laggedslavemode' => 'Warnig: di letschte Änderige wäre u. U. nonig aazeigt!',
 'readonly' => 'Datebank isch gsperrt',
 'enterlockreason' => 'Bitte gib e Grund y, worum d Datebank soll gsperrt wäre un e Yschätzig wie lang si soll gsperrt blybe',
@@ -508,7 +496,6 @@ Abfrog: $2',
 'viewyourtext' => "Du chasch dr Quälltext vu '''Dyre Bearbeitig''' vu däre Syte aaluege un kopiere:",
 'protectedinterface' => 'In däre Syte het s Text fir s Sproch-Interface vu dr Software un si isch gsperrt, zum Missbruch z verhindre.',
 'editinginterface' => "'''Obacht:''' Du bisch e Syten am Verändere, wu zum User.Interface ghert. Wänn Du die Syte veränderesch, no änderet sich s User-Interface au fir di andere Benutzer vu däm Wiki. Fir Ibersetzige lueg bitte, eb Du doodefir s [//translatewiki.net/wiki/Main_Page?setlang=gsw Translatewiki] witt bruuche, s MediaWiki-Lokalisierigsprojäkt.",
-'sqlhidden' => '(SQL-Abfrog verschteckt)',
 'cascadeprotected' => 'Die Syte isch fir s Bearbeite gsperrt. Si isch yybunde in {{PLURAL:$1|die Syte, wu do chunnt|die Syte, wu do chemme}} , wu mit ere Kaskadesperroption gschitzt {{PLURAL:$1|isch|sin}}:
 $2',
 'namespaceprotected' => "Du hesch kei Berächtigung, die Syte im '''$1'''-Namensruum z bearbeite.",
@@ -540,7 +527,6 @@ Ochat: s cha syy, ass bstimmti Syte eso aazeigt wäre, wie wänn Du allno aagmä
 'yourpassword' => 'Passwort:',
 'yourpasswordagain' => 'Passwort no mol yygee:',
 'remembermypassword' => 'Uf däm Computer duurhaft aamälde (Maximal fir $1 {{PLURAL:$1|Tag|Täg}})',
-'securelogin-stick-https' => 'Noch em Aamälde mit HTTPS verbunde blybe',
 'yourdomainname' => 'Dyyni Domäne',
 'password-change-forbidden' => 'Du chasch uf däm Wiki kei Passwerter ändere.',
 'externaldberror' => 'Entwäder s lit e Fähler bi dr externe Authentifizierung vor, oder Du derfsch Dyy extern Benutzerkonto nid aktualisiere.',
@@ -642,7 +628,7 @@ Wänn s Benutzerkonto us Versäh aaglait woren isch, chasch die Nochricht ignori
 'newpassword' => 'Nöis Passwort',
 'retypenew' => 'Nöis Passwort (es zwöits Mal)',
 'resetpass_submit' => 'Passwort ibermittle un aamälde',
-'resetpass_success' => 'Dyy Passwort isch erfolgryych gänderet wore. Jetz chunnt d Aamäldig …',
+'changepassword-success' => 'Dyy Passwort isch erfolgryych gänderet wore. Jetz chunnt d Aamäldig …',
 'resetpass_forbidden' => 'S Passwort cha nid gänderet wäre.',
 'resetpass-no-info' => 'Du muesch Di aamälde zum uf die Syte diräkt zuegryfe z chenne.',
 'resetpass-submit-loggedin' => 'Passwort ändere',
@@ -1210,9 +1196,6 @@ Einzelheite chasch im [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}
 'recentchangesdays-max' => '(Maximal $1 {{PLURAL:$1|Tag|Täg}})',
 'recentchangescount' => 'Aazahl vu Bearbeitige, wu standardmässig aazeigt wäre:',
 'prefs-help-recentchangescount' => 'Des umfasst d Lischt vu dr letschte Änderige, d Versionsgschicht un d Logbiecher.',
-'prefs-help-watchlist-token' => 'S Uusfille vu däm Fäld mit eme gheime Schlissel generiert e RSS-Feed fir Dyy Beobachtigslischt.
-E jede, wu dää Schlissel chännt, chaa Dyy Beobachtigslischt bschaue. Wehl wäge däm e sichere Wärt.
-Do het s e zuefellig generierte Wärt, wu du chasch bruche: $1',
 'savedprefs' => 'Dyni Ystellige sy gspycheret worde.',
 'timezonelegend' => 'Zytzone:',
 'localtime' => 'Ortszyt:',

@@ -94,7 +94,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Igpakita an ihap han mga nangingita nga mga nagamit',
 'tog-oldsig' => 'Aada nga pirma:',
 'tog-fancysig' => 'Tratuha it pirma komo uska wikitext (nga waray automatiko nga sumpay)',
-'tog-showjumplinks' => 'Enable "jump to" accessibility links',
 'tog-uselivepreview' => 'Gamita an buhi nga pahiuna nga pagawas (nagkikinahanglan hin JavaScript) (eksperimental)',
 'tog-forceeditsummary' => 'Pasabti ako kun waray ko ginsurat ha dalikyat-nga-tigaman han pagliwat (edit summary)',
 'tog-watchlisthideown' => 'Tago-a an akon mga ginliwat tikang han angay timan-an',
@@ -385,17 +384,6 @@ Listahan o talaan hin puyde nga mga pinaurog nga pakli in mabibilngan ha [[Speci
 # General errors
 'error' => 'Sayop',
 'databaseerror' => 'Sayop hin database',
-'dberrortext' => 'Mayda nahinabo nga sayop hin syntax ha database nga kwery.
-Bangin ini nagpapakita hin bug dida han softweyr.
-An kataposan nga ginsari nga database nga kweri amo in:
-<blockquote><code>$1</code></blockquote>
-tikang ha sakob han funsyon nga "<code>$2</code>".
-Nagbalik an database hin sayop nga "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Mayda nahitabo nga sayop hin syntax ha database nga kwery.
-An kataposan nga ginsari nga kweri han database amo an:
-"$1"
-tikang ha sakob han funsyon nga "$2".
-Nagbalik hin sayop an database nga "$3: $4"',
 'laggedslavemode' => 'Pahimatngon: It pakli bangin waray mga kabag-ohan nga bag-o.',
 'readonly' => 'Gintrankahan an database',
 'enterlockreason' => 'Pagbutang hin rason para han pagtrangka, upod hin banabana kon san-o kukuha-on an pagtrangka',
@@ -451,7 +439,6 @@ Para makadugang o makaliwat hin mga paghubad para han tanan nga mga wiki, alayon
 'editinginterface' => "'''Pahimatngon:''' Imo ginliliwat an pakli nga gingagamit paghatag hin interface text para han software.
 An mga pagbag-o hini nga pakli in makakaapekto han user interface han iba nga mga gumaramit hini nga wiki.
 Para makadugang o makabag-o han mga paghubad para han ngatanan nga mga wiki, alayon paggamit han [//translatewiki.net/ translatewiki.net], an lokalisasyon nga proyekto han MediaWiki.",
-'sqlhidden' => '(nakatago an SQL query)',
 'namespaceprotected' => "Diri ka gintutugutan pagliwat han mga pakli ha ngaran-lat'ang nga '''$1'''.",
 'customcssprotected' => 'Diri ka gintutugotan pagliwat hini nga CSS nga pakli, tungod nga nagsusulod ini hin kanan iba nga tawo personal nga karuyagon.',
 'customjsprotected' => 'Diri ka gintutugotan pagliwat hini nga JavaScript nga pakli, tungod nga nagsusulod ini hin kanan iba nga tawo personal nga karuyagon.',
@@ -491,7 +478,6 @@ Ayaw kalimti pagbalyo han imo [[Special:Preferences|{{SITENAME}} preperensya]].'
 'remembermypassword' => "Hinumdumi an akon pan-sakob dinhi nga panngaykay ''(browser)'' (para ha pinakamaiha $1 {{PLURAL:$1|ka adlaw|ka mga adlaw}})",
 'userlogin-remembermypassword' => 'I-log-in la ako',
 'userlogin-signwithsecure' => 'Gamit hin koneksyon nga nakakasegurado',
-'securelogin-stick-https' => 'Nagpapabilin nga masumpay ha HTTPS kahuman makalog-in',
 'yourdomainname' => 'Imo dominyo:',
 'password-change-forbidden' => 'Diri ka makakabalyo hin pulong-pagsulod ha dinhi nga wiki.',
 'externaldberror' => 'Mayda authenticaton database error o diri ka tinutugotan pag-update an imo akwant ha gawas.',
@@ -584,7 +570,7 @@ San-o matagan pa hin iba nga e-mail para ha imo akawnt, kinahanglan mo sundon an
 'newpassword' => 'Bag-o nga tigaman-pagsulod:',
 'retypenew' => 'Utroha pagbutang an bag-o nga tigaman-pagsulod:',
 'resetpass_submit' => 'Igbutang an password ngan log in',
-'resetpass_success' => 'Malinamposon nga nasalyuan na an imo tigaman-pagsulod!
+'changepassword-success' => 'Malinamposon nga nasalyuan na an imo tigaman-pagsulod!
 Ikaw in naglalog-in yana...',
 'resetpass_forbidden' => 'Diri mababalyoan an mga tigaman-pagsulod',
 'resetpass-no-info' => 'Kinahanglan mo paglog-in para direkta ka makasakob dinhi nga pakli.',

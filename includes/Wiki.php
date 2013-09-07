@@ -307,7 +307,8 @@ class MediaWiki {
 				$output->redirect( $article );
 			} else {
 				wfProfileOut( __METHOD__ );
-				throw new MWException( "Shouldn't happen: MediaWiki::initializeArticle() returned neither an object nor a URL" );
+				throw new MWException( "Shouldn't happen: MediaWiki::initializeArticle()"
+					. " returned neither an object nor a URL" );
 			}
 		}
 
@@ -507,9 +508,14 @@ class MediaWiki {
 		// preference set, redirect them to HTTPS.
 		if (
 			(
+				$request->getCookie( 'forceHTTPS', '' ) ||
+				// check for prefixed version for currently logged in users
 				$request->getCookie( 'forceHTTPS' ) ||
 				// Avoid checking the user and groups unless it's enabled.
-				$this->context->getUser()->requiresHTTPS()
+				(
+					$this->context->getUser()->isLoggedIn()
+					&& $this->context->getUser()->requiresHTTPS()
+				)
 			) &&
 			$request->detectProtocol() == 'http'
 		) {

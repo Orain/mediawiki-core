@@ -553,8 +553,8 @@ class SpecialPage {
 	 *   pages?
 	 */
 	public function isRestricted() {
-		// DWIM: If everyone can do something, then it is not restricted
-		return $this->mRestriction != '' && !User::isEveryoneAllowed( $this->mRestriction );
+		// DWIM: If anons can do something, then it is not restricted
+		return $this->mRestriction != '' && !User::groupHasPermission( '*', $this->mRestriction );
 	}
 
 	/**
@@ -1386,13 +1386,29 @@ class SpecialMycontributions extends RedirectSpecialPage {
 class SpecialMyuploads extends RedirectSpecialPage {
 	function __construct() {
 		parent::__construct( 'Myuploads' );
-		$this->mAllowedRedirectParams = array( 'limit' );
+		$this->mAllowedRedirectParams = array( 'limit', 'ilshowall', 'ilsearch' );
 	}
 
 	function getRedirect( $subpage ) {
 		return SpecialPage::getTitleFor( 'Listfiles', $this->getUser()->getName() );
 	}
 }
+
+/**
+ * Redirect Special:Listfiles?user=$wgUser&ilshowall=true
+ */
+class SpecialAllMyUploads extends RedirectSpecialPage {
+	function __construct() {
+		parent::__construct( 'AllMyUploads' );
+		$this->mAllowedRedirectParams = array( 'limit', 'ilsearch' );
+	}
+
+	function getRedirect( $subpage ) {
+		$this->mAddedRedirectParams['ilshowall'] = 1;
+		return SpecialPage::getTitleFor( 'Listfiles', $this->getUser()->getName() );
+	}
+}
+
 
 /**
  * Redirect from Special:PermanentLink/### to index.php?oldid=###

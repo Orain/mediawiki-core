@@ -345,7 +345,6 @@ $messages = array(
 'tog-shownumberswatching' => 'A lapot figyelő szerkesztők számának megjelenítése',
 'tog-oldsig' => 'A jelenlegi aláírás:',
 'tog-fancysig' => 'Az aláírás wikiszöveg (nem lesz automatikusan hivatkozásba rakva)',
-'tog-showjumplinks' => 'Helyezzen el hivatkozást („Ugrás”) a beépített eszköztárra',
 'tog-uselivepreview' => 'Élő előnézet használata (JavaScript-alapú, kísérleti)',
 'tog-forceeditsummary' => 'Figyelmeztessen, ha nem adok meg szerkesztési összefoglalót',
 'tog-watchlisthideown' => 'Saját szerkesztések elrejtése',
@@ -359,6 +358,7 @@ $messages = array(
 'tog-showhiddencats' => 'Rejtett kategóriák megjelenítése',
 'tog-norollbackdiff' => 'Ne jelenjenek meg az eltérések visszaállítás után',
 'tog-useeditwarning' => 'Figyelmeztessen, ha szerkesztéskor a módosítások mentése nélkül akarom elhagyni a lapot',
+'tog-prefershttps' => 'Mindig biztonságos kapcsolatot használjon, amikor be vagyok jelentkezve',
 
 'underline-always' => 'mindig',
 'underline-never' => 'soha',
@@ -592,7 +592,7 @@ További információkat a [[Special:Version|verzióinformációs lapon]] talál
 'newmessagesdifflink' => 'az utolsó üzenetet',
 'youhavenewmessagesfromusers' => '$2 kaptál {{PLURAL:$3|egy|$3}} szerkesztőtől $1!',
 'youhavenewmessagesmanyusers' => '$2 kaptál több szerkesztőtől $1.',
-'newmessageslinkplural' => 'a vitalapodon',
+'newmessageslinkplural' => '{{PLURAL:$1||}}a vitalapodon',
 'newmessagesdifflinkplural' => '{{PLURAL:$1|Új üzenetet|Új üzeneteket}}',
 'youhavenewmessagesmulti' => 'Új üzenet vár a(z) $1 wikin',
 'editsection' => 'szerkesztés',
@@ -646,15 +646,6 @@ Az érvényes speciális lapok listáját a [[Special:SpecialPages|{{int:special
 # General errors
 'error' => 'Hiba',
 'databaseerror' => 'Adatbázishiba',
-'dberrortext' => 'Szintaktikai hiba található az adatbázis-lekérdezésben.
-Ezt szoftverhiba okozhatta.
-Az utolsó adatbázis-lekérdezés a(z) „<code>$2</code>” függvényből történt, és a következő volt:
-<blockquote><code>$1</code></blockquote>
-Az adatbázis ezzel a hibával tért vissza: „<samp>$3: $4</samp>”.',
-'dberrortextcl' => 'Szintaktikai hiba található az adatbázis-lekérdezésben.
-Az utolsó adatbázis-lekérdezés a(z) „$2” függvényből történt, és a következő volt:
-„$1”
-Az adatbázis ezzel a hibával tért vissza: „$3: $4”.',
 'laggedslavemode' => "'''Figyelem:''' Ez a lap nem feltétlenül tartalmazza a legfrissebb változtatásokat!",
 'readonly' => 'Az adatbázis le van zárva',
 'enterlockreason' => 'Add meg a lezárás okát, valamint egy becslést, hogy mikor lesz a lezárásnak vége',
@@ -705,7 +696,6 @@ Lekérdezés: $2',
 'viewyourtext' => "Megtekintheted és kimásolhatod a '''saját szerkesztéseidet''' az alábbi lapra:",
 'protectedinterface' => 'Ez a lap a szoftver felületéhez szolgáltat szöveget, és a visszaélések elkerülése miatt le van zárva.',
 'editinginterface' => "'''Vigyázat:''' egy olyan lapot szerkesztesz, ami a MediaWiki szoftver felületéhez tartozik. A lap megváltoztatása hatással lesz a kinézetre, ahogy más szerkesztők látják a lapot. Fordításra inkább használd a MediaWiki fordítására indított kezdeményezést, a [//translatewiki.net/wiki/Main_Page?setlang=hu translatewiki.net-et].",
-'sqlhidden' => '(rejtett SQL lekérdezés)',
 'cascadeprotected' => 'Ez a lap szerkesztés elleni védelemmel lett ellátva, mert a következő {{PLURAL:$1|lapon|lapokon}} be van kapcsolva a „kaszkádolt” védelem:
 $2',
 'namespaceprotected' => "Nincs jogosultságod a(z) '''$1''' névtérben található lapok szerkesztésére.",
@@ -748,7 +738,6 @@ Ne felejtsd el módosítani a [[Special:Preferences|{{SITENAME}} beállításaid
 'remembermypassword' => 'Emlékezzen rám ezen a számítógépen (legfeljebb $1 napig)',
 'userlogin-remembermypassword' => 'Maradjak bejelentkezve',
 'userlogin-signwithsecure' => 'Biztonságos kapcsolat használata',
-'securelogin-stick-https' => 'Kapcsolódás HTTPS-en keresztül bejelentkezés után is',
 'yourdomainname' => 'A domainneved:',
 'password-change-forbidden' => 'Nem módosíthatod a jelszót ezen a wikin.',
 'externaldberror' => 'Hiba történt a külső adatbázis hitelesítése közben, vagy nem vagy jogosult a külső fiókod frissítésére.',
@@ -868,7 +857,7 @@ Várj egy kicsit, mielőtt újra próbálkozol.',
 'newpassword' => 'Új jelszó:',
 'retypenew' => 'Új jelszó ismét:',
 'resetpass_submit' => 'Add meg a jelszót és jelentkezz be',
-'resetpass_success' => 'A jelszavad megváltoztatása sikeresen befejeződött! Bejelentkezés...',
+'changepassword-success' => 'A jelszavad megváltoztatása sikeresen befejeződött! Bejelentkezés...',
 'resetpass_forbidden' => 'A jelszavak nem változtathatók meg',
 'resetpass-no-info' => 'Be kell jelentkezned, hogy közvetlenül elérd ezt a lapot.',
 'resetpass-submit-loggedin' => 'Jelszó megváltoztatása',
@@ -1440,9 +1429,6 @@ Ezt általában egy elavult, törölt oldalra mutató laptörténeti hivatkozás
 'recentchangesdays-max' => '(maximum {{PLURAL:$1|egy|$1}} nap)',
 'recentchangescount' => 'Az alapértelmezettként mutatott szerkesztések száma:',
 'prefs-help-recentchangescount' => 'Ez vonatkozik a friss változtatásokra, laptörténetekre és naplókra is.',
-'prefs-help-watchlist-token' => 'Ha ebbe a mezőbe beírsz egy titkos kulcsot, RSS feed fog készülni a figyelőlistádról.
-Bárki, aki tudja a fenti mezőbe beírt kulcsot, látni fogja a figyelőlistádat, így válassz egy titkos értéket.
-Itt van egy véletlenszerűen generált érték, amit használhatsz: $1',
 'savedprefs' => 'Az új beállításaid érvénybe léptek.',
 'timezonelegend' => 'Időzóna:',
 'localtime' => 'Helyi idő:',
@@ -1538,7 +1524,7 @@ A műveletet nem lehet visszavonni.',
 'userrights-notallowed' => 'Nincs jogosultságod jogosultságok adására vagy elvételére.',
 'userrights-changeable-col' => 'Megváltoztatható csoportok',
 'userrights-unchangeable-col' => 'Nem megváltoztatható csoportok',
-'userrights-conflict' => 'Felhasználói jogok ütközése! Kérlek, végez el újra a változtatásokat.',
+'userrights-conflict' => 'Felhasználói jogok ütközése! Kérlek, végezd el újra a változtatásokat.',
 
 # Groups
 'group' => 'Csoport:',
@@ -3245,6 +3231,9 @@ A futtatása során kárt tehet a számítógépedben.",
 'ago' => '$1 ezelőtt',
 'just-now' => 'épp most',
 
+# Human-readable timestamps
+'hours-ago' => '$1 {{PLURAL:$1|órával|órával}} ezelőtt',
+
 # Bad image list
 'bad_image_list' => 'A formátum a következő:
 
@@ -3721,9 +3710,7 @@ A megerősítésre szánt kód felhasználhatósági idejének lejárata: $4.',
 'confirmemail_body_set' => 'Valaki, valószínűleg te, ezt az email címet adta meg
 „$2” nevű {{SITENAME}}-fiókjához a következő IP-címről: $1.
 
-Ha meg szeretnéd erősíteni, hogy a fiók valóban hozzád tartozik,
-így aktiválva a(z) {{SITENAME}} e-mailes funkcióit, nyisd meg az
-alábbi linket a böngésződben:
+Ha meg szeretnéd erősíteni, hogy a fiók valóban hozzád tartozik, így aktiválva a(z) {{SITENAME}} e-mailes funkcióit, nyisd meg az alábbi linket a böngésződben:
 
 $3
 
@@ -3850,6 +3837,7 @@ minden egyes sor egy figyelt lap címe. Ha kész vagy, kattints a lista alatt ta
 'version-license' => 'Licenc',
 'version-poweredby-credits' => "Ez a wiki '''[//www.mediawiki.org/ MediaWiki]''' szoftverrel működik, copyright © 2001-$1 $2.",
 'version-poweredby-others' => 'mások',
+'version-poweredby-translators' => 'translatewiki.net fordítók',
 'version-credits-summary' => 'Szeretnénk elismerni a következő személyek hozzájárulását a [[Special:Version|MediaWiki]] szoftverhez.',
 'version-license-info' => 'A MediaWiki szabad szoftver, terjeszthető és / vagy módosítható a GNU General Public License alatt, amit a Free Software Foundation közzétett; vagy a 2-es verziójú licenc, vagy (az Ön választása alapján) bármely későbbi verzió szerint. 
 

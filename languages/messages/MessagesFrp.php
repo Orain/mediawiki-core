@@ -338,7 +338,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Montrar lo nombro d’utilisators que siuvont na pâge',
 'tog-oldsig' => 'Signatura ègzistenta :',
 'tog-fancysig' => 'Trètar la signatura coment de vouiquitèxto (sen lim ôtomatico)',
-'tog-showjumplinks' => 'Activar los lims d’accèssibilitât « {{int:jumpto}} »',
 'tog-uselivepreview' => 'Empleyér l’apèrçu rapido (at fôta de JavaScript) (èxpèrimentâl)',
 'tog-forceeditsummary' => 'Mè balyér na semonce quand j’é pas buchiê de rèsumâ de changement',
 'tog-watchlisthideown' => 'Cachiér los mins changements dedens la lista de siuvu',
@@ -640,17 +639,6 @@ Na lista de les pâges spèciâles justes sè trôve dessus [[Special:SpecialPag
 # General errors
 'error' => 'Fôta',
 'databaseerror' => 'Fôta de la bâsa de balyês',
-'dberrortext' => 'Na fôta de sintaxa de la demanda dens la bâsa de balyês est arrevâye.
-Cen pôt endicar na cofierie dedens la programeria.
-La dèrriére demanda trètâye per la bâsa de balyês ére :
-<blockquote><code>$1</code></blockquote>
-dês la fonccion « <code>$2</code> ».
-La bâsa de balyês at retornâ la fôta « <samp>$3 : $4</samp> ».',
-'dberrortextcl' => 'Na fôta de sintaxa de la demanda dens la bâsa de balyês est arrevâye.
-La dèrriére demanda trètâye per la bâsa de balyês ére :
-« $1 »
-dês la fonccion « $2 ».
-La bâsa de balyês at retornâ la fôta « $3 : $4 ».',
 'laggedslavemode' => "'''Atencion :''' cela pâge pôt pas contegnir tôs los dèrriérs changements fêts.",
 'readonly' => 'Bâsa de balyês vèrrolyêe',
 'enterlockreason' => 'Buchiéd na rêson du vèrroly et pués un’èstimacion de la sina durâ',
@@ -707,7 +695,6 @@ Por apondre ou ben changiér des traduccions sur tôs los vouiquis, se vos plét
 'editinginterface' => "'''Atencion :''' vos éte aprés changiér na pâge empleyêe por fâre lo tèxto d’entèrface de la programeria.
 Los changements sè cognetront sur l’aparence de l’entèrface utilisator por los ôtros utilisators de ceti vouiqui.
 Por apondre ou ben changiér des traduccions sur tôs los vouiquis, se vos plét empleyéd [//translatewiki.net/ translatewiki.net], lo projèt de localisacion de MediaWiki.",
-'sqlhidden' => '(Demanda SQL cachiêe)',
 'cascadeprotected' => 'Cela pâge-que est protègiêe, el est entrebetâye dedens {{PLURAL:$1|ceta pâge qu’est étâye protègiêe|cetes pâges que sont étâyes protègiêes}} avouéc lo chouèx « protèccion en cascâda » activâ :
 $2',
 'namespaceprotected' => "Vos éd pas la pèrmission de changiér les pâges de l’èspâço de noms « '''$1''' ».",
@@ -755,7 +742,6 @@ Oubliâd pas de changiér voutres [[Special:Preferences|prèferences dessus {{SI
 'remembermypassword' => 'Sè rapelar de mon contresegno sur ceti navigator (por lo més $1 jorn{{PLURAL:$1||s}})',
 'userlogin-remembermypassword' => 'Gouardar ma sèance activa',
 'userlogin-signwithsecure' => 'Empleyér un branchement sècurisâ',
-'securelogin-stick-https' => 'Réstar branchiê en HTTPS aprés lo branchement',
 'yourdomainname' => 'Voutron domêno :',
 'password-change-forbidden' => 'Vos pouede pas changiér los contresegnos sur ceti vouiqui.',
 'externaldberror' => 'Ou ben na fôta est arrevâye avouéc la bâsa de balyês d’ôtentificacion de defôr ou ben vos éte pas ôtorisâ{{GENDER:||ye|(ye)}} a betar a jorn voutron compto de defôr.',
@@ -888,7 +874,7 @@ Por chavonar lo branchement, vos dête buchiér un contresegno novél ique :',
 'newpassword' => 'Contresegno novél :',
 'retypenew' => 'Confirmar lo contresegno novél :',
 'resetpass_submit' => 'Changiér lo contresegno et pués sè branchiér',
-'resetpass_success' => 'Voutron contresegno est étâ changiê avouéc reusséta !
+'changepassword-success' => 'Voutron contresegno est étâ changiê avouéc reusséta !
 Branchement en côrs...',
 'resetpass_forbidden' => 'Los contresegnos pôvont pas étre changiês',
 'resetpass-no-info' => 'Vos dête étre branchiê por arrevar tot drêt a cela pâge.',
@@ -1500,9 +1486,6 @@ Notâd que lor endèxacion du contegnu de {{SITENAME}} pôt pas étre a jorn.',
 'recentchangesdays-max' => 'Por lo més $1 jorn{{PLURAL:$1||s}}',
 'recentchangescount' => 'Nombro de changements a montrar per dèfôt :',
 'prefs-help-recentchangescount' => 'Los dèrriérs changements, los historicos de pâges et los jornals avouéc.',
-'prefs-help-watchlist-token' => 'Rempléd ceti champ avouéc na cllâf secrèta et pués un flux RSS serat fêt por voutra lista de siuvu.
-Tôs celos que cognessont cela cllâf porront liére voutra lista de siuvu, chouèsésséd vêr na valor sècurisâye.
-Vê-que na valor fêta per hasârd que vos pouede empleyér : $1',
 'savedprefs' => 'Voutres prèferences sont étâyes encartâyes.',
 'timezonelegend' => 'Fus horèro :',
 'localtime' => 'Hora locâla :',

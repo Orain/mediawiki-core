@@ -74,7 +74,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Antaal fon do beooboachtjende Benutsere anwiese',
 'tog-oldsig' => 'Aktuälle Signatuur:',
 'tog-fancysig' => 'Unnerskrift as Wikitext behonnelje (sunner automatiske Ferlinkenge)',
-'tog-showjumplinks' => '"Wikselje tou"-Links muugelk moakje',
 'tog-uselivepreview' => 'Live-Foarbekiek nutsje (JavaScript) (experimentell)',
 'tog-forceeditsummary' => 'Woarskauje, wan bie dät Spiekerjen ju Touhoopefoatenge failt',
 'tog-watchlisthideown' => 'Oaine Biedraage in ju Beooboachtengslieste ferbierge',
@@ -354,15 +353,6 @@ Aal ferföichboare Spezioalsieden sunt in ju [[Special:SpecialPages|Lieste fon d
 # General errors
 'error' => 'Failer',
 'databaseerror' => 'Failer in ju Doatenboank',
-'dberrortext' => 'Der is n Doatenboankfailer aptreeden.
-Die Gruund kon n Programmierfailer weese.
-Ju lääste Doatenboankoufroage lutte:
-<blockquote><tt>$1</tt></blockquote>
-uut de Funktion "<tt>$2</tt>".
-Die Doatenboank mäldede dän Failer "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Dät roate n Syntaxfailer in ju Doatenboankoufroage.
-Ju lääste Doatenboankoufroage lutte: „$1“ uut ju Funktion „<tt>$2</tt>“.
-Die Doatenboank mäldede dän Failer: „<tt>$3: $4</tt>“.',
 'laggedslavemode' => 'Woarskauenge: Ju anwiesde Siede kon unner Umstande do jungste Beoarbaidengen noch nit be-ienhoolde.',
 'readonly' => 'Doatenboank is speerd',
 'enterlockreason' => 'Reek n Gruund ien, wieruum ju Doatenboank speerd wäide skuul un ne Ouskätsenge uur ju Duur fon ju Speerenge',
@@ -413,7 +403,6 @@ Oufroage: $2',
 'editinginterface' => "'''Woarskauenge:''' Du beoarbaidest ne Siede ju der bruukt wäd, Interface-Text foar ju Software tou lääwerjen.
 Annerengen ap disse Siede wirkje sik uut ap ju Benutseruurfläche foar uur Bruukere.
 Foar Uursättengen koast du fielicht beeter [//translatewiki.net/wiki/Main_Page?setlang=en translatewiki.net] bruuke, dät is dät MediaWiki Lokalisierengsprojekt.",
-'sqlhidden' => '(SQL-Oufroage ferbierged)',
 'cascadeprotected' => 'Disse Siede is tou Beoarbaidenge speerd. Ju is in do {{PLURAL:$1|foulgjende Siede|foulgjende Sieden}} ienbuunen, do der middels ju Kaskadenspeeroption skutsed {{PLURAL:$1|is|sunt}}:
 $2',
 'namespaceprotected' => "Du hääst neen Begjuchtigenge, ju Siede in dän '''$1'''-Noomensruum tou beoarbaidjen.",
@@ -444,7 +433,6 @@ Beoachtje, dät eenige Sieden noch anwiese konnen, dät du oumälded bäst, solo
 'yourpassword' => 'Paaswoud:',
 'yourpasswordagain' => 'Paaswoud wierhoalje:',
 'remembermypassword' => 'Ap dissen Computer duurhaft ounmälded blieuwe (Maximoal foar $1 {{PLURAL:$1|Dai|Deege}})',
-'securelogin-stick-https' => 'Ätter dät Anmäldjen mäd HTTOS ferbuunen blieuwe',
 'yourdomainname' => 'Dien Domain:',
 'externaldberror' => 'Äntweeder deer lait n Failer bie ju externe Authentifizierenge foar, of du duurst din extern Benutzerkonto nit aktualisierje.',
 'login' => 'Anmäldje',
@@ -536,7 +524,7 @@ Täif, eer du fon näien fersäkst.',
 'newpassword' => 'Näi Paaswoud:',
 'retypenew' => 'Näi Paaswoud (nochmoal):',
 'resetpass_submit' => 'Paaswoud ienbrange un anmäldje',
-'resetpass_success' => 'Dien Paaswoud wuude mäd Ärfoulch annerd. Nu foulget ju Anmäldenge...',
+'changepassword-success' => 'Dien Paaswoud wuude mäd Ärfoulch annerd. Nu foulget ju Anmäldenge...',
 'resetpass_forbidden' => 'Dät Paaswoud kon nit annerd wäide.',
 'resetpass-no-info' => 'Du moast die anmäldje, uum ap disse Siede direkt toutougriepen.',
 'resetpass-submit-loggedin' => 'Paaswoud annerje',
@@ -1054,9 +1042,6 @@ Staal deertruch sicher, dät ju Versionsgeskichte fon n Artikkel historisk akroa
 'recentchangesdays-max' => '(Maximoal $1 {{PLURAL:$1|Dai|Deege}})',
 'recentchangescount' => 'Antaal fon do standoardmäitich anwiesde Beoarbaidengen:',
 'prefs-help-recentchangescount' => 'Dit uumfoatet ju Lieste fon do lääste Annerengen, ju Versionsgeskichte un do Logbouke.',
-'prefs-help-watchlist-token' => 'Dät Uutfällen fon dit Fäild mäd ne stilkene Koaie generiert n RSS-Feed foar dien Beooboachtengslieste.
-Älk, die disse Koaie koant, kon dien Beooboachtengslieste iensjo. Wääl also n sicheren Wäid.
-Hier n toufällich generierden Wäid, dän du ferweende koast: $1',
 'savedprefs' => 'Dien Ienstaalengen wuuden spiekerd.',
 'timezonelegend' => 'Tiedzone:',
 'localtime' => 'Tied bie Jou:',

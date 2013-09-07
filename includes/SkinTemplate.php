@@ -292,6 +292,7 @@ class SkinTemplate extends Skin {
 			$feeds = array();
 			foreach ( $out->getSyndicationLinks() as $format => $link ) {
 				$feeds[$format] = array(
+					// Messages: feed-atom, feed-rss
 					'text' => $this->msg( "feed-$format" )->text(),
 					'href' => $link
 				);
@@ -339,7 +340,7 @@ class SkinTemplate extends Skin {
 		$tpl->set( 'rtl', $userLang->isRTL() );
 
 		$tpl->set( 'capitalizeallnouns', $userLang->capitalizeAllNouns() ? ' capitalize-all-nouns' : '' );
-		$tpl->set( 'showjumplinks', $user->getOption( 'showjumplinks' ) );
+		$tpl->set( 'showjumplinks', true ); // showjumplinks preference has been removed
 		$tpl->set( 'username', $this->loggedin ? $this->username : null );
 		$tpl->setRef( 'userpage', $this->userpage );
 		$tpl->setRef( 'userpageurl', $this->userpageUrlDetails['href'] );
@@ -588,8 +589,6 @@ class SkinTemplate extends Skin {
 	 * @return array
 	 */
 	protected function buildPersonalUrls() {
-		global $wgSecureLogin;
-
 		$title = $this->getTitle();
 		$request = $this->getRequest();
 		$pageurl = $title->getLocalURL();
@@ -615,10 +614,6 @@ class SkinTemplate extends Skin {
 			if ( $query != '' ) {
 				$a['returntoquery'] = $query;
 			}
-		}
-
-		if ( $wgSecureLogin && $request->detectProtocol() === 'https' ) {
-			$a['wpStickHTTPS'] = true;
 		}
 
 		$returnto = wfArrayToCgi( $a );
@@ -692,18 +687,15 @@ class SkinTemplate extends Skin {
 				: 'login';
 			$is_signup = $request->getText( 'type' ) == 'signup';
 
-			# anonlogin & login are the same
-			$proto = $wgSecureLogin ? PROTO_HTTPS : null;
-
 			$login_id = $this->showIPinHeader() ? 'anonlogin' : 'login';
 			$login_url = array(
 				'text' => $this->msg( $loginlink )->text(),
-				'href' => self::makeSpecialUrl( 'Userlogin', $returnto, $proto ),
+				'href' => self::makeSpecialUrl( 'Userlogin', $returnto ),
 				'active' => $title->isSpecial( 'Userlogin' ) && ( $loginlink == 'nav-login-createaccount' || !$is_signup ),
 			);
 			$createaccount_url = array(
 				'text' => $this->msg( 'createaccount' )->text(),
-				'href' => self::makeSpecialUrl( 'Userlogin', "$returnto&type=signup", $proto ),
+				'href' => self::makeSpecialUrl( 'Userlogin', "$returnto&type=signup" ),
 				'active' => $title->isSpecial( 'Userlogin' ) && $is_signup,
 			);
 

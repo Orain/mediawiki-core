@@ -139,7 +139,7 @@ class ApiQuerySiteinfo extends ApiQueryBase {
 			$allowException = !empty( $allowFrom );
 		}
 		if ( $allowException ) {
-			$data['externalimages'] = (array) $allowFrom;
+			$data['externalimages'] = (array)$allowFrom;
 			$this->getResult()->setIndexedTagName( $data['externalimages'], 'prefix' );
 		}
 
@@ -294,6 +294,8 @@ class ApiQuerySiteinfo extends ApiQueryBase {
 			ApiResult::setContent( $item, strtr( $title, '_', ' ' ) );
 			$data[] = $item;
 		}
+
+		sort( $data );
 
 		$this->getResult()->setIndexedTagName( $data, 'ns' );
 		return $this->getResult()->addValue( 'query', $property, $data );
@@ -691,7 +693,7 @@ class ApiQuerySiteinfo extends ApiQueryBase {
 				' extensions            - Returns extensions installed on the wiki',
 				' fileextensions        - Returns list of file extensions allowed to be uploaded',
 				' rightsinfo            - Returns wiki rights (license) information if available',
-				" languages             - Returns a list of languages MediaWiki supports".
+				" languages             - Returns a list of languages MediaWiki supports" .
 					"(optionally localised by using {$p}inlanguagecode)",
 				' skins                 - Returns a list of all enabled skins',
 				' extensiontags         - Returns a list of parser extension tags',

@@ -1240,7 +1240,10 @@ class User {
 
 		$defOpt = $wgDefaultUserOptions;
 		// Default language setting
-		$defOpt['language'] = $defOpt['variant'] = $wgContLang->getCode();
+		$defOpt['language'] = $wgContLang->getCode();
+		foreach ( LanguageConverter::$languagesWithVariants as $langCode ) {
+			$defOpt[$langCode == $wgContLang->getCode() ? 'variant' : "variant-$langCode"] = $langCode;
+		}
 		foreach ( SearchEngine::searchableNamespaces() as $nsnum => $nsname ) {
 			$defOpt['searchNs' . $nsnum] = !empty( $wgNamespacesToBeSearchedDefault[$nsnum] );
 		}
@@ -1828,8 +1831,14 @@ class User {
 	}
 
 	/**
-	 * Return the revision and link for the oldest new talk page message for
-	 * this user.
+	 * Return the data needed to construct links for new talk page message
+	 * alerts. If there are new messages, this will return an associative array
+	 * with the following data:
+	 *     wiki: The database name of the wiki
+	 *     link: Root-relative link to the user's talk page
+	 *     rev: The last talk page revision that the user has seen or null. This
+	 *         is useful for building diff links.
+	 * If there are no new messages, it returns an empty array.
 	 * @note This function was designed to accomodate multiple talk pages, but
 	 * currently only returns a single link and revision.
 	 * @return Array
@@ -1853,8 +1862,9 @@ class User {
 	}
 
 	/**
-	 * Get the revision ID for the oldest new talk page message for this user
-	 * @return int|null Revision id or null if there are no new messages
+	 * Get the revision ID for the last talk page revision viewed by the talk
+	 * page owner.
+	 * @return int|null Revision ID or null
 	 */
 	public function getNewMessageRevisionId() {
 		$newMessageRevisionId = null;
@@ -2340,7 +2350,7 @@ class User {
 	}
 
 	/**
-	 * Get the user's current setting for a given option, as a boolean value.
+	 * Get the user's current setting for a given option, as an integer value.
 	 *
 	 * @param string $oname The option to check
 	 * @param int $defaultOverride A default value returned if the option does not exist
@@ -2602,6 +2612,9 @@ class User {
 		} else {
 			$https = $this->getBoolOption( 'prefershttps' );
 			wfRunHooks( 'UserRequiresHTTPS', array( $this, &$https ) );
+			if ( $https ) {
+				$https = wfCanIPUseHTTPS( $this->getRequest()->getIP() );
+			}
 			return $https;
 		}
 	}
@@ -2750,7 +2763,7 @@ class User {
 			$this->mEditCount = $count;
 			wfProfileOut( __METHOD__ );
 		}
-		return (int) $this->mEditCount;
+		return (int)$this->mEditCount;
 	}
 
 	/**
@@ -3121,17 +3134,24 @@ class User {
 	 *  true: Force setting the secure attribute when setting the cookie
 	 *  false: Force NOT setting the secure attribute when setting the cookie
 	 *  null (default): Use the default ($wgCookieSecure) to set the secure attribute
+	 * @param array $params Array of options sent passed to WebResponse::setcookie()
 	 */
-	protected function setCookie( $name, $value, $exp = 0, $secure = null ) {
-		$this->getRequest()->response()->setcookie( $name, $value, $exp, null, null, $secure );
+	protected function setCookie( $name, $value, $exp = 0, $secure = null, $params = array() ) {
+		$params['secure'] = $secure;
+		$this->getRequest()->response()->setcookie( $name, $value, $exp, $params );
 	}
 
 	/**
 	 * Clear a cookie on the user's client
 	 * @param string $name Name of the cookie to clear
+	 * @param bool $secure
+	 *  true: Force setting the secure attribute when setting the cookie
+	 *  false: Force NOT setting the secure attribute when setting the cookie
+	 *  null (default): Use the default ($wgCookieSecure) to set the secure attribute
+	 * @param array $params Array of options sent passed to WebResponse::setcookie()
 	 */
-	protected function clearCookie( $name ) {
-		$this->setCookie( $name, '', time() - 86400 );
+	protected function clearCookie( $name, $secure = null, $params = array() ) {
+		$this->setCookie( $name, '', time() - 86400, $secure, $params );
 	}
 
 	/**
@@ -3189,10 +3209,22 @@ class User {
 		/**
 		 * If wpStickHTTPS was selected, also set an insecure cookie that
 		 * will cause the site to redirect the user to HTTPS, if they access
-		 * it over HTTP. Bug 29898.
+		 * it over HTTP. Bug 29898. Use an un-prefixed cookie, so it's the same
+		 * as the one set by centralauth (bug 53538). Also set it to session, or
+		 * standard time setting, based on if rememberme was set.
 		 */
 		if ( $request->getCheck( 'wpStickHTTPS' ) || $this->requiresHTTPS() ) {
-			$this->setCookie( 'forceHTTPS', 'true', time() + 2592000, false ); //30 days
+			$time = null;
+			if ( ( 1 == $this->getOption( 'rememberpassword' ) ) ) {
+				$time = 0; // set to $wgCookieExpiration
+			}
+			$this->setCookie(
+				'forceHTTPS',
+				'true',
+				$time,
+				false,
+				array( 'prefix' => '' ) // no prefix
+			);
 		}
 	}
 
@@ -3216,7 +3248,7 @@ class User {
 
 		$this->clearCookie( 'UserID' );
 		$this->clearCookie( 'Token' );
-		$this->clearCookie( 'forceHTTPS' );
+		$this->clearCookie( 'forceHTTPS', false, array( 'prefix' => '' ) );
 
 		// Remember when user logged out, to prevent seeing cached pages
 		$this->setCookie( 'LoggedOut', time(), time() + 86400 );
@@ -3744,6 +3776,7 @@ class User {
 		} elseif ( $type === true ) {
 			$message = 'confirmemail_body_changed';
 		} else {
+			// Messages: confirmemail_body_changed, confirmemail_body_set
 			$message = 'confirmemail_body_' . $type;
 		}
 
@@ -4366,7 +4399,7 @@ class User {
 		// Pull from a slave to be less cruel to servers
 		// Accuracy isn't the point anyway here
 		$dbr = wfGetDB( DB_SLAVE );
-		$count = (int) $dbr->selectField(
+		$count = (int)$dbr->selectField(
 			'revision',
 			'COUNT(rev_user)',
 			array( 'rev_user' => $this->getId() ),

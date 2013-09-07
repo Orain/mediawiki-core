@@ -173,7 +173,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Tampaiakan barapa pamakai nang maitihi',
 'tog-oldsig' => 'Tandateken nang sudah ada:',
 'tog-fancysig' => 'Tapsirakan tandatangan sawagai naskah wiki (kada batautan utumatis)',
-'tog-showjumplinks' => 'Kawa\'akan "lacung ka" tautan kakawaan-masuk',
 'tog-uselivepreview' => 'Puruk titilikan langsung (parlu ada JavaScript) (cacubaan)',
 'tog-forceeditsummary' => 'Ingatakan ulun wayah babuat sabuting kasimpulan babakan puang',
 'tog-watchlisthideown' => 'Sungkupakan babakan ulun di daptar itihan',
@@ -460,17 +459,6 @@ Daptar tungkaran istimiwa sah kawa diugai pada [[Special:SpecialPages|{{int:spec
 # General errors
 'error' => 'Kasalahan',
 'databaseerror' => 'Kasalahan Basisdata',
-'dberrortext' => 'Ada kasalahan sintaks pada parmintaan basisdata.
-Kasalahan ngini pina manandai adanya sabuting bug dalam parangkat lunak.
-Parmintaan basisdata yang tadudi adalah:
-<blockquote><tt>$1</tt></blockquote>
-matan dalam pungsi "<tt>$2</tt>".
-Basisdata kasalahan  babulik "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Ada kasalahan sintaks pada parmintaan basisdata.
-Parmintaan basisdata nang tadudi adalah:
-"$1"
-matan dalam pungsi "$2".
-Basisdata kasalahan  babulik "$3: $4".',
 'laggedslavemode' => "'''Paringatan:''' Tungkaran ngini tagasnya kada baisi paubahan pahanyarnya.",
 'readonly' => 'Basisdata tasunduk',
 'enterlockreason' => 'Buati sabuting alasan manyunduk, tamasuk jua wayah kapan handak dibuka pulang sundukannya.',
@@ -524,7 +512,6 @@ Muhun cubai pulang dalam babarapa minit.',
 'editinginterface' => "'''Paringatan:''' Pian mambabak sabuting tungkaran nang dipuruk hagan manyadiakan naskah antarmuha gasan parangkat lunak.
 Paubahan ka tungkaran ngini akan bapangaruh matan tampaian antarmuha gasan pamakai lain.
 Gasan tarjamahan, muhun pakai [//translatewiki.net/wiki/Main_Page?setlang=bjn translatewiki.net], rangka gawian palokalan MediaWiki.",
-'sqlhidden' => '(Parmintaan SQL disungkupakan)',
 'cascadeprotected' => 'Tungkaran ini sudah dilindungi matan pambabakan, marga nangini tamasuk dalam {{PLURAL:$1|tungkaran|tutungkaran}} dudi nang dilindungi "barénténg": $2',
 'namespaceprotected' => "Pian kada baisi ijin hagan mambabak tutungkaran dalam ngaran kamar '''$1'''.",
 'customcssprotected' => 'Pian kada baisi ijin mambabak tungkaran CSS ngini, karana ngini baisi setelan paribadi pamakai lain.',
@@ -558,7 +545,6 @@ Jangan kada ingat hagan maubah [[Special:Preferences|kakatujuan {{SITENAME}}]] P
 'yourpassword' => 'Katasunduk:',
 'yourpasswordagain' => 'Katik pulang katasunduk:',
 'remembermypassword' => 'Ingatakan log babuat ulun dalam komputer naya (salawas $1 {{PLURAL:$1|hari|hari}})',
-'securelogin-stick-https' => 'Tatap tasambung awan HTTPS imbah babuat-log',
 'yourdomainname' => 'Domain Pian:',
 'password-change-forbidden' => 'Pian kada kawa ma-ubah kata sunduk pada wiki ngini.',
 'externaldberror' => 'Ada kasalahan apakah kacucukan basis data atawa Pian kada bulih mamutakhirakan akun luar.',
@@ -661,7 +647,7 @@ Hagan manuntungakan babuat log, Pian musti manyetel sabuting katasunduk hanyar d
 'newpassword' => 'Katasunduk hanyar:',
 'retypenew' => 'Katik pulang katasunduk hanyar:',
 'resetpass_submit' => 'Setel katasunduk wan babuat log',
-'resetpass_success' => 'Katasunduk Pian bahasil diubah!
+'changepassword-success' => 'Katasunduk Pian bahasil diubah!
 Wayah ni Pian sudah babuat log...',
 'resetpass_forbidden' => 'Katasunduk kada kawa diubah',
 'resetpass-no-info' => 'Pian musti babuat log hagan babuat ka tungkaran ini langsung.',
@@ -1230,8 +1216,6 @@ Catatan nang dihaharnya matan isi {{SITENAME}} kawa-ai sudah kadaluarsa.',
 'recentchangesdays-max' => 'Paling lawas $1 {{PLURAL:$1|hari|hahari}}',
 'recentchangescount' => 'Rikinan babakan nang ditampaiakan default:',
 'prefs-help-recentchangescount' => 'Ngini tamasuk paubahan pahanyarnya, sajarah halam tungkaran, wan log-log.',
-'prefs-help-watchlist-token' => 'Maisi kutak ngini lawan kunci rahasia (PIN) akan mahasilakan sindikasi RSS hagan daptar pantauan Anda. Siapa gin nang tahu kunci ngini kawa mambaca daptar itihan Pian, jadi pilihi nilainya bahati-hati
-Barikut ngini adalah nilai acak nang kawa Pian puruk: $1',
 'savedprefs' => 'Kakatujuan Pian sudah ham disimpan.',
 'timezonelegend' => 'Waktu banua:',
 'localtime' => 'Waktu damintu:',

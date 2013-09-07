@@ -129,7 +129,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Va ota va rupes favesik nedir !',
 'tog-oldsig' => 'Tisa sugdara',
 'tog-fancysig' => 'Krafiara va sugdaks wetce wikitext (a mivaskafi gluyasiki)',
-'tog-showjumplinks' => 'Tutegirara va "grablera" vansarafi gluyasiki',
 'tog-uselivepreview' => 'Favera va abdiwira (JavaScript) (bagalon)',
 'tog-forceeditsummary' => 'Zo walzé viele betaravildeks tir vlardaf !',
 'tog-watchlisthideown' => 'Palsera va jinaf suzdasikif betakseem',
@@ -378,14 +377,6 @@ Vexala dem enafu aptafu bu tir rotrasina dene [[Special:SpecialPages|{{int:speci
 # General errors
 'error' => 'Rokla',
 'databaseerror' => 'Origakrokla',
-'dberrortext' => 'Vurarokla pu origak. Ironokafa kucilara suleyena gan origak tiyir :
-<blockquote><tt>$1</tt></blockquote>
-mal fliok « <tt>$2</tt> ».
-MySQL va « <tt>$3: $4</tt> » rokla al katacer.',
-'dberrortextcl' => 'Bibera va origak tir roklakirafa. Ironokafa stakseyena bibera tiyir:
-« $1 »
-skuyuna gan « $2 » fliok
-MySQL va « $3 : $4 » rokla al dimstakser.',
 'laggedslavemode' => 'Obral : bu va ironakaf tuenakseem rotir meruldar',
 'readonly' => 'Beta elekana nuskera va origak',
 'enterlockreason' => 'Va elekaradanda is uldinera va elekaracek bazel',
@@ -427,7 +418,6 @@ Erura : $2',
 'viewyourtext' => "Rowil va klita ke '''rinafa betara''' ise ko batu bu roksudal :",
 'protectedinterface' => 'Batu bu va walasikikrent ke talpeyot dafur nume ta djira va favejera zo ixatcar.',
 'editinginterface' => "'''Obral !''' Rin va bu favenu koe talpeyotwalasiki betal. Betara va batu bu va laviuca ke favesikafi walasiki dolge ar favesik vanolatar. Kalavason, va [//translatewiki.net/wiki/Main_Page?setlang=avk translatewiki.net], va MediaWiki abdumimaks va tulizukara, vay favel.",
-'sqlhidden' => '(SQL kucilara palsena)',
 'cascadeprotected' => 'Batu bu icde betara zo nendar, kire va vlevefu {{PLURAL:$1|bu|bu}} pasur, danu kan tegisa "stoyakorafa" rotisaca zo nendad : $2',
 'namespaceprotected' => "Va bu koe '''$1''' yoltxo me robetal !",
 'ns-specialprotected' => 'Aptafu bu tir merobetanu.',
@@ -520,7 +510,7 @@ Ta da wan zo pilkomodal, va warzaf remravlem batlize gobazel :",
 'newpassword' => 'Warzaf remravlem',
 'retypenew' => 'Va warzaf remravlem gruyel',
 'resetpass_submit' => 'Va beksa bazel nume zo dogluyatal !',
-'resetpass_success' => 'Rinaf remravlem kiewatcon su zo betar ! Nume rinafa dogluyara tir...',
+'changepassword-success' => 'Rinaf remravlem kiewatcon su zo betar ! Nume rinafa dogluyara tir...',
 'resetpass_forbidden' => 'Kona beksa tir merobetana',
 'resetpass-submit-loggedin' => 'Betara va remravlem',
 'resetpass-submit-cancel' => 'Kuidera',

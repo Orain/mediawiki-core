@@ -35,7 +35,6 @@ $messages = array(
 'tog-enotifrevealaddr' => 'Kamukile zwa adress di meli di xete peson kwa melina notifikasyona',
 'tog-shownumberswatching' => 'Kamukile tali di kentezi sebelu',
 'tog-fancysig' => "Ro sebu e data (dicon ling'ki auto)",
-'tog-showjumplinks' => 'Nyembulisize "sinkumukezi" ling\'ki',
 'tog-uselivepreview' => 'Sebelize live PendiBe (bulukezi JavaScript) (yem nca)',
 'tog-watchlisthideown' => 'Cwankekile zwa afina di zwa mukoloko di kentezi',
 'tog-watchlisthidebots' => 'Cwankekile roboti di zwa mukoloko di kentezi',
@@ -264,7 +263,6 @@ Fung'ksyun: $1<br />
 Query: $2",
 'viewsource' => "Kamukile ng'i",
 'viewsourcetext' => 'A sa kamukile wiki-selt di bye petulo:',
-'sqlhidden' => '(SQL query sa cwankekile)',
 
 # Login and logout pages
 'yourname' => 'Sebelu:',

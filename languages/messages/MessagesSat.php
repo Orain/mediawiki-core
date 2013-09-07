@@ -50,7 +50,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Ńelok laṛcaṛkoaḱ songkha uduḱme',
 'tog-oldsig' => 'Menaḱ signạtar',
 'tog-fancysig' => 'Signạcar do wikiṭesk hisạbte moneyemẽ (jahan acte hoyoḱ joṛao bạgikate)',
-'tog-showjumplinks' => '"Calaḱmẽ" beohar joṛao ehop hoyoḱma',
 'tog-uselivepreview' => 'Jewet́ ńeloḱ beoharme (JavaScript jaruṛ menaḱa)',
 'tog-forceeditsummary' => 'Khạli sompadon guṭkatha em oktere iń baḍae ocoyiń hoyoḱma',
 'tog-watchlisthideown' => 'Ńeloḱ talikare ińaḱ joṛao kamiko danaṅme',
@@ -329,17 +328,6 @@ Noa do noṅkanaḱ menkana je {{SITENAME}} sayeṭre beoharen sofṭower re mit
 # General errors
 'error' => 'bhul',
 'databaseerror' => 'Ḍaṭabase vul',
-'dberrortext' => 'Database query syntexre vul hoeakana.
-Sofṭoyerre jahan bag karonte noa do hoe daṛeyaḱa.
-Joto khon mucạt́ database query do tahẽkana noṅka:
-<blockquote><tt>$1</tt><blockquote>
-"<tt>$2</tt>" bhitrire tahẽna.
-Database okaṭaḱ vule em akada:"<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Ḍaṭabes query sintxexṭre vul hoeakana.
-Mucạt́ ḍaṭabes query do tahẽkana:
-"$1"
-"$2" faṅson reaḱ bhitri khon.
-Ḍatabes okaṭaḱ vule kulakaḱ: "$3: $4:',
 'laggedslavemode' => "'''Sontoroḱme:''' sakamre do nahaḱ nãwãnaḱko paseć bạnuḱa.",
 'readonly' => 'Ḍaṭabes do talagea',
 'enterlockreason' => 'Cạbie reaḱ karon do cet́kana ma lạimẽ, Saõte tinre tala cạbim jhija ona okte hõ lạimẽ',
@@ -382,7 +370,6 @@ Query: $2',
 'viewsourcetext' => 'Noa sakam do am ńel ar ńamoḱaḱ ṭhạiem kopi hatao daṛeaḱa:',
 'viewyourtext' => "Am do '''Amaḱ sompadon''' noa sakam ńel arem kopi hatao daṛeaḱa:",
 'protectedinterface' => 'Noa sakam reaḱ babotko do wiki sofṭoyer reaḱ mit́ṭen inṭarfes khobore ema, onate noa do rukhiyạ doho hoeakana.',
-'sqlhidden' => '(SQL query do ukure menaḱa)',
 'cascadeprotected' => 'Noa sakam do sompadon khon rukhiyạre menaḱa, karon sakam do latar reaḱ {{PLURAL:$1 gan sakam reaḱ gan sakam reaḱ}} bhitrire, oka sakam do (cascading) te rukhiyạ menaḱa:
 $2',
 'namespaceprotected' => "Amaḱ do sakamko joṛao lạgit́te ạidạri banuḱ tama '''$1''' ńutumjayga.",
@@ -394,11 +381,13 @@ $2',
 'virus-unknownscanner' => 'Baṅ urum anṭvayras:',
 
 # Login and logout pages
+'welcomeuser' => 'Johar',
+'welcomecreation-msg' => 'Amaḱ ekaunṭ do̠ jhićena. Amaḱ pạsindko bodol alom hiṛińa.',
 'yourname' => 'Beoboharicaḱ ńutum',
+'userlogin-yourname-ph' => 'Amaḱ beohar ńutum emme.',
 'yourpassword' => 'Uku namber',
 'yourpasswordagain' => 'Arhõ oku namber olme',
 'remembermypassword' => 'Mitṭen khon bạṛti khata reaḱ cạbi disạ dohoḱma (Jạsti $1 {{PLURAL:$1 din reaḱ din reaḱ}} lạgit)',
-'securelogin-stick-https' => 'Bhitri bolo kate HTTPS re soṅge tãhenme',
 'yourdomainname' => 'Amaḱ ḍomen:',
 'externaldberror' => 'Hoe daṛeyaḱa jahan bahre reaḱ jacaeaḱ ḍaṭabes vul hoeakana se amaḱ bahre reaḱ ekaunṭ do nahaḱ halot aguire ạidạri bạnuḱa.',
 'login' => "bolok' duar",
@@ -479,7 +468,7 @@ Arhõ kurumuṭue lahare dayakate thoṛagan tạṅgiemẽ.',
 'newpassword' => 'Nãwã oku nomber',
 'retypenew' => 'Doṛhate oku namber olme',
 'resetpass_submit' => 'Oku namber joṛao ar bhitri bolok',
-'resetpass_success' => 'Amaḱ oku namber do napayte bodolena!
+'changepassword-success' => 'Amaḱ oku namber do napayte bodolena!
 Nitoḱ do am bhitritem boloḱkana...',
 'resetpass_forbidden' => 'Oku namber do baṅ bodoloklena',
 'resetpass-no-info' => 'Noa sakam sojhete laṛcaṛ lạgit́te am do bhitri boloḱ hoyoḱtama.',

@@ -61,7 +61,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Īwan þæt rīm behealdendra brūcenda',
 'tog-oldsig' => 'Genge selfmearc:',
 'tog-fancysig' => 'Dōn selfmearce tō wikitexte (lēas ǣr gedōnes hlencan)',
-'tog-showjumplinks' => 'Þafian "gān tō" gefērra hlencena',
 'tog-uselivepreview' => 'Notian rihte īwde fōrebysene (þearf JavaScript) (on costnunge)',
 'tog-forceeditsummary' => 'Cȳðan mē þǣr ic ne wrīte adihtunge sceortnesse',
 'tog-watchlisthideown' => 'Hȳdan mīna adihtunga wiþ þæt behealdungtæl',
@@ -342,12 +341,6 @@ Getæl gengra syndrigra trameta cann man findan be [[Special:SpecialPages|þǣm 
 # General errors
 'error' => 'Wōh',
 'databaseerror' => 'Cȳþþuhordes wōh',
-'dberrortext' => 'Cȳþþuhordes bēne endebyrdnesse wōh gelamp.
-Þis mæg mǣnan wōh on þǣre weorcwrithyrste.
-Sēo nīwoste gesōhte cȳþþuhordes bēn wæs:
-<blockquote><code>$1</code></blockquote>
-fram innan wyrcunge "<code>$2</code>".
-Cȳþþuhord ageaf wōh "<code>$3: $4</code>"',
 'laggedslavemode' => "'''Warnung:''' Wēnunga næbbe se tramet nīwlīca nīwunga.",
 'enterlockreason' => 'Wrīt race þǣre forwiernunge and apinsunge þæs tīman on þǣm bēo sēo forwiernung forlǣten',
 'missingarticle-rev' => '(nīwung#: $1)',

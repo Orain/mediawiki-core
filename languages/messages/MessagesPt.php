@@ -9,12 +9,14 @@
  *
  * @author Alchimista
  * @author Andresilvazito
+ * @author Cainamarques
  * @author Capmo
  * @author Crazymadlover
  * @author Daemorris
  * @author DanielTom
  * @author Dicionarista
  * @author Francisco Leandro
+ * @author Fúlvio
  * @author Giro720
  * @author GoEThe
  * @author Hamilton Abreu
@@ -346,7 +348,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Mostrar o número de utilizadores a vigiar',
 'tog-oldsig' => 'Assinatura existente:',
 'tog-fancysig' => 'Tratar assinatura como texto wiki (sem link automático)',
-'tog-showjumplinks' => 'Possibilitar links de acessibilidade "{{int:jumpto}}"',
 'tog-uselivepreview' => 'Usar a antevisão ao vivo (requer JavaScript; é experimental)',
 'tog-forceeditsummary' => 'Avisar-me se deixar o resumo da edição vazio',
 'tog-watchlisthideown' => 'Esconder as minhas edições ao listar mudanças às páginas vigiadas',
@@ -361,6 +362,7 @@ $messages = array(
 'tog-noconvertlink' => 'Impossibilitar a conversão dos títulos de links',
 'tog-norollbackdiff' => 'Omitir diferenças depois de reverter edições em bloco',
 'tog-useeditwarning' => 'Avisar-me ao abandonar uma página editada sem gravar as alterações.',
+'tog-prefershttps' => 'Sempre utilizar uma conexão segura ao iniciar sessão',
 
 'underline-always' => 'Sempre',
 'underline-never' => 'Nunca',
@@ -449,8 +451,8 @@ $messages = array(
 'category-subcat-count-limited' => 'Esta categoria tem {{PLURAL:$1|a seguinte subcategoria|as seguintes $1 subcategorias}}.',
 'category-article-count' => '{{PLURAL:$2|Esta categoria só contém a seguinte página.|Esta categoria contém {{PLURAL:$1|a seguinte página|as seguintes $1 páginas}} (de um total de $2).}}',
 'category-article-count-limited' => 'Há, nesta categoria, {{PLURAL:$1|a página a seguir|as $1 páginas a seguir}}.',
-'category-file-count' => '{{PLURAL:$2|Esta categoria só contém o seguinte ficheiro.|Esta categoria contém {{PLURAL:$1|o seguinte ficheiro|os seguintes $1 ficheiros}} (de um total de $2).}}',
-'category-file-count-limited' => 'Nesta categoria há {{PLURAL:$1|um ficheiro|$1 ficheiros}}.',
+'category-file-count' => '{{PLURAL:$2|Esta categoria só contém o seguinte arquivo.|Esta categoria contém {{PLURAL:$1|o seguinte arquivo|os seguintes $1 arquivos}} (de um total de $2).}}',
+'category-file-count-limited' => 'Nesta categoria há {{PLURAL:$1|um arquivo|$1 arquivos}}.',
 'listingcontinuesabbrev' => 'cont.',
 'index-category' => 'Páginas indexadas',
 'noindex-category' => 'Páginas não indexadas',
@@ -629,7 +631,7 @@ Consulte a página da [[Special:Version|versão do sistema]].',
 'nstab-media' => 'Multimédia',
 'nstab-special' => 'Página especial',
 'nstab-project' => 'Página do projeto',
-'nstab-image' => 'Ficheiro',
+'nstab-image' => 'Arquivo',
 'nstab-mediawiki' => 'Mensagem',
 'nstab-template' => 'Predefinição',
 'nstab-help' => 'Ajuda',
@@ -638,7 +640,7 @@ Consulte a página da [[Special:Version|versão do sistema]].',
 # Main script and global functions
 'nosuchaction' => 'Operação não existe',
 'nosuchactiontext' => 'A operação especificada pela URL é inválida.
-É possível que tenha escrito mal a URL ou seguido um link incorrecto.
+É possível que tenha escrito mal a URL ou seguido um link incorreto.
 Isto pode também indicar um defeito no software da {{SITENAME}}.',
 'nosuchspecialpage' => 'Esta página especial não existe',
 'nospecialpagetext' => '<strong>Solicitou uma página especial inválida.</strong>
@@ -648,17 +650,6 @@ Encontra uma lista das páginas especiais válidas em [[Special:SpecialPages|{{i
 # General errors
 'error' => 'Erro',
 'databaseerror' => 'Erro na base de dados',
-'dberrortext' => 'Ocorreu um erro sintáctico na pesquisa à base de dados.
-Isto poderá indicar um defeito no software.
-A última pesquisa executada na base de dados foi:
-<blockquote><code>$1</code></blockquote>
-na função "<code>$2</code>".
-A base de dados devolveu o erro "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Ocorreu um erro sintáctico na pesquisa à base de dados.
-A última tentativa de consulta à base de dados foi:
-"$1"
-na função "$2".
-A base de dados devolveu o erro "$3: $4"',
 'laggedslavemode' => "'''Aviso:''' A página pode não conter as atualizações mais recentes.",
 'readonly' => 'Base de dados bloqueada (limitada a leituras)',
 'enterlockreason' => 'Introduza um motivo para bloquear, incluindo uma estimativa de quando será desbloqueada',
@@ -692,6 +683,7 @@ Pode já ter sido eliminado por outro utilizador.',
 'cannotdelete-title' => 'Não é possível eliminar a página "$1"',
 'delete-hook-aborted' => 'A eliminação foi cancelada por um "hook".
 Não foi dada nenhuma explicação.',
+'no-null-revision' => 'Não foi possível criar uma nova revisão nula para a página "$1"',
 'badtitle' => 'Título inválido',
 'badtitletext' => 'O título de página solicitado era inválido, vazio, ou um link interlínguas ou interwikis incorrecto.
 Talvez contenha um ou mais caracteres que não podem ser usados em títulos.',
@@ -699,7 +691,7 @@ Talvez contenha um ou mais caracteres que não podem ser usados em títulos.',
 'perfcachedts' => "Os seguintes dados encontram-se armazenados na ''cache'' e foram atualizados pela última vez a $1. No máximo {{PLURAL:$4|um resultado está disponível|$4 resultados estão disponíveis}} na ''cache''.",
 'querypage-no-updates' => 'As atualizações estão presentemente desativadas para esta página.
 Por enquanto, os dados aqui presentes não poderão ser atualizados.',
-'wrong_wfQuery_params' => 'Parâmetros incorrectos para wfQuery()<br />
+'wrong_wfQuery_params' => 'Parâmetros incorretos para wfQuery()<br />
 Função: $1<br />
 Consulta: $2',
 'viewsource' => 'Ver código-fonte',
@@ -711,7 +703,6 @@ Consulta: $2',
 'viewyourtext' => "Pode ver e copiar o código-fonte das '''suas edições''' desta página:",
 'protectedinterface' => 'Esta página fornece o texto da interface ao software, e está protegida para prevenir abusos.',
 'editinginterface' => "'''Aviso:''' Está a editar uma página usada para fornecer texto de interface ao software. Alterações a esta página afetarão a aparência da interface de utilizador para os outros utilizadores. Para traduções, considere utilizar a [//translatewiki.net/wiki/Main_Page?setlang=pt translatewiki.net], um projeto destinado à tradução do MediaWiki.",
-'sqlhidden' => '(Consulta SQL em segundo-plano)',
 'cascadeprotected' => 'Esta página foi protegida contra edições por estar incluída {{PLURAL:$1|na página listada|nas páginas listadas}} a seguir, ({{PLURAL:$1|página essa que está protegida|páginas essas que estão protegidas}} com a opção de proteção "em cascata" ativada):
 $2',
 'namespaceprotected' => "Não possui permissão para editar páginas no espaço nominal '''$1'''.",
@@ -719,6 +710,8 @@ $2',
 'customjsprotected' => 'Não tem permissões para editar esta página de JavaScript porque ela contém as configurações pessoais de outro utilizador.',
 'mycustomcssprotected' => 'Não tem permissão para editar esta página de CSS.',
 'mycustomjsprotected' => 'Não tem permissão para editar esta página de JavaScript.',
+'myprivateinfoprotected' => 'Você não tem permissão para editar sua informação privada.',
+'mypreferencesprotected' => 'Você não tem permissão para editar as suas preferências.',
 'ns-specialprotected' => 'Não é possível editar páginas especiais',
 'titleprotected' => 'Este título foi protegido contra criação por [[User:$1|$1]].
 A justificação foi "\'\'$2\'\'".',
@@ -738,7 +731,6 @@ O administrador que efetuou o bloqueio deu a seguinte explicação: "$3".',
 # Login and logout pages
 'logouttext' => "'''Já não está autenticado.'''
 
-Pode continuar a utilizar a {{SITENAME}} anonimamente, ou pode <span class='plainlinks'>[$1 autenticar-se novamente]</span> com o mesmo nome de utilizador ou com um nome de utilizador diferente.
 Tenha em atenção que algumas páginas poderão continuar a ser apresentadas como se ainda estivesse autenticado até limpar a cache do seu browser.",
 'welcomeuser' => 'Bem-vindo, $1!',
 'welcomecreation-msg' => 'A sua conta foi criada.
@@ -746,6 +738,7 @@ Não se esqueça de personalizar as suas [[Special:Preferences|preferências]].'
 'yourname' => 'Nome de utilizador:',
 'userlogin-yourname' => 'Nome de utilizador(a):',
 'userlogin-yourname-ph' => 'Digite seu nome de utilizador(a)',
+'createacct-another-username-ph' => 'Digite o nome de utilizador',
 'yourpassword' => 'Palavra-chave:',
 'userlogin-yourpassword' => 'Palavra-chave',
 'userlogin-yourpassword-ph' => 'Digite sua palavra-chave',
@@ -756,13 +749,12 @@ Não se esqueça de personalizar as suas [[Special:Preferences|preferências]].'
 'remembermypassword' => 'Recordar os meus dados neste computador (no máximo, por $1 {{PLURAL:$1|dia|dias}})',
 'userlogin-remembermypassword' => 'Manter-me autenticado',
 'userlogin-signwithsecure' => 'Use uma ligação segura',
-'securelogin-stick-https' => 'Manter a ligação HTTPS após a autenticação',
 'yourdomainname' => 'O seu domínio:',
 'password-change-forbidden' => 'Não podes alterar senhas nesta wiki.',
 'externaldberror' => 'Ocorreu um erro externo à base de dados durante a autenticação ou não lhe é permitido atualizar a sua conta externa.',
 'login' => 'Autenticação',
 'nav-login-createaccount' => 'Entrar / criar conta',
-'loginprompt' => "É necessário ter os ''cookies'' activados no seu browser para poder autenticar-se na {{SITENAME}}.",
+'loginprompt' => "É necessário ter os ''cookies'' ativados no seu browser para poder autenticar-se na {{SITENAME}}.",
 'userlogin' => 'Criar uma conta ou entrar',
 'userloginnocreate' => 'Autenticação',
 'logout' => 'Sair',
@@ -780,10 +772,12 @@ Não se esqueça de personalizar as suas [[Special:Preferences|preferências]].'
 'helplogin-url' => 'Help:Autenticação',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Ajuda a fazer login]]',
 'createacct-join' => 'Insira a sua informação abaixo.',
+'createacct-another-join' => 'Digite a informação da nova conta abaixo.',
 'createacct-emailrequired' => 'Endereço de email',
 'createacct-emailoptional' => 'Endereço de email (opcional)',
 'createacct-email-ph' => 'Digite seu endereço de email',
-'createaccountmail' => 'Usar uma palavra passe aleatória e temporária e enviar para o endereço de e-mail especificado abaixo',
+'createacct-another-email-ph' => 'Digite o endereço de e-mail',
+'createaccountmail' => 'Usar uma palavra passe aleatória e temporária e enviar para o endereço de correio eletrónico especificado',
 'createacct-realname' => 'Nome verdadeiro (opcional)',
 'createaccountreason' => 'Motivo:',
 'createacct-reason' => 'Razão',
@@ -791,6 +785,7 @@ Não se esqueça de personalizar as suas [[Special:Preferences|preferências]].'
 'createacct-captcha' => 'Verificar segurança',
 'createacct-imgcaptcha-ph' => 'Digite o texto que vê acima',
 'createacct-submit' => 'Crie a sua conta',
+'createacct-another-submit' => 'Criar uma outra conta',
 'createacct-benefit-heading' => '{{SITENAME}} é feito por pessoas como você.',
 'createacct-benefit-body1' => '{{PLURAL:$1|edição|edições}}',
 'createacct-benefit-body2' => '{{PLURAL:$1|página|páginas}}',
@@ -809,7 +804,7 @@ Ative-os e autentique-se com o seu nome de utilizador e a sua palavra-chave, por
 Os ''cookies'' estão desativados no seu browser.
 Ative-os e tente novamente, por favor.",
 'nocookiesfornew' => 'A conta de utilizador não foi criada, porque não foi possível confirmar a sua origem.
-Certifique-se de que tem os cookies activados, recarregue esta página e tente novamente.',
+Certifique-se de que tem os cookies ativados, recarregue esta página e tente novamente.',
 'noname' => 'Não especificou um nome de utilizador válido.',
 'loginsuccesstitle' => 'Login bem sucedido',
 'loginsuccess' => "'''Encontra-se agora ligado à {{SITENAME}} como \"\$1\"'''.",
@@ -849,8 +844,8 @@ Em resultado, visitantes com este endereço IP não podem criar mais nenhuma con
 Não serão enviados correios de nenhuma das seguintes funcionalidades.',
 'noemailprefs' => 'Especifique um endereço de correio eletrónico nas suas preferências para ativar estas funcionalidades.',
 'emailconfirmlink' => 'Confirme o seu endereço de correio electrónico',
-'invalidemailaddress' => 'O endereço de correio electrónico não pode ser aceite porque parece ter um formato inválido.
-Introduza um endereço formatado correctamente ou deixe o campo vazio.',
+'invalidemailaddress' => 'O endereço de correio eletrónico não pode ser aceite porque parece ter um formato inválido.
+Introduza um endereço formatado corretamente ou deixe o campo vazio.',
 'cannotchangeemail' => 'Os endereços de correio electrónico das contas não podem ser alterados nesta wiki.',
 'emaildisabled' => 'Este site não consegue enviar e-mails.',
 'accountcreated' => 'Conta criada',
@@ -861,11 +856,13 @@ Deve agora autenticar-se e alterar a sua palavra-chave.
 
 Se a conta foi criada por engano, pode ignorar esta mensagem.',
 'usernamehasherror' => 'O nome de utilizador não pode conter o símbolo de cardinal (#).',
-'login-throttled' => 'Realizou demasiadas tentativas de autenticação com esta conta.
-Aguarde antes de tentar novamente, por favor.',
+'login-throttled' => 'Você realizou demasiadas tentativas de autenticação com esta conta.
+Aguarde $1 antes de tentar novamente, por favor.',
 'login-abort-generic' => 'A sua autenticação não teve êxito - Cancelada',
 'loginlanguagelabel' => 'Língua: $1',
 'suspicious-userlogout' => 'O seu pedido para sair foi negado porque parece ter sido enviado por um browser danificado ou por um proxy com cache.',
+'createacct-another-realname-tip' => 'O nome real é opcional.
+Se você optar por fornecê-lo, este será utilizado para dar ao usuário a atribuição de seu trabalho.',
 
 # Email sending
 'php-mail-error-unknown' => 'Erro desconhecido na função mail() do PHP',
@@ -882,12 +879,12 @@ Para prosseguir, será necessário definir uma nova palavra-chave.',
 'newpassword' => 'Palavra-chave nova:',
 'retypenew' => 'Repita a palavra-chave nova:',
 'resetpass_submit' => 'Definir palavra-chave e entrar',
-'resetpass_success' => 'A sua palavra-chave foi alterada! Autenticação em curso...',
+'changepassword-success' => 'A sua palavra-chave foi alterada com êxito!',
 'resetpass_forbidden' => 'Não é possível alterar palavras-chave',
-'resetpass-no-info' => 'Precisa estar autenticado para aceder directamente a esta página.',
+'resetpass-no-info' => 'Precisa estar autenticado para aceder diretamente a esta página.',
 'resetpass-submit-loggedin' => 'Alterar palavra-chave',
 'resetpass-submit-cancel' => 'Cancelar',
-'resetpass-wrong-oldpass' => 'Palavra-chave temporária ou actual inválida.
+'resetpass-wrong-oldpass' => 'Palavra-chave temporária ou atual inválida.
 Pode ter já alterado com sucesso a sua palavra-chave ou solicitado uma nova palavra-chave temporária.',
 'resetpass-temp-password' => 'Palavra-chave temporária:',
 'resetpass-abort-generic' => 'Alteração de senha foi cancelada por uma extensão.',
@@ -895,7 +892,7 @@ Pode ter já alterado com sucesso a sua palavra-chave ou solicitado uma nova pal
 # Special:PasswordReset
 'passwordreset' => 'Repor palavra-chave',
 'passwordreset-text-one' => 'Preencha este formulário para repor a sua palavra-passe.',
-'passwordreset-text-many' => '{{PLURAL:$1|Digite uma parte dos dados para redefinir sua senha.}}',
+'passwordreset-text-many' => '{{PLURAL:$1|Preencha um dos campos para redefinir sua senha.}}',
 'passwordreset-legend' => 'Reiniciar a palavra-chave',
 'passwordreset-disabled' => 'O reinício da palavra-chave foi impossibilitado nesta wiki.',
 'passwordreset-emaildisabled' => 'Recursos de e-mail foram desativados neste wiki.',
@@ -927,13 +924,22 @@ Palavra-chave temporária: $2',
 'changeemail' => 'Alterar o endereço de correio electrónico',
 'changeemail-header' => 'Alterar o endereço de correio electrónico da conta',
 'changeemail-text' => 'Preencha este formulário para alterar o endereço de correio electrónico. Para confirmar esta alteração terá de introduzir a sua palavra-chave.',
-'changeemail-no-info' => 'Para aceder directamente a esta página tem de estar autenticado.',
+'changeemail-no-info' => 'Para aceder diretamente a esta página tem de estar autenticado.',
 'changeemail-oldemail' => 'Correio electrónico actual:',
 'changeemail-newemail' => 'Correio electrónico novo:',
 'changeemail-none' => '(nenhum)',
 'changeemail-password' => 'A sua senha {{SITENAME}}:',
 'changeemail-submit' => 'Alterar correio electrónico',
 'changeemail-cancel' => 'Cancelar',
+
+# Special:ResetTokens
+'resettokens' => 'Redefinir os tokens',
+'resettokens-text' => 'Você pode redefinir tokens que permitem o acesso a certos dados privados associados à sua conta aqui.
+
+Você deve fazê-lo se acidentalmente compartilhá-los com alguém ou se sua conta estiver comprometida.',
+'resettokens-no-tokens' => 'Não existem tokens para redefinir.',
+'resettokens-legend' => 'Redefinir tokens',
+'resettokens-token-label' => '$1 (valor actual: $2)',
 
 # Edit page toolbar
 'bold_sample' => 'Texto a negrito',
@@ -949,7 +955,7 @@ Palavra-chave temporária: $2',
 'nowiki_sample' => 'Inserir texto não-formatado aqui',
 'nowiki_tip' => 'Ignorar formatação wiki',
 'image_sample' => 'Exemplo.jpg',
-'image_tip' => 'Ficheiro embutido',
+'image_tip' => 'Arquivo incorporado',
 'media_sample' => 'Exemplo.ogg',
 'media_tip' => 'Ligação para ficheiro',
 'sig_tip' => 'A sua assinatura, com hora e data',
@@ -960,7 +966,7 @@ Palavra-chave temporária: $2',
 'subject' => 'Assunto/cabeçalho:',
 'minoredit' => 'Marcar como edição menor',
 'watchthis' => 'Vigiar esta página',
-'savearticle' => 'Gravar página',
+'savearticle' => 'Salvar página',
 'preview' => 'Antevisão',
 'showpreview' => 'Antever resultado',
 'showlivepreview' => 'Antevisão em tempo real',
@@ -1019,7 +1025,7 @@ Ela pode ter sido movida ou removida enquanto estava a ver a página.',
 'accmailtitle' => 'Palavra-chave enviada.',
 'accmailtext' => 'Uma palavra-chave gerada aleatoriamente para [[User talk:$1|$1]] foi enviada para $2.
 
-A palavra-chave para esta nova conta pode ser alterada na página [[Special:ChangePassword|alterar palavra-chave]] após autenticação.',
+Ela pode ser alterada na página [[Special:ChangePassword|de alteração da palavra-chave]] após autenticação.',
 'newarticle' => '(Nova)',
 'newarticletext' => "Seguiu uma ligação para uma página que ainda não existe.
 Para criá-la, escreva o seu conteúdo na caixa abaixo (consulte a [[{{MediaWiki:Helppage}}|página de ajuda]] para mais detalhes).
@@ -1091,7 +1097,7 @@ Terá de reintegrar as suas mudanças no texto da caixa abaixo.
 'storedversion' => 'Versão guardada',
 'nonunicodebrowser' => "'''Aviso: O seu browser não é compatível com as especificações Unicode.
 Foi ativado um sistema de edição alternativo que lhe permite editar as páginas com segurança: os caracteres não-ASCII aparecerão na caixa de edição no formato de códigos hexadecimais.'''",
-'editingold' => "'''Aviso: Está a editar uma revisão desactualizada desta página.'''
+'editingold' => "'''Aviso: Está a editar uma revisão desatualizada desta página.'''
 Se gravar, todas as mudanças feitas a partir desta revisão serão perdidas.",
 'yourdiff' => 'Diferenças',
 'copyrightwarning' => "Note, por favor, que todas as suas contribuições na {{SITENAME}} são consideradas publicadas nos termos da licença $2 (consulte $1 para mais detalhes).
@@ -1160,9 +1166,9 @@ Se você se autenticou, pode desabilitar este aviso na seção "Edição" das su
 'content-model-css' => 'CSS',
 
 # Parser/template warnings
-'expensive-parserfunction-warning' => 'Aviso: Esta página contém demasiadas chamadas de funções exigentes do analisador sintáctico.
+'expensive-parserfunction-warning' => "'''Aviso:''' Esta página contém demasiadas chamadas de funções exigentes do analisador sintático.
 
-Devia ter menos de $2 {{PLURAL:$2|chamada|chamadas}}. Neste momento tem $1 {{PLURAL:$1|chamada|chamadas}}.',
+Devia ter menos de $2 {{PLURAL:$2|chamada|chamadas}}. Neste momento tem $1 {{PLURAL:$1|chamada|chamadas}}.",
 'expensive-parserfunction-category' => 'Páginas com demasiadas chamadas a funções exigentes',
 'post-expand-template-inclusion-warning' => 'Aviso: O tamanho de inclusão de predefinições é demasiado grande, algumas predefinições não serão incluídas.',
 'post-expand-template-inclusion-category' => 'Páginas onde o tamanho de inclusão de predefinições é excedido',
@@ -1217,7 +1223,7 @@ Legenda: '''({{int:cur}})''' = diferenças para a versão atual,
 'history-fieldset-title' => 'Navegar pelo histórico',
 'history-show-deleted' => 'Somente eliminados',
 'histfirst' => 'Mais antigas',
-'histlast' => 'Mais recentes',
+'histlast' => 'Mais novas',
 'historysize' => '({{PLURAL:$1|1 byte|$1 bytes}})',
 'historyempty' => '(vazia)',
 
@@ -1305,7 +1311,7 @@ $1",
 'revdel-restore-visible' => 'revisões visíveis',
 'pagehist' => 'Histórico da página',
 'deletedhist' => 'Histórico de eliminações',
-'revdelete-hide-current' => 'Erro ao ocultar o item datado de $2, $1: esta é a revisão actual.
+'revdelete-hide-current' => 'Erro ao ocultar o item datado de $2, $1: esta é a revisão atual.
 Não pode ser ocultada.',
 'revdelete-show-no-access' => 'Erro ao mostrar o item datado de $2, $1: este item foi marcado como "restrito".
 Não tem acesso.',
@@ -1440,7 +1446,7 @@ Tente usar o prefixo ''all:'' para pesquisar todo o conteúdo (incluindo página
 'search-external' => 'Pesquisa externa',
 'searchdisabled' => 'Foi impossibilitada a realização de pesquisas na {{SITENAME}}.
 Entretanto, pode realizar pesquisas através do Google.
-Note, no entanto, que a indexação da {{SITENAME}} neste motor de busca pode estar desactualizada.',
+Note, no entanto, que a indexação da {{SITENAME}} neste motor de busca pode estar desatualizada.',
 'search-error' => 'Um erro ocorreu enquanto se efectuava a busca: $1',
 
 # Preferences page
@@ -1471,7 +1477,7 @@ Note, no entanto, que a indexação da {{SITENAME}} neste motor de busca pode es
 'prefs-setemail' => 'Definir um endereço de correio electrónico',
 'prefs-email' => 'Opções do correio electrónico',
 'prefs-rendering' => 'Aparência',
-'saveprefs' => 'Gravar',
+'saveprefs' => 'Salvar',
 'resetprefs' => 'Eliminar as alterações que não foram gravadas',
 'restoreprefs' => 'Repor todas as configurações padrão',
 'prefs-editing' => 'Edição',
@@ -1485,9 +1491,6 @@ Note, no entanto, que a indexação da {{SITENAME}} neste motor de busca pode es
 'recentchangesdays-max' => 'Máximo: $1 {{PLURAL:$1|dia|dias}}',
 'recentchangescount' => 'Número de edições a apresentar por omissão:',
 'prefs-help-recentchangescount' => 'Inclui mudanças recentes, histórico de páginas e registos.',
-'prefs-help-watchlist-token' => "Preencher este campo com uma senha secreta gera um ''feed'' RSS para a sua lista de páginas vigiadas.
-Qualquer pessoa que conheça esta senha será capaz de ler a sua lista de páginas vigiadas, por isso escolha um valor seguro.
-Eis um valor gerado aleatoriamente, que pode usar: $1",
 'savedprefs' => 'As suas preferências foram gravadas.',
 'timezonelegend' => 'Fuso horário:',
 'localtime' => 'Hora local:',
@@ -1511,7 +1514,7 @@ Eis um valor gerado aleatoriamente, que pode usar: $1",
 'prefs-namespaces' => 'Espaços nominais',
 'defaultns' => 'Por omissão, pesquisar nestes espaços nominais:',
 'default' => 'padrão',
-'prefs-files' => 'Ficheiros',
+'prefs-files' => 'Arquivos',
 'prefs-custom-css' => 'CSS personalizada',
 'prefs-custom-js' => 'JS personalizado',
 'prefs-common-css-js' => 'CSS/JS partilhado por todos os temas:',
@@ -1549,7 +1552,7 @@ Esta informação será pública.',
 'prefs-signature' => 'Assinatura',
 'prefs-dateformat' => 'Formato de data',
 'prefs-timeoffset' => 'Desvio horário',
-'prefs-advancedediting' => 'Opções avançadas',
+'prefs-advancedediting' => 'Opções gerais',
 'prefs-advancedrc' => 'Opções avançadas',
 'prefs-advancedrendering' => 'Opções avançadas',
 'prefs-advancedsearchoptions' => 'Opções avançadas',
@@ -1725,6 +1728,7 @@ Esta informação será pública.',
 'recentchanges' => 'Mudanças recentes',
 'recentchanges-legend' => 'Opções das mudanças recentes',
 'recentchanges-summary' => 'Acompanhe nesta página as mudanças mais recentes da wiki.',
+'recentchanges-noresult' => 'Nenhuma alteração correspondente a esses critérios foi realizada durante o período selecionado.',
 'recentchanges-feed-description' => "Acompanhe neste ''feed'' as mudanças mais recentes da wiki.",
 'recentchanges-label-newpage' => 'Esta edição criou uma página nova',
 'recentchanges-label-minor' => 'Esta é uma edição menor',
@@ -1781,15 +1785,15 @@ As suas [[Special:Watchlist|páginas vigiadas]] aparecem a '''negrito'''.",
 Para sua conveniência, é apresentado de seguida o registo de eliminação e de movimento da página:",
 'uploadtext' => "Utilize o formulário abaixo para fazer upload de ficheiros novos.
 Para ver ou pesquisar ficheiros anteriormente enviados, consulte a [[Special:FileList|lista de ficheiros]].
-Os reenvios de um ficheiro são também registados no [[Special:Log/upload|registo de uploads]] e as eliminações no [[Special:Log/delete|registo de eliminações]].
+Os reenvios de um ficheiro são também registrados no [[Special:Log/upload|registro de uploads]] e as eliminações no [[Special:Log/delete|registro de eliminações]].
 
 Para utilizar um ficheiro numa página, depois de ter feito o upload, insira um link com um dos seguintes formatos:
 * '''<code><nowiki>[[</nowiki>{{ns:file}}<nowiki>:ficheiro.jpg]]</nowiki></code>''' para mostrar uma imagem nas suas dimensões originais;
 * '''<code><nowiki>[[</nowiki>{{ns:file}}<nowiki>:ficheiro.png|200px|thumb|left|texto]]</nowiki></code>''' para mostrar uma imagem com a dimensão horizontal de 200 pixels, dentro de uma caixa, na margem esquerda, contendo 'texto' como descrição (pode usar subconjuntos destas características);
-* '''<code><nowiki>[[</nowiki>{{ns:media}}<nowiki>:ficheiro.ogg]]</nowiki></code>''' para apresentar um link directo para o ficheiro em vez de mostrá-lo, quer este tenha por conteúdo uma imagem ou outros dados.",
+* '''<code><nowiki>[[</nowiki>{{ns:media}}<nowiki>:ficheiro.ogg]]</nowiki></code>''' para apresentar um link direto para o ficheiro em vez de mostrá-lo, quer este tenha por conteúdo uma imagem ou outros dados.",
 'upload-permitted' => 'Tipos de ficheiros permitidos: $1.',
 'upload-preferred' => 'Tipos de ficheiros preferidos: $1.',
-'upload-prohibited' => 'Tipos de ficheiro proibidos: $1.',
+'upload-prohibited' => 'Tipos de arquivo proibidos: $1.',
 'uploadlog' => 'registo de carregamento',
 'uploadlogpage' => 'Registo de carregamento',
 'uploadlogpagetext' => 'Segue-se uma lista dos carregamentos mais recentes.
@@ -1811,10 +1815,10 @@ Altere o nome do ficheiro e tente enviá-lo novamente, por favor.',
 'filetype-mime-mismatch' => 'A extensão ".$1" não corresponde ao tipo MIME do ficheiro ($2).',
 'filetype-badmime' => 'Não é permitido carregar ficheiros do tipo MIME "$1".',
 'filetype-bad-ie-mime' => 'Não é possível carregar este ficheiro porque o Internet Explorer o detectaria como "$1", que é um tipo de ficheiro não permitido e potencialmente perigoso.',
-'filetype-unwanted-type' => "'''\".\$1\"''' não é um tipo de ficheiro desejado.
+'filetype-unwanted-type' => "'''\".\$1\"''' não é um tipo de arquivo desejado.
 {{PLURAL:\$3|O tipo preferido é|Os tipos preferidos são}} \$2.",
-'filetype-banned-type' => '\'\'\'".$1"\'\'\' {{PLURAL:$4|não é um tipo de ficheiro permitido|não são tipos de ficheiro permitidos}}.
-{{PLURAL:$3|O tipo de ficheiro permitido é|Os tipos de ficheiro permitidos são}} $2.',
+'filetype-banned-type' => '\'\'\'".$1"\'\'\' {{PLURAL:$4|não é um tipo de arquivo permitido|não são tipos de arquivo permitidos}}.
+{{PLURAL:$3|O tipo de arquivo permitido é|Os tipos de arquivo permitidos são}} $2.',
 'filetype-missing' => 'O ficheiro não possui uma extensão (como, por exemplo, ".jpg").',
 'empty-file' => 'O ficheiro que enviou estava vazio.',
 'file-too-large' => 'O ficheiro que enviou era demasiado grande.',
@@ -1822,11 +1826,11 @@ Altere o nome do ficheiro e tente enviá-lo novamente, por favor.',
 'filetype-banned' => 'Este tipo de ficheiro é proibido.',
 'verification-error' => 'O ficheiro não passou a verificação de ficheiros.',
 'hookaborted' => 'A modificação que pretendia foi abortada pelo hook de uma extensão.',
-'illegal-filename' => 'O nome do ficheiro não é permitido.',
-'overwrite' => 'Não é permitido gravar por cima de um ficheiro existente.',
+'illegal-filename' => 'O nome do arquivo não é permitido.',
+'overwrite' => 'Não é permitido sobrescrever um arquivo existente.',
 'unknown-error' => 'Ocorreu um erro desconhecido.',
-'tmp-create-error' => 'Não foi possível criar o ficheiro temporário.',
-'tmp-write-error' => 'Erro na escrita do ficheiro temporário.',
+'tmp-create-error' => 'Não foi possível criar o arquivo temporário.',
+'tmp-write-error' => 'Erro na escrita do arquivo temporário.',
 'large-file' => 'É recomendável que os ficheiros não sejam maiores que $1;
 este tem $2.',
 'largefileserver' => 'O tamanho deste ficheiro é superior ao permitido pela configuração do servidor.',
@@ -1877,7 +1881,7 @@ Não é permitido o upload de ficheiros Java, porque estes podem contornar as re
 'sourcefilename' => 'Nome do ficheiro de origem:',
 'sourceurl' => 'URL fonte:',
 'destfilename' => 'Nome do ficheiro de destino:',
-'upload-maxfilesize' => 'Tamanho máximo do ficheiro: $1',
+'upload-maxfilesize' => 'Tamanho máximo do arquivo: $1',
 'upload-description' => 'Descrição do ficheiro',
 'upload-options' => 'Opções de carregamento',
 'watchthisupload' => 'Vigiar este ficheiro',
@@ -1898,7 +1902,7 @@ JD # Jenoptik
 MGP # Pentax
 PICT # misc.
  #</pre> <!-- deixe esta linha exactamente como está -->',
-'upload-success-subj' => 'Envio efectuado com sucesso',
+'upload-success-subj' => 'Envio efetuado com sucesso',
 'upload-success-msg' => 'O seu upload de [$2] foi bem sucedido. Está disponível aqui: [[:{{ns:file}}:$1]]',
 'upload-failure-subj' => 'Problema no upload',
 'upload-failure-msg' => 'Ocorreu um problema com o seu upload de [$2]:
@@ -1907,7 +1911,7 @@ $1',
 'upload-warning-subj' => 'Aviso de upload',
 'upload-warning-msg' => 'Ocorreu um problema no seu upload de [$2]. Pode voltar ao [[Special:Upload/stash/$1|formulário de upload]] para resolver o problema.',
 
-'upload-proto-error' => 'Protocolo incorrecto',
+'upload-proto-error' => 'Protocolo incorreto',
 'upload-proto-error-text' => 'O carregamento remoto de ficheiros requer endereços URL começados por <code>http://</code> ou <code>ftp://</code>.',
 'upload-file-error' => 'Erro interno',
 'upload-file-error-text' => 'Ocorreu um erro interno ao tentar criar um ficheiro temporário no servidor.
@@ -1946,7 +1950,7 @@ Caso o problema persista, contacte um [[Special:ListUsers/sysop|administrador]].
 'backend-fail-internal' => 'Ocorreu um erro desconhecido no servidor de armazenamento "$1".',
 'backend-fail-contenttype' => 'Não foi possível determinar o tipo de conteúdo do ficheiro para armazenar em "$1".',
 'backend-fail-batchsize' => 'Foi fornecido um bloco de $1 {{PLURAL:$1|operação|operações}} sobre ficheiros ao servidor de armazenamento; o limite é de $2 {{PLURAL:$2|operação|operações}}.',
-'backend-fail-usable' => 'Não foi possível ler ou gravar o ficheiro "$1" devido a permissões insuficientes ou a directórios/repositórios inexistentes.',
+'backend-fail-usable' => 'Não foi possível ler ou gravar o ficheiro "$1" devido a permissões insuficientes ou a diretórios/repositórios inexistentes.',
 
 # File journal errors
 'filejournal-fail-dbconnect' => 'Não foi possível estabelecer ligação à base de dados de registos no servidor de armazenamento "$1".',
@@ -1974,7 +1978,7 @@ A sua segurança não pode ser devidamente verificada.',
 
 # Special:UploadStash
 'uploadstash' => 'Ficheiros escondidos',
-'uploadstash-summary' => 'Esta página dá acesso aos ficheiros enviados (ou que estão no processo de envio) mas que ainda não foram publicados na wiki. Estes ficheiros não são visíveis para ninguém, excepto para o utilizador que os enviou.',
+'uploadstash-summary' => 'Esta página dá acesso aos ficheiros enviados (ou que estão no processo de envio) mas que ainda não foram publicados na wiki. Estes ficheiros não são visíveis para ninguém, exceto para o utilizador que os enviou.',
 'uploadstash-clear' => 'Apagar os ficheiros escondidos',
 'uploadstash-nofiles' => 'Não tem ficheiros escondidos.',
 'uploadstash-badtoken' => 'Não foi possível executar essa operação, talvez porque as suas credenciais de edição expiraram. Tente novamente.',
@@ -2013,7 +2017,7 @@ Para optimizar a segurança, o img_auth.php está impossibilitado de executar.',
 # Some likely curl errors. More could be added from <http://curl.haxx.se/libcurl/c/libcurl-errors.html>
 'upload-curl-error6' => 'Não foi possível aceder à URL',
 'upload-curl-error6-text' => 'Não foi possível aceder à URL.
-Verifique se o endereço está correcto e o site disponível, por favor.',
+Verifique se o endereço está correto e o site disponível, por favor.',
 'upload-curl-error28' => 'Tempo limite para o envio do ficheiro excedido',
 'upload-curl-error28-text' => 'O site demorou muito tempo a responder. Verifique que o site está disponível, aguarde alguns momentos e tente novamente, por favor. Talvez queira tentar num horário menos congestionado.',
 
@@ -2028,7 +2032,7 @@ Verifique se o endereço está correcto e o site disponível, por favor.',
 'listfiles-summary' => 'Esta página especial lista todos os ficheiros carregados.
 Quando filtrada por utilizador, só lista os ficheiros cuja última versão foi carregada pelo utilizador.',
 'listfiles_search_for' => 'Pesquisar por nome de imagem:',
-'imgfile' => 'ficheiro',
+'imgfile' => 'arquivo',
 'listfiles' => 'Ficheiros',
 'listfiles_thumb' => 'Miniatura',
 'listfiles_date' => 'Data',
@@ -2039,7 +2043,7 @@ Quando filtrada por utilizador, só lista os ficheiros cuja última versão foi 
 'listfiles_count' => 'Versões',
 
 # File description page
-'file-anchor-link' => 'Ficheiro',
+'file-anchor-link' => 'Arquivo',
 'filehist' => 'Histórico do ficheiro',
 'filehist-help' => 'Clique numa data/hora para ver o ficheiro tal como se encontrava nesse momento.',
 'filehist-deleteall' => 'eliminar todas',
@@ -2064,10 +2068,10 @@ Encontra-se disponível uma [[Special:WhatLinksHere/$2|lista completa]].',
 'morelinkstoimage' => 'Ver a [[Special:WhatLinksHere/$1|lista completa]] de páginas que contêm links para este ficheiro.',
 'linkstoimage-redirect' => '$1 (redirecionamento de ficheiro) $2',
 'duplicatesoffile' => '{{PLURAL:$1|O seguinte ficheiro é duplicado|Os seguintes $1 ficheiros são duplicados}} deste ficheiro ([[Special:FileDuplicateSearch/$2|mais detalhes]]):',
-'sharedupload' => 'Este ficheiro provém de $1 e pode ser usado por outros projectos.',
-'sharedupload-desc-there' => 'Este ficheiro provém de $1 e pode ser usado por outros projectos.
+'sharedupload' => 'Este ficheiro provém de $1 e pode ser usado por outros projetos.',
+'sharedupload-desc-there' => 'Este ficheiro provém de $1 e pode ser usado por outros projetos.
 Consulte a [$2 página de descrição do ficheiro] para mais informações, por favor.',
-'sharedupload-desc-here' => 'Este ficheiro provém de $1 e pode ser usado por outros projectos.
+'sharedupload-desc-here' => 'Este ficheiro provém de $1 e pode ser usado por outros projetos.
 A descrição na [$2 página original de descrição do ficheiro] é mostrada abaixo.',
 'sharedupload-desc-edit' => 'Este ficheiro provém de $1 e pode ser utilizado por outros projetos.
 Talvez queira editar a descrição na [$2 página original de descrição do ficheiro].',
@@ -2093,7 +2097,7 @@ Talvez queira editar a descrição na [$2 página original de descrição do fic
 # File deletion
 'filedelete' => 'Eliminar $1',
 'filedelete-legend' => 'Eliminar ficheiro',
-'filedelete-intro' => "Está prestes a eliminar o ficheiro '''[[Media:$1|$1]]''' e todo o seu histórico.",
+'filedelete-intro' => "Está prestes a eliminar o arquivo '''[[Media:$1|$1]]''' e todo o seu histórico.",
 'filedelete-intro-old' => "Está prestes a eliminar a versão de '''[[Media:$1|$1]]''' tal como se encontrava em [$4 $3, $2].",
 'filedelete-comment' => 'Motivo:',
 'filedelete-submit' => 'Eliminar',
@@ -2131,6 +2135,9 @@ Talvez queira editar a descrição na [$2 página original de descrição do fic
 'randompage' => 'Página aleatória',
 'randompage-nopages' => 'Não há páginas {{PLURAL:$2|no seguinte espaço nominal|nos seguintes espaços nominais}}: $1.',
 
+# Random page in category
+'randomincategory-selectcategory-submit' => 'Ir',
+
 # Random redirect
 'randomredirect' => 'Redirecionamento aleatório',
 'randomredirect-nopages' => 'Não há redirecionamentos no espaço nominal "$1".',
@@ -2152,7 +2159,7 @@ Talvez queira editar a descrição na [$2 página original de descrição do fic
 'statistics-views-total-desc' => 'Não estão incluídos os visionamentos de páginas inexistentes e páginas especiais',
 'statistics-views-peredit' => 'Visionamentos por edição',
 'statistics-users' => '[[Special:ListUsers|Utilizadores]] registados',
-'statistics-users-active' => 'Utilizadores activos',
+'statistics-users-active' => 'Utilizadores ativos',
 'statistics-users-active-desc' => 'Utilizadores que efectuaram uma operação {{PLURAL:$1|no último dia|nos últimos $1 dias}}',
 'statistics-mostpopular' => 'Páginas mais vistas',
 
@@ -2167,6 +2174,8 @@ Considera-se que uma página é de desambiguação se nela for utilizada uma pre
 'pageswithprop-text' => 'Esta página lista páginas que usam uma propriedade em particular.',
 'pageswithprop-prop' => 'Nome da propriedade:',
 'pageswithprop-submit' => 'Avançar',
+'pageswithprop-prophidden-long' => 'foi ocultado o valor da propriedade por ser um texto muito longo ($1 kilobytes)',
+'pageswithprop-prophidden-binary' => 'foi ocultado o valor da propriedade por ser binário ($1 kilobytes)',
 
 'doubleredirects' => 'Redirecionamentos duplos',
 'doubleredirectstext' => 'Esta página lista todas as páginas que redirecionam para outras páginas de redirecionamento.
@@ -2225,6 +2234,7 @@ Agora redirecciona para [[$2]].',
 'mostrevisions' => 'Páginas com mais revisões',
 'prefixindex' => 'Todas as páginas iniciadas por',
 'prefixindex-namespace' => 'Todas as páginas com prefixo (domínio $1)',
+'prefixindex-strip' => 'Remover prefixo',
 'shortpages' => 'Páginas curtas',
 'longpages' => 'Páginas longas',
 'deadendpages' => 'Páginas sem saída',
@@ -2248,7 +2258,7 @@ Agora redirecciona para [[$2]].',
 'move' => 'Mover',
 'movethispage' => 'Mover esta página',
 'unusedimagestext' => 'Os seguintes ficheiros existem mas não são usados na wiki.
-No entanto, outros sites na internet podem ter links para um ficheiro através de uma URL directa e, por isso, podem estar listados ficheiros que estão a ser activamente usados por entidades externas.',
+No entanto, outros sites na internet podem ter links para um ficheiro através de uma URL direta e, por isso, podem estar listados ficheiros que estão a ser ativamente usados por entidades externas.',
 'unusedcategoriestext' => 'As seguintes categorias existem, embora nenhuma página ou categoria faça uso delas.',
 'notargettitle' => 'Sem alvo',
 'notargettext' => 'Especifique sobre que página alvo ou utilizador pretende executar esta função.',
@@ -2286,7 +2296,7 @@ Pode reduzir a lista escolhendo um tipo de registo, um nome de utilizador ou um 
 'allpagesto' => 'Apresentar páginas até:',
 'allarticles' => 'Todas as páginas',
 'allinnamespace' => 'Todas as páginas (espaço nominal $1)',
-'allnotinnamespace' => 'Todas as páginas (excepto as do espaço nominal $1)',
+'allnotinnamespace' => 'Todas as páginas (exceto as do espaço nominal $1)',
 'allpagesprev' => 'Anterior',
 'allpagesnext' => 'Próximo',
 'allpagessubmit' => 'Ver',
@@ -2333,8 +2343,8 @@ Veja também as [[Special:WantedCategories|categorias desejadas]].',
 'listusers-blocked' => '(bloqueado)',
 
 # Special:ActiveUsers
-'activeusers' => 'Utilizadores activos',
-'activeusers-intro' => 'Esta é uma lista dos utilizadores com qualquer tipo de actividade {{PLURAL:$1|no último dia|nos últimos $1 dias}}.',
+'activeusers' => 'Lista de utilizadores ativos',
+'activeusers-intro' => 'Esta é uma lista dos utilizadores com qualquer tipo de atividade {{PLURAL:$1|no último dia|nos últimos $1 dias}}.',
 'activeusers-count' => '$1 {{PLURAL:$1|ação|ações}} {{PLURAL:$3|no último dia|nos últimos $3 dias}}',
 'activeusers-from' => 'Mostrar utilizadores começando por:',
 'activeusers-hidebots' => 'Esconder robôs',
@@ -2345,7 +2355,8 @@ Veja também as [[Special:WantedCategories|categorias desejadas]].',
 'listgrouprights' => 'Privilégios dos grupos de utilizadores',
 'listgrouprights-summary' => 'A seguinte lista contém os grupos de utilizadores definidos nesta wiki, com os respectivos privilégios de acesso.
 Encontram-se disponíveis [[{{MediaWiki:Listgrouprights-helppage}}|informações adicionais]] sobre privilégios individuais.',
-'listgrouprights-key' => '* <span class="listgrouprights-granted">Privilégio concedido</span>
+'listgrouprights-key' => 'Legenda:
+* <span class="listgrouprights-granted">Privilégio concedido</span>
 * <span class="listgrouprights-revoked">Privilégio revogado</span>',
 'listgrouprights-group' => 'Grupo',
 'listgrouprights-rights' => 'Privilégios',
@@ -2441,11 +2452,11 @@ Modificações futuras desta página e da respetiva página de discussão serão
 'enotif_subject_restored' => 'A página $1 de {{SITENAME}} foi {{GENDER:$2|restaurada}} por $2',
 'enotif_subject_changed' => 'A página $1 de {{SITENAME}} foi {{GENDER:$2|alterada}} por $2',
 'enotif_body_intro_deleted' => 'A página $1 de {{SITENAME}} foi {{GENDER:$2|eliminada}} em $PAGEEDITDATE por $2, ver $3.',
-'enotif_body_intro_created' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2| criada}} em $PAGEEDITDATE por $2, ver $3 para a versão actual.',
-'enotif_body_intro_moved' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2|movida}} em $PAGEEDITDATE por $2, ver $3 para a versão actual.',
-'enotif_body_intro_restored' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2|restaurada}} em $PAGEEDITDATE por $2, ver $3 para a versão actual.',
-'enotif_body_intro_changed' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2|alterada}} em $PAGEEDITDATE por $2, ver $3 para a versão actual.',
-'enotif_lastvisited' => 'Consulte $1 para todas as alterações efectuadas desde a sua última visita.',
+'enotif_body_intro_created' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2| criada}} em $PAGEEDITDATE por $2, ver $3 para a versão atual.',
+'enotif_body_intro_moved' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2|movida}} em $PAGEEDITDATE por $2, ver $3 para a versão atual.',
+'enotif_body_intro_restored' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2|restaurada}} em $PAGEEDITDATE por $2, ver $3 para a versão atual.',
+'enotif_body_intro_changed' => 'A página $1 em {{SITENAME}} foi {{GENDER:$2|alterada}} em $PAGEEDITDATE por $2, ver $3 para a versão atual.',
+'enotif_lastvisited' => 'Consulte $1 para todas as alterações efetuadas desde a sua última visita.',
 'enotif_lastdiff' => 'Consulte $1 para ver esta alteração.',
 'enotif_anon_editor' => 'utilizador anónimo $1',
 'enotif_body' => '{{GENDER:$WATCHINGUSERNAME|Caro|Cara|Caro(a)}},
@@ -2455,16 +2466,16 @@ $PAGEINTRO $NEWPAGE
 Resumo da edição: $PAGESUMMARY $PAGEMINOREDIT
 
 Contacte o editor:
-correio electrónico: $PAGEEDITOR_EMAIL
+correio eletrónico: $PAGEEDITOR_EMAIL
 wiki: $PAGEEDITOR_WIKI
 
 Até que visite esta página, não receberá mais notificações das alterações futuras.
-Pode também reactivar as notificações para todas páginas na sua lista de páginas vigiadas.
+Pode também reativar as notificações para todas páginas na sua lista de páginas vigiadas.
 
              O seu sistema de notificação amigável da {{SITENAME}}
 
 --
-Para alterar as suas preferências das notificações por correio electrónico, visite
+Para alterar as suas preferências das notificações por correio eletrónico, visite
 {{canonicalurl:{{#special:Preferences}}}}
 
 Para alterar as suas preferências das páginas vigiadas, visite
@@ -2526,7 +2537,7 @@ alguém editou ou já reverteu a página.
 A última edição foi de [[User:$3|$3]] ([[User talk:$3|discussão]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "O resumo da edição era: \"''\$1''\".",
 'revertpage' => 'Foram revertidas as edições de [[Special:Contributions/$2|$2]] ([[User talk:$2|disc]]) para a última versão por [[User:$1|$1]]',
-'revertpage-nouser' => 'Revertidas as edições de (nome de utilizador removido) para a última revisão por [[User:$1|$1]]',
+'revertpage-nouser' => 'Revertidas as edições de um usuário ocultado para a última revisão por [[User:$1|$1]]',
 'rollback-success' => 'Foram revertidas as edições de $1, com o conteúdo passando a estar como na última edição de $2.',
 
 # Edit tokens
@@ -2616,12 +2627,12 @@ Para efetuar uma restauração seletiva, marque as caixas correspondentes às ed
 'undeleterevisions' => '$1 {{PLURAL:$1|edição disponível|edições disponíveis}}',
 'undeletehistory' => 'Se restaurar uma página, todas as edições serão restauradas para o histórico.
 Se uma nova página foi criada com o mesmo nome desde a eliminação, as edições restauradas aparecerão no histórico anterior.',
-'undeleterevdel' => 'O restauro não será efectuado se resulta na remoção parcial da versão mais recente da página ou ficheiro.
+'undeleterevdel' => 'O restauro não será efetuado se resulta na remoção parcial da versão mais recente da página ou ficheiro.
 Nestes casos, deverá desmarcar ou revelar a versão eliminada mais recente.',
 'undeletehistorynoadmin' => 'Esta página foi eliminada. O motivo de eliminação é apresentado no sumário abaixo, junto dos detalhes do utilizador que editou esta página antes de eliminar. O texto atual destas edições eliminadas encontra-se agora apenas disponível para administradores.',
 'undelete-revision' => 'Edição eliminada da página $1 (das $5 de $4), por $3:',
 'undeleterevision-missing' => 'Edição inválida ou não encontrada.
-Pode ter usado um link incorrecto ou talvez a revisão tenha sido restaurada ou removida do arquivo.',
+Pode ter usado um link incorreto ou talvez a revisão tenha sido restaurada ou removida do arquivo.',
 'undelete-nodiff' => 'Não foram encontradas edições anteriores.',
 'undeletebtn' => 'Restaurar',
 'undeletelink' => 'ver/restaurar',
@@ -2820,7 +2831,7 @@ Consulte a [[Special:BlockList|lista de bloqueios]] para obter a lista de bloque
 'ipb-otherblocks-header' => '{{PLURAL:$1|Outro bloqueio|Outros bloqueios}}',
 'unblock-hideuser' => 'Não pode desbloquear o utilizador, porque o nome deste utilizador foi ocultado.',
 'ipb_cant_unblock' => 'Erro: O bloqueio com ID $1 não foi encontrado. Pode já ter sido desbloqueado.',
-'ipb_blocked_as_range' => 'Erro: O IP $1 não se encontra bloqueado de forma directa e não pode ser desbloqueado deste modo. No entanto, está bloqueado como parte da gama $2, a qual pode ser desbloqueada.',
+'ipb_blocked_as_range' => 'Erro: O IP $1 não se encontra bloqueado de forma direta e não pode ser desbloqueado deste modo. No entanto, está bloqueado como parte da gama $2, a qual pode ser desbloqueada.',
 'ip_range_invalid' => 'Gama de IPs inválida.',
 'ip_range_toolarge' => 'Não são permitidas gamas de IPs maiores do que /$1.',
 'blockme' => 'Bloquear-me',
@@ -2828,7 +2839,7 @@ Consulte a [[Special:BlockList|lista de bloqueios]] para obter a lista de bloque
 'proxyblocker-disabled' => 'Esta função foi impossibilitada.',
 'proxyblockreason' => "O seu endereço IP foi bloqueado por ser um ''proxy'' público.
 Contacte o seu fornecedor de internet ou o serviço de apoio técnico e informe-os deste grave problema de segurança, por favor.",
-'proxyblocksuccess' => 'Concluído.',
+'proxyblocksuccess' => 'Feito.',
 'sorbsreason' => "O seu endereço IP encontra-se listado como ''proxy'' aberto na DNSBL utilizada pela {{SITENAME}}.",
 'sorbs_create_account_reason' => "O seu endereço IP encontra-se listado como ''proxy'' aberto na DNSBL utilizada pela {{SITENAME}}. Não pode criar uma conta",
 'xffblockreason' => 'Um endereço IP presente no cabeçalho X-Forwarded-For, seja seu ou de um servidor de proxy que estiver a usar, foi bloqueado. A razão do bloqueio original foi: $1',
@@ -2957,7 +2968,7 @@ Escolha outro nome, por favor.',
 'export' => 'Exportar páginas',
 'exporttext' => 'Pode exportar o texto e o histórico de edições de uma página em particular para um ficheiro XML. Poderá então importar esse conteúdo noutra wiki que utilize o programa MediaWiki, através da [[Special:Import|página de importações]].
 
-Para exportar páginas, introduza os títulos na caixa de texto abaixo (um título por linha) e seleccione se deseja todas as versões, com as linhas de histórico de edições, ou apenas a edição actual e informações sobre a mais recente das edições.
+Para exportar páginas, introduza os títulos na caixa de texto abaixo (um título por linha) e selecione se deseja todas as versões, com as linhas de histórico de edições, ou apenas a edição atual e informações sobre a mais recente das edições.
 
 Se desejar, pode utilizar um link (por exemplo, [[{{#Special:Export}}/{{MediaWiki:Mainpage}}]] para a [[{{MediaWiki:Mainpage}}]]).',
 'exportall' => 'Exportar todas as páginas',
@@ -3107,7 +3118,7 @@ Utilize o botão "Antever resultado" antes de gravar, por favor.',
 'tooltip-p-logo' => 'Visite a página principal',
 'tooltip-n-mainpage' => 'Visitar a página principal',
 'tooltip-n-mainpage-description' => 'Visitar a página principal',
-'tooltip-n-portal' => 'Sobre o projecto',
+'tooltip-n-portal' => 'Sobre o projeto, o que se pode fazer e onde achar as coisas',
 'tooltip-n-currentevents' => 'Informação temática sobre acontecimentos atuais',
 'tooltip-n-recentchanges' => 'A lista de mudanças recentes nesta wiki.',
 'tooltip-n-randompage' => 'Carregar página aleatória',
@@ -3127,7 +3138,7 @@ Utilize o botão "Antever resultado" antes de gravar, por favor.',
 'tooltip-ca-nstab-media' => 'Ver a página de media',
 'tooltip-ca-nstab-special' => 'Esta é uma página especial, não pode ser editada.',
 'tooltip-ca-nstab-project' => 'Ver a página de projeto',
-'tooltip-ca-nstab-image' => 'Ver a página de ficheiro',
+'tooltip-ca-nstab-image' => 'Ver a página do arquivo',
 'tooltip-ca-nstab-mediawiki' => 'Ver a mensagem de sistema',
 'tooltip-ca-nstab-template' => 'Ver a predefinição',
 'tooltip-ca-nstab-help' => 'Ver a página de ajuda',
@@ -3200,13 +3211,13 @@ Este bloqueio foi provavelmente causado por um link para um site externo que con
 'pageinfo-length' => 'Tamanho da página (em bytes)',
 'pageinfo-article-id' => 'ID da página',
 'pageinfo-language' => 'Idioma do conteúdo da página',
-'pageinfo-robot-policy' => 'Estado para mecanismos de pesquisa',
-'pageinfo-robot-index' => 'Indexável',
-'pageinfo-robot-noindex' => 'Não indexável',
+'pageinfo-robot-policy' => 'Indexação por robôs',
+'pageinfo-robot-index' => 'Permitida',
+'pageinfo-robot-noindex' => 'Não permitida',
 'pageinfo-views' => 'Número de visitas',
 'pageinfo-watchers' => 'Número de vigilantes da página',
 'pageinfo-few-watchers' => 'Menos do que $1 {{PLURAL:$1|vigilante|vigilantes}}',
-'pageinfo-redirects-name' => 'Redirecionamentos para esta página',
+'pageinfo-redirects-name' => 'Número de redirecionamentos para esta página',
 'pageinfo-subpages-name' => 'Subpáginas desta página',
 'pageinfo-subpages-value' => '$1 ($2 {{PLURAL:$2|redirecionamento|redirecionamentos}}; $3 {{PLURAL:$3|não-redirecionamento|não-redirecionamentos}})',
 'pageinfo-firstuser' => 'Criador da página',
@@ -3306,7 +3317,7 @@ Executá-lo poderá comprometer a segurança do seu sistema.",
 'newimages-label' => 'Nome de ficheiro (ou parte dele):',
 'showhidebots' => '($1 robôs)',
 'noimages' => 'Nada para ver.',
-'ilsubmit' => 'Procurar',
+'ilsubmit' => 'Pesquisar',
 'bydate' => 'por data',
 'sp-newimages-showfrom' => 'Mostrar novos ficheiros a partir das $2 de $1',
 
@@ -3344,7 +3355,7 @@ Quaisquer outros links nessa mesma linha são considerados excepções (ou seja,
 # Metadata
 'metadata' => 'Metadados',
 'metadata-help' => 'Este ficheiro contém informação adicional, provavelmente acrescentada pela câmara digital ou pelo digitalizador usados para criá-lo.
-Caso o ficheiro tenha sido modificado a partir do seu estado original, alguns detalhes poderão não reflectir completamente as mudanças efectuadas.',
+Caso o ficheiro tenha sido modificado a partir do seu estado original, alguns detalhes poderão não refletir completamente as mudanças efetuadas.',
 'metadata-expand' => 'Mostrar detalhes adicionais',
 'metadata-collapse' => 'Esconder detalhes adicionais',
 'metadata-fields' => 'Os campos de metadados de imagens listados nesta mensagem serão incluídos na página de descrição da imagem quando a tabela de metadados estiver recolhida. Por omissão, outros campos estarão ocultos.
@@ -3458,10 +3469,10 @@ Caso o ficheiro tenha sido modificado a partir do seu estado original, alguns de
 'exif-gpsdop' => 'Precisão da medição',
 'exif-gpsspeedref' => 'Unidade da velocidade',
 'exif-gpsspeed' => 'Velocidade do receptor GPS',
-'exif-gpstrackref' => 'Referência para a direcção do movimento',
-'exif-gpstrack' => 'Direcção do movimento',
-'exif-gpsimgdirectionref' => 'Referência para a direcção da imagem',
-'exif-gpsimgdirection' => 'Direcção da imagem',
+'exif-gpstrackref' => 'Referência para a direção do movimento',
+'exif-gpstrack' => 'Direção do movimento',
+'exif-gpsimgdirectionref' => 'Referência para a direção da imagem',
+'exif-gpsimgdirection' => 'Direção da imagem',
 'exif-gpsmapdatum' => 'Utilizados dados do estudo Geodetic',
 'exif-gpsdestlatituderef' => 'Referência para a latitude do destino',
 'exif-gpsdestlatitude' => 'Latitude do destino',
@@ -3547,7 +3558,7 @@ Caso o ficheiro tenha sido modificado a partir do seu estado original, alguns de
 'exif-compression-4' => 'CCITT Grupo 4 codificação de fax',
 
 'exif-copyrighted-true' => 'Direitos de autor reservados',
-'exif-copyrighted-false' => 'Domínio público',
+'exif-copyrighted-false' => 'Situação dos direitos autorais não definida',
 
 'exif-unknowndate' => 'Data desconhecida',
 
@@ -3630,7 +3641,7 @@ Caso o ficheiro tenha sido modificado a partir do seu estado original, alguns de
 
 'exif-filesource-3' => 'Câmara fotográfica digital',
 
-'exif-scenetype-1' => 'Imagem fotografada directamente',
+'exif-scenetype-1' => 'Imagem fotografada diretamente',
 
 'exif-customrendered-0' => 'Processo normal',
 'exif-customrendered-1' => 'Processo personalizado',
@@ -3709,8 +3720,8 @@ Caso o ficheiro tenha sido modificado a partir do seu estado original, alguns de
 'exif-objectcycle-b' => 'De manhã e à tarde/noite',
 
 # Pseudotags used for GPSTrackRef, GPSImgDirectionRef and GPSDestBearingRef
-'exif-gpsdirection-t' => 'Direcção real',
-'exif-gpsdirection-m' => 'Direcção magnética',
+'exif-gpsdirection-t' => 'Direção real',
+'exif-gpsdirection-m' => 'Direção magnética',
 
 'exif-ycbcrpositioning-1' => 'Centradas',
 'exif-ycbcrpositioning-2' => 'Co-localizadas',
@@ -3801,31 +3812,31 @@ $5
 
 Este código de confirmação expira a $4.',
 'confirmemail_body_changed' => 'Alguém, provavelmente você a partir do endereço IP $1,
-alterou o endereço de correio electrónico da conta "$2" para este na {{SITENAME}}.
+alterou o endereço de correio eletrónico da conta "$2" para este na {{SITENAME}}.
 
-Para confirmar que esta conta é realmente sua e reactivar
-as funcionalidades de correio electrónico na {{SITENAME}},
+Para confirmar que esta conta é realmente sua e reativar
+as funcionalidades de correio eletrónico na {{SITENAME}},
 abra o seguinte link no seu browser:
 
 $3
 
 Caso a conta *não* lhe pertença, abra o seguinte link
-para cancelar a confirmação do endereço de correio electrónico:
+para cancelar a confirmação do endereço de correio eletrónico:
 
 $5
 
 Este código de confirmação expira a $4.',
 'confirmemail_body_set' => 'Alguém, provavelmente você a partir do endereço IP $1,
-definiu o seu endereço de correio electrónico como correio da conta "$2" na {{SITENAME}}.
+definiu o seu endereço de correio eletrónico como correio da conta "$2" na {{SITENAME}}.
 
-Para confirmar que esta conta é realmente sua e reactivar
-as funcionalidades de correio electrónico na {{SITENAME}},
+Para confirmar que esta conta é realmente sua e reativar
+as funcionalidades de correio eletrónico na {{SITENAME}},
 abra o seguinte link no seu browser:
 
 $3
 
 Caso a conta *não* lhe pertença, abra o seguinte link
-para cancelar a confirmação do endereço de correio electrónico:
+para cancelar a confirmação do endereço de correio eletrónico:
 
 $5
 
@@ -3933,15 +3944,15 @@ Também pode [[Special:EditWatchlist|editar a lista da maneira convencional]].',
 'version' => 'Versão',
 'version-extensions' => 'Extensões instaladas',
 'version-specialpages' => 'Páginas especiais',
-'version-parserhooks' => "''Hooks'' do analisador sintáctico",
+'version-parserhooks' => "''Hooks'' do analisador sintático",
 'version-variables' => 'Variáveis',
 'version-antispam' => 'Prevenção contra spam',
 'version-skins' => 'Temas',
 'version-other' => 'Diversos',
 'version-mediahandlers' => 'Leitura e tratamento de multimédia',
 'version-hooks' => 'Hooks',
-'version-parser-extensiontags' => 'Extensões do analisador sintáctico',
-'version-parser-function-hooks' => "''Hooks'' das funções do analisador sintáctico",
+'version-parser-extensiontags' => 'Extensões do analisador sintático',
+'version-parser-function-hooks' => "''Hooks'' das funções do analisador sintático",
 'version-hook-name' => 'Nome do hook',
 'version-hook-subscribedby' => 'Subscrito por',
 'version-version' => '(Versão $1)',
@@ -3977,11 +3988,11 @@ Em conjunto com este programa deve ter recebido [{{SERVER}}{{SCRIPTPATH}}/COPYIN
 'fileduplicatesearch' => 'Ficheiros duplicados',
 'fileduplicatesearch-summary' => "Procure ficheiros duplicados tendo por base o seu resumo criptográfico ''(hash value)''.",
 'fileduplicatesearch-legend' => 'Procurar duplicados',
-'fileduplicatesearch-filename' => 'Ficheiro:',
-'fileduplicatesearch-submit' => 'Procurar',
+'fileduplicatesearch-filename' => 'Nome do arquivo:',
+'fileduplicatesearch-submit' => 'Pesquisar',
 'fileduplicatesearch-info' => '$1 × $2 pixels<br />Tamanho: $3<br />tipo MIME: $4',
-'fileduplicatesearch-result-1' => 'O ficheiro "$1" não possui cópias idênticas.',
-'fileduplicatesearch-result-n' => 'O ficheiro "$1" possui {{PLURAL:$2|uma cópia idêntica|$2 cópias idênticas}}.',
+'fileduplicatesearch-result-1' => 'O arquivo "$1" não possui cópias idênticas.',
+'fileduplicatesearch-result-n' => 'O arquivo "$1" possui {{PLURAL:$2|uma cópia idêntica|$2 cópias idênticas}}.',
 'fileduplicatesearch-noresults' => 'Não foi encontrado nenhum ficheiro com o nome "$1".',
 
 # Special:SpecialPages
@@ -4009,7 +4020,7 @@ Em conjunto com este programa deve ter recebido [{{SERVER}}{{SCRIPTPATH}}/COPYIN
 # External image whitelist
 'external_image_whitelist' => ' # Deixe esta linha exatamente como ela está<pre>
 # Coloque fragmentos de expressões regulares (apenas a parte entre //) abaixo
-# Estas serão comparadas com as URLs das imagens externas (com link directo)
+# Estas serão comparadas com as URLs das imagens externas (com link direto)
 # As que corresponderem serão apresentadas como imagens, caso contrário apenas será apresentado um link para a imagem
 # As linhas que começam com um símbolo de cardinal (#) são tratadas como comentários
 # Esta lista não distingue maiúsculas de minúsculas
@@ -4048,7 +4059,7 @@ Em conjunto com este programa deve ter recebido [{{SERVER}}{{SCRIPTPATH}}/COPYIN
 'dberr-again' => 'Experimente esperar alguns minutos e atualizar.',
 'dberr-info' => '(Não foi possível contactar o servidor da base de dados: $1)',
 'dberr-usegoogle' => 'Pode tentar pesquisar no Google entretanto.',
-'dberr-outofdate' => 'Note que os seus índices relativos ao nosso conteúdo podem estar desactualizados.',
+'dberr-outofdate' => 'Note que os seus índices relativos ao nosso conteúdo podem estar desatualizados.',
 'dberr-cachederror' => 'A seguinte página é uma cópia em cache da página pedida e pode não estar atualizada.',
 
 # HTML forms
@@ -4064,7 +4075,7 @@ Em conjunto com este programa deve ter recebido [{{SERVER}}{{SCRIPTPATH}}/COPYIN
 'htmlform-selectorother-other' => 'Outros',
 'htmlform-no' => 'Não',
 'htmlform-yes' => 'Sim',
-'htmlform-chosen-placeholder' => 'Seleccione uma opção',
+'htmlform-chosen-placeholder' => 'Selecione uma opção',
 
 # SQLite database support
 'sqlite-has-fts' => '$1 com suporte de pesquisa de texto completo',
@@ -4181,5 +4192,10 @@ Caso contrário, pode facilmente usar o formulário abaixo. O seu comentário se
 
 # Image rotation
 'rotate-comment' => 'Imagem rodada em $1 {{PLURAL:$1|grau|graus}} no sentido dos ponteiros do relógio',
+
+# Limit report
+'limitreport-cputime-value' => '$1 {{PLURAL:$1|segundo|segundos}}',
+'limitreport-postexpandincludesize-value' => '$1/$2 bytes',
+'limitreport-templateargumentsize-value' => '$1/$2 bytes',
 
 );

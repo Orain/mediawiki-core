@@ -432,23 +432,27 @@
 				$link.attr( 'accesskey', accesskey );
 			}
 
-			// Where to put our node ?
-			// - nextnode is a DOM element (was the only option before MW 1.17, in wikibits.js)
-			if ( nextnode && nextnode.parentNode === $ul[0] ) {
-				$( nextnode ).before( $item );
-
-			// - nextnode is a CSS selector for jQuery
-			} else if ( typeof nextnode === 'string' && $ul.find( nextnode ).length !== 0 ) {
-				$ul.find( nextnode ).eq( 0 ).before( $item );
-
-			// If the jQuery selector isn't found within the <ul>,
-			// or if nextnode was invalid or not passed at all,
-			// then just append it at the end of the <ul> (this is the default behavior)
-			} else {
-				$ul.append( $item );
+			if ( nextnode ) {
+				if ( nextnode.nodeType || typeof nextnode === 'string' ) {
+					// nextnode is a DOM element (was the only option before MW 1.17, in wikibits.js)
+					// or nextnode is a CSS selector for jQuery
+					nextnode = $ul.find( nextnode );
+				} else if ( !nextnode.jquery || nextnode[0].parentNode !== $ul[0] ) {
+					// Fallback
+					$ul.append( $item );
+					return $item[0];
+				}
+				if ( nextnode.length === 1 ) {
+					// nextnode is a jQuery object that represents exactly one element
+					nextnode.before( $item );
+					return $item[0];
+				}
 			}
 
+			// Fallback (this is the default behavior)
+			$ul.append( $item );
 			return $item[0];
+
 		},
 
 		/**

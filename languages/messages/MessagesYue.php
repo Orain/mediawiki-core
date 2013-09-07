@@ -264,7 +264,6 @@ $messages = array(
 'tog-shownumberswatching' => '顯示有幾多人監視',
 'tog-oldsig' => '原有簽名嘅預覽：',
 'tog-fancysig' => '將簽名以維基字對待（冇自動連結）',
-'tog-showjumplinks' => '啟用 "跳至" 協助連結',
 'tog-uselivepreview' => '用即時預覽（需要JavaScript）（實驗緊）',
 'tog-forceeditsummary' => '我冇入修改註解時通知我',
 'tog-watchlisthideown' => '響監視清單度隱藏我嘅編輯',
@@ -279,6 +278,7 @@ $messages = array(
 'tog-noconvertlink' => '唔轉連結標題',
 'tog-norollbackdiff' => '進行反轉之後略過差異',
 'tog-useeditwarning' => '當我離開未保存好嘅修改嗰陣警告我',
+'tog-prefershttps' => '簽到後繼續用加密連線',
 
 'underline-always' => '全部',
 'underline-never' => '永不',
@@ -543,17 +543,6 @@ $1',
 # General errors
 'error' => '錯誤',
 'databaseerror' => '資料庫錯誤',
-'dberrortext' => '資料庫查詢語法錯咗。
-咁係可能指出軟件中可能有臭蟲。
-最後一次資料庫嘅嘗試係：
-<blockquote><tt>$1</tt></blockquote>
-於 "<tt>$2</tt>" 功能中。
-數據庫嘅錯誤回應 "<tt>$3: $4</tt>"。',
-'dberrortextcl' => '資料庫查詢語法錯咗。
-最後一次資料庫嘅嘗試係：
-"$1"
-於 "$2"功能中。
-數據庫嘅錯誤回應 "$3: $4"',
 'laggedslavemode' => '警告：呢頁可能未包括最新嘅更新。',
 'readonly' => '資料庫鎖咗',
 'enterlockreason' => '輸入鎖資料庫嘅原因，同埋預計幾耐後會解鎖',
@@ -599,7 +588,6 @@ $1',
 'viewsourcetext' => '你可以睇吓或者複製呢一頁嘅原始碼：',
 'protectedinterface' => '呢一頁提供軟件嘅介面文字，呢一頁已經保護咗以預防濫用。',
 'editinginterface' => "'''警告：'''你而家編輯緊嘅呢一個用嚟提供介面文字嘅頁面。響呢一頁嘅更改會影響到其他用戶使用中嘅介面外觀。要翻譯，請考慮利用[//translatewiki.net/wiki/Main_Page?setlang=yue translatewiki.net]，一個用來為MediaWiki軟件本地化嘅計劃。",
-'sqlhidden' => '(SQL 查詢隱藏)',
 'cascadeprotected' => '呢一版已經保護咗唔能夠編輯，因為佢係響以下嘅{{PLURAL:$1|一|幾}}頁度包含咗，當中啟用咗"連串"保護選項來保護嗰一版: $2',
 'namespaceprotected' => "你無權編輯響'''$1'''空間名裏面嘅呢一版。",
 'ns-specialprotected' => '特別頁係唔可以編輯嘅。',
@@ -619,7 +607,6 @@ $1',
 'yourpassword' => '密碼:',
 'yourpasswordagain' => '再輸入密碼:',
 'remembermypassword' => '響呢個瀏覽器度記住我嘅登入資料 (最高維持$1{{PLURAL:$1|日|日}})',
-'securelogin-stick-https' => '登入後繼續以HTTPS連接',
 'yourdomainname' => '你嘅網域:',
 'externaldberror' => '驗證資料庫出錯，或者唔允許你更新你嘅外部帳戶。',
 'login' => '登入',
@@ -708,7 +695,7 @@ $1',
 'newpassword' => '新密碼:',
 'retypenew' => '打多次新密碼:',
 'resetpass_submit' => '設定密碼同登入',
-'resetpass_success' => '你嘅密碼已經成功噉改咗！
+'changepassword-success' => '你嘅密碼已經成功噉改咗！
 而家幫你登入緊...',
 'resetpass_forbidden' => '唔可以更改密碼',
 'resetpass-no-info' => '你一定要登入咗去直接入來呢一版。',
@@ -1203,9 +1190,6 @@ $1",
 'recentchangesdays-max' => '最多 $1 日',
 'recentchangescount' => '預設顯示嘅編輯數：',
 'prefs-help-recentchangescount' => '呢個包埋最近修改、頁歷史同埋日誌紀錄。',
-'prefs-help-watchlist-token' => '響呢欄加入一個秘密匙會生成一個對你監視清單嘅RSS源。
-任何一位知道響呢個欄位嘅匙會睇到你嘅監視清單，請揀一個安全嘅值。
-呢度有一個任意生成嘅值，你係可以去揀嘅: $1',
 'savedprefs' => '你嘅喜好設定已經儲存。',
 'timezonelegend' => '時區:',
 'localtime' => '本地時間:',

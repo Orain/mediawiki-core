@@ -72,7 +72,6 @@ $messages = array(
 'tog-shownumberswatching' => "Mussar il dumber d'utilisaders che obervan questa pagina",
 'tog-oldsig' => 'Signatura actuala:',
 'tog-fancysig' => "Suttascripziun senza link automatic tar la pagina da l'utilisader.",
-'tog-showjumplinks' => 'Activar las colliaziuns "seglir a"',
 'tog-uselivepreview' => 'Utilisar la prevista dinamica (basegna JavaScript) (experiment!)',
 'tog-forceeditsummary' => 'Avertir durant memoriar sche la resumaziun manca',
 'tog-watchlisthideown' => "Zuppentar mias modificaziuns en la glista d'observaziun",
@@ -359,17 +358,6 @@ Ina glista da las paginas spezialas existentas chattais vus sut [[Special:Specia
 # General errors
 'error' => 'Errur',
 'databaseerror' => 'Sbagl da la datoteca',
-'dberrortext' => 'In sbagl da la sintaxa da la dumonda a la banca da datas è capità.
-Quai po esser in sbagl en la software.
-L\'ultima dumonda per la banca da datas era:
-<blockquote><code>$1</code></blockquote>
-ord la funcziun "<code>$2</code>".
-La banca da datas ha rapportà l\'errur "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'In sbagl da la sintaxa da la dumonda a la banca da datas è capità.
-L\'ultima dumonda per la banca da datas era:
-"$1"
-ord la funcziun "$2".
-La banca da datas ha rapportà l\'errur "$3: $4"',
 'laggedslavemode' => 'Attenziun: La pagina mussada na cuntign eventualmain betg anc las ultimas midadas.',
 'readonly' => 'Banca da datas bloccada',
 'enterlockreason' => 'Inditgescha ina raschun per la bloccada da la banca da datas ed il temp cura che ti quintas che la bloccada po vegnir annullada',
@@ -425,7 +413,6 @@ Emprova danovamain en in per minutas.',
 'editinginterface' => "'''Attenziun:''' Questa pagina cuntegna text che vegn duvra en la interfatscha da questa software. 
 Midadas influenzeschan directamain l'interfatscha per tut ils utilisaders sin questa vichi. 
 Sche ti vuls far translaziuns u correcturas per tut las vichis, lura utilisescha [//translatewiki.net/ translatewiki.net], il project per translatar MediaWiki.",
-'sqlhidden' => '(Zuppentà la dumonda da SQL)',
 'cascadeprotected' => "Questa pagina è protegida da modificaziuns perquai ch'ella è integrada en suandanta{{PLURAL:$1| pagina, ch'è protegida|s paginas, ch'èn protegidas}} entras l'opziun «protecziun ertada»: 
 $2",
 'namespaceprotected' => "Ti n'has betg la lubientscha da modifitgar paginas dal tip da pagina '''$1'''.",
@@ -458,7 +445,6 @@ N'emblida betg da midar tias [[Special:Preferences|{{SITENAME}} preferenzas]].",
 'yourpassword' => 'pled-clav',
 'yourpasswordagain' => 'repeter pled-clav',
 'remembermypassword' => "S'annunziar permanantamain sin quest computer (per maximalmain $1 {{PLURAL:$1|di|dis}})",
-'securelogin-stick-https' => "Restar collià entras HTTPS suenter l'annunzia",
 'yourdomainname' => 'Vossa domain',
 'password-change-forbidden' => 'Ti na pos betg midar pleds-clav sin quest vichi.',
 'externaldberror' => "U ch'i è capità ina errur cun l'autentificaziun externa u che ti na dastgas betg actualisar tes conto extern.",
@@ -559,7 +545,7 @@ Per finir da t'annunziar stos ti definir qua in nov pled-clav:",
 'newpassword' => 'pled-clav nov:',
 'retypenew' => 'repeter pled-clav nov:',
 'resetpass_submit' => "Definir il pled clav e m'annunziar",
-'resetpass_success' => 'Tes pled-clav è vegnì midà cun success. 
+'changepassword-success' => 'Tes pled-clav è vegnì midà cun success. 
 Ti vegns annunzià…',
 'resetpass_forbidden' => 'Il pled-clav na po betg vegnir midà',
 'resetpass-no-info' => "Ti stos t'annunziar per acceder directamain questa pagina.",
@@ -1149,9 +1135,6 @@ Considerescha che lur index da {{SITENAME}} po cuntegnair datas ch'èn betg pli 
 'recentchangesdays-max' => 'Maximalmain $1 {{PLURAL:$1|di|dis}}',
 'recentchangescount' => 'Dumber da modificaziuns che duai vegnir mussà sco standard:',
 'prefs-help-recentchangescount' => 'Quai cumpiglia las ultimas midadas, la cronologia da paginas ed ils protocols.',
-'prefs-help-watchlist-token' => "Emplenir quest champ cun ina clav secreta vegn a generar in feed RSS per tia glista d'observaziun.
-Mintgin che enconuscha questa clav vegn ad esser abel da leger tia glista d'observaziun, tscherna pia ina clav segira.
-Qua è ina valur casuali che ti pos utilisar: $1",
 'savedprefs' => 'Tias preferenzas èn vegnidas memorisadas.',
 'timezonelegend' => "Zona d'urari:",
 'localtime' => 'Temp local:',

@@ -383,7 +383,6 @@ $messages = array(
 'tog-enotifrevealaddr' => 'E-poştamnıñ mekenjaýın eskertw xattarda aş',
 'tog-shownumberswatching' => 'Baqılap turğan qatıswşılardıñ sanın körset',
 'tog-fancysig' => 'Qam qoltañba (özdiktik siltemesiz)',
-'tog-showjumplinks' => '«Ötip ketw» qatınaw siltemelerin qos',
 'tog-uselivepreview' => 'Twra qarap şığwdı qoldanw (JavaScript) (Sınaqtama)',
 'tog-forceeditsummary' => 'Öñdemeniñ qısqaşa mazmundaması bos qalğanda mağan eskert',
 'tog-watchlisthideown' => 'Öñdemelerimdi baqılaw tizimnen jasır',
@@ -615,17 +614,6 @@ Jaramdı arnaýı bet tizimin [[{{#special:Specialpages}}|{{int:specialpages}}]]
 # General errors
 'error' => 'Qate',
 'databaseerror' => 'Derekqor qatesi',
-'dberrortext' => 'Derekqor suranımında söýlem jüýesiniñ qatesi boldı.
-Bul bağdarlamalıq jasaqtama qatesin belgilewi mümkin.
-Soñğı bolğan derekqor suranımı:
-<blockquote><tt>$1</tt></blockquote>
-mına jeteden «<tt>$2</tt>».
-MySQL qaýtarğan qatesi «<tt>$3: $4</tt>».',
-'dberrortextcl' => 'Derekqor suranımında söýlem jüýesiniñ qatesi boldı.
-Soñğı bolğan derekqor suranımı:
-«$1»
-mına jeteden: «$2».
-MySQL qaýtarğan qatesi «$3: $4»',
 'laggedslavemode' => 'Qulaqtandırw: Bette jwıqtağı jañalawlar bolmawı mümkin.',
 'readonly' => 'Derekqorı qulıptalğan',
 'enterlockreason' => 'Qulıptaw sebebin, qaý waqıtqa deýin qulıptalğanın kiristirip, engiziñiz',
@@ -673,7 +661,6 @@ Birneşe mïnöttan qaýta baýqap köriñiz.',
 'editinginterface' => "'''Qulaqtandırw:''' Bağdarlamalıq jasaqtamanıñ tildesw mätinin jetistiretin betin öñdep jatırsız.
 Bul bettiñ özgertwi basqa qatıswşılarğa paýdalanwşılıq tildeswi qalaý körinetine äser etedi.
 Awdarmalar üşin, MediaWiki bağdarlamasın jersindirw [//translatewiki.net/wiki/Main_Page?setlang=kk translatewiki.net jobası] arqılı qarap şeşiñiz.",
-'sqlhidden' => '(SQL suranımı jasırılğan)',
 'cascadeprotected' => 'Bul bet öñdewden qorğalğan, sebebi bul kelesi «bawlı qorğawı» qosılğan {{PLURAL:$1|bettiñ|betterdiñ}} kirikbeti:
 $2',
 'namespaceprotected' => "'''$1''' esim ayasındağı betterdi öñdew üşin ruqsatıñız joq.",
@@ -772,7 +759,7 @@ Kirwiñizdi bitirw üşin, jaña qupïya söziñizdi mında engizwiñiz jön:',
 'newpassword' => 'Jaña qupïya söziñiz:',
 'retypenew' => 'Jaña qupïya söziñizdi qaýtalañız:',
 'resetpass_submit' => 'Qupïya sözdi qoýıñız da kiriñiz',
-'resetpass_success' => 'Qupïya söziñiz sätti özgertildi! Endi kiriñiz…',
+'changepassword-success' => 'Qupïya söziñiz sätti özgertildi! Endi kiriñiz…',
 'resetpass_forbidden' => '{{SITENAME}} jobasında qupïya sözder özgertilmeýdi',
 
 # Edit page toolbar

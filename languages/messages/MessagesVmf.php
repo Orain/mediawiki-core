@@ -9,6 +9,7 @@
  *
  * @author Altaileopard
  * @author Matma Rex
+ * @author Midnight Gambler
  * @author Silvicola
  */
 
@@ -94,6 +95,8 @@ $messages = array(
 'tog-showhiddencats' => 'Fârschdegde ghadegoriin dsajchn',
 
 # Dates
+'sunday' => 'Sundooch',
+'sun' => 'Su',
 'january' => 'Januaar',
 'february' => 'Feebruaar',
 'march' => 'Märds',
@@ -144,7 +147,7 @@ $messages = array(
 
 'newwindow' => '(Wärd in am najn fenschdâ daargschdeld)',
 'cancel' => 'Abbrechn',
-'mytalk' => 'Mâj disghusjoonssajdn',
+'mytalk' => 'Disghusjoonssajdn',
 'navigation' => 'Nawigadsjoon',
 'and' => '&#32;un',
 
@@ -303,16 +306,6 @@ S'ghend aa â brogramiirfäälâr in dr sofdwäâr sâj, dii baj {{SITENAME}} le
 # General errors
 'error' => 'Feelâr',
 'databaseerror' => 'Feelâr fon dr Daadnbangg',
-'dberrortext' => 'Bam abfrôôchn fon dr daadnbangg is was schiif gangn.
-Filajchd weechn am brogramiir-feelâr?
-Jeednfals wôôr di ledsd abfrôôchn:
-<blockquote><tt>$1</tt></blockquote>
-aus dr fungdsjoon „<tt>$2</tt>“.
-Un dôôdruf had dan di daadnbangg den feelâr „<tt>$3: $4</tt>“ gmeld.',
-'dberrortextcl' => 'Dii daadnbangg-abfrôôchn wôôr falsch gschriiwn.
-Di abfrôôchn wôôr neemlich
-<blockquote><tt>$1</tt></blockquote>
-aus dr fungdsjoon "<tt>$2</tt>". Un dôôdruf had dan di daadnbangg den feelâr „$3: $4“ gmeld.',
 'laggedslavemode' => "'''Achdung:''' Filajchd dsajchd dii sajdn noch ned ales, was indswischn gändârd wôrn is.",
 'readonly' => 'Di daadnbangg is gschbärd.',
 'enterlockreason' => 'Bide schrajb, wisoo dii daadnbangg gschbärd wärn sol, un wi lang des dan dauârn mechd.',
@@ -338,7 +331,9 @@ Wen's des ned is, bisd womeeglich iwa ân feela in dr sofdwäâr gschdolbäd. In
 'logout' => 'Abmeldn',
 'userlogout' => 'Abmeldn',
 'nologinlink' => 'Sich als najâr Ôôgmeldâr ôômäldn',
+'gotaccountlink' => 'Ôômeldn',
 'mailmypassword' => 'Â najs passwôrd iwâr iimejl dsuschign lasn',
+'loginlanguagelabel' => 'Sproch: $1',
 
 # Edit page toolbar
 'bold_sample' => 'Dägsd in fäd',
@@ -481,7 +476,7 @@ Hirmid sagsd, das Du den dhägsd '''selbâr gschriim''' hasd, das däär dhägsd
 
 # Preferences page
 'preferences' => 'ajschdelunga',
-'mypreferences' => 'Maj ajschdelunga',
+'mypreferences' => 'Ajschdelunga',
 'prefs-edits' => 'So ofd umgmoodld:',
 'prefsnologin' => 'Ned ôôgmäld',
 'prefsnologintext' => 'Ärschd wen\'d <span class="plainlinks">[{{fullurl:{{#special:UserLogin}}|returnto=$1}} ôôgmäld]</span> bisch, ghôôsch dâj âjschdelungn ändârn.',
@@ -530,6 +525,7 @@ Hirmid sagsd, das Du den dhägsd '''selbâr gschriim''' hasd, das däär dhägsd
 'timezoneregion-indian' => 'Indischâr oodseaan',
 'timezoneregion-pacific' => 'Bhadsiifischâr Oodseaan',
 'allowemail' => 'Iimejl-embfang fon andrâ ôôschdeln',
+'youremail' => 'E-mail:',
 
 # Groups
 'group-sysop' => 'Adminisdradoorn',
@@ -550,6 +546,7 @@ Hirmid sagsd, das Du den dhägsd '''selbâr gschriim''' hasd, das däär dhägsd
 'recentchanges' => 'ledsde änderunga',
 'recentchanges-legend' => 'Âjschdelunga, wii di ledsdn ändrunga dsajchd wärn solln',
 'recentchanges-feed-description' => 'Fârfolch mid dem Fiid dii ledsdn ändrungn in {{SITENAME}}.',
+'recentchanges-label-minor' => 'Blos a weng wôs is gändârd wôrn',
 'rcnote' => "Des {{Plural:$1|is dii aane ändrung|sin dii '''$1''' ändrunga}}, dii in di {{Plural:$2|ledsdn 24 schdundn|ledsdn '''$2''' doochn}} gmachd wôrn {{Plural:$1|is|sin}}. Schdand is fom $4, $5 uur.",
 'rclistfrom' => 'Bloos di ändrunga dsajchn sajd $1',
 'rcshowhideminor' => 'Glenâre Ändrungn $1',
@@ -570,6 +567,7 @@ Hirmid sagsd, das Du den dhägsd '''selbâr gschriim''' hasd, das däär dhägsd
 
 # Recent changes linked
 'recentchangeslinked' => 'Ändärunga af sajdn, af dii fo hiir fârwiisn wäd',
+'recentchangeslinked-toolbox' => 'Ändärunga af sajdn, af dii fo hiir fârwiisn wäd',
 'recentchangeslinked-title' => 'Ändrunga an sajdn, af dii fo „$1“ aus fârwiisn wärd.',
 'recentchangeslinked-summary' => "Dii sôndârsajdn fiird di ledsdn ändrunga fon sajdn af, dii wo an däär hiir drôôhänga. Alles, was de dâfoo in daj [[Special:Watchlist|beoobachdunglisdn]] aufgnumma hasd, wäd aa no '''fäd''' ôôdsajchd.",
 'recentchangeslinked-page' => 'Sajdn:',
@@ -581,6 +579,7 @@ Hirmid sagsd, das Du den dhägsd '''selbâr gschriim''' hasd, das däär dhägsd
 'uploadedimage' => 'had „[[$1]]“ naufglôôdn',
 
 # File description page
+'file-anchor-link' => 'Dadhaj',
 'filehist' => 'Wärsjoona bis eds',
 'filehist-help' => 'Glig af ân dsajdbhungd, um dii dôômôôliche fasung ôôdsuschaua',
 'filehist-current' => 'agduäl',
@@ -646,7 +645,7 @@ S'gajd awâr aa â [[Special:WhatLinksHere/$2|lisdn mid alâ fârwajs]].",
 
 # Watchlist
 'watchlist' => 'Maj beoobachdungs-lisdn',
-'mywatchlist' => 'Mâj beoobachdungslisdn',
+'mywatchlist' => 'Beoobachdungslisdn',
 'addedwatchtext' => "Di sajdn „[[:$1]]“ schdäd eds mid af dajnâr [[Special:Watchlist|beoobachdungs-lisdn]] .
 
 Wen sich af der sajdn oda iirâr disghusjoons-sajdn was duud, wärd se ab eds
@@ -721,7 +720,7 @@ Wenns'd dii sajdn irchendwan amôl nimä fârfolchn wilsd, musd bloos af „{{in
 # Contributions
 'contributions' => 'Ajchne bajdrääch',
 'contributions-title' => 'Bajdrääch fo „$1“',
-'mycontris' => 'Maj bajdreech',
+'mycontris' => 'Bajdreech',
 'contribsub2' => 'Fär $1 ($2)',
 'uctop' => '(ledsdâr schdand)',
 'month' => 'bis moonad:',
@@ -729,6 +728,7 @@ Wenns'd dii sajdn irchendwan amôl nimä fârfolchn wilsd, musd bloos af „{{in
 
 'sp-contributions-newbies' => 'Bloos bajdrääch fo naj Ôôgmeldâ dsajchn',
 'sp-contributions-blocklog' => 'Schbär-brodoghol',
+'sp-contributions-talk' => 'Disghusjoon',
 'sp-contributions-search' => 'Bajdreech suchng',
 'sp-contributions-username' => 'IP-adresn odär nôômâ fom Ôôgmeldn:',
 'sp-contributions-submit' => 'Suchng',

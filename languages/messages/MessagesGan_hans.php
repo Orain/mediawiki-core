@@ -63,7 +63,6 @@ $messages = array(
 'tog-shownumberswatching' => '显示有几多人监视',
 'tog-oldsig' => '现有𠮶签名：',
 'tog-fancysig' => '搦签名以维基字对待（冇自动连结）',
-'tog-showjumplinks' => '启用“跳到”访问链接',
 'tog-uselivepreview' => '使用即时预览（JavaScript）（实验中）',
 'tog-forceeditsummary' => '冇改动注解时要同偶话',
 'tog-watchlisthideown' => '监视列表弆到偶𠮶编辑',
@@ -334,17 +333,6 @@ $1',
 # General errors
 'error' => '错误',
 'databaseerror' => '数据库错误',
-'dberrortext' => '数据库查询语法有错。
-可能系软件有错。
-最晏𠮶数据库指令系:
-<blockquote><tt>$1</tt></blockquote>
-来自函数 "<tt>$2</tt>"。
-MySQL回到错误 "<tt>$3: $4</tt>"。',
-'dberrortextcl' => '数据库查询语法有错。
-最晏𠮶数据库指令系:
-“$1”
-来自函数“$2”。
-MySQL回到错误“$3: $4”。',
 'laggedslavemode' => '警告：页面可能冇有新近内容。',
 'readonly' => '数据库上正锁啰',
 'enterlockreason' => '请输入锁到数据库𠮶理由，包括预计几时间解锁',
@@ -385,7 +373,6 @@ MySQL回到错误“$3: $4”。',
 'editinginterface' => "'''Warning:''' You are editing a page which is used to provide interface text for the software.
 Changes to this page will affect the appearance of the user interface for other users.
 For translations, please consider using [//translatewiki.net/wiki/Main_Page?setlang=en translatewiki.net], the MediaWiki localisation project.",
-'sqlhidden' => '（SQL 弆到𠮶查询）',
 'cascadeprotected' => '个页已拖保护，因为佢拖“联锁保护”𠮶{{PLURAL:$1|一只|几只}}拖保护页包到：
 $2',
 'namespaceprotected' => "倷冇权编写'''$1'''空间里度𠮶页面。",
@@ -465,7 +452,7 @@ $2',
 'newpassword' => '新密码：',
 'retypenew' => '确认密码:',
 'resetpass_submit' => '设定密码同到登入',
-'resetpass_success' => '倷𠮶密码改正喽！正帮倷登入...',
+'changepassword-success' => '倷𠮶密码改正喽！正帮倷登入...',
 'resetpass_forbidden' => '到{{SITENAME}}上改伓正密码',
 'resetpass-submit-loggedin' => '设过帐户密码',
 'resetpass-submit-cancel' => '取消',

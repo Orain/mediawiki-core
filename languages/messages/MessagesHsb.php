@@ -185,7 +185,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Ličbu wobkedźbowacych wužiwarjow pokazać',
 'tog-oldsig' => 'Eksistowaca signatura:',
 'tog-fancysig' => 'Ze signaturu kaž z wikitekstom wobchadźeć  (bjez awtomatiskeho wotkaza)',
-'tog-showjumplinks' => 'Wotkazy typa „dźi do” zmóžnić',
 'tog-uselivepreview' => 'Live-přehlad wužiwać (wužaduje sej JavaScript) (eksperimentalny)',
 'tog-forceeditsummary' => 'Mje skedźbnić, jeli zabudu zjeće',
 'tog-watchlisthideown' => 'Moje změny we wobkedźbowankach schować',
@@ -485,16 +484,6 @@ Płaćiwe specialne strony hodźa so pod [[Special:SpecialPages|lisćinu special
 # General errors
 'error' => 'Zmylk',
 'databaseerror' => 'Zmylk w datowej bance',
-'dberrortext' => 'Syntaktiski zmylk při wotprašowanju datoweje banki.
-To móhło zmylk w programje być. Poslednje spytane wotprašenje w datowej bance běše:
-<blockquote><code>$1</code></blockquote>
-z funkcije "<code>$2</code>".
-Datowa banka wróći zmylk "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Syntaktiski zmylk je we wotprašowanju datoweje banki wustupił.
-Poslednje wotprašenje w datowej bance běše:
-"$1"
-z funkcije "$2".
-Datowa banka wróći zmylk "$3: $4"',
 'laggedslavemode' => "'''Kedźbu:''' Je móžno, zo strona žane zaktualizowanja njewobsahuje.",
 'readonly' => 'Datowa banka je zawrjena',
 'enterlockreason' => 'Zapodaj přičinu za zawrjenje a přibližny čas, hdy budźe zawrjenje zběhnjene',
@@ -546,7 +535,6 @@ Wotprašenje: $2',
 'protectedinterface' => 'Tuta strona wobsahuje tekst za wužiwarski powjerch softwary na tutym wikiju a je škitana, zo by so znjewužiwanje zadźěwało.
 Zo by přełožki za wšě wikije přidał abo změnił, wužij prošu [//translatewiki.net/ translatewiki.net], projekt MediaWiki za lokalizaciju.',
 'editinginterface' => "'''Warnowanje:''' Wobdźěłuješ stronu, kotraž so wužiwa, zo by tekst za wužiwarski powjerch softwary k dispoziciji stajiła. Změny na stronje  wuskutkuja so na napohlad wužiwarskeho powjercha za druhich wužiwarjow na tutym wikiju. Zo by přełožki za wšě wikije přidał abo změnił, wužij prošu [//translatewiki.net/ translatewiki.net], projekt MediaWiki za lokalizaciju.",
-'sqlhidden' => '(SQL wotprašenje schowane)',
 'cascadeprotected' => 'Tuta strona je za wobdźěłowanje zawrjena, dokelž je w {{PLURAL:$1|slědowacej stronje|slědowacymaj stronomaj|slědowacych stronach|slědowacych stronach}} zapřijata, {{PLURAL:$1|kotraž je|kotrejž stej|kotrež su|kotrež su}} přez kaskadowu opciju {{PLURAL:$1|škitana|škitanej|škitane|škitane}}:
 $2',
 'namespaceprotected' => "Nimaš dowolnosć, zo by stronu w mjenowym rumje '''$1''' wobdźěłał.",
@@ -593,7 +581,6 @@ Njezabudź swoje [[Special:Preferences|nastajenja za {{GRAMMAR:akuzatiw|{{SITENA
 'remembermypassword' => 'Na tutym ličaku přizjewjeny wostać (za maksimalnje $1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})',
 'userlogin-remembermypassword' => 'Přizjewjeny wostać',
 'userlogin-signwithsecure' => 'Wěsty zwisk wužiwać',
-'securelogin-stick-https' => 'Po přizjewjenju z HTTPS zwjazany wostać',
 'yourdomainname' => 'Twoja domejna:',
 'password-change-forbidden' => 'Njemóžeš hesła na tutym wikiju změnić.',
 'externaldberror' => 'Běše pak eksterny zmylk awtentifikacije datoweje banki, pak njesměš swoje eksterne konto aktualizować.',
@@ -706,7 +693,7 @@ Móžeš tutu zdźělenku ignorować, jeli so wužiwarske konto zmylnje wutwori�
 'newpassword' => 'Nowe hesło:',
 'retypenew' => 'Nowe hesło wospjetować:',
 'resetpass_submit' => 'Hesło posrědkować a so přizjewić',
-'resetpass_success' => 'Twoje hesło bu wuspěšnje změnjene! Nětko přizjewjenje běži...',
+'changepassword-success' => 'Twoje hesło bu wuspěšnje změnjene! Nětko přizjewjenje běži...',
 'resetpass_forbidden' => 'Hesła njedadźa so změnić.',
 'resetpass-no-info' => 'Dyrbiš so přizjewić, zo by direktny přistup na tutu stronu měł.',
 'resetpass-submit-loggedin' => 'Hesło změnić',
@@ -1275,9 +1262,6 @@ Spytaj swoje naprašowanje z prefiksom ''all:'' wužiwać, zo by wšón wobsah (
 'recentchangesdays-max' => '(Maksimalnje $1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})',
 'recentchangescount' => 'Ličba stronow, kotraž ma so po standardźe pokazać:',
 'prefs-help-recentchangescount' => 'To zapřijima aktualne změny, stawizny stronow a protokole.',
-'prefs-help-watchlist-token' => 'Wupjelnjenje tutoho pola z tajnym klučom budźe RSS-kanal za twoje wobkedźbowanki wupłodźić.
-Něchtó, kiž kluč w tutym polu znaje, móže twoje wobkedźbowanki čitać, wubjer tohodla wěstu hódnotu.
-Tu je připadnje wupłodźena hódnota, kotruž móžeš wužiwać: $1',
 'savedprefs' => 'Nastajenja buchu składowane.',
 'timezonelegend' => 'Časowe pasmo:',
 'localtime' => 'Lokalny čas:',

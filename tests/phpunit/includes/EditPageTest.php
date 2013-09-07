@@ -9,7 +9,7 @@
  * @group medium
  *        ^--- tell phpunit that these test cases may take longer than 2 seconds.
  */
-class EditPageTest extends MediaWikiTestCase {
+class EditPageTest extends MediaWikiLangTestCase {
 
 	/**
 	 * @dataProvider provideExtractSectionTitle
@@ -233,7 +233,7 @@ class EditPageTest extends MediaWikiTestCase {
 			"",
 			"expected registered MediaWiki: page being created even if empty"
 		)->doDeleteArticleReal( 'EditPageTest_testCreatePage' );
-		
+
 		$this->assertEdit(
 			'MediaWiki:Ipb-default-expiry',
 			null,

@@ -263,7 +263,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Sýna fjölda vaktandi notenda',
 'tog-oldsig' => 'Núverandi undirskrift:',
 'tog-fancysig' => 'Meðhöndla undirskrift sem wikimál (án sjálfvirks tengils)',
-'tog-showjumplinks' => 'Virkja „stökkva á“ aðgengitengla',
 'tog-uselivepreview' => 'Nota beina forskoðun (JavaScript) (Á tilraunastigi)',
 'tog-forceeditsummary' => 'Birta áminningu þegar breytingarágripið er tómt',
 'tog-watchlisthideown' => 'Ekki sýna mínar breytingar á vaktlistanum',
@@ -564,17 +563,6 @@ Sjá [[Special:Version|útgáfusíðuna]].',
 # General errors
 'error' => 'Villa',
 'databaseerror' => 'Gagnagrunnsvilla',
-'dberrortext' => 'Málfræðivilla kom upp í gangagrnunsfyrirspurninni.
-Þetta gæti verið vegna villu í hugbúnaðinum.
-Síðasta gagnagrunnsfyrirspurnin var:
-<blockquote><code>$1</code></blockquote>
-úr aðgerðinni: „<code>$2</code>".
-MySQL skilar villuboðunum „<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Málfræðivilla kom upp í gangagrnunsfyrirspurninni.
-Síðasta gagnagrunnsfyrirspurnin var:
-„$1“
-úr aðgerðinni: „$2“.
-MySQL skilar villuboðanum „$3: $4“',
 'laggedslavemode' => 'Viðvörun: Síðan inniheldur ekki nýjustu uppfærslur.',
 'readonly' => 'Gagnagrunnur læstur',
 'enterlockreason' => 'Gefðu fram ástæðu fyrir læsingunni, og einnig áætlun
@@ -629,7 +617,6 @@ Til þess að bæta við eða breyta þýðingum fyrir öll wiki verkefni, vinsa
 'editinginterface' => "'''Aðvörun:''' Þú ert að breyta síðu sem hefur að geyma texta fyrir notendaumhverfi hugbúnaðarins.
 Breytingar á þessari síðu munu hafa áhrif á notendaumhverfi annarra notenda á þessu vefsvæði.
 Til þess að bæta við eða breyta þýðingum fyrir öll wiki verkefni, vinsamlegast notaðu [//translatewiki.net/wiki/Main_Page?setlang=is translatewiki.net], staðfæringaverkefni MediaWiki.",
-'sqlhidden' => '(SQL-fyrirspurn falin)',
 'cascadeprotected' => 'Þessi síða hefur verið vernduð fyrir breytingum, vegna þess að hún er innifalin í eftirfarandi {{PLURAL:$1|síðu, sem er vernduð|síðum, sem eru verndaðar}} með „keðjuverndun“:
 $2',
 'namespaceprotected' => "Þú hefur ekki leyfi til að breyta síðum í '''$1''' nafnrýminu.",
@@ -674,7 +661,6 @@ Ekki gleyma að breyta [[Special:Preferences|{{SITENAME}} stillingunum]] þínum
 'remembermypassword' => 'Muna innskráninguna mína í þessum vafra (í allt að $1 {{PLURAL:$1|dag|daga}})',
 'userlogin-remembermypassword' => 'Muna innskráningu mína',
 'userlogin-signwithsecure' => 'Nota örugga tengingu',
-'securelogin-stick-https' => 'Halda öllum samskiptum áfram yfir HTTPS eftir að þú skráir þig inn',
 'yourdomainname' => 'Þitt lén:',
 'password-change-forbidden' => 'Þú getur ekki breytt lykilorðum á þessum wiki.',
 'externaldberror' => 'Uppfærsla mistókst. Annaðhvort varð villa í gagnasafninu eða að þér sé óheimilt að uppfæra aðra aðganga.',
@@ -798,7 +784,7 @@ Til að klára að skrá þig inn, verður þú að endurstilla lykilorðið hé
 'newpassword' => 'Nýja lykilorðið',
 'retypenew' => 'Endurtaktu nýja lykilorðið:',
 'resetpass_submit' => 'Skrifaðu aðgangsorðið og skráðu þig inn',
-'resetpass_success' => 'Aðgangsorðinu þínu hefur verið breytt! Skráir þig inn...',
+'changepassword-success' => 'Aðgangsorðinu þínu hefur verið breytt! Skráir þig inn...',
 'resetpass_forbidden' => 'Ekki er hægt að breyta lykilorðum',
 'resetpass-no-info' => 'Þú verður að vera skráð(ur) inn til að hafa aðgang að þessari síðu.',
 'resetpass-submit-loggedin' => 'Breyta lykilorði',
@@ -1386,8 +1372,6 @@ Athugaðu að skrár þeirra yfir {{SITENAME}}-efni kunna að vera úreltar.',
 'recentchangesdays-max' => '(hámark $1 {{PLURAL:$1|dag|daga}})',
 'recentchangescount' => 'Fjöldi síðna:',
 'prefs-help-recentchangescount' => 'Taldar eru með nýlegar breytingar, breytingarskrár og aðgerðarskrár.',
-'prefs-help-watchlist-token' => 'Með því að fylla út þennan reit með leynilegum lykli býr til RSS-efnistraum fyrir vaktlistann þinn. Allir sem vita hver lykillinn er geta lesið vaktlistann þinn, svo veldu öruggt eigindargildi.
-Hér er gildi sem var valið af handahófi sem þú getur notað: $1',
 'savedprefs' => 'Stillingarnar þínar hafa verið vistaðar.',
 'timezonelegend' => 'Tímabelti:',
 'localtime' => 'Staðartími:',

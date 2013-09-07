@@ -302,7 +302,6 @@ $messages = array(
 'tog-shownumberswatching' => "Uri n-numru ta' utenti li qegħdin isegwu din il-paġna",
 'tog-oldsig' => 'Firma attwali:',
 'tog-fancysig' => 'Interpreta l-firma bħala test tal-wiki (mingħajr ħolqa awtomatika)',
-'tog-showjumplinks' => 'Attiva l-ħoloq aċċessibbli "aqbeż għal"',
 'tog-uselivepreview' => "Attiva l-funzjoni ''Live preview'' (bżonn tal-JavaScript; sperimentali)",
 'tog-forceeditsummary' => 'Nebbaħni meta ndaħħal taqsira tal-modifika vojta',
 'tog-watchlisthideown' => "Aħbi l-modifiki tiegħi mil-lista ta' osservazzjoni",
@@ -316,6 +315,7 @@ $messages = array(
 'tog-showhiddencats' => 'Uri kategoriji moħbija',
 'tog-norollbackdiff' => "Turix il-paragun bejn il-verżjonijiet wara li tkun effettwajt ir-''rollback''",
 'tog-useeditwarning' => "Avżani kull meta nħalli paġna ta' modifika b'modifiki li għadhom ma ġewx salvati",
+'tog-prefershttps' => 'Dejjem uża l-konnessjoni sigura meta tidħol fil-kont',
 
 'underline-always' => 'Dejjem',
 'underline-never' => 'Qatt',
@@ -602,17 +602,6 @@ Lista ta' paġni speċjali validi tinsab hawn [[Special:SpecialPages|{{int:speci
 # General errors
 'error' => 'Problema',
 'databaseerror' => 'Problema fid-database',
-'dberrortext' => 'Kien hemm żball fis-sintassi ta\' rikjesta tad-databażi.
-Dan jista\' jindika li hemm problema fis-softwer.
-L-aħħar attentat ta\' rikjesta tad-databażi kienet:
-<blockquote><tt>$1</tt></blockquote>
-mill-funzjoni ta\' "<tt>$2</tt>".
-Id-databażi tat problema ta\' "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Kien hemm żball fis-sintassi ta\' rikjesta tad-databażi.
-L-aħħar attentat ta\' rikjesta tad-databażi kienet:
-"$1"
-mill-funzjoni "$2".
-Id-databażi tat il-problema segwenti "$3: $4"',
 'laggedslavemode' => "Twissija: Il-Paġna jista' ma jkollhiex l-affarijiet aġġornati.",
 'readonly' => 'Database magħluq',
 'enterlockreason' => "Daħħal raġuni għala qiegħed tagħlqu, inkludi l-istima ta' meta l-għeluq se tieħu effett",
@@ -661,7 +650,6 @@ Jekk jogħġbok erġa' prova fi ftit minuti oħra.",
 'viewyourtext' => "Tista' tara u tikkopja s-sors tal-'''modifiki tiegħek''' fuq din il-paġna:",
 'protectedinterface' => 'Din il-paġna għanda element li tagħmel parti mill-interfaċċa tal-utent tas-software, u għaldaqstant ġiet protetta sabiex ma jkunx hemm abbuż.',
 'editinginterface' => "'''Avviż:''' Qiegħed tagħmel modifiki lejn paġna li qegħdha tintuża biex tipprovdi interfaċċa għall-messaġġi tas-software. Kull modifika f'din il-paġna se taffetwa l-apparenza tal-faċċata tal-utenti kollha. Għat-traduzzjonijiet, ikkunsidra l-possibilità li tuża'  [//translatewiki.net/wiki/Main_Page?setlang=mt translatewiki.net], il-proġett MediaWiki għal-lokalizzazzjoni.",
-'sqlhidden' => '(SQL rikjesta moħbija)',
 'cascadeprotected' => 'Din il-paġna ġiet protetta mill-modifiki, minħabba li tinkludi {{PLURAL:$1|paġni, li huwa|paġni, li huma}} protetti bil-preferenza tal-"kaskata" mixewla:
 $2',
 'namespaceprotected' => "Inti m'għandhekx il-permess li timodifika paġni fin-''namespace'' '''$1''.",
@@ -693,7 +681,6 @@ Kun af li ċerti paġni jistgħu jkomplu jidhru bħallikieku l-illogjar 'l barra
 'remembermypassword' => "Ftakar il-login tiegħi fuq dan il-kompjuter (għal massimu ta' {{PLURAL:$1|ġurnata|$1 ġurnata}})",
 'userlogin-remembermypassword' => 'Żommni fil-kont',
 'userlogin-signwithsecure' => 'Uża konnessjoni sigura',
-'securelogin-stick-https' => "Ibqa' konness fuq l-HTTPS wara l-login",
 'yourdomainname' => 'Id-dominju tiegħek:',
 'externaldberror' => "Kien hemm problema esterna ta' awtentiċitá jew m'għandhekx permess neċċessarju sabiex tagħmel aġġornamenti fuq l-aċċess estern.",
 'login' => 'Idħol',
@@ -810,7 +797,7 @@ Biex tkompli l-aċċess tal-kont tiegħek huwa neċessarju li toħloq password �
 'newpassword' => 'Password ġdida:',
 'retypenew' => "Erġa' ikteb il-password il-ġdida:",
 'resetpass_submit' => 'Issettja l-password u idħol fis-sit',
-'resetpass_success' => 'Il-password ġie modifikat. Aċċess fil-proċess...',
+'changepassword-success' => 'Il-password ġie modifikat. Aċċess fil-proċess...',
 'resetpass_forbidden' => 'Mhuwiex possibbli li timmodifika l-passwords',
 'resetpass-no-info' => 'Trid tkun effetwajt il-login qabel ma taċċessa direttament din il-paġna.',
 'resetpass-submit-loggedin' => 'Biddel il-password',
@@ -1368,9 +1355,6 @@ Innota però li l-werreja tal-kontenut ta' {{SITENAME}} f'dawn is-siti, jistgħu
 'recentchangesdays-max' => "(massimu ta' $1 {{PLURAL:$1|ġurnata|ġurnata}})",
 'recentchangescount' => "Numru ta' fillieri fit-tibdil riċenti:",
 'prefs-help-recentchangescount' => 'Din tinkludi tibdil riċenti, kronoloġiji u reġistri.',
-'prefs-help-watchlist-token' => "Billi timla din il-kaxxa b'ċavetta sigrieta se tiġi ġenerata feed RSS għal-lista ta' osservazzjonijiet tiegħek.
-Kull minn jaf din iċ-ċavetta f'din il-kaxxa jkun jista' jaqra l-lista ta' osservazzjonijiet tiegħek, għalhekk għażel waħda sigura.
-Hawnhekk hawn valur iġġenerat b'mod każwali li inti tista' tuża: $1",
 'savedprefs' => 'Il-preferenzi tiegħek ġew salvati.',
 'timezonelegend' => 'Żona tal-ħin:',
 'localtime' => 'Ħin lokali:',
@@ -1430,6 +1414,8 @@ Hawnhekk hawn valur iġġenerat b'mod każwali li inti tista' tuża: $1",
 'prefs-dateformat' => 'Format tad-data',
 'prefs-timeoffset' => 'Differenza fis-sigħat',
 'prefs-advancedediting' => 'Opzjonijiet avvanzati',
+'prefs-editor' => 'Editur',
+'prefs-preview' => 'Dehra proviżorja',
 'prefs-advancedrc' => 'Opzjonijiet avvanzati',
 'prefs-advancedrendering' => 'Opzjonijiet avvanzati',
 'prefs-advancedsearchoptions' => 'Opzjonijiet avvanzati',
@@ -2713,7 +2699,7 @@ Jekk jogħġbok, waħħad iż-żewġ paġni manwalment.'''",
 'move-subpages' => 'Mexxi s-sottopaġni (sa $1)',
 'move-talk-subpages' => "Mexxi is-sottopaġni kollha tal-paġna ta' diskussjoni (sa $1)",
 'movepage-page-exists' => 'Il-paġna $1 diġà teżisti u ma tistax tiġi miktuba fuqha awtomatikament.',
-'movepage-page-moved' => 'Il-Paġna $1 ġiet imċaqilqa għal $2.',
+'movepage-page-moved' => 'Il-paġna $1 ġiet immexxija lejn $2.',
 'movepage-page-unmoved' => 'Il-paġna $1 ma setgħetx titmexxa lejn $2.',
 'movepage-max-pages' => "Ġie mċaqlaq in-numru massimu ta' {{PLURAL:$1|paġna u ma jistax jiġi mċaqlaq aktar awtomatikament|$1 paġni u ma jistgħux jiġu mċaqilqa aktar awtomatikament.}}",
 'movelogpage' => "Tmexxija ta' paġni",

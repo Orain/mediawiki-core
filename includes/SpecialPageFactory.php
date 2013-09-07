@@ -131,6 +131,7 @@ class SpecialPageFactory {
 		// Redirecting special pages
 		'LinkSearch'                => 'LinkSearchPage',
 		'Randompage'                => 'Randompage',
+		'RandomInCategory'          => 'SpecialRandomInCategory',
 		'Randomredirect'            => 'SpecialRandomredirect',
 
 		// High use pages
@@ -162,6 +163,7 @@ class SpecialPageFactory {
 		'Mypage'                    => 'SpecialMypage',
 		'Mytalk'                    => 'SpecialMytalk',
 		'Myuploads'                 => 'SpecialMyuploads',
+		'AllMyUploads'              => 'SpecialAllMyUploads',
 		'PermanentLink'             => 'SpecialPermanentLink',
 		'Redirect'                  => 'SpecialRedirect',
 		'Revisiondelete'            => 'SpecialRevisionDelete',

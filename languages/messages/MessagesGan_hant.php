@@ -85,7 +85,6 @@ $messages = array(
 'tog-shownumberswatching' => '顯示有幾多人監視',
 'tog-oldsig' => '現有嗰簽名：',
 'tog-fancysig' => '搦簽名以維基字對待（冇自動連結）',
-'tog-showjumplinks' => '啟用“跳到”訪問連結',
 'tog-uselivepreview' => '使用即時預覽（JavaScript）（實驗中）',
 'tog-forceeditsummary' => '冇改動注解時要同我話',
 'tog-watchlisthideown' => '監視列表弆到我嗰編輯',
@@ -356,17 +355,6 @@ $1',
 # General errors
 'error' => '錯誤',
 'databaseerror' => '資料庫錯誤',
-'dberrortext' => '資料庫查詢語法有錯。
-可能係軟件有錯。
-最晏嗰資料庫指令係:
-<blockquote><tt>$1</tt></blockquote>
-來自函數 "<tt>$2</tt>"。
-MySQL回到錯誤 "<tt>$3: $4</tt>"。',
-'dberrortextcl' => '資料庫查詢語法有錯。
-最晏嗰資料庫指令係:
-“$1”
-來自函數“$2”。
-MySQL回到錯誤“$3: $4”。',
 'laggedslavemode' => '警告：頁面可能冇有新近內容。',
 'readonly' => '資料庫上正鎖哩',
 'enterlockreason' => '請輸入鎖到資料庫嗰理由，包括預計幾時間解鎖',
@@ -407,7 +395,6 @@ MySQL回到錯誤“$3: $4”。',
 'editinginterface' => "'''Warning:''' You are editing a page which is used to provide interface text for the software.
 Changes to this page will affect the appearance of the user interface for other users.
 For translations, please consider using [//translatewiki.net/wiki/Main_Page?setlang=en translatewiki.net], the MediaWiki localisation project.",
-'sqlhidden' => '（SQL 弆到嗰查詢）',
 'cascadeprotected' => '箇頁已拕保護，因為佢拕「聯鎖保護」嗰{{PLURAL:$1|一隻|幾隻}}拕保護頁包到：
 $2',
 'namespaceprotected' => "倷冇權編寫'''$1'''空間裡度嗰頁面。",
@@ -487,7 +474,7 @@ $2',
 'newpassword' => '新密碼：',
 'retypenew' => '確認密碼:',
 'resetpass_submit' => '設定密碼同到登入',
-'resetpass_success' => '汝嗰密碼改正哩！箇下汝登入嘚...',
+'changepassword-success' => '汝嗰密碼改正哩！箇下汝登入嘚...',
 'resetpass_forbidden' => '到{{SITENAME}}上改伓正密碼',
 'resetpass-submit-loggedin' => '設過帳戶密碼',
 'resetpass-submit-cancel' => '取消',

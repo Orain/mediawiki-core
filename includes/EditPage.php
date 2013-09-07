@@ -521,6 +521,8 @@ class EditPage {
 		$wgOut->addHTML( Html::rawElement( 'div', array( 'class' => 'templatesUsed' ),
 			Linker::formatTemplates( $this->getTemplates() ) ) );
 
+		$wgOut->addModules( 'mediawiki.action.edit.collapsibleFooter' );
+
 		if ( $this->mTitle->exists() ) {
 			$wgOut->returnToMain( null, $this->mTitle );
 		}
@@ -663,6 +665,11 @@ class EditPage {
 
 			$this->edittime = $request->getVal( 'wpEdittime' );
 			$this->starttime = $request->getVal( 'wpStarttime' );
+
+			$undidRev = $request->getInt( 'wpUndidRevision' );
+			if ( $undidRev ) {
+				$this->undidRev = $undidRev;
+			}
 
 			$this->scrolltop = $request->getIntOrNull( 'wpScrolltop' );
 
@@ -965,6 +972,7 @@ class EditPage {
 						$undoMsg = 'norev';
 					}
 
+					// Messages: undo-success, undo-failure, undo-norev
 					$class = ( $undoMsg == 'success' ? '' : 'error ' ) . "mw-undo-{$undoMsg}";
 					$this->editFormPageTop .= $wgOut->parse( "<div class=\"{$class}\">" .
 						wfMessage( 'undo-' . $undoMsg )->plain() . '</div>', true, /* interface */true );
@@ -1176,20 +1184,20 @@ class EditPage {
 	 * marked HttpOnly. The JavaScript code converts the cookie to a wgPostEdit config
 	 * variable.
 	 *
-	 * Since WebResponse::setcookie does not allow forcing HttpOnly for a single
-	 * cookie, we have to use PHP's setcookie() directly.
-	 *
 	 * We use a path of '/' since wgCookiePath is not exposed to JS
 	 *
 	 * If the variable were set on the server, it would be cached, which is unwanted
 	 * since the post-edit state should only apply to the load right after the save.
 	 */
 	protected function setPostEditCookie() {
-		global $wgCookiePrefix, $wgCookieDomain;
 		$revisionId = $this->mArticle->getLatest();
 		$postEditKey = self::POST_EDIT_COOKIE_KEY_PREFIX . $revisionId;
 
-		setcookie( $wgCookiePrefix . $postEditKey, '1', time() + self::POST_EDIT_COOKIE_DURATION, '/', $wgCookieDomain );
+		$response = RequestContext::getMain()->getRequest()->response();
+		$response->setcookie( $postEditKey, '1', time() + self::POST_EDIT_COOKIE_DURATION, array(
+			'path' => '/',
+			'httpOnly' => false,
+		) );
 	}
 
 	/**
@@ -1400,6 +1408,18 @@ class EditPage {
 
 		# Check for spam
 		$match = self::matchSummarySpamRegex( $this->summary );
+		if ( $match === false && $this->section == 'new' ) {
+			# $wgSpamRegex is enforced on this new heading/summary because, unlike
+			# regular summaries, it is added to the actual wikitext.
+			if ( $this->sectiontitle !== '' ) {
+				# This branch is taken when the API is used with the 'sectiontitle' parameter.
+				$match = self::matchSpamRegex( $this->sectiontitle );
+			} else {
+				# This branch is taken when the "Add Topic" user interface is used, or the API
+				# is used with the 'summary' parameter.
+				$match = self::matchSpamRegex( $this->summary );
+			}
+		}
 		if ( $match === false ) {
 			$match = self::matchSpamRegex( $this->textbox1 );
 		}
@@ -1511,7 +1531,7 @@ class EditPage {
 			// message with content equivalent to default (allow empty pages
 			// in this case to disable messages, see bug 50124)
 			$defaultMessageText = $this->mTitle->getDefaultMessageText();
-			if( $this->mTitle->getNamespace() === NS_MEDIAWIKI && $defaultMessageText !== false ) {
+			if ( $this->mTitle->getNamespace() === NS_MEDIAWIKI && $defaultMessageText !== false ) {
 				$defaultText = $defaultMessageText;
 			} else {
 				$defaultText = '';
@@ -1594,8 +1614,7 @@ class EditPage {
 				}
 			}
 
-			// If sectiontitle is set, use it, otherwise use the summary as the section title (for
-			// backwards compatibility with old forms/bots).
+			// If sectiontitle is set, use it, otherwise use the summary as the section title.
 			if ( $this->sectiontitle !== '' ) {
 				$sectionTitle = $this->sectiontitle;
 			} else {
@@ -1880,11 +1899,11 @@ class EditPage {
 	}
 
 	/**
-	 * Check given input text against $wgSpamRegex, and return the text of the first match.
+	 * Check given input text against $wgSummarySpamRegex, and return the text of the first match.
 	 *
 	 * @param $text string
 	 *
-	 * @return string|bool  matching string or false
+	 * @return string|bool matching string or false
 	 */
 	public static function matchSummarySpamRegex( $text ) {
 		global $wgSummarySpamRegex;
@@ -1911,6 +1930,7 @@ class EditPage {
 		global $wgOut, $wgUser;
 
 		$wgOut->addModules( 'mediawiki.action.edit' );
+		$wgOut->addModuleStyles( 'mediawiki.action.edit.styles' );
 
 		if ( $wgUser->getOption( 'uselivepreview', false ) ) {
 			$wgOut->addModules( 'mediawiki.action.edit.preview' );
@@ -2270,6 +2290,11 @@ class EditPage {
 		$wgOut->addHTML( Html::rawElement( 'div', array( 'class' => 'hiddencats' ),
 			Linker::formatHiddenCategories( $this->mArticle->getHiddenCategories() ) ) );
 
+		$wgOut->addHTML( Html::rawElement( 'div', array( 'class' => 'limitreport' ),
+			self::getPreviewLimitReport( $this->mParserOutput ) ) );
+
+		$wgOut->addModules( 'mediawiki.action.edit.collapsibleFooter' );
+
 		if ( $this->isConflict ) {
 			try {
 				$this->showConflict();
@@ -2540,7 +2565,7 @@ class EditPage {
 		global $wgParser;
 
 		if ( $isSubjectPreview ) {
-			$summary = wfMessage( 'newsectionsummary', $wgParser->stripSectionName( $summary ) )
+			$summary = wfMessage( 'newsectionsummary' )->rawParams( $wgParser->stripSectionName( $summary ) )
 				->inContentLanguage()->text();
 		}
 
@@ -2847,6 +2872,59 @@ HTML
 			call_user_func_array( 'wfMessage', $copywarnMsg )->plain() . "\n</div>";
 	}
 
+	/**
+	 * Get the Limit report for page previews
+	 *
+	 * @since 1.22
+	 * @param ParserOutput $output ParserOutput object from the parse
+	 * @return string HTML
+	 */
+	public static function getPreviewLimitReport( $output ) {
+		if ( !$output || !$output->getLimitReportData() ) {
+			return '';
+		}
+
+		wfProfileIn( __METHOD__ );
+
+		$limitReport = Html::rawElement( 'div', array( 'class' => 'mw-limitReportExplanation' ),
+			wfMessage( 'limitreport-title' )->parseAsBlock()
+		);
+
+		// Show/hide animation doesn't work correctly on a table, so wrap it in a div.
+		$limitReport .= Html::openElement( 'div', array( 'class' => 'preview-limit-report-wrapper' ) );
+
+		$limitReport .= Html::openElement( 'table', array(
+			'class' => 'preview-limit-report wikitable'
+		) ) .
+			Html::openElement( 'tbody' );
+
+		foreach ( $output->getLimitReportData() as $key => $value ) {
+			if ( wfRunHooks( 'ParserLimitReportFormat',
+				array( $key, $value, &$limitReport, true, true )
+			) ) {
+				$keyMsg = wfMessage( $key );
+				$valueMsg = wfMessage( array( "$key-value-html", "$key-value" ) );
+				if ( !$valueMsg->exists() ) {
+					$valueMsg = new RawMessage( '$1' );
+				}
+				if ( !$keyMsg->isDisabled() && !$valueMsg->isDisabled() ) {
+					$limitReport .= Html::openElement( 'tr' ) .
+						Html::rawElement( 'th', null, $keyMsg->parse() ) .
+						Html::rawElement( 'td', null, $valueMsg->params( $value )->parse() ) .
+						Html::closeElement( 'tr' );
+				}
+			}
+		}
+
+		$limitReport .= Html::closeElement( 'tbody' ) .
+			Html::closeElement( 'table' ) .
+			Html::closeElement( 'div' );
+
+		wfProfileOut( __METHOD__ );
+
+		return $limitReport;
+	}
+
 	protected function showStandardInputs( &$tabindex = 2 ) {
 		global $wgOut;
 		$wgOut->addHTML( "<div class='editOptions'>\n" );
@@ -2869,7 +2947,9 @@ HTML
 
 		$cancel = $this->getCancelLink();
 		if ( $cancel !== '' ) {
-			$cancel .= wfMessage( 'pipe-separator' )->text();
+			$cancel .= Html::element( 'span',
+				array( 'class' => 'mw-editButtons-pipe-separator' ),
+				wfMessage( 'pipe-separator' )->text() );
 		}
 		$edithelpurl = Skin::makeInternalOrExternalUrl( wfMessage( 'edithelppage' )->inContentLanguage()->text() );
 		$edithelp = '<a target="helpwindow" href="' . $edithelpurl . '">' .
@@ -3129,9 +3209,9 @@ HTML
 			'<h2 id="mw-previewheader">' . wfMessage( 'preview' )->escaped() . "</h2>" .
 			$wgOut->parse( $note, true, /* interface */true ) . $conflict . "</div>\n";
 
-		$pageLang = $this->mTitle->getPageLanguage();
-		$attribs = array( 'lang' => $pageLang->getCode(), 'dir' => $pageLang->getDir(),
-			'class' => 'mw-content-' . $pageLang->getDir() );
+		$pageViewLang = $this->mTitle->getPageViewLanguage();
+		$attribs = array( 'lang' => $pageViewLang->getHtmlCode(), 'dir' => $pageViewLang->getDir(),
+			'class' => 'mw-content-' . $pageViewLang->getDir() );
 		$previewHTML = Html::rawElement( 'div', $attribs, $previewHTML );
 
 		wfProfileOut( __METHOD__ );

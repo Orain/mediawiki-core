@@ -719,17 +719,30 @@ return array(
 	'mediawiki.action.edit' => array(
 		'scripts' => 'resources/mediawiki.action/mediawiki.action.edit.js',
 		'dependencies' => array(
-			'mediawiki.legacy.wikibits',
+			'mediawiki.action.edit.styles',
 			'jquery.textSelection',
 			'jquery.byteLimit',
 		),
 		'position' => 'top',
+	),
+	'mediawiki.action.edit.styles' => array(
+		'styles' => 'resources/mediawiki.action/mediawiki.action.edit.styles.css',
+		'position' => 'top',
+	),
+	'mediawiki.action.edit.collapsibleFooter' => array(
+		'scripts' => 'resources/mediawiki.action/mediawiki.action.edit.collapsibleFooter.js',
+		'styles' => 'resources/mediawiki.action/mediawiki.action.edit.collapsibleFooter.css',
+		'dependencies' => array(
+			'jquery.makeCollapsible',
+			'mediawiki.icon',
+		),
 	),
 	'mediawiki.action.edit.preview' => array(
 		'scripts' => 'resources/mediawiki.action/mediawiki.action.edit.preview.js',
 		'dependencies' => array(
 			'jquery.form',
 			'jquery.spinner',
+			'mediawiki.action.history.diff',
 		),
 	),
 	'mediawiki.action.history' => array(
@@ -835,6 +848,16 @@ return array(
 		'targets' => array( 'desktop', 'mobile' ),
 	),
 
+	'mediawiki.language.months' => array(
+		'scripts' => 'resources/mediawiki.language/mediawiki.language.months.js',
+		'dependencies' => 'mediawiki.language',
+		'messages' => array_merge(
+			Language::$mMonthMsgs,
+			Language::$mMonthGenMsgs,
+			Language::$mMonthAbbrevMsgs
+		)
+	),
+
 	/* MediaWiki Libs */
 
 	'mediawiki.libs.jpegmeta' => array(
@@ -843,6 +866,9 @@ return array(
 
 	/* MediaWiki Page */
 
+	'mediawiki.page.gallery' => array(
+		'scripts' => 'resources/mediawiki.page/mediawiki.page.gallery.js',
+	),
 	'mediawiki.page.ready' => array(
 		'scripts' => 'resources/mediawiki.page/mediawiki.page.ready.js',
 		'dependencies' => array(
@@ -898,6 +924,10 @@ return array(
 			'tooltip-ca-unwatch',
 			'watcherrortext',
 		),
+	),
+	'mediawiki.page.image.pagination' => array(
+		'scripts' => 'resources/mediawiki.page/mediawiki.page.image.pagination.js',
+		'dependencies' => array( 'jquery.spinner' )
 	),
 
 	/* MediaWiki Special pages */
@@ -1072,6 +1102,8 @@ return array(
 		'remoteBasePath' => $GLOBALS['wgStylePath'],
 		'localBasePath' => $GLOBALS['wgStyleDirectory'],
 		'dependencies' => array(
+			'mediawiki.api',
+			'mediawiki.Title',
 			'mediawiki.legacy.wikibits',
 			'mediawiki.util',
 		),

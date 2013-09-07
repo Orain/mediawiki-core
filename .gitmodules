@@ -46,6 +46,9 @@
 [submodule "extensions/CheckUser"]
 	path = extensions/CheckUser
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CheckUser.git
+[submodule "extensions/CirrusSearch"]
+	path = extensions/CirrusSearch
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CirrusSearch.git
 [submodule "extensions/Cite"]
 	path = extensions/Cite
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Cite.git
@@ -235,6 +238,9 @@
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Nuke.git
+[submodule "extensions/OAuth"]
+	path = extensions/OAuth
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OAuth.git
 [submodule "extensions/OAI"]
 	path = extensions/OAI
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OAI.git
@@ -385,9 +391,6 @@
 [submodule "extensions/UniversalLanguageSelector"]
 	path = extensions/UniversalLanguageSelector
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UniversalLanguageSelector.git
-[submodule "extensions/UploadBlacklist"]
-	path = extensions/UploadBlacklist
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadBlacklist.git
 [submodule "extensions/UploadWizard"]
 	path = extensions/UploadWizard
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard.git
@@ -442,6 +445,9 @@
 [submodule "extensions/DataValues"]
 	path = extensions/DataValues
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DataValues.git
+[submodule "extensions/DataTypes"]
+	path = extensions/DataTypes
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DataTypes.git
 [submodule "extensions/Diff"]
 	path = extensions/Diff
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Diff.git

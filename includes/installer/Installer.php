@@ -46,6 +46,14 @@ abstract class Installer {
 	 */
 	protected $settings;
 
+
+	/**
+	 * List of detected DBs, access using getCompiledDBs().
+	 *
+	 * @var array
+	 */
+	protected $compiledDBs;
+
 	/**
 	 * Cached DB installer instances, access using getDBInstaller().
 	 *
@@ -175,7 +183,6 @@ abstract class Installer {
 	protected $internalDefaults = array(
 		'_UserLang' => 'en',
 		'_Environment' => false,
-		'_CompiledDBs' => array(),
 		'_SafeMode' => false,
 		'_RaiseMemory' => false,
 		'_UpgradeDone' => false,
@@ -370,7 +377,7 @@ abstract class Installer {
 				}
 			}
 		}
-		$this->setVar( '_CompiledDBs', $compiledDBs );
+		$this->compiledDBs = $compiledDBs;
 
 		$this->parserTitle = Title::newFromText( 'Installer' );
 		$this->parserOptions = new ParserOptions; // language will  be wrong :(
@@ -449,6 +456,15 @@ abstract class Installer {
 		} else {
 			return $this->settings[$name];
 		}
+	}
+
+	/**
+	 * Get a list of DBs supported by current PHP setup
+	 *
+	 * @return array
+	 */
+	public function getCompiledDBs() {
+		return $this->compiledDBs;
 	}
 
 	/**
@@ -645,19 +661,13 @@ abstract class Installer {
 
 		$allNames = array();
 
-		// Give grep a chance to find the usages:
-		// config-type-mysql, config-type-postgres, config-type-oracle, config-type-sqlite
+		// Messages: config-type-mysql, config-type-postgres, config-type-oracle,
+		// config-type-sqlite
 		foreach ( self::getDBTypes() as $name ) {
 			$allNames[] = wfMessage( "config-type-$name" )->text();
 		}
 
-		// cache initially available databases to make sure that everything will be displayed correctly
-		// after a refresh on env checks page
-		$databases = $this->getVar( '_CompiledDBs-preFilter' );
-		if ( !$databases ) {
-			$databases = $this->getVar( '_CompiledDBs' );
-			$this->setVar( '_CompiledDBs-preFilter', $databases );
-		}
+		$databases = $this->getCompiledDBs();
 
 		$databases = array_flip ( $databases );
 		foreach ( array_keys( $databases ) as $db ) {
@@ -676,7 +686,6 @@ abstract class Installer {
 			// @todo FIXME: This only works for the web installer!
 			return false;
 		}
-		$this->setVar( '_CompiledDBs', $databases );
 		return true;
 	}
 
@@ -1081,7 +1090,7 @@ abstract class Installer {
 	 */
 	protected function envCheckSuhosinMaxValueLength() {
 		$maxValueLength = ini_get( 'suhosin.get.max_value_length' );
-		if ( $maxValueLength > 0 &&  $maxValueLength < 1024 ) {
+		if ( $maxValueLength > 0 && $maxValueLength < 1024 ) {
 			// Only warn if the value is below the sane 1024
 			$this->showMessage( 'config-suhosin-max-value-length', $maxValueLength );
 		}

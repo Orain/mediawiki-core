@@ -1534,7 +1534,7 @@ class OutputPage extends ContextSource {
 
 		$popts = $this->parserOptions();
 		$oldTidy = $popts->setTidy( $tidy );
-		$popts->setInterfaceMessage( (bool) $interface );
+		$popts->setInterfaceMessage( (bool)$interface );
 
 		$parserOutput = $wgParser->parse(
 			$text, $title, $popts,
@@ -2432,14 +2432,6 @@ $templates
 	 * @param $options Options array to pass to Linker
 	 */
 	public function addReturnTo( $title, $query = array(), $text = null, $options = array() ) {
-		if ( in_array( 'http', $options ) ) {
-			$proto = PROTO_HTTP;
-		} elseif ( in_array( 'https', $options ) ) {
-			$proto = PROTO_HTTPS;
-		} else {
-			$proto = PROTO_RELATIVE;
-		}
-
 		$link = $this->msg( 'returnto' )->rawParams(
 			Linker::link( $title, $text, array(), $query, $options ) )->escaped();
 		$this->addHTML( "<p id=\"mw-returnto\">{$link}</p>\n" );
@@ -2585,7 +2577,7 @@ $templates
 	protected function makeResourceLoaderLink( $modules, $only, $useESI = false, array $extraQuery = array(), $loadCall = false ) {
 		global $wgResourceLoaderUseESI;
 
-		$modules = (array) $modules;
+		$modules = (array)$modules;
 
 		if ( !count( $modules ) ) {
 			return '';

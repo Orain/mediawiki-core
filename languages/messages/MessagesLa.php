@@ -10,6 +10,7 @@
  * @author Amahoney
  * @author Andrew Dalby
  * @author Autokrator
+ * @author Candalua
  * @author Dferg
  * @author Esteban97
  * @author Geitost
@@ -191,7 +192,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Numerum usorum custodientium monstrare',
 'tog-oldsig' => 'Subscriptio ad tempus adhibita:',
 'tog-fancysig' => 'Subscriptio vicitext (sine nexu automatico)',
-'tog-showjumplinks' => 'Sinere nexus ostendi forma "salire ad" monstrata',
 'tog-uselivepreview' => 'Praevisum viventem adhibere (JavaScript)',
 'tog-forceeditsummary' => 'Si recensionem non summatim descripsero, me roga si continuare velim',
 'tog-watchlisthideown' => 'Celare recensiones meas in paginarum custoditarum indice',
@@ -455,11 +455,6 @@ Pro indice paginarum specialum validarum, vide [[Special:SpecialPages|{{int:spec
 # General errors
 'error' => 'Erratum',
 'databaseerror' => 'Erratum in basi datorum',
-'dberrortextcl' => 'Erratum syntacticum basis datorum accidit.
-Inquisitio basis datorum ultime apparata erat:
-"$1"
-ex functionis "$2".
-Basis datorum erratum reddidit "$3: $4"',
 'readonly' => 'Basis datorum obstructa',
 'missingarticle-rev' => '(numerus emendationis: $1)',
 'missingarticle-diff' => '(Diss: $1, $2)',
@@ -484,7 +479,6 @@ Inquisitio: $2',
 'viewsourcetext' => 'Fontem videas et exscribeas:',
 'protectedinterface' => 'Haec pagina dat textum interfaciei pro logiciali, et est protecta ad vandalismum vetandum.',
 'editinginterface' => "'''Caveat censor:''' Emendas iam paginam quae textum interfaciei logicialem dat. Mutationes vultum {{grammar:genitive|{{SITENAME}}}} omnibus usoribus afficient. In nuntia MediaWiki vertendo, quaesumus te uti [//translatewiki.net/wiki/Main_Page?setlang=la translatewiki.net].",
-'sqlhidden' => '(inquisitio SQL celata)',
 'namespaceprotected' => "Tibi non licet paginas spatii nominalis '''$1''' recensere.",
 'ns-specialprotected' => 'Paginae speciales recenseri non possunt.',
 'titleprotected' => 'Hic titulus protectus est ab usore [[User:$1|$1]] ne creetur.
@@ -498,7 +492,6 @@ Ratio data est "\'\'$2\'\'".',
 # Login and logout pages
 'logouttext' => "'''Conventum tuum conclusum est.'''
 
-Ignote continues {{grammar:ablative|{{SITENAME}}}} uti, aut conventum novum vel sub eodem vel novo nomine <span class='plainlinks'>[$1 aperias]</span>.
 Nota bene paginas fortasse videantur quasi tuum conventum esset apertum, priusquam navigatrum purgaveris.",
 'welcomeuser' => 'Salve, $1!',
 'welcomecreation-msg' => 'Ratio tua creata est.
@@ -586,7 +579,7 @@ Hunc nuntium ignorare potes, si nolis hac ratione uti.',
 'newpassword' => 'Tessera nova:',
 'retypenew' => 'Adfirmare tesseram novam:',
 'resetpass_submit' => 'Tesseram mutare et conventum aperire',
-'resetpass_success' => 'Tessera tua prospere mutata est. Aperiens conventum...',
+'changepassword-success' => 'Tessera tua prospere mutata est.',
 'resetpass_forbidden' => 'Tesserae mutari non possunt',
 'resetpass-no-info' => 'Necesse est conventum aperire ad hanc paginam adhibendum.',
 'resetpass-submit-loggedin' => 'Tesseram mutare',
@@ -674,9 +667,7 @@ Fortasse aliquis hanc partem movit vel delevit.',
 'loginreqlink' => 'conventum aperire',
 'loginreqpagetext' => 'Necesse est tibi $1 priusquam paginas alias legas.',
 'accmailtitle' => 'Tessera missa est.',
-'accmailtext' => "Tessera nova usoris [[User talk:$1|$1]] ad $2 missa est.
-
-Convento aperto, tessera huius novae rationis hic potest mutari: ''[[Special:ChangePassword|tesseram mutare]]''.",
+'accmailtext' => "Tessera nova usoris [[User talk:$1|$1]] ad $2 missa est. Convento aperto, tessera hic potest mutari: ''[[Special:ChangePassword|tesseram mutare]]''.",
 'newarticle' => '(Nova)',
 'newarticletext' => "Per nexum progressus es ad paginam quae nondum exsistit.
 Novam paginam si vis creare, in capsam infra praebitam scribe.
@@ -773,8 +764,8 @@ Titulus: '''({{int:cur}})''' = dissimilis ab emendatione novissima,
 '''({{int:last}})''' = dissimilis ab emendatione proxima, '''{{int:minoreditletter}}''' = recensio minor.",
 'history-fieldset-title' => 'Quaerere in paginae historia',
 'history-show-deleted' => 'Solum recensiones deletas monstrare',
-'histfirst' => 'Veterrimus',
-'histlast' => 'Novissimus',
+'histfirst' => 'veterrimus',
+'histlast' => 'novissimus',
 'historysize' => '({{PLURAL:$1|1 octetus|$1 octeti}})',
 'historyempty' => '(vacua)',
 

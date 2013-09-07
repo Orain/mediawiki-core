@@ -243,7 +243,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Zeich de Aanzahl Metmaacher, die op die Sigg am oppasse sin',
 'tog-oldsig' => 'Esu&nbsp;süht&nbsp;Ding „Ongerschreff“&nbsp;us:',
 'tog-fancysig' => 'Donn de „Ungerschreff“ als Wiki-Tex behandelle (ohne enne automattesche Lengk)',
-'tog-showjumplinks' => '„Jangk-noh“-Links usjevve, die bei em „Zojang ohne Barrikad“ helfe dun',
 'tog-uselivepreview' => 'Dun de „Lebendije Vör-Aansich“ zeije (bruch Java_Skripp)',
 'tog-forceeditsummary' => 'Froch noh, wann en däm Feld „Koot zosammejefass, Quell“ beim Avspeichere nix dren steiht',
 'tog-watchlisthideown' => 'Dun ming eije Änderunge <strong>nit</strong> en minger Oppassliss aanzeije',
@@ -544,18 +543,6 @@ Et künnt sesch och öm ene Fäähler en dä Sofware fum Wiki handelle.',
 # General errors
 'error' => 'Fähler',
 'databaseerror' => 'Fähler en de Daatebank',
-'dberrortext' => 'Enne Fähler es opjefalle en dä Süntax vun ennem Befähl för de Daatebangk.
-Dat künnd_enne Fähler em Wikki-Projamm sin.
-De läzde Befähl för de Daatebangk eß jewääse:
-<blockquote><code>$1</code></blockquote>
-uß dä Fongxjohn: „<code>$2</code>“.
-De Daatebangk mälldt dä Fähler: „<code>$3: $4</code>“.',
-'dberrortextcl' => 'En dä Syntax vun enem Befähl för de Daatebank es
-ene Fähler es opjefalle.
-Dä letzte Befähl för de Daatebank es jewäse:
-<blockquote><code>$1</code></blockquote>
-un kohm us däm Projramm singe Funktion: „<code>$2</code>“.
-De Datebank meld dä Fähler: „<code>$3: $4</code>“.',
 'laggedslavemode' => '<strong>Opjepass:</strong> Künnt sin, dat heh nit dä neuste Stand vun dä Sigg aanjezeich weed.',
 'readonly' => 'De Daatebank es jesperrt',
 'enterlockreason' => 'Jevv aan, woröm un för wie lang dat de Daatebank jesperrt wääde soll',
@@ -623,7 +610,6 @@ Wann De weße wells, wat dä Täx heh bedügg, do häß De en Schangß, dat De o
 <code lang="en">//www.mediawiki.org/wiki/Manual:Interface/{{BASEPAGENAMEE}}?setlang=ksh</code>
 jet doh drövver fenge kanns, udder op
 <code lang="en">//translatewiki.net/wiki/MediaWiki:{{BASEPAGENAMEE}}/qqq?setlang=ksh</code>',
-'sqlhidden' => "(Dä SQL_Befähl du'mer nit zeije)",
 'cascadeprotected' => 'Die Sigg es jeschöz, un mer kann se nit ändere. Se es en en Schotz-Kaskad enjebonge, zosamme met dä {{PLURAL:$1|Sigg|Sigge}}:
 $2',
 'namespaceprotected' => 'Do darfs Sigge em Appachtemang „$1“ nit ändere.',
@@ -665,7 +651,6 @@ Wann De wells, künnts De Ding [[Special:Preferences|Enschtällonge aanpaße]].'
 'remembermypassword' => 'Op Duur aanmelde (hält {{PLURAL:$1|för eine Daach|bes op $1 Dääsch|bloß för hück}})',
 'userlogin-remembermypassword' => 'Op Duur enlogge',
 'userlogin-signwithsecure' => 'Verschlößeld enlogge',
-'securelogin-stick-https' => 'Noh em Enlogge övver HTTPS verbonge blieve.',
 'yourdomainname' => 'Ding Domain',
 'password-change-forbidden' => 'Do kanns en heh däm Wiki kein Paßwööter ändere.',
 'externaldberror' => 'Do wor ene Fähler en de externe Daatebank, oder Do darfs Ding extern Daate nit ändere. Dat Aanmelde jingk jedenfalls donevve.',
@@ -822,7 +807,7 @@ Et süht us, wi wann ene kappodde Brauser udder <i lang=\"en\">proxy</i>ẞööv
 'newpassword' => 'Et neue Passwood:',
 'retypenew' => 'Noch ens dat neue Passwood:',
 'resetpass_submit' => 'E neu Zweschepasswood övvermeddele un aanmellde',
-'resetpass_success' => 'Passwood jeändert. Jetz küdd_et Enlogge&nbsp;…',
+'changepassword-success' => 'Passwood jeändert. Jetz küdd_et Enlogge&nbsp;…',
 'resetpass_forbidden' => 'E Passwoot kann nit jeändert wääde.',
 'resetpass-no-info' => 'Do mööts ad enjelogg sin, öm tiräk op di Sigg jonn ze dörve',
 'resetpass-submit-loggedin' => 'Passwood tuusche',
@@ -1203,8 +1188,8 @@ Verklierung:
 Dattum+Uhrzigg = don de Version fun dämm Daach un dä Zigg aanzeije.',
 'history-fieldset-title' => 'Wat uß de Verjangeheit ußwähle?',
 'history-show-deleted' => 'blohß fottjeschmeße Versione',
-'histfirst' => 'Ählste',
-'histlast' => 'Neuste',
+'histfirst' => 'de Ählste',
+'histlast' => 'de Neuste',
 'historysize' => '({{PLURAL:$1|1 Byte|$1 Bytes|0 Byte}})',
 'historyempty' => '(leddich)',
 
@@ -1472,9 +1457,6 @@ dat dänne ehr Daate topaktoell sin,
 'recentchangesdays-max' => '(Nit mieh wie {{PLURAL:$1|eine Daach|$1 Dääsh|keine Daach}})',
 'recentchangescount' => 'Aanzahl Änderunge en de Leß, als Shtandad:',
 'prefs-help-recentchangescount' => 'Dat ömfaß de „{{int:recentchanges}}“, de Versione uß de Fojangeheit, un de Logbööcher.',
-'prefs-help-watchlist-token' => 'Wann dat Feld met enem jeheime Schlößel ußjeföllt es, määt et Wiki ene <i lang="en">RSS</i>-Enspeisung en et Näz för Ding Oppaßleß op.
-Wä dä Schlößel weiß, kann ding Oppaßleß lesse. Donn alsu ene seschere un jeheime Wäät doför nämme.
-Ene zohfällesch ußjewörfelte Schlößel, dää De nämme künnß, wöhr: <code>$1</code>',
 'savedprefs' => 'Ding Enstellunge sin jetz jesechert.',
 'timezonelegend' => 'Ziggzohn:',
 'localtime' => 'De Zigg op Dingem Kompjuter:',
@@ -2702,7 +2684,7 @@ $1',
 'mycontris' => 'Beidrähch',
 'contribsub2' => 'För dä Metmaacher: $1 ($2)',
 'nocontribs' => 'Mer han kein Änderunge jefonge, en de Logböcher, die do passe däte.',
-'uctop' => ' (Neuste)',
+'uctop' => '(Neuste)',
 'month' => 'un Moohnt:',
 'year' => 'Beß Johr:',
 
@@ -3982,15 +3964,15 @@ Wells Do jetz met en neu Version die Sigg widder neu aanläje?',
 'size-yottabytes' => '$1&nbsp;YB',
 
 # Bitrate units
-'bitrate-bits' => '$1&nbps;bps',
-'bitrate-kilobits' => '$1&nbps;Kbps',
-'bitrate-megabits' => '$1&nbps;Mbps',
-'bitrate-gigabits' => '$1&nbps;Gbps',
-'bitrate-terabits' => '$1&nbps;Tbps',
-'bitrate-petabits' => '$1&nbps;Pbps',
-'bitrate-exabits' => '$1&nbps;Ebps',
-'bitrate-zetabits' => '$1&nbps;Zbps',
-'bitrate-yottabits' => '$1&nbps;Ybps',
+'bitrate-bits' => '$1&nbsp;bps',
+'bitrate-kilobits' => '$1&nbsp;Kbps',
+'bitrate-megabits' => '$1&nbsp;Mbps',
+'bitrate-gigabits' => '$1&nbsp;Gbps',
+'bitrate-terabits' => '$1&nbsp;Tbps',
+'bitrate-petabits' => '$1&nbsp;Pbps',
+'bitrate-exabits' => '$1&nbsp;Ebps',
+'bitrate-zetabits' => '$1&nbsp;Zbps',
+'bitrate-yottabits' => '$1&nbsp;Ybps',
 
 # Live preview
 'livepreview-loading' => 'Ben aam Laade{{int:ellipsis}}',

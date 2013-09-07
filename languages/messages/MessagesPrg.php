@@ -43,7 +43,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Waidinnais gīrbin stēisan nadirīntin tērpautajan',
 'tog-oldsig' => 'Twājs tēntiskas papeisāsenis',
 'tog-fancysig' => 'Laikais papeisāsenin per wikitekstan (šlāit autōmatiskan sēisnan)',
-'tog-showjumplinks' => 'Enklaūjais autengīnsenins "sākais en"',
 'tog-uselivepreview' => 'Tērpaus dināmiskan pirmādiran (JavaScript) (eksperimentālin)',
 'tog-forceeditsummary' => 'Pawakēis mi nierpilninsenin stesse ebpeisāsenin stēisan kitawīdinsnan',
 'tog-watchlisthideown' => 'Kliptinais majjans redigīsenins en listei stēisan nadirītan',
@@ -301,18 +300,6 @@ Listi stēisan preiēiminan speciālin pāusan aupalla si [[Special:SpecialPages
 # General errors
 'error' => 'Blānda',
 'databaseerror' => 'Dātanbazis blānda',
-'dberrortext' => 'Sīntaksis blānda tikka en prasīseņu stessei dātanbazin.
-Sta mazzi būtwei blānda en prōgramijai.
-Panzdaums, niizpalts prasīsenis ast:
-<blockquote><tt>$1</tt></blockquote>
-tengīntan pra funkciōnin „<tt>$2</tt>”.
-Dātanbazi etwārtai wartinna blāndan "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Sīntaksis blānda tikka en prasīseņu stessei dātanbazin.
-Panzdaums, niizpalts prasīsenis ast:
-"$1"
-<blockquote><tt>$1</tt></blockquote>
-izwakītan iz funkciōnin „$2”.
-Dātanbazi etwārtai wartinna blāndan "$3: $4".',
 'laggedslavemode' => 'Nōda: Šin pāusan mazzi ni turritun ēn sen ukanāunaisins ernaunīnsenins.',
 'readonly' => 'Dātanbazi ast auklaūtan',
 'enterlockreason' => 'Dāis brewīnslin stesse dātanbazis auklaūsenin be enkaīnintan etklaūsenes kērdan',
@@ -356,7 +343,6 @@ Prasīsenis: $2',
 'editinginterface' => "'''Ēmpirsergīsenis:''' Tu redigijja pāusan, kawīdan turri en sen prōgraminin interfācas tekstan.
 Kitawīdinsnas en šismu pāusan wīrst kitawīdinušas interfācas pawīdan per kittans tērpautajans.
 Per tulkausnans, madli endirēis tērpautun [//translatewiki.net/wiki/Main_Page?setlang=prg translatewiki.net], - MediaWiki tulkausnan prōjaktan.",
-'sqlhidden' => '(SQL prasīsenis kliptintan)',
 'cascadeprotected' => 'Šin pāusan ast pakūnstan ezze redigīsnan, beggi ast ebīmtan en {{PLURAL:$1|ripīntsmu pāusan, kawīdan|ripīntimans pāusans, kawīdai}} turri mazīngiskwan "pakūnsnas weldīsnan" enklaūtan:
 $2',
 'namespaceprotected' => "Tū ni assei preiwērptan, kāi redigīlai pāusans en '''$1''' tītelin plattibei.",
@@ -466,7 +452,7 @@ Gēideis biskin, pirzdau tu wīrst bandāwuns etkūmps.',
 'newpassword' => 'Nāuns kliptaswīrds',
 'retypenew' => 'Āntrinais nāunan kliptaswīrdan',
 'resetpass_submit' => 'Ensadinnais kliptaswīrdan be enjaīs',
-'resetpass_success' => 'Twājs kliptaswīrds pastāi izpalewīngi kitawīdintan! Eneisnā wēraui...',
+'changepassword-success' => 'Twājs kliptaswīrds pastāi izpalewīngi kitawīdintan! Eneisnā wēraui...',
 'resetpass_forbidden' => 'Kliptaswīrdai ni mazzi būtwei kitawīdintan',
 'resetpass-no-info' => 'Tū turri būtwei engūbun, kāi turīlai entikriskan preiēisenin prei šin pāusan.',
 'resetpass-submit-loggedin' => 'Kitawīdinais kliptaswīrdan',

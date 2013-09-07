@@ -81,7 +81,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Tuduhna cacahé pangawas',
 'tog-oldsig' => 'Tapak asma sing ana:',
 'tog-fancysig' => 'Anggepen tapak asta minangka teks wiki (tanpa pranala otomatis)',
-'tog-showjumplinks' => 'Aktifna pranala pambiyantu "langsung menyang"',
 'tog-uselivepreview' => 'Nganggoa pratayang langsung (JavaScript) (eksperimental)',
 'tog-forceeditsummary' => 'Élingna aku menawa kothak ringkesan suntingan isih kosong',
 'tog-watchlisthideown' => 'Delikna suntinganku ing daftar pangawasan',
@@ -371,16 +370,6 @@ Iki manawa uga nuduhaké anané kesalahan ing piranti alus sing dipigunakaké d�
 # General errors
 'error' => 'Kasalahan',
 'databaseerror' => 'Kasalahan database',
-'dberrortext' => 'Ana kasalahan sintaks ing panyuwunan basis data.
-Kasalahan iki mbokmenawa nuduhaké anané \'\'bug\'\' ing software.
-Panyuwunan basis data sing pungkasan yakuwi: <blockquote><code>$1</code></blockquote>
-saka jroning fungsi "<code>$2</code>".
-Basis data ngasilaké kasalahan "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Ana kasalahan sintaks ing panyuwunan basis data.
-Panyuwunan basis data sing pungkasan iku:
-"$1"
-saka jroning fungsi "$2".
-Basis data ngasilaké kasalahan "$3: $4".',
 'laggedslavemode' => 'Pènget: Kaca iki mbokmenawa isiné dudu pangowahan pungkasan.',
 'readonly' => 'Database dikunci',
 'enterlockreason' => 'Lebokna alesan panguncèn, kalebu uga prakiran kapan kunci bakal dibuka',
@@ -427,7 +416,6 @@ Mangga dicoba manèh ing sawetara menit.',
 'editinginterface' => "'''Pènget:''' Panjenengan nyunting kaca sing dianggo nyedyakaké tèks antarmuka kanggo piranti alus.
 Pangowahan kaca iki bakal awèh pangaruh marang tampilan antarmuka panganggo kanggoné panganggo liya.
 Kanggo terjemahan, mangga nganggo [//translatewiki.net/wiki/Main_Page?setlang=en translatewiki.net], proyèk lokalisasi MediaWiki.",
-'sqlhidden' => '(Panyuwunan SQL didelikaké)',
 'cascadeprotected' => 'Kaca iki wis direksa saka panyuntingan amerga disertakaké ing {{PLURAL:$1|kaca|kaca-kaca}} ngisor iki sing wis direksa mawa opsi "runtun" diaktifaké:
 $2',
 'namespaceprotected' => "Panjenengan ora kagungan idin kanggo nyunting kaca ing bilik nama '''$1'''.",
@@ -464,7 +452,6 @@ Cathet yèn sapérangan kaca mungkin isih nampilaké tulisan yèn Sampéyan isih
 'yourpassword' => 'Tembung sandhi:',
 'yourpasswordagain' => 'Balènana tembung sandhi',
 'remembermypassword' => 'Émut tembung sandi kula (salebeting $1 {{PLURAL:$1|dinten|dinten}})',
-'securelogin-stick-https' => 'Tetep kahubung dhumateng HTTPS sasampunipun mlebet log',
 'yourdomainname' => 'Dhomain panjenengan',
 'password-change-forbidden' => 'Sampéyan ora bisa ngganti tembung sandhi nèng wiki iki.',
 'externaldberror' => 'Ana kasalahan otèntikasi basis dhata èksternal utawa panjenengan ora pareng nglakoni pemutakhiran marang akun èksternal panjenengan.',
@@ -556,7 +543,7 @@ Tulung nunggu dhisik sadurungé njajal manèh.',
 'newpassword' => 'Tembung sandi anyar:',
 'retypenew' => 'Ketik ulang tembung sandi anyar:',
 'resetpass_submit' => 'Nata tembung sandhi lan mlebu log',
-'resetpass_success' => 'Tembung sandhi panjenengan wis suksès diowahi! Saiki mrosès mlebu log panjenengan...',
+'changepassword-success' => 'Tembung sandhi panjenengan wis suksès diowahi! Saiki mrosès mlebu log panjenengan...',
 'resetpass_forbidden' => 'Tembung sandhi ora bisa diganti',
 'resetpass-no-info' => 'Panjenengan kudu mlebu log kanggo ngaksès kaca iki sacara langsung.',
 'resetpass-submit-loggedin' => 'Ganti tembung sandi',
@@ -1115,9 +1102,6 @@ Rinciané bisa ditemokaké nèng [{{fullurl:{{#Special:Log}}/delete|page={{FULLP
 'recentchangesdays-max' => '(maksimum $1 {{PLURAL:$1|dina|dina}})',
 'recentchangescount' => 'Cacahé suntingan sing ditampilaké:',
 'prefs-help-recentchangescount' => 'Iki klebu owah-owahan pungkasan, kaca sajarah, lan log.',
-'prefs-help-watchlist-token' => 'Ngisi kothak iki nganggo kunci wadi (PIN) bakal ngasilaké sindikasi RSS kanggo daftar pantauan panjenengan.
-Sapa waé sing meruhi kunci iki bisa maca daftar pantauan panjenengan, mula pilihen isi sing aman.
-Iki aji acak sing bisa panjenengan gunakaké: $1',
 'savedprefs' => 'Préferènsi Panjenengan wis disimpen',
 'timezonelegend' => 'Zona wektu:',
 'localtime' => 'Wektu saenggon:',

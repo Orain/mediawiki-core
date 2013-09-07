@@ -142,7 +142,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Tunjuakan jumlah pamantau',
 'tog-oldsig' => 'Tando tangan kini:',
 'tog-fancysig' => 'Jadikan tando tangan manjadi teks wiki (indak jo tautan otomatis)',
-'tog-showjumplinks' => 'Aktifkan pautan bantuan "langsuang ka"',
 'tog-uselivepreview' => 'Gunoan pratonton langsuang (paralu JavaScript) (uji-cubo)',
 'tog-forceeditsummary' => 'Ingekan ambo bilo kotak ikhtisar suntiangan kosong',
 'tog-watchlisthideown' => 'Suruakan suntiangan surang pado daftar pantau',
@@ -442,17 +441,6 @@ Daftar laman istimewa nan sah dapek dicaliak di [[Special:SpecialPages|{{int:spe
 # General errors
 'error' => 'Kasalahan',
 'databaseerror' => 'Kasalahan basis data',
-'dberrortext' => 'Kasalahan sintaks pado pamintaan basis data lah tajadi.
-Iko mungkin manandokan adonyo bug pado parangkek lunak.
-Pamintaan basis data nan tarakhir adalah:
-<blockquote><code>$1</code></blockquote>
-dari dalam fungsi "<code>$2</code>".
-Basis data manghasilkan kasalahan "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Ado kasalahan sintaks pado pamintaan basis data.
-Pamintaan basis data nan terakhir adalah:
-"$1"
-dari dalam fungsi "$2".
-Basis data manghasilkan kasalahan "$3: $4".',
 'laggedslavemode' => 'Paringatan: Laman mungkin indak barisi parubahan tabaru.',
 'readonly' => 'Basis data dikunci',
 'enterlockreason' => 'Masuakkan alasan panguncian, tamasuak pakiraan bilo kunci akan dibuka',
@@ -502,7 +490,6 @@ Untuak manambah atau maubah tajamahan di kasado wiki, harap gunoan [//translatew
 'editinginterface' => "'''Paringatan:''' Sanak manyuntiang laman nan digunoan untuak manyadiokan teks antarmuko untuak parangkaik lunak.
 Parubahan teks ko akan mampangaruhi tampilan pado antarmuko pangguno untuak pangguno lain.
 Untuak tajamahan, harap gunoan [//translatewiki.net/wiki/Main_Page?setlang=min translatewiki.net], proyek palokalan MediaWiki.",
-'sqlhidden' => '(Pamintaan SQL disuruakan)',
 'cascadeprotected' => 'Laman iko alah dilindungi dari panyuntiangan karano disartokan di {{PLURAL:$1|laman}} barikuik nan alah dilindungi jo opsi "runtun":
 $2',
 'namespaceprotected' => "Sanak indak mampunyoi hak akses untuak manyuntiang laman di ruang namo '''$1'''.",
@@ -544,7 +531,6 @@ Parhatian bahawa bara laman mungkin masih taruih manunjukkan bahawa Sanak masih 
 'remembermypassword' => 'Ingek log masuak denai di paramban ko (salamo $1 {{PLURAL:$1|hari}})',
 'userlogin-remembermypassword' => 'Biakan ambo tetap masuak',
 'userlogin-signwithsecure' => 'Gunoan server aman',
-'securelogin-stick-https' => 'Tetap tahubuang ka HTTPS sasudah masuk log',
 'yourdomainname' => 'Domain Sanak:',
 'password-change-forbidden' => 'Sanak indak dapek maubah kato sandi di wiki ko.',
 'externaldberror' => 'Alah tajadi kasalahan otentikasi basis data eksternal atau Sanak indak diizinan malakuan pabaruan tahadok akun eksternal Sanak.',
@@ -664,7 +650,7 @@ Tunggulah sabanta sabalun mancubo baliak.',
 'newpassword' => 'Kato sandi baharu:',
 'retypenew' => 'Ketik ulang kato sandi baharu:',
 'resetpass_submit' => 'Atua kato sandi dan masuak log',
-'resetpass_success' => 'Kato sandi Sanak alah berhasil dituka!
+'changepassword-success' => 'Kato sandi Sanak alah berhasil dituka!
 Kini mamproses masuak log Sanak...',
 'resetpass_forbidden' => 'Kato sandi indak dapek dituka',
 'resetpass-no-info' => 'Sanak harus masuak log untuak mangakses laman iko sacara langsuang.',
@@ -1209,8 +1195,6 @@ Ingek indeks Google untuak {{SITENAME}} mungkin lah kadaluarsa.',
 'recentchangesdays-max' => 'Maksimum $1 {{PLURAL:$1|hari}}',
 'recentchangescount' => 'Jumlah suntiangan nan ditunjuakan:',
 'prefs-help-recentchangescount' => 'Iko untuak parubahan tabaru, riwayaik laman nan lalu, sarato log.',
-'prefs-help-watchlist-token' => 'Mangisi kotak ko jo kunci rasio (PIN) akan manghasilkan sindikasi RSS untuak daftar pantau Sanak. Sia juo nan tau jo kunci ko dapek mambaco daftar pantau Sanak, jadi hati-hatilah mamiliah nilainyo. 
-Barikuik ko nilai acak nan dapek Sanak gunoan: $1',
 'savedprefs' => 'Pangaturan lah tasimpan',
 'timezonelegend' => 'Zona wakatu:',
 'localtime' => 'Wakatu satampaik:',
@@ -2139,6 +2123,7 @@ Silakan piliah namo lain.',
 'movetalk' => 'Pindahkan laman rundiang nan takaik',
 'move-subpages' => 'Pindahkan sublaman (sampai $1)',
 'move-talk-subpages' => 'Pindahkan sublaman dari laman rundiang (sampai $1)',
+'movepage-page-moved' => 'Laman $1 alah dipindahan ka $2.',
 'movelogpage' => 'Log pamindahan',
 'movelogpagetext' => 'Di bawah ko daftar log pamindahan laman.',
 'movereason' => 'Alasan:',

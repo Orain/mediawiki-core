@@ -758,8 +758,22 @@ $user: the user who did the block (not the one being blocked)
 $isbn: ISBN to show information for
 $output: OutputPage object in use
 
+'CanIPUseHTTPS': Determine whether the client at a given source IP is likely
+to be able to access the wiki via HTTPS.
+$ip: The IP address in human-readable form
+&$canDo: This reference should be set to false if the client may not be able 
+to use HTTPS
+
 'CanonicalNamespaces': For extensions adding their own namespaces or altering
 the defaults.
+Note that if you need to specify namespace protection or content model for
+a namespace that is added in a CanonicalNamespaces hook handler, you
+should do so by altering $wgNamespaceProtection and
+$wgNamespaceContentModels outside the handler, in top-level scope. The
+point at which the CanonicalNamespaces hook fires is too late for altering
+these variables. This applies even if the namespace addition is
+conditional; it is permissible to declare a content model and protection
+for a namespace and then decline to actually register it.
 &$namespaces: Array of namespace numbers with corresponding canonical names
 
 'CategoryAfterPageAdded': After a page is added to a category.
@@ -1108,6 +1122,12 @@ $reason: reason
  $post: The final part of the parsed comment before the call to the hook.
  $title: An optional title object used to links to sections. Can be null.
  $local: Boolean indicating whether section links should refer to local page.
+
+'GalleryGetModes': Get list of classes that can render different modes of a
+ gallery
+$modeArray: An associative array mapping mode names to classes that implement
+ that mode. It is expected all registered classes are a subclass of
+ ImageGalleryBase.
 
 'GetAutoPromoteGroups': When determining which autopromote groups a user is
 entitled to be in.
@@ -1794,10 +1814,29 @@ cache or return false to not use it.
 $parser: Parser object
 $varCache: variable cache (array)
 
-'ParserLimitReport': Called at the end of Parser:parse() when the parser will
+'ParserLimitReport': DEPRECATED, use ParserLimitReportPrepare and
+ParserLimitReportFormat instead.
+Called at the end of Parser:parse() when the parser will
 include comments about size of the text parsed.
 $parser: Parser object
-$limitReport: text that will be included (without comment tags)
+&$limitReport: text that will be included (without comment tags)
+
+'ParserLimitReportFormat': Called for each row in the parser limit report that
+needs formatting. If nothing handles this hook, the default is to use "$key" to
+get the label, and "$key-value" or "$key-value-text"/"$key-value-html" to
+format the value.
+$key: Key for the limit report item (string)
+$value: Value of the limit report item
+&$report: String onto which to append the data
+$isHTML: If true, $report is an HTML table with two columns; if false, it's
+	text intended for display in a monospaced font.
+$localize: If false, $report should be output in English.
+
+'ParserLimitReportPrepare': Called at the end of Parser:parse() when the parser will
+include comments about size of the text parsed. Hooks should use
+$output->setLimitReportData() to populate data.
+$parser: Parser object
+$output: ParserOutput object
 
 'ParserMakeImageParams': Called before the parser make an image link, use this
 to modify the parameters of the image.
@@ -1817,7 +1856,7 @@ $section: the section number, zero-based, but section 0 is usually empty
 $showEditLinks: boolean describing whether this section has an edit link
 
 'ParserTestParser': Called when creating a new instance of Parser in
-maintenance/parserTests.inc.
+tests/parser/parserTest.inc.
 $parser: Parser object created
 
 'ParserTestGlobals': Allows to define globals for parser tests.
@@ -1877,9 +1916,10 @@ $article: the title being (un)protected
 $output: a string of the form HTML so far
 
 'ProtectionForm::save': Called when a protection form is submitted.
-$article: the title being (un)protected
-$errorMsg: an html message string of an error or an array of message name and
+$article: the Page being (un)protected
+&$errorMsg: an html message string of an error or an array of message name and
   its parameters
+$reasonstr: a string describing the reason page protection level is altered
 
 'ProtectionForm::showLogExtract': Called after the protection log extract is
 shown.
@@ -1904,6 +1944,10 @@ contexts.
 IContextSource $context: The RequestContext the skin is being created for.
 &$skin: A variable reference you may set a Skin instance or string key on to
   override the skin that will be used for the context.
+
+'ResetSessionID': Called from wfResetSessionID
+$oldSessionID: old session id
+$newSessionID: new session id
 
 'ResourceLoaderGetConfigVars': Called at the end of
 ResourceLoaderStartUpModule::getConfig(). Use this to export static
@@ -1944,13 +1988,6 @@ $data: the data stored in old_text.  The meaning depends on $flags: if external
   text is gzipped.
 $flags: a comma-delimited list of strings representing the options used.  May
   include: utf8 (this will always be set for new revisions); gzip; external.
-
-'SearchUpdate': Prior to search update completion. Return false to stop any
-further text/content processing
-$id : Page id
-$title : Title object
-$text : Current text being indexed
-$content : Content object for text being indexed.
 
 'SearchGetNearMatchBefore': Perform exact-title-matches in "go" searches before
 the normal operations.
@@ -2708,6 +2745,13 @@ $skin: Skin object
 'WebRequestPathInfoRouter': While building the PathRouter to parse the
 REQUEST_URI.
 $router: The PathRouter instance
+
+'WebResponseSetCookie': when setting a cookie in WebResponse::setcookie().
+Return false to prevent setting of the cookie.
+&$name: Cookie name passed to WebResponse::setcookie()
+&$value: Cookie value passed to WebResponse::setcookie()
+&$expire: Cookie expiration, as for PHP's setcookie()
+$options: Options passed to WebResponse::setcookie()
 
 'WikiExporter::dumpStableQuery': Get the SELECT query for "stable" revisions
 dumps. One, and only one hook should set this, and return false.

@@ -1,0 +1,12 @@
+[gerrit]
+host=gerrit.wikimedia.org
+port=29418
+project=mediawiki/core.git
+<<<<<<< HEAD
+defaultbranch=wmf/1.22wmf12
+||||||| merged common ancestors
+defaultbranch=master
+=======
+defaultbranch=wmf/1.22wmf16
+>>>>>>> 8287d1fde36f1243c0eb7af7b381f73840eb71ed
+defaultrebase=0

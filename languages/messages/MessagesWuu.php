@@ -47,7 +47,6 @@ $messages = array(
 'tog-shownumberswatching' => '显示监控此页个用户数目',
 'tog-oldsig' => '现在签名个预览：',
 'tog-fancysig' => '拿签名当成wiki文本（弗产生自动链接）',
-'tog-showjumplinks' => '启用“跳转”链接',
 'tog-uselivepreview' => '使用实时预览（Javascript）（试验）',
 'tog-forceeditsummary' => '编辑摘要为空个辰光提醒我',
 'tog-watchlisthideown' => '来许监控列表里向拿我个编辑囥脱佢',
@@ -313,12 +312,6 @@ $1',
 # General errors
 'error' => '错误',
 'databaseerror' => '数据库错误',
-'dberrortext' => '发生仔数据库查询语法错误，作兴是软件自身个错误所引起个。压末一趟数据库查询指令是：
-<blockquote><tt>$1</tt></blockquote>
-来自函数“<tt>$2</tt>”内。数据库返回错误“<tt>$3: $4</tt>”。',
-'dberrortextcl' => '发生了数据库查询语法错误。压末一趟数据库查询指令是：
-“$1”
-来自函数“$2”内。数据库返回错误“$3: $4”。',
 'laggedslavemode' => '警告: 页面可能弗包含最近个更新。',
 'readonly' => '数据库锁定',
 'enterlockreason' => '请输入锁定个原因，包括预计解锁个辰光',
@@ -364,7 +357,6 @@ $1',
 'viewsourcetext' => '侬可以查看搭仔复制箇只页面个源码：',
 'protectedinterface' => '箇只页面提供软件个界面文本。为著防止滥用咾已经锁定。',
 'editinginterface' => "'''警告：''' 侬垃许编辑个页面是用于提供软件个界面文本。改变此页会得影响其他用户个界面外观。假使要翻译，请考虑使用 [//translatewiki.net/wiki/Main_Page?setlang=zh-hans translatewiki.net]，一个用得来为MediaWiki软件本地化个计划。",
-'sqlhidden' => '（SQL查询已隐藏）',
 'cascadeprotected' => '箇只页面拨保护拉许，因为箇只页面拨下底已经标注“联锁保护”个{{PLURAL:$1|一只|多只}}被保护页面包含：
 $2',
 'namespaceprotected' => "侬无没编辑'''$1'''名字空间里向页面个权限。",
@@ -462,7 +454,7 @@ $2',
 'newpassword' => '新密码:',
 'retypenew' => '再打一遍新密码:',
 'resetpass_submit' => '设置密码再登录',
-'resetpass_success' => '密码修改成功！
+'changepassword-success' => '密码修改成功！
 现在垃许登录...',
 'resetpass_forbidden' => '密码弗好更改',
 'resetpass-no-info' => '侬必须登录仔再好直接进入箇只页面。',
@@ -933,7 +925,6 @@ $1",
 'recentchangesdays-max' => '最长 $1 日',
 'recentchangescount' => '默认显示个编辑数：',
 'prefs-help-recentchangescount' => '箇个包括近段辰光个改动、页面历史以及日志。',
-'prefs-help-watchlist-token' => '此栏填写个密钥可以生成侬监视列表个RSS源。任何知晓本栏密钥个人侪好阅读侬个监视列表，因此请使用安全数值。箇搭已提供一只随机生成个数值供侬挑拣：$1',
 'savedprefs' => '倷个偏好已经保存哉。',
 'timezonelegend' => '时区：',
 'localtime' => '当地辰光：',

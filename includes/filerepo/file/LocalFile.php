@@ -1544,10 +1544,28 @@ class LocalFile extends File {
 			DeferredUpdates::addUpdate( SiteStatsUpdate::factory( array( 'images' => -1 ) ) );
 		}
 
-		$this->purgeEverything();
-		foreach ( $archiveNames as $archiveName ) {
-			$this->purgeOldThumbnails( $archiveName );
-		}
+		// Hack: the lock()/unlock() pair is nested in a transaction so the locking is not
+		// tied to BEGIN/COMMIT. To avoid slow purges in the transaction, move them outside.
+		$file = $this;
+		$this->getRepo()->getMasterDB()->onTransactionIdle(
+			function() use ( $file, $archiveNames ) {
+				global $wgUseSquid;
+
+				$file->purgeEverything();
+				foreach ( $archiveNames as $archiveName ) {
+					$file->purgeOldThumbnails( $archiveName );
+				}
+
+				if ( $wgUseSquid ) {
+					// Purge the squid
+					$purgeUrls = array();
+					foreach ( $archiveNames as $archiveName ) {
+						$purgeUrls[] = $file->getArchiveUrl( $archiveName );
+					}
+					SquidUpdate::purge( $purgeUrls );
+				}
+			}
+		);
 
 		return $status;
 	}
@@ -1567,6 +1585,7 @@ class LocalFile extends File {
 	 * @return FileRepoStatus object.
 	 */
 	function deleteOld( $archiveName, $reason, $suppress = false ) {
+		global $wgUseSquid;
 		if ( $this->getRepo()->getReadOnlyReason() !== false ) {
 			return $this->readOnlyFatalStatus();
 		}
@@ -1582,6 +1601,11 @@ class LocalFile extends File {
 		if ( $status->isOK() ) {
 			$this->purgeDescription();
 			$this->purgeHistory();
+		}
+
+		if ( $wgUseSquid ) {
+			// Purge the squid
+			SquidUpdate::purge( array( $this->getArchiveUrl( $archiveName ) ) );
 		}
 
 		return $status;

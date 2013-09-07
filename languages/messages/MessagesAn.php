@@ -161,7 +161,6 @@ $messages = array(
 'tog-shownumberswatching' => "Amostrar o numero d'usuarios que cosiran un articlo",
 'tog-oldsig' => 'Sinyadura actual',
 'tog-fancysig' => 'Tratar as sinyaduras como wikitexto (sin de vinclo automatico)',
-'tog-showjumplinks' => 'Activar vinclos d\'accesibilidat "blincar enta"',
 'tog-uselivepreview' => 'Activar previsualización automatica (cal JavaScript) (Esperimental)',
 'tog-forceeditsummary' => 'Avisar-me quan o campo de resumen siga buedo.',
 'tog-watchlisthideown' => 'Amagar as mías edicions en a lista de seguimiento',
@@ -444,17 +443,6 @@ Puede trobar una lista de pachinas especials en [[Special:SpecialPages|{{int:spe
 # General errors
 'error' => 'Error',
 'databaseerror' => "Error d'a base de datos",
-'dberrortext' => 'Ha sucedito una error de sintaxi en una consulta a la base de datos.
-Isto podría marcar una error en o programa.
-A zaguera consulta estió:
-<blockquote><tt>$1</tt></blockquote>
-dende adintro d\'a función "<tt>$2</tt>".
-A error retornata por a base de datos estió "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'S\'ha producito una error de sintaxi en una consulta a la base de datos.
-A zaguera consulta estió:
-"$1"
-dende adintro d\'a función "$2".
-A base de datos retornó a error "$3: $4"',
 'laggedslavemode' => "Pare cuenta: podrían faltar as zagueras edicions d'ista pachina.",
 'readonly' => 'Base de datos bloqueyata',
 'enterlockreason' => "Esplique a causa d'o bloqueyo, incluyendo una estimación de quán se producirá o desbloqueyo",
@@ -502,7 +490,6 @@ Consulta: $2',
 'viewyourtext' => "Puet veyer y copiar o codigo d''''as suyas edicions''' en ista pachina:",
 'protectedinterface' => "Ista pachina furne o texto d'a interfaz ta o software. Ye protechita ta privar o vandalismo. Si creye que bi ha bella error, contacte con un administrador.",
 'editinginterface' => "'''Pare cuenta:''' Ye editando una pachina emplegata ta furnir o texto d'a interfaz de {{SITENAME}}. Os cambeos en ista pachina tendrán efecto en l'aparencia d'a interfaz ta os atros usuarios. Ta fer traduccions d'a interfaz, puede considerar fer servir [//translatewiki.net/wiki/Main_Page?setlang=an translatewiki.net], o prochecto de localización de MediaWiki.",
-'sqlhidden' => '(Consulta SQL amagata)',
 'cascadeprotected' => 'Ista pachina ye protechita y no se puede editar porque ye incluyita en {{PLURAL:$1|a siguient pachina|as siguients pachinas}}, que son protechitas con a opción de "cascada": $2',
 'namespaceprotected' => "No tiene premiso ta editar as pachinas d'o espacio de nombres '''$1'''.",
 'customcssprotected' => 'No tiene permisos ta editar a pachina CSS porque contién parametros personal de belatro usuario.',
@@ -524,7 +511,6 @@ Puede continar navegando por {{SITENAME}} anonimament, u puede <span class='plai
 'yourpassword' => "Clau d'acceso:",
 'yourpasswordagain' => 'Torne a escribir a clau:',
 'remembermypassword' => "Remerar o mío nombre d'usuario y a clau entre sesions en iste navegador (como muito por $1 {{PLURAL:$1|día|días}})",
-'securelogin-stick-https' => "Continar connectau con HTTPS dimpués d'encetar sesión",
 'yourdomainname' => 'Dominio:',
 'externaldberror' => "Bi habió una error d'autenticación externa d'a base de datos u bien no tiene premisos ta esviellar a suya cuenta externa.",
 'login' => 'Encetar sesión',
@@ -613,7 +599,7 @@ Si a cuenta s\'ha creyato por error, simplament ignore iste mensache.',
 'newpassword' => 'Nueva clau:',
 'retypenew' => 'Torne a escribir a nueva clau:',
 'resetpass_submit' => 'Cambiar a clau y identificar-se',
-'resetpass_success' => 'A suya clau ya ye cambiata. Agora ya puede dentrar-ie...',
+'changepassword-success' => 'A suya clau ya ye cambiata. Agora ya puede dentrar-ie...',
 'resetpass_forbidden' => "No se puede cambiar as claus d'acceso",
 'resetpass-no-info' => 'Debe identificar-se como usuario ta poder acceder dreitament ta ista pachina.',
 'resetpass-submit-loggedin' => 'Cambiar a clau',
@@ -1138,9 +1124,6 @@ Asegure-se que iste cambio no trencará a continidat de l'historial d'a pachina.
 'recentchangesdays-max' => '(masimo $1 {{PLURAL:$1|día|días}})',
 'recentchangescount' => "Numero d'edicions a amostrar, por defecto:",
 'prefs-help-recentchangescount' => 'Inclui os zaguers cambeos, historials de pachina y rechistros.',
-'prefs-help-watchlist-token' => "Si plena iste campo con una clau secreta se chenerará n filo RSS t'a suya lista de seguimeinto.
-Qui conoixca ista clau podrá leyer a suya lista de seguimiento, asinas que esliya una clau segura.
-Contino se i amuestra una calu chenerata de traza aleatoria que puede fer servir si quiere: $1",
 'savedprefs' => "S'han alzato as suyas preferencias.",
 'timezonelegend' => 'Fuso horario:',
 'localtime' => 'Hora local:',

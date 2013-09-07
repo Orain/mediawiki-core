@@ -347,7 +347,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Vis kor mange som overvakar sida',
 'tog-oldsig' => 'Noverande signatur:',
 'tog-fancysig' => 'Handsam signaturar som wikitekst (utan automatisk lenking)',
-'tog-showjumplinks' => 'Slå på «gå til»-lenkjer',
 'tog-uselivepreview' => 'Bruk levande førehandsvising (eksperimentelt JavaScript)',
 'tog-forceeditsummary' => 'Spør meg når eg ikkje har skrive noko i endringssamandraget',
 'tog-watchlisthideown' => 'Gøym endringane mine i overvakingslista',
@@ -362,6 +361,7 @@ $messages = array(
 'tog-noconvertlink' => 'Slå av konvertering av sidetitlar',
 'tog-norollbackdiff' => 'Ikkje vis skilnad etter attenderulling',
 'tog-useeditwarning' => 'Gje ei åtvaring om eg går ut av ei redigeringsside og ikkje alle endringar er lagra',
+'tog-prefershttps' => 'Alltid bruk ei trygg kopling når du er innlogga',
 
 'underline-always' => 'Alltid',
 'underline-never' => 'Aldri',
@@ -648,10 +648,6 @@ Dette kan òg skuldast ein feil i programvara som er nytta av {{SITENAME}}.',
 # General errors
 'error' => 'Feil',
 'databaseerror' => 'Databasefeil',
-'dberrortext' => 'Det oppstod ein syntaksfeil i ein databaseførespurnad. Dette kan tyda på feil i programvara. Siste førespurnaden til databasen var: <blockquote><code>$1</code></blockquote> frå funksjonen «<code>$2</code>». Databasen returnerte feilen «<samp>$3: $4</samp>».',
-'dberrortextcl' => 'Det oppstod ein syntaksfeil i databaseførespurnaden.
-Den sist prøvde førespurnaden var: «$1» frå funksjonen «$2».
-Databasen returnerte feilen «$3: $4».',
 'laggedslavemode' => 'Åtvaring: Det er mogleg at sida ikkje er heilt oppdatert.',
 'readonly' => 'Databasen er skriveverna',
 'enterlockreason' => 'Skriv ein grunn for vernet, inkludert eit overslag for kva tid det vil bli oppheva',
@@ -703,7 +699,6 @@ For å leggja til eller endra omsetjingar for alle wikiar, gjer vel å nytta [//
 'editinginterface' => "'''Åtvaring:''' Du endrar på ei side som inneheld tekst nytta av brukargrensesnittet for programvara.
 Endringar på denne sida påverkar utsjånaden til brukargrensesnittet for dei andre brukarane av wikien.
 For å leggja til eller endra omsetjingar, gjer vel å nytta [//translatewiki.net/wiki/Main_Page?setlang=nn translatewiki.net], prosjektet for lokalisering av MediaWiki.",
-'sqlhidden' => '(SQL-førespurnaden er gøymd)',
 'cascadeprotected' => 'Denne sida er verna mot endring fordi ho er inkludert i {{PLURAL:$1|den opplista sida|dei opplista sidene}} som har djupvern slått på:
 $2',
 'namespaceprotected' => "Du har ikkje tilgang til å endre sidene i '''$1'''-namnerommet.",
@@ -711,6 +706,8 @@ $2',
 'customjsprotected' => '↓Du har ikkje tilgang til å endra denne JavaScript-sida fordi ho inneheld ein annen brukar sine personlege innstillingar.',
 'mycustomcssprotected' => 'Du har ikkje løyve til å endra denne CSS-sida.',
 'mycustomjsprotected' => 'Du har ikkje løyve til å endra denne JavaScript-sida.',
+'myprivateinfoprotected' => 'Du har ikkje løyve til endra den private informasjonen din.',
+'mypreferencesprotected' => 'Du har ikkje løyve til å endra innstillingane dine.',
 'ns-specialprotected' => 'Sider i {{ns:special}}-namnerommet kan ikkje endrast.',
 'titleprotected' => "Denne sidetittelen er verna mot oppretting av [[User:$1|$1]].
 Grunnen som er gjeven er: ''$2''.",
@@ -749,7 +746,6 @@ Gløym ikkje å endra [[Special:Preferences|innstillingane dine for {{SITENAME}}
 'remembermypassword' => 'Hugs innlogginga mi på denne datamaskinen (høgst {{PLURAL:$1|éin dag|$1 dagar}})',
 'userlogin-remembermypassword' => 'Hald meg innlogga',
 'userlogin-signwithsecure' => 'Nytt trygg kopling',
-'securelogin-stick-https' => 'Fortset HTTPS-tilkopling etter innlogging.',
 'yourdomainname' => 'Domenet ditt',
 'password-change-forbidden' => 'Du kan ikkje endra passord på denne wikien.',
 'externaldberror' => 'Det var anten ein ekstern databasefeil i tilgjengekontrollen, eller du har ikkje løyve til å oppdatere den eksterne kontoen din.',
@@ -864,7 +860,7 @@ Du kan sjå bort frå denne meldinga dersom kontoen vart oppretta med eit uhell.
 'newpassword' => 'Nytt passord',
 'retypenew' => 'Nytt passord om att',
 'resetpass_submit' => 'Oppgje passord og logg inn',
-'resetpass_success' => 'Passordet ditt er no nullstilt! Loggar inn...',
+'changepassword-success' => 'Passordet ditt er no nullstilt! Loggar inn...',
 'resetpass_forbidden' => 'Passord kan ikkje endrast',
 'resetpass-no-info' => 'Du må vera innlogga for å få direktetilgang til denne sida.',
 'resetpass-submit-loggedin' => 'Endra passord',
@@ -1088,7 +1084,7 @@ Du kan gå attende og endre ei eksisterande side, [[Special:UserLogin|logge inn 
 'nocreate-loggedin' => 'Du har ikkje tilgang til å opprette nye sider.',
 'sectioneditnotsupported-title' => 'Endring av bolkar er ikkje støtta',
 'sectioneditnotsupported-text' => 'Endring av bolkar er ikkje støtta på denne sida.',
-'permissionserrors' => 'Tilgangsfeil',
+'permissionserrors' => 'Løyvefeil',
 'permissionserrorstext' => 'Du har ikkje tilgang til å gjere dette, {{PLURAL:$1|grunnen|grunnane}} til det finn du her:',
 'permissionserrorstext-withaction' => 'Du har ikkje løyve til å $2 {{PLURAL:$1|på grunn av|av desse grunnane}}:',
 'recreate-moveddeleted-warn' => "'''Åtvaring: Du attopprettar ei side som tidlegare har vorte sletta.'''
@@ -1434,9 +1430,6 @@ Ver merksam på at registra deira kan vera utdaterte.',
 'recentchangesdays-max' => '(høgst $1 {{PLURAL:$1|dag|dagar}})',
 'recentchangescount' => 'Tal på endringar som viser som standard:',
 'prefs-help-recentchangescount' => 'Dette inkluderer nylege endringar, sidehistorikk og loggar.',
-'prefs-help-watchlist-token' => 'Om du fyller ut dette feltet med eit hemmeleg tal, vil det opprettast ei RSS opplisting for overvakingslista di.
-Alle som veit det rette talet vil vera i stand til å lesa overvakingslista di, så vél gjerne ein trygg verdi.
-Her er det framlegg til eit tal som kan nyttast, tilfelleleg henta fram: $1',
 'savedprefs' => 'Brukarinnstillingane er lagra.',
 'timezonelegend' => 'Tidssone:',
 'localtime' => 'Lokaltid:',
@@ -1480,11 +1473,13 @@ Dette kan ikkje tilbakestillast.',
 'prefs-help-signature' => 'Kommentarar på diskusjonssider bør alltid signerast med «<nowiki>~~~~</nowiki>», som vil konverterast til signaturen din med tidspunkt.',
 'badsig' => 'Ugyldig råsignatur, sjekk HTML-kodinga.',
 'badsiglength' => 'Signaturen din er for lang. Han må vere under {{PLURAL:$1|eitt teikn|$1 teikn}}.',
-'yourgender' => 'Kjønn:',
-'gender-unknown' => 'Ikkje oppgjeve',
-'gender-male' => 'Mann',
-'gender-female' => 'Kvinne',
-'prefs-help-gender' => 'Valfritt: nytta for at programvara skal retta seg til brukaren med rett kjønn i systemmeldingar. Denne informasjonen vil vera offentleg.',
+'yourgender' => 'Korleis ynskjer du å skildrast?',
+'gender-unknown' => 'Eg ynskjer ikkje å spesifisera',
+'gender-male' => 'Han endrar wikisider',
+'gender-female' => 'Ho endrar wikisider',
+'prefs-help-gender' => 'Det er valfritt å oppgje dette.
+Programvara brukar denne verdien for å bruka rett grammatisk kjønn når ho rettar seg til deg eller nemner deg for andre.
+Denne informasjonen vil vera offentleg.',
 'email' => 'E-post',
 'prefs-help-realname' => '* Namn (valfritt): Om du vel å fylle ut dette feltet, vil informasjonen bli brukt til å godskrive arbeid du har gjort.',
 'prefs-help-email' => 'Å oppgje e-postadresse er valfritt, men lar deg ta i mot nytt passord om du gløymer det gamle.',
@@ -1495,7 +1490,8 @@ Dette kan ikkje tilbakestillast.',
 'prefs-signature' => 'Signatur',
 'prefs-dateformat' => 'Datoformat',
 'prefs-timeoffset' => 'Tidforskuving',
-'prefs-advancedediting' => 'Avanserte val',
+'prefs-advancedediting' => 'Ålmenne val',
+'prefs-editor' => 'Teksthandsamar',
 'prefs-preview' => 'Førehandsvising',
 'prefs-advancedrc' => 'Avanserte val',
 'prefs-advancedrendering' => 'Avanserte val',
@@ -2599,7 +2595,7 @@ $1',
 'sp-contributions-blocked-notice-anon' => 'Denne IP-adressa er for tida blokkert. Den siste oppføringa i blokkeringsloggen er synt nedanfor:',
 'sp-contributions-search' => 'Søk etter bidrag',
 'sp-contributions-username' => 'IP-adresse eller brukarnamn:',
-'sp-contributions-toponly' => 'Einast vis endringar som er dei siste på sida.',
+'sp-contributions-toponly' => 'Vis berre endringar som er gjeldande versjonar',
 'sp-contributions-submit' => 'Søk',
 
 # What links here
@@ -3820,6 +3816,7 @@ Du kan òg [[Special:EditWatchlist|nytte standardverktøyet]].',
 'version-license' => 'Lisens',
 'version-poweredby-credits' => "Denne wikien er driven av '''[//www.mediawiki.org/ MediaWiki]''', copyright © 2001-$1 $2.",
 'version-poweredby-others' => 'andre',
+'version-poweredby-translators' => 'translatewiki.net-omsetjarar',
 'version-credits-summary' => 'Me ynskjer godskriva desse personane for tilskotet deira til [[Special:Version|MediaWiki]].',
 'version-license-info' => 'MediaWiki er fri programvare; du kan redistribuera det og/eller modifisera det under krava i GNU General Public License som publisert av Free Software Foundation; anten versjon 2 av lisensen, eller (om du ynskjer det) ein kvar seinare versjon.
 
@@ -3892,11 +3889,12 @@ Du skal ha motteke [{{SERVER}}{{SCRIPTPATH}}/COPYING ein kopi av GNU General Pub
 'tags' => 'Gyldige endringsmerke',
 'tag-filter' => '[[Special:Tags|Merke]]filter:',
 'tag-filter-submit' => 'Filtrer',
+'tag-list-wrapper' => '([[Special:Tags|{{PLURAL:$1|Merke}}]]: $2)',
 'tags-title' => 'Merke',
 'tags-intro' => 'Denne sida listar opp merka som programvara kan merkja ei endring med, og kva desse tyder.',
 'tags-tag' => 'Merkenamn',
 'tags-display-header' => 'Utsjånad på endringslister',
-'tags-description-header' => 'Fullstendig skildring av tyding',
+'tags-description-header' => 'Tyding',
 'tags-hitcount-header' => 'Merkte endringar',
 'tags-edit' => 'endra',
 'tags-hitcount' => '{{PLURAL:$1|éi endring|$1 endringar}}',
@@ -4052,5 +4050,17 @@ Om ikkje kan du nytta det enkle skjemaet under. Merknaden din vert lagd til på 
 
 # Image rotation
 'rotate-comment' => 'Biletet vart dreitt $1{{PLURAL:$1|°}} med klokka',
+
+# Limit report
+'limitreport-title' => 'Profildata for analysatoren:',
+'limitreport-cputime' => 'CPU-tidsbruk',
+'limitreport-cputime-value' => '{{PLURAL:$1|eitt sekund|$1 sekund}}',
+'limitreport-walltime-value' => '{{PLURAL:$1|eitt sekund|$1 sekund}}',
+'limitreport-ppvisitednodes' => 'Tal på knutepunktsvitjingar av førhandsamar',
+'limitreport-postexpandincludesize-value' => '$1/$2 byte',
+'limitreport-templateargumentsize' => 'Storleik på malargument',
+'limitreport-templateargumentsize-value' => '$1/$2 byte',
+'limitreport-expansiondepth' => 'Største utvidingsdjupna',
+'limitreport-expensivefunctioncount' => 'Tal på dyre analysefunksjonar',
 
 );

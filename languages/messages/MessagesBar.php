@@ -89,7 +89,6 @@ $messages = array(
 'tog-shownumberswatching' => "D' Åzoi voh dé beówochterden Benutzer åzoang",
 'tog-oldsig' => 'Existente Unterschrift',
 'tog-fancysig' => 'Unterschrift ois Wikitext bhåndln (óne autómaatische Valinkung)',
-'tog-showjumplinks' => '„Wexeln zu“-Links aktivirn',
 'tog-uselivepreview' => 'Live-Vurschau nutzen (dodafyr braucht ma JavaScript) (experimentoy)',
 'tog-forceeditsummary' => 'Warnen, wånn ban Speichern dé Zåmmerfossung fööd',
 'tog-watchlisthideown' => 'Eigerne Beorweitungen in da Beówochtungslisten ausblenden',
@@ -371,15 +370,6 @@ Olle vafiagborn Speziaalseiten san in da [[Special:SpecialPages|Listen voh dé S
 # General errors
 'error' => 'Feeler',
 'databaseerror' => 'Feeler in da Daatenbånk',
-'dberrortext' => "Es is a Daatenbånkfeeler auftreeden!
-Da Grund kå a Prógrammierfeeler seih.
-D' létzde Daatenbånkobfrog wor:
-<blockquote><tt>$1</tt></blockquote>
-aus da Funkzión „<tt>$2</tt>“.
-Dé Daatenbånk hod an Feeler „<tt>$3: $4</tt>“ gmödt.",
-'dberrortextcl' => "Tschuidigung! Es hod an Syntaxfeeler in da Daatenbånkobfrog geem.
-D' letzte Daatenbånkobfrog hod  „$1“ aus da Funkzion „<tt>$2</tt>“ glautt.
-De Daatenbånk möidt 'n Feeler: „<tt>$3: $4</tt>“.",
 'laggedslavemode' => "'''Ochtung:''' De åzoagte Seiten kunnterd unter Umständ ned d' letzden Beorweitungen enthoiden.",
 'readonly' => 'Daatenbånk gsperrd',
 'enterlockreason' => 'Bittscheh gib an Grund å, warum de Daatenbånk gsperrd wern soi und a Obschätzung ywer de Dauer voh da Sperrung',
@@ -430,7 +420,6 @@ Bittscheh vasuachs in a por Minunten nuamoi.',
 'editinginterface' => "'''Ówocht:''' Dé Seiten do enthoit voh da MediaWiki-Software gnutzden Text. 
 Änderrungen auf derer Seiten wirken sé auf d' Benutzerówerflächen aus.
 Ziag bittscheh im Foi voh Ywersétzungen in Betrocht, dé bei [//translatewiki.net/wiki/Main_Page?setlang=de translatewiki.net], da Lókaalisiarungsblottform fyr MediaWiki, durchzfyrn.",
-'sqlhidden' => '(SQL-Obfrog vastéckt)',
 'cascadeprotected' => "Dé Seiten is zua da Beorweitung gsperrd worn. Sie is in d' {{PLURAL:$1|fóigande Seiten|fóiganden Seiten}} eihbunden, dé mid da Kaskaadensperrópzión gschytzd {{PLURAL:$1|is|san}}:
 $2",
 'namespaceprotected' => "Du host néd d' daforderliche Berechtigung, Seiten im Náumensraum '''$1''' b'orweiden z' kenner.",
@@ -453,7 +442,6 @@ Beochtt ower, daas oanige Seiten noh åzoang kennern, daas du ågmödt bist, só
 'yourpassword' => 'Passwort:',
 'yourpasswordagain' => 'Es Passwort no amoi eigebm',
 'remembermypassword' => 'Mitm Brausa dauahoft ogmejd bleibm (maximoi $1 {{PLURAL:$1|Dog|Dog}})',
-'securelogin-stick-https' => "Noch'm Auhmöden mid HTTPS vabunden bleim",
 'yourdomainname' => 'Eanerne Domain:',
 'externaldberror' => 'Entweder es ligt a Feeler bai da externen Authentifiziarung vur oder du derfst dai externs Benytzerkonto ned aktualisirn.',
 'login' => 'Eilogga',

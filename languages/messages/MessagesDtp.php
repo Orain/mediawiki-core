@@ -44,7 +44,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Pokitono ginumu do momomoguno minongintong',
 'tog-oldsig' => 'Sain poinsandad:',
 'tog-fancysig' => 'Pokitono sain sobaagi do tikwiki (ingaa oporian toput )',
-'tog-showjumplinks' => 'Pasagao "tumopik hilo" noputan awayaan',
 'tog-uselivepreview' => 'Momoguno pongingintong poimpasi (momoguno JawaSikrip) (pogumbalan)',
 'tog-forceeditsummary' => 'Posoroho oku no nung awu nosuangan kutak koinibaan niditan',
 'tog-watchlisthideown' => 'Polisoko niditanku mantad do lis piintangan',
@@ -331,17 +330,6 @@ Lis pointopot bobolikon pinatantu okito id [[Special:SpecialPages|{{int:specialp
 # General errors
 'error' => 'Nosilopan',
 'databaseerror' => 'Nakasala databing',
-'dberrortext' => 'Nokosilap pogiuludan databing.
-Haro kaanto kutu id posuang-suangon.
-Tohuri pinokianu pogiuludan databing nopo nga:
-<blockquote><code>$1</code></blockquote>
-mantad suang momoguno "<code>$2</code>".
-Databing nokosilap pinopoguli "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Haro kinosilapan pinongimuhatan sintak diri databing.
-Pinokianu databing di nokotohuri nopo nga:
-"$1"
-mantad kopomogunoon "$2".
-Nokosilap pinonimbar databing do "$3: $4"',
 'laggedslavemode' => "'''Panansarahan:''' Awu moti kaanto nopinwoguan suang do bolikon diti.",
 'readonly' => 'Nokunsian databing',
 'enterlockreason' => 'Posuango sabab do mongunsi, poobion do gisom soira oukaban kunsi',
@@ -398,7 +386,6 @@ Nung mongoruhang toi monimban do waliwboros tongowiki, mangai noh gunoo iri puru
 'editinginterface' => "Panansarahan :''' Mongidit ko diti bolikon di gunoon do poposodia diri pongurasan montok posuang-suangon.
 Sinuratan id bolikon diti kopogoit do pongitanan  kourasan momoguno  montok momomoguno suai.
 Montok mongoruhang toi monimban do waliwboros, gunoo noh [//translatewiki.net/ translatewiki.net], purujik popodusun ModiaWiki.",
-'sqlhidden' => '(Pongimuhatan SQL poinlisok)',
 'cascadeprotected' => 'Notingoligan bolikon diti mantad do pingiditan tu nokosuang  id bolikon, {{PLURAL:$1 | do | it}} pinilian tingolig  "kasading" poinsikit:
 $2',
 'namespaceprotected' => "Ingaa kasagaannu do mongidit bobolikon it kinoingaran '''$1'''.",
@@ -432,7 +419,6 @@ Soroho noh do mongolon do [[Special:Preferences|{{SITENAME}} komoisaannu]].',
 'yourpassword' => 'Kaatalib:',
 'yourpasswordagain' => 'Mintaipo kaatalib:',
 'remembermypassword' => 'Soroho ot loginku id popogihuman diti (gisom solinaid do $1 {{PLURAL:$1|tadau|madau}})',
-'securelogin-stick-https' => 'Toririmo poinhubung hilo HTTPS soira kosuang log',
 'yourdomainname' => 'Damin nu:',
 'password-change-forbidden' => 'Awu koh kopongolon kaatalib id wiki diti.',
 'externaldberror' => 'Haro nokosilap pongintutunan bingdata toi awu ko pasagaon monginwagu takaun poinsoliwannu.',
@@ -539,7 +525,7 @@ Momongoh do sinuang log, mositi do powonsoionnu kaatalib wagu do hiti.:',
 'newpassword' => 'Kaatalib wagu:',
 'retypenew' => 'Mitaipo kaatalib wagu:',
 'resetpass_submit' => 'Posoino kaatalib om sumuang log',
-'resetpass_success' => 'Naalanan noh kaatalibnu!
+'changepassword-success' => 'Naalanan noh kaatalibnu!
 Baino sumuang log...',
 'resetpass_forbidden' => 'Awu milo alanan kaatalib',
 'resetpass-no-info' => 'Mositi sumuang log ko do mongoguno monilombus id bolikon diti.',

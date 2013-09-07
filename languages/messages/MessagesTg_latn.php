@@ -42,7 +42,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Nişon dodani şumorai korbaroni pajgir',
 'tog-oldsig' => 'Peşnamoişi imzoi vuçuddoşta:',
 'tog-fancysig' => 'Imzoro ba surati vikimatn ba nazar bigir (be pajvandi xudkor)',
-'tog-showjumplinks' => 'Namoişi pajvandhoi dastrasiji "çahiş ba" dar fehristi mundariçot',
 'tog-uselivepreview' => 'Istifoda az peşnamoişi zinda (ÇavaSkript) (Ozmoişī)',
 'tog-forceeditsummary' => 'Hangome ki xulosai viroiş nanaviştaam jua man isloh bideh',
 'tog-watchlisthideown' => 'Pinhon namudani viroişhoi man dar fehristi nazarot',
@@ -313,12 +312,6 @@ Fehristi sahifahoi viƶai durustro metavoned dar inço [[Special:SpecialPages|{{
 # General errors
 'error' => 'Iştiboh',
 'databaseerror' => 'Xatoi bojgohi doda',
-'dberrortext' => 'Işkole dar dasturi firistanda şuda ba pojgohi doda rux dod.
-Daleli in muşkil metavonad erode dar narmafzor boşad.
-In oxirin dasture bud ki baroi pojgohi doda firistoda şud:
-<blockquote><tt>$1</tt></blockquote>
-in dastur az daruni amalgir "<tt>$2</tt>".
-Pogohi doda in xatoro bozgardond "<tt>$3: $4</tt>".',
 'laggedslavemode' => 'Huşdor: Sahifa mumkin ast rūzrasonihoi oxirro dar bar nagirad.',
 'readonly' => 'Bojgohi doda qufl şudaast',
 'enterlockreason' => 'Dalelero baroi qufl kardan zikr kuned, va taqriban vaqti az qufl ozod şudanaşro ham zikr kuned',
@@ -360,7 +353,6 @@ Pursuçū: $2',
 'protectedpagetext' => 'In sahifa baroi çilavgirī az viroiş qufl şudaast.',
 'viewsourcetext' => 'Şumo metavoned matni vikiji in sahifaro nazar kuned jo nusxa bardored:',
 'protectedinterface' => 'In sahifa oroişdihandai matni in narmafzor ast, va ba manzuri peşgirī az xarobkorī qufl şudaast.',
-'sqlhidden' => '(Dasturi SQL pinhonist)',
 'cascadeprotected' => 'In sahifa az viroiş muhofizat şudaast, baroi in ki  dar {{PLURAL:$1|sahifai|sahifahoi}} muhofizatşudai zerin, ki guzainai "obşorī" dar {{PLURAL:$1|on|onho}} intixob şudaast, faro giriftaast: $2',
 'namespaceprotected' => "Şumo içozati viroişi sahifahoi fazoinomi '''$1'''-ro nadored.",
 'ns-specialprotected' => 'Sahifahoi viƶa ƣajri qobili viroiş hastand.',
@@ -447,7 +439,7 @@ Lutfan peş az on, ki dubora taloş kuned, sabr kuned.',
 'newpassword' => 'Kalimai navi ubur:',
 'retypenew' => 'Kalimai navi uburro takroran navised:',
 'resetpass_submit' => 'Kalimai uburro tanzim karda ba sistem vurud kuned',
-'resetpass_success' => 'Kalimai uburi şumo bo muvaffaqijat taƣjir doda şud! Dar holi vorid kardani şumo ba sistem...',
+'changepassword-success' => 'Kalimai uburi şumo bo muvaffaqijat taƣjir doda şud! Dar holi vorid kardani şumo ba sistem...',
 'resetpass-no-info' => 'Baroi dastrasiji mustaqim ba in sahifa şumo bojad ba sistem vorid şuda boşed.',
 'resetpass-submit-loggedin' => 'Taƣjiri guzarvoƶa',
 'resetpass-wrong-oldpass' => "Guzarvoƶai muvaqat jo oxir nomū'tabar.

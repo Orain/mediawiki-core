@@ -238,7 +238,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Prikaži broj korisnika koji prate',
 'tog-oldsig' => 'Postojeći potpis:',
 'tog-fancysig' => 'Smatraj potpis kao wikitekst (bez automatskog linka)',
-'tog-showjumplinks' => 'Omogući opciju "skoči na" linkove',
 'tog-uselivepreview' => 'Koristite pretpregled uživo (potreban JavaScript) (eksperimentalno)',
 'tog-forceeditsummary' => 'Opomeni me pri unosu praznog sažetka',
 'tog-watchlisthideown' => 'Sakrij moje izmjene sa spiska praćenih članaka',
@@ -538,17 +537,6 @@ Lista valjanih posebnih stranica se može naći na [[Special:SpecialPages|{{int:
 # General errors
 'error' => 'Greška',
 'databaseerror' => 'Greška u bazi podataka',
-'dberrortext' => 'Došlo je do sintaktičke greške u bazi.
-Možda se radi o grešci u softveru.
-Posljednji pokušaj upita je glasio:
-<blockquote><code>$1</code></blockquote>
-unutar funkcije „<code>$2</code>“.
-Baza podataka je prijavila grešku „<samp>$3: $4</samp>“.',
-'dberrortextcl' => 'Desila se sintaksna greška upita baze.
-Posljednji pokušani upit je bio:
-"$1"
-iz funkcije "$2".
-MySQL je vratio grešku "$3: $4".',
 'laggedslavemode' => "'''Upozorenje''': Stranica ne mora sadržavati posljednja ažuriranja.",
 'readonly' => 'Baza podataka je zaključana',
 'enterlockreason' => 'Unesite razlog za zaključavanje, uključujući procjenu vremena otključavanja',
@@ -603,7 +591,6 @@ Pretraga: $2',
 'editinginterface' => "'''Upozorenje:''' Mijenjate stranicu koja se koristi za tekst interfejsa za softver.
 Promjene na ovoj stranici će izazvati promjene korisničkog interfejsa za druge korisnike na ovoj wiki.
 Za prijevode, molimo Vas koristite [//translatewiki.net/wiki/Main_Page?setlang=bs translatewiki.net], projekt lokalizacije MediaWiki.",
-'sqlhidden' => '(SQL pretraga sakrivena)',
 'cascadeprotected' => 'Ova stranica je zaštićena od uređivanja, jer je uključena u {{PLURAL:$1|stranicu zaštićenu|stranice zaštićene}} od uređivanja sa uključenom kaskadnom opcijom:
 $2',
 'namespaceprotected' => "Nemate dozvolu uređivati stranice imenskog prostora '''$1'''.",
@@ -651,7 +638,6 @@ Ne zaboravite izmijeniti vlastite [[Special:Preferences|{{SITENAME}} postavke]].
 'remembermypassword' => 'Upamti moju lozinku na ovom kompjuteru (za maksimum od $1 {{PLURAL:$1|dan|dana}})',
 'userlogin-remembermypassword' => 'Držite me ulogiranog/u',
 'userlogin-signwithsecure' => 'Koristite sigurnu vezu',
-'securelogin-stick-https' => 'Ostanite povezani na HTTPS nakon prijave',
 'yourdomainname' => 'Vaš domen:',
 'password-change-forbidden' => 'Ne možete da promenite lozinku na ovom vikiju.',
 'externaldberror' => 'Došlo je do greške pri vanjskoj autorizaciji baze podataka ili vam nije dopušteno osvježavanje Vašeg vanjskog korisničkog računa.',
@@ -780,7 +766,7 @@ Da biste završili prijavu, morate unijeti novu šifru ovdje:',
 'newpassword' => 'Nova šifra:',
 'retypenew' => 'Ukucajte ponovo novu šifru:',
 'resetpass_submit' => 'Odredi lozinku i prijavi se',
-'resetpass_success' => 'Vaša šifra je uspiješno promjenjena! Prijava u toku...',
+'changepassword-success' => 'Vaša šifra je uspiješno promjenjena! Prijava u toku...',
 'resetpass_forbidden' => 'Šifre ne mogu biti promjenjene',
 'resetpass-no-info' => 'Morate biti prijavljeni da bi ste pristupili ovoj stranici direktno.',
 'resetpass-submit-loggedin' => 'Promijeni lozinku',
@@ -1383,9 +1369,6 @@ Uzmite u obzir da njegovi indeksi za ovu Wiki ne moraju biti ažurirani.',
 'recentchangesdays-max' => '(najviše $1 {{PLURAL:$1|dan|dana}})',
 'recentchangescount' => 'Broj uređivanja za prikaz po pretpostavkama:',
 'prefs-help-recentchangescount' => 'Ovo uključuje nedavne izmjene, historije stranice i registre.',
-'prefs-help-watchlist-token' => 'Popunjavanjem ovog polja tajnim ključem će generisati RSS feed za Vaš spisak praćenja.
-Svako ko zna ključ u ovom polju će biti u mogućnosti da pročita Vaš spisak praćenja, tako da trebate izabrati sigurnu vrijednost.
-Ovdje su navedene neke nasumično odabrane vrijednosti koje možete koristiti: $1',
 'savedprefs' => 'Vaša postavke su snimljene.',
 'timezonelegend' => 'Vremenska zona:',
 'localtime' => 'Lokalno vrijeme:',

@@ -281,18 +281,6 @@ class Preferences {
 			'help-message' => 'prefs-help-realname',
 		);
 
-		$defaultPreferences['gender'] = array(
-			'type' => 'select',
-			'section' => 'personal/info',
-			'options' => array(
-				$context->msg( 'gender-male' )->text() => 'male',
-				$context->msg( 'gender-female' )->text() => 'female',
-				$context->msg( 'gender-unknown' )->text() => 'unknown',
-			),
-			'label-message' => 'yourgender',
-			'help-message' => 'prefs-help-gender',
-		);
-
 		if ( $canEditPrivateInfo && $wgAuth->allowPasswordChange() ) {
 			$link = Linker::link( SpecialPage::getTitleFor( 'ChangePassword' ),
 				$context->msg( 'prefs-resetpass' )->escaped(), array(),
@@ -315,11 +303,11 @@ class Preferences {
 			);
 		}
 		// Only show preferhttps if secure login is turned on
-		if ( $wgSecureLogin ) {
+		if ( $wgSecureLogin && wfCanIPUseHTTPS( $context->getRequest()->getIP() ) ) {
 			$defaultPreferences['prefershttps'] = array(
 				'type' => 'toggle',
 				'label-message' => 'tog-prefershttps',
-				'default' => true,
+				'help-message' => 'prefs-help-prefershttps',
 				'section' => 'personal/info'
 			);
 		}
@@ -343,37 +331,58 @@ class Preferences {
 			'label-message' => 'yourlanguage',
 		);
 
+		$defaultPreferences['gender'] = array(
+			'type' => 'radio',
+			'section' => 'personal/i18n',
+			'options' => array(
+				$context->msg( 'gender-male' )->text() => 'male',
+				$context->msg( 'gender-female' )->text() => 'female',
+				$context->msg( 'gender-unknown' )->text() => 'unknown',
+			),
+			'label-message' => 'yourgender',
+			'help-message' => 'prefs-help-gender',
+		);
+
 		// see if there are multiple language variants to choose from
 		if ( !$wgDisableLangConversion ) {
-			$variants = $wgContLang->getVariants();
+			foreach ( LanguageConverter::$languagesWithVariants as $langCode ) {
+				if ( $langCode == $wgContLang->getCode() ) {
+					$variants = $wgContLang->getVariants();
 
-			if ( count( $variants ) > 1 ) {
-				$variantArray = array();
-				foreach ( $variants as $v ) {
-					$v = str_replace( '_', '-', strtolower( $v ) );
-					$variantArray[$v] = $wgContLang->getVariantname( $v, false );
-				}
+					if ( count( $variants ) <= 1 ) {
+						continue;
+					}
 
-				$options = array();
-				foreach ( $variantArray as $code => $name ) {
-					$display = wfBCP47( $code ) . ' - ' . $name;
-					$options[$display] = $code;
-				}
+					$variantArray = array();
+					foreach ( $variants as $v ) {
+						$v = str_replace( '_', '-', strtolower( $v ) );
+						$variantArray[$v] = $lang->getVariantname( $v, false );
+					}
 
-				$defaultPreferences['variant'] = array(
-					'label-message' => 'yourvariant',
-					'type' => 'select',
-					'options' => $options,
-					'section' => 'personal/i18n',
-					'help-message' => 'prefs-help-variant',
-				);
+					$options = array();
+					foreach ( $variantArray as $code => $name ) {
+						$display = wfBCP47( $code ) . ' - ' . $name;
+						$options[$display] = $code;
+					}
 
-				if ( !$wgDisableTitleConversion ) {
-					$defaultPreferences['noconvertlink'] =
-						array(
-						'type' => 'toggle',
+					$defaultPreferences['variant'] = array(
+						'label-message' => 'yourvariant',
+						'type' => 'select',
+						'options' => $options,
 						'section' => 'personal/i18n',
-						'label-message' => 'tog-noconvertlink',
+						'help-message' => 'prefs-help-variant',
+					);
+
+					if ( !$wgDisableTitleConversion ) {
+						$defaultPreferences['noconvertlink'] = array(
+							'type' => 'toggle',
+							'section' => 'personal/i18n',
+							'label-message' => 'tog-noconvertlink',
+						);
+					}
+				} else {
+					$defaultPreferences["variant-$langCode"] = array(
+						'type' => 'api',
 					);
 				}
 			}
@@ -407,30 +416,30 @@ class Preferences {
 		## Email stuff
 
 		if ( $wgEnableEmail ) {
-			$helpMessages[] = $wgEmailConfirmToEdit
-					? 'prefs-help-email-required'
-					: 'prefs-help-email';
-
-			if ( $wgEnableUserEmail ) {
-				// additional messages when users can send email to each other
-				$helpMessages[] = 'prefs-help-email-others';
-			}
-
-			$link = Linker::link(
-				SpecialPage::getTitleFor( 'ChangeEmail' ),
-				$context->msg( $user->getEmail() ? 'prefs-changeemail' : 'prefs-setemail' )->escaped(),
-				array(),
-				array( 'returnto' => SpecialPage::getTitleFor( 'Preferences' )->getPrefixedText() ) );
-
-			$emailAddress = $user->getEmail() ? htmlspecialchars( $user->getEmail() ) : '';
-			if ( $canEditPrivateInfo && $wgAuth->allowPropChange( 'emailaddress' ) ) {
-				$emailAddress .= $emailAddress == '' ? $link : (
-					$context->msg( 'word-separator' )->plain()
-					. $context->msg( 'parentheses' )->rawParams( $link )->plain()
-				);
-			}
-
 			if ( $canViewPrivateInfo ) {
+				$helpMessages[] = $wgEmailConfirmToEdit
+						? 'prefs-help-email-required'
+						: 'prefs-help-email';
+
+				if ( $wgEnableUserEmail ) {
+					// additional messages when users can send email to each other
+					$helpMessages[] = 'prefs-help-email-others';
+				}
+
+				$emailAddress = $user->getEmail() ? htmlspecialchars( $user->getEmail() ) : '';
+				if ( $canEditPrivateInfo && $wgAuth->allowPropChange( 'emailaddress' ) ) {
+					$link = Linker::link(
+						SpecialPage::getTitleFor( 'ChangeEmail' ),
+						$context->msg( $user->getEmail() ? 'prefs-changeemail' : 'prefs-setemail' )->escaped(),
+						array(),
+						array( 'returnto' => SpecialPage::getTitleFor( 'Preferences' )->getPrefixedText() ) );
+
+					$emailAddress .= $emailAddress == '' ? $link : (
+						$context->msg( 'word-separator' )->plain()
+						. $context->msg( 'parentheses' )->rawParams( $link )->plain()
+					);
+				}
+
 				$defaultPreferences['emailaddress'] = array(
 					'type' => 'info',
 					'raw' => true,
@@ -731,11 +740,6 @@ class Preferences {
 			'section' => 'rendering/advancedrendering',
 			'label-message' => 'tog-showhiddencats'
 		);
-		$defaultPreferences['showjumplinks'] = array(
-			'type' => 'toggle',
-			'section' => 'rendering/advancedrendering',
-			'label-message' => 'tog-showjumplinks',
-		);
 
 		if ( $wgAllowUserCssPrefs ) {
 			$defaultPreferences['justify'] = array(
@@ -984,6 +988,8 @@ class Preferences {
 
 		foreach ( $watchTypes as $action => $pref ) {
 			if ( $user->isAllowed( $action ) ) {
+				// Messages:
+				// tog-watchdefault, tog-watchmoves, tog-watchdeletion, tog-watchcreations
 				$defaultPreferences[$pref] = array(
 					'type' => 'toggle',
 					'section' => 'watchlist/advancedwatchlist',

@@ -180,7 +180,6 @@ $messages = array(
 'tog-enotifrevealaddr' => "Eskertiw xatlarında e-mail adresimdi ko'rset",
 'tog-shownumberswatching' => "Baqlag'an paydalanıwshılar sanın ko'rset",
 'tog-fancysig' => 'İmzalardı wikitext dep qabıl etiw (avtomat siltewsiz)',
-'tog-showjumplinks' => "«O'tip ketiw» siltewlerin qos",
 'tog-uselivepreview' => "Janlı ko'rip shıg'ıwdı qollan (JavaScript) (Sınawda)",
 'tog-forceeditsummary' => "O'zgertiw juwmag'ı bos qalg'anda mag'an eskert",
 'tog-watchlisthideown' => "Baqlaw dizimindegi menin' o'zgertiwlerimdi jasır",
@@ -438,17 +437,6 @@ Arnawlı betlerdin' dizimin [[Special:SpecialPages|{{int:specialpages}}]] betine
 # General errors
 'error' => "Qa'telik",
 'databaseerror' => "Mag'lıwmatlar bazası qa'tesi",
-'dberrortext' => "Mag'lıwmatlar bazası sorawında sintaksis qa'tesi sa'dir boldı.
-Bul bag'darlamada qa'te barlıg'ın bildiriwi mu'mkin.
-Aqırg'ı soralg'an mag'lıwmatlar bazası sorawı:
-<blockquote><tt>\$1</tt></blockquote>
-\"<tt>\$2</tt>\" funktsiyasınan.
-Mag'lıwmatlar bazası qaytarg'an qa'tesi \"<tt>\$3: \$4</tt>\".",
-'dberrortextcl' => 'Mag\'lıwmatlar bazası sorawında sintaksis qa\'tesi sa\'dir boldı.
-Aqırg\'ı soralg\'an mag\'lıwmatlar bazası sorawı:
-"$1"
-funktsiya: "$2".
-Mag\'lıwmatlar bazası qaytarg\'an qa\'tesi "$3: $4".',
 'laggedslavemode' => "Esletpe: Bette aqırg'ı jan'alanıwlar bolmawı mu'mkin.",
 'readonly' => "Mag'lıwmatlar bazası qulplang'an",
 'enterlockreason' => "Qulıplawdın' sebebin ha'mde qansha waqıtqa esaplang'anlıg'ın ko'rsetin'",
@@ -494,7 +482,6 @@ Birneshe minuttan keyin qaytadan ha'reket qılıp ko'rin'.",
 'editinginterface' => "'''Esletpe:''' Siz ishinde MediaWiki sistema xabarı bar bolg'an betti o'zgertip atırsız.
 Bul bettin' o'zgeriwi basqa paydalanıwshılardın' sırtqı interfeisine ta'sir etedi.
 Audarıw ushın,  MediaWiki programmasın jersindiriw [//translatewiki.net/wiki/Main_Page?setlang=kaa translatewiki.net proyektisin] qarap shıg'ın'ız.",
-'sqlhidden' => "(SQL sorawı jasırılg'an)",
 'namespaceprotected' => "'''$1''' isimler ko'pligindegi betlerdi o'zgertiwge ruxsatın'ız joq.",
 'ns-specialprotected' => '"{{ns:special}}:" isimler ko\'pligindegi betler o\'zgertilmeydi',
 'titleprotected' => "Bul atamanı jaratıw [[User:$1|$1]] ta'repinen qorg'alg'an.
@@ -597,7 +584,7 @@ Kiriw protsessin juwmaqlaw ushın jan'a parolin'izdi usı jerge kiritin':",
 'newpassword' => 'Taza parol:',
 'retypenew' => "Taza paroldi qayta kiritin':",
 'resetpass_submit' => "Paroldi kirgizin'",
-'resetpass_success' => "Parolin'iz sa'tli o'zgertildi! Endi kirin'...",
+'changepassword-success' => "Parolin'iz sa'tli o'zgertildi! Endi kirin'...",
 'resetpass_forbidden' => "Paroller o'zgertile almaydi",
 'resetpass-submit-loggedin' => "Paroldi o'zgertiw",
 'resetpass-temp-password' => 'Waqtınshalıq parol:',

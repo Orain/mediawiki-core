@@ -260,13 +260,20 @@ class ParserTest {
 					'iw_wikiid' => '',
 					'iw_local' => 1 ),
 			);
-			if( array_key_exists( $prefix, $testInterwikis ) ) {
+			if ( array_key_exists( $prefix, $testInterwikis ) ) {
 				$iwData = $testInterwikis[$prefix];
 			}
 
 			// We only want to rely on the above fixtures
 			return false;
 		} );// hooks::register
+	}
+
+	/**
+	 * Remove the hardcoded interwiki lookup table.
+	 */
+	public static function tearDownInterwikis() {
+		Hooks::clear( 'InterwikiLoadPrefix' );
 	}
 
 	public function setupRecorder( $options ) {
@@ -434,7 +441,12 @@ class ParserTest {
 	 */
 	public function runTestsFromFiles( $filenames ) {
 		$ok = false;
+
+		// be sure, ParserTest::addArticle has correct language set,
+		// so that system messages gets into the right language cache
+		$GLOBALS['wgLanguageCode'] = 'en';
 		$GLOBALS['wgContLang'] = Language::factory( 'en' );
+
 		$this->recorder->start();
 		try {
 			$this->setupDatabase();
@@ -885,7 +897,8 @@ class ParserTest {
 		}
 
 		# Update certain things in site_stats
-		$this->db->insert( 'site_stats', array( 'ss_row_id' => 1, 'ss_images' => 2, 'ss_good_articles' => 1 ) );
+		$this->db->insert( 'site_stats',
+			array( 'ss_row_id' => 1, 'ss_images' => 2, 'ss_good_articles' => 1 ) );
 
 		# Reinitialise the LocalisationCache to match the database state
 		Language::getLocalisationCache()->unloadAll();
@@ -982,8 +995,11 @@ class ParserTest {
 		$tables = $this->listTables();
 
 		foreach ( $tables as $table ) {
-			$sql = $this->db->getType() == 'oracle' ? "DROP TABLE pt_$table DROP CONSTRAINTS" : "DROP TABLE `parsertest_$table`";
-			$this->db->query( $sql );
+			if ( $this->db->getType() == 'oracle' ) {
+				$this->db->query( "DROP TABLE pt_$table DROP CONSTRAINTS" );
+			} else {
+				$this->db->query( "DROP TABLE `parsertest_$table`" );
+			}
 		}
 
 		if ( $this->db->getType() == 'oracle' ) {
@@ -1210,7 +1226,9 @@ class ParserTest {
 	 * @param $outFileTail String: tailing for the output file name
 	 * @return String
 	 */
-	protected function quickDiff( $input, $output, $inFileTail = 'expected', $outFileTail = 'actual' ) {
+	protected function quickDiff( $input, $output,
+		$inFileTail = 'expected', $outFileTail = 'actual'
+	) {
 		# Windows, or at least the fc utility, is retarded
 		$slash = wfIsWindows() ? '\\' : '/';
 		$prefix = wfTempDir() . "{$slash}mwParser-" . mt_rand();
@@ -1429,7 +1447,7 @@ class ParserTest {
 	}
 
 	static function getFakeTimestamp( &$parser, &$ts ) {
-		$ts = 123;
+		$ts = 123; //parsed as '1970-01-01T00:02:03Z'
 		return true;
 	}
 }

@@ -1,5 +1,5 @@
 <?php
-/** Neapolitan (Nnapulitano)
+/** Neapolitan (Napulitano)
  *
  * See MessagesQqq.php for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
@@ -302,10 +302,13 @@ $messages = array(
 
 # General errors
 'missingarticle-rev' => "(nummero 'e verzione: $1)",
+'internalerror' => "Errore 'nterno",
+'internalerror_info' => "Errore 'nterno: $1",
 'filedeleteerror' => 'Nun se pô scancellà \'o file "$1"',
 'cannotdelete' => "Nun è possibbele scassà 'a paggena o 'a fiura addamannata. (Putria éssere stato già scancellato.)",
 'badtitle' => "'O nnomme nun è jùsto",
 'viewsource' => 'Vere sorgente',
+'viewsource-title' => "Vere surgente 'e $1",
 'exception-nologin' => 'Acciesso nun affettuato',
 
 # Login and logout pages
@@ -314,8 +317,18 @@ $messages = array(
 Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putite trasì n'ata vota, cu 'o stesso nomme o cu n'ato nomme.",
 'welcomeuser' => 'Bemmenuto, $1!',
 'yourname' => 'Nomme utente',
+'userlogin-yourname' => 'Nomme utente',
+'userlogin-yourname-ph' => "'Nserisce 'o tujo nomme utente",
+'createacct-another-username-ph' => "'Nserisce 'o nomme utente",
 'yourpassword' => 'Password:',
+'userlogin-yourpassword' => 'Password',
+'userlogin-yourpassword-ph' => "'Nserisce 'a toja password",
+'createacct-yourpassword-ph' => "'Nserisce 'na password",
+'yourpasswordagain' => "Ripete 'a password:",
+'createacct-yourpasswordagain' => 'Cunferma password',
+'createacct-yourpasswordagain-ph' => "'Nserisce 'e novo 'a password",
 'remembermypassword' => 'Allicuordate d"a password (for a maximum of $1 {{PLURAL:$1|day|days}})',
+'userlogin-remembermypassword' => 'Mantienime cullegato',
 'yourdomainname' => "Spiecà 'o dumminio",
 'login' => 'Tràse',
 'nav-login-createaccount' => "Tràse o cria n'acciesso novo",
@@ -324,14 +337,23 @@ Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putit
 'logout' => 'Jèsce',
 'userlogout' => 'Jèsce',
 'notloggedin' => 'Acciesso nun affettuato',
+'userlogin-noaccount' => "Nun haje ancora n'acciesso?",
 'nologin' => "Nun haje ancora n'acciesso? '''$1'''.",
 'nologinlink' => 'Crialo mmo',
 'createaccount' => 'Cria nu cunto novo',
 'gotaccount' => "Tiene già nu cunto? '''$1'''.",
 'gotaccountlink' => 'Tràse',
 'userlogin-resetlink' => "Haje dimenticato 'e toje date 'e acciesso?",
+'createaccountreason' => 'Mutivo:',
+'createacct-reason' => 'Mutivo',
+'createacct-submit' => "Cria 'a toja utenza",
+'createacct-another-submit' => "Cria 'n atro account",
+'createacct-benefit-heading' => "{{SITENAME}} è fatta 'e perzone comme te.",
+'createacct-benefit-body1' => '{{PLURAL:$1|càgnamiento|càgnamiente}}',
+'createacct-benefit-body2' => '{{PLURAL:$1|paggena|paggene}}',
 'loginerror' => "Probblema 'e accièsso",
 'loginsuccesstitle' => 'Acciesso affettuato',
+'loginsuccess' => "'''Si stato cunnesso ô server 'e {{SITENAME}} cu 'o nomme utente 'e \"\$1\".'''",
 'nosuchusershort' => 'Nun ce stanno utente cu o nòmme "$1". Cuntrolla si scrivìste buòno.',
 'nouserspecified' => "Tiene 'a dìcere nu nomme pricìso.",
 'acct_creation_throttle_hit' => 'Ce dispiace, haje già criato $1 utente. Nun ne pô crià ate.',
@@ -340,8 +362,19 @@ Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putit
 
 # Change password dialog
 'resetpass' => 'Càgna password',
+'resetpass-submit-cancel' => 'Canciella',
+
+# Special:PasswordReset
+'passwordreset-username' => 'Nomme utente:',
+'passwordreset-domain' => 'Duminio:',
+
+# Special:ChangeEmail
+'changeemail-none' => '(nisciuno)',
+'changeemail-cancel' => 'Canciella',
 
 # Edit page toolbar
+'bold_sample' => 'Grassetto',
+'bold_tip' => 'Grassetto',
 'italic_sample' => 'Corsivo',
 'italic_tip' => 'Corsivo',
 'link_sample' => 'Titulo ddo cullegamente',
@@ -384,10 +417,12 @@ Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putit
 'currentrev' => "Verzione 'e mmo",
 'currentrev-asof' => 'Vversione attuale dde $1',
 'revisionasof' => 'Vversione delle $1',
+'previousrevision' => "← Verzione 'e primma",
 'nextrevision' => 'Vversione cchiù recente →',
 'currentrevisionlink' => "Verzione 'e mmo",
 'cur' => 'corr',
 'last' => 'prec',
+'history-show-deleted' => 'Solo chille canciellate',
 'histfirst' => 'primma',
 'histlast' => 'urdema',
 
@@ -460,6 +495,7 @@ Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putit
 'recentchanges-summary' => "Ncoppa chesta paggena song' appresentate ll'urdeme cagnamiente fatto ê cuntenute d\"o sito.",
 'recentchanges-label-newpage' => "Chista modifica ha criato 'na nova paggena",
 'recentchanges-label-minor' => 'Chisto è nu cagnamiénto piccerillo',
+'recentchanges-label-unpatrolled' => "Chista modifica nun è stata 'ncora verificata",
 'rcnote' => "Ccà sotto nce songo ll'urdeme {{PLURAL:$1|cangiamiento|'''$1''' cangiamiente}} 'e ll'urdeme {{PLURAL:$2|juorno|'''$2''' juorne}}, agghiuornate alle $5 ddo $4.",
 'rclistfrom' => "Faje vedé 'e cagnamiénte fatte a partì 'a $1",
 'rcshowhideminor' => "$1 'e cagnamiénte piccerille",
@@ -476,6 +512,8 @@ Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putit
 'newpageletter' => 'N',
 'boteditletter' => 'b',
 'rc_categories_any' => 'Qualònca',
+'rc-enhanced-expand' => 'Fa vede dettaglie (richiede JavaScript)',
+'rc-enhanced-hide' => 'Annascunne dettaglie',
 
 # Recent changes linked
 'recentchangeslinked' => 'Cagnamiénte cullegate',
@@ -521,6 +559,7 @@ Putite cuntinuà a ausà {{SITENAME}} comme n'utente senza nomme, o si nò putit
 'nbytes' => '$1 {{PLURAL:$1|byte|byte}}',
 'ncategories' => '$1 {{PLURAL:$1|categoria|categorie}}',
 'nlinks' => '$1 {{PLURAL:$1|cullegamiento|cullegamiente}}',
+'nmembers' => '$1 {{PLURAL:$1|elemento|elemente}}',
 'popularpages' => "Paggene cchiù 'speziunate",
 'wantedpages' => 'Paggene cchiù addemannate',
 'shortpages' => 'Paggene curte',
@@ -553,6 +592,7 @@ Also see [[Special:WantedCategories|wanted categories]].",
 
 # Special:LinkSearch
 'linksearch-ok' => 'Truova',
+'linksearch-line' => "$1 presente dint'â paggena $2",
 
 # Email user
 'emailuser' => 'Email chisto utente',
@@ -602,6 +642,8 @@ Also see [[Special:WantedCategories|wanted categories]].",
 'mycontris' => "'E ffatiche d''e mmeje",
 'contribsub2' => 'Ppe $1 ($2)',
 'uctop' => '(attuale)',
+'month' => 'D"o mese (e primma):',
+'year' => "'E ll'anno (e primma):",
 
 'sp-contributions-newbies' => "Mosta solo 'e contribbute dde nove utente",
 'sp-contributions-blocklog' => 'blocche',
@@ -616,9 +658,11 @@ Also see [[Special:WantedCategories|wanted categories]].",
 'whatlinkshere-page' => 'Paggena:',
 'nolinkshere' => "Nisciuna paggena cuntene jonte ca mpuntano a '''[[:$1]]'''.",
 'isredirect' => 'redirect a paggena',
+'istemplate' => "'nclusione",
 'isimage' => 'Cullegamente a file multimediale',
 'whatlinkshere-links' => '← jonte',
 'whatlinkshere-hideredirs' => '$1 redirects',
+'whatlinkshere-hidetrans' => "$1 'nclusione",
 'whatlinkshere-hidelinks' => '$1 jonte',
 'whatlinkshere-hideimages' => '$1 links ddo file',
 'whatlinkshere-filters' => 'Filtre',
@@ -628,6 +672,7 @@ Also see [[Special:WantedCategories|wanted categories]].",
 'ipadressorusername' => 'Nnerizzo IP o nomme utente',
 'ipboptions' => '2 ore:2 hours,1 juorno:1 day,3 juorne:3 days,1 semmana:1 week,2 semmane:2 weeks,1 mise:1 month,3 mese:3 months,6 mese:6 months,1 anno:1 year,infinito:infinite',
 'blockipsuccesssub' => 'Blocco aseguito',
+'ipblocklist' => 'Utenti bloccate',
 'blocklink' => 'ferma',
 'unblocklink' => 'sblocca',
 'change-blocklink' => 'càgna blocco',
@@ -714,6 +759,7 @@ Also see [[Special:WantedCategories|wanted categories]].",
 'others' => 'ate',
 
 # Browsing diffs
+'previousdiff' => '← Càgnamiento cchiù viecchio',
 'nextdiff' => 'Cagnamiénte successivo →',
 
 # Media information

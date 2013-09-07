@@ -12,6 +12,7 @@
 
 		e.preventDefault();
 
+		// Deprecated: Use mw.hook instead
 		$( mw ).trigger( 'LivePreviewPrepare' );
 
 		$wikiPreview = $( '#wikiPreview' );
@@ -77,8 +78,8 @@
 		} );
 
 		// Load new preview data.
-		// TODO: This should use the action=parse API instead of loading the entire page
-		// Though that requires figuring out how to conver that raw data into proper HTML.
+		// TODO: This should use the action=parse API instead of loading the entire page,
+		// although that requires figuring out how to convert that raw data into proper HTML.
 		$previewDataHolder.load( targetUrl + ' ' + copySelectors.join( ',' ), postData, function () {
 			var i, $from;
 			// Copy the contents of the specified elements from the loaded page to the real page.
@@ -92,12 +93,15 @@
 					.attr( 'class', $from.attr( 'class' ) );
 			}
 
+			// Deprecated: Use mw.hook instead
+			$( mw ).trigger( 'LivePreviewDone', [copySelectors] );
+
+			mw.hook( 'wikipage.content' ).fire( $wikiPreview );
+
 			$spinner.remove();
 			$copyElements.animate( {
 				opacity: 1
 			}, 'fast' );
-
-			$( mw ).trigger( 'LivePreviewDone', [copySelectors] );
 		} );
 	}
 
@@ -109,31 +113,28 @@
 		}
 
 		// The following elements can change in a preview but are not output
-		// by the server when they're empty until the preview reponse.
+		// by the server when they're empty until the preview response.
 		// TODO: Make the server output these always (in a hidden state), so we don't
 		// have to fish and (hopefully) put them in the right place (since skins
 		// can change where they are output).
 
 		if ( !document.getElementById( 'p-lang' ) && document.getElementById( 'p-tb' ) ) {
 			$( '#p-tb' ).after(
-				$( '<div>' ).prop( 'id', 'p-lang' )
+				$( '<div>' ).attr( 'id', 'p-lang' )
 			);
 		}
 
 		if ( !$( '.mw-summary-preview' ).length ) {
 			$( '.editCheckboxes' ).before(
-				$( '<div>' ).prop( 'className', 'mw-summary-preview' )
+				$( '<div>' ).addClass( 'mw-summary-preview' )
 			);
 		}
 
 		if ( !document.getElementById( 'wikiDiff' ) && document.getElementById( 'wikiPreview' ) ) {
 			$( '#wikiPreview' ).after(
-				$( '<div>' ).prop( 'id', 'wikiDiff')
+				$( '<div>' ).attr( 'id', 'wikiDiff')
 			);
 		}
-
-		// Make sure diff styles are loaded
-		mw.loader.load( 'mediawiki.action.history.diff' );
 
 		$( document.body ).on( 'click', '#wpPreview, #wpDiff', doLivePreview );
 	} );

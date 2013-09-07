@@ -68,6 +68,7 @@ $wgAutoloadLocalClasses = array(
 	'CurlHttpRequest' => 'includes/HttpFunctions.php',
 	'DeferrableUpdate' => 'includes/DeferredUpdates.php',
 	'DeferredUpdates' => 'includes/DeferredUpdates.php',
+	'MWCallableUpdate' => 'includes/CallableUpdate.php',
 	'DeprecatedGlobal' => 'includes/DeprecatedGlobal.php',
 	'DerivativeRequest' => 'includes/WebRequest.php',
 	'DiffHistoryBlob' => 'includes/HistoryBlob.php',
@@ -136,7 +137,6 @@ $wgAutoloadLocalClasses = array(
 	'ICacheHelper' => 'includes/CacheHelper.php',
 	'IcuCollation' => 'includes/Collation.php',
 	'IdentityCollation' => 'includes/Collation.php',
-	'ImageGallery' => 'includes/ImageGallery.php',
 	'ImageHistoryList' => 'includes/ImagePage.php',
 	'ImageHistoryPseudoPager' => 'includes/ImagePage.php',
 	'ImagePage' => 'includes/ImagePage.php',
@@ -233,6 +233,7 @@ $wgAutoloadLocalClasses = array(
 	'SpecialMypage' => 'includes/SpecialPage.php',
 	'SpecialMytalk' => 'includes/SpecialPage.php',
 	'SpecialMyuploads' => 'includes/SpecialPage.php',
+	'SpecialAllMyUploads' => 'includes/SpecialPage.php',
 	'SpecialPage' => 'includes/SpecialPage.php',
 	'SpecialPageFactory' => 'includes/SpecialPageFactory.php',
 	'SpecialRedirectToSpecial' => 'includes/SpecialPage.php',
@@ -665,6 +666,8 @@ $wgAutoloadLocalClasses = array(
 	'JobQueueAggregatorMemc' => 'includes/job/aggregator/JobQueueAggregatorMemc.php',
 	'JobQueueAggregatorRedis' => 'includes/job/aggregator/JobQueueAggregatorRedis.php',
 	'JobQueueDB' => 'includes/job/JobQueueDB.php',
+	'JobQueueConnectionError' => 'includes/job/JobQueue.php',
+	'JobQueueError' => 'includes/job/JobQueue.php',
 	'JobQueueGroup' => 'includes/job/JobQueueGroup.php',
 	'JobQueueFederated' => 'includes/job/JobQueueFederated.php',
 	'JobQueueRedis' => 'includes/job/JobQueueRedis.php',
@@ -718,6 +721,16 @@ $wgAutoloadLocalClasses = array(
 	'PatrolLogFormatter' => 'includes/logging/PatrolLogFormatter.php',
 	'RCDatabaseLogEntry' => 'includes/logging/LogEntry.php',
 	'RightsLogFormatter' => 'includes/logging/RightsLogFormatter.php',
+
+	# Image gallery
+
+	'ImageGallery' => 'includes/gallery/TraditionalImageGallery.php',
+	'ImageGalleryBase' => 'includes/gallery/ImageGalleryBase.php',
+	'NolinesImageGallery' => 'includes/gallery/NolinesImageGallery.php',
+	'TraditionalImageGallery' => 'includes/gallery/TraditionalImageGallery.php',
+	'PackedImageGallery' => 'includes/gallery/PackedImageGallery.php',
+	'PackedHoverImageGallery' => 'includes/gallery/PackedOverlayImageGallery.php',
+	'PackedOverlayImageGallery' => 'includes/gallery/PackedOverlayImageGallery.php',
 
 	# includes/media
 	'BitmapHandler' => 'includes/media/Bitmap.php',
@@ -823,6 +836,13 @@ $wgAutoloadLocalClasses = array(
 	'ProfilerSimpleUDP' => 'includes/profiler/ProfilerSimpleUDP.php',
 	'ProfilerStub' => 'includes/profiler/ProfilerStub.php',
 	'ProfileSection' => 'includes/profiler/Profiler.php',
+
+	# includes/rcfeed
+	'RCFeedEngine' => 'includes/rcfeed/RCFeedEngine.php',
+	'UDPRCFeedEngine' => 'includes/rcfeed/UDPRCFeedEngine.php',
+	'RCFeedFormatter' => 'includes/rcfeed/RCFeedFormatter.php',
+	'IRCColourfulRCFeedFormatter' => 'includes/rcfeed/IRCColourfulRCFeedFormatter.php',
+	'JSONRCFeedFormatter' => 'includes/rcfeed/JSONRCFeedFormatter.php',
 
 	# includes/resourceloader
 	'ResourceLoader' => 'includes/resourceloader/ResourceLoader.php',
@@ -970,6 +990,7 @@ $wgAutoloadLocalClasses = array(
 	'SpecialPrefixindex' => 'includes/specials/SpecialPrefixindex.php',
 	'SpecialProtectedpages' => 'includes/specials/SpecialProtectedpages.php',
 	'SpecialProtectedtitles' => 'includes/specials/SpecialProtectedtitles.php',
+	'SpecialRandomInCategory' => 'includes/specials/SpecialRandomInCategory.php',
 	'SpecialRandomredirect' => 'includes/specials/SpecialRandomredirect.php',
 	'SpecialRecentChanges' => 'includes/specials/SpecialRecentchanges.php',
 	'SpecialRecentchangeslinked' => 'includes/specials/SpecialRecentchangeslinked.php',
@@ -1114,12 +1135,13 @@ class AutoLoader {
 	static function autoload( $className ) {
 		global $wgAutoloadClasses, $wgAutoloadLocalClasses;
 
-		// Workaround for PHP bug <https://bugs.php.net/bug.php?id=49143> (5.3.2. is broken, it's fixed in 5.3.6).
-		// Strip leading backslashes from class names. When namespaces are used, leading backslashes are used to indicate
-		// the top-level namespace, e.g. \foo\Bar. When used like this in the code, the leading backslash isn't passed to
-		// the auto-loader ($className would be 'foo\Bar'). However, if a class is accessed using a string instead of a
-		// class literal (e.g. $class = '\foo\Bar'; new $class()), then some versions of PHP do not strip the leading
-		// backlash in this case, causing autoloading to fail.
+		// Workaround for PHP bug <https://bugs.php.net/bug.php?id=49143> (5.3.2. is broken, it's
+		// fixed in 5.3.6). Strip leading backslashes from class names. When namespaces are used,
+		// leading backslashes are used to indicate the top-level namespace, e.g. \foo\Bar. When
+		// used like this in the code, the leading backslash isn't passed to the auto-loader
+		// ($className would be 'foo\Bar'). However, if a class is accessed using a string instead
+		// of a class literal (e.g. $class = '\foo\Bar'; new $class()), then some versions of PHP
+		// do not strip the leading backlash in this case, causing autoloading to fail.
 		$className = ltrim( $className, '\\' );
 
 		if ( isset( $wgAutoloadLocalClasses[$className] ) ) {

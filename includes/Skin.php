@@ -82,6 +82,7 @@ abstract class Skin extends ContextSource {
 	static function getSkinNameMessages() {
 		$messages = array();
 		foreach ( self::getSkinNames() as $skinKey => $skinName ) {
+			// Messages: skinname-cologneblue, skinname-monobook, skinname-modern, skinname-vector
 			$messages[] = "skinname-$skinKey";
 		}
 		return $messages;

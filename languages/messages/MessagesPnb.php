@@ -51,7 +51,6 @@ $messages = array(
 'tog-shownumberswatching' => 'ویکھن آلے لوکاں دی گنتی وکھاؤ۔',
 'tog-oldsig' => 'ہن والے دسخط:',
 'tog-fancysig' => 'دستخط نوں وکی ٹیکسڈ ونگوں؎ ورتو(without an automatic link)',
-'tog-showjumplinks' => '"ایدر چلو" نوں رلن والے جوڑان نال جوڑو',
 'tog-uselivepreview' => 'لائیو پریویو ورتو',
 'tog-forceeditsummary' => 'مینون اوسے ویلے دسو جدوں خالی سمری تے آؤ۔',
 'tog-watchlisthideown' => 'میری اپنی لکھائی نوں اکھ تھلیوں لکاؤ',
@@ -330,17 +329,6 @@ $messages = array(
 # General errors
 'error' => 'غلطی',
 'databaseerror' => 'ڈیٹابیس دی غلطی',
-'dberrortext' => 'اک ڈیٹابیس کویری سنٹیکس غلطی ہوگئی اے۔
-اے سوفٹویر چ اک بگ وی ہوسکدا اے۔
-آخری کوشش کیتی ڈیٹابیس کھوج:
-<blockquote><tt>$1</tt></blockquote>
-فنکشن چوں "<tt>$2</tt>".
-ڈیٹا بیس ریٹرنڈ غلطی "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'اکڈیٹابیس کویری سنٹیکس غلطی ہوگئی اے
-آخری ڈیٹابیس کویری سی:
-"$1"
-فنکش دے اندروں "$2"
-ڈیٹابیس ریٹرنڈ غلطی "$3: $4"',
 'laggedslavemode' => "'''خبردار:''' صفے تے نیڑےتریڈے ہون والیاں تبدیلیاں کوئی نیں۔",
 'readonly' => 'ڈیٹابیس تے تالا',
 'enterlockreason' => 'تالا لان دی وجہ دسو تے اہ وی دسو جے کدوں تالا کھلے گا',
@@ -389,7 +377,6 @@ $messages = array(
 'viewyourtext' => 'تسیں آپنی تبدیلیاں دا ذریعہ ایس صفے تے ویکھ تے کاپی کرسکدے او۔',
 'protectedinterface' => 'اے صفحے سافٹویئر نوں ورتن دی تھاں دیندا اے تے ایدے غلط ورتن نوں روکن واسطے اینوں بچایا ہویا اے۔',
 'editinginterface' => "'''خبردار:''' تسیں اک ایسا صفہ بدل رۓ او جیہڑا مکھی صفے دے سوفٹویر نوں لکھت دیندا اے۔ ایس صفے ج تبدیلی ورتنن والیاں دے مکھی صفے دے وکھالے نوں بدل دے گی۔ بولی وٹاندرے لئی، مہربانی کرکے میڈیاوکی بولی ویونت [//translatewiki.net/wiki/Main_Page?setlang=en translatewiki.net] ول ویکھو۔",
-'sqlhidden' => '(SQL کھوج چھپائی ہوئي اے)',
 'cascadeprotected' => "ایس صفے نوں تبدیلی توں بچایا گیا اے، کیوں جے ایہ تھلے دتے گۓ {{PLURAL:$1|صفہ|صفے}} چ ہیگا اے تے اینوں ''کیسکیڈنگ'' چنوتی نال بچایا گیا اے:
 
  $2",
@@ -414,7 +401,6 @@ Note that some pages may continue to be displayed as if you were still logged in
 'yourpassword' => 'کنجی:',
 'yourpasswordagain' => 'کنجی دوبارہ لکھو:',
 'remembermypassword' => 'اس براؤزر تے میرا ورتن ناں یاد رکھو ($1 {{PLURAL:$1|دن|دناں}} واسطے)',
-'securelogin-stick-https' => 'لاک ان ہون دے مگروں HTTPS  نال جڑے روو۔',
 'yourdomainname' => 'تواڈا علاقہ:',
 'externaldberror' => 'ڈیٹابیس چ توانوں پہچاننے چ کوئی مسئلہ ہویا اے یا فیر تسی اپنا بارلا کھاتا نئیں بدل سکدے۔',
 'login' => 'اندر آؤ جی',
@@ -513,7 +499,7 @@ Note that some pages may continue to be displayed as if you were still logged in
 'newpassword' => 'نوی کنجی:',
 'retypenew' => 'نئی کنجی دوبارہ لکھو:',
 'resetpass_submit' => 'کنجی رکھو تے لاگ ان ہو جاو',
-'resetpass_success' => 'تھواڈی کنجی بدلی جاچکی اے!
+'changepassword-success' => 'تھواڈی کنجی بدلی جاچکی اے!
 تسی لاگ ان ہورۓ او۔۔۔۔۔۔',
 'resetpass_forbidden' => 'کنجی بدلی نئیں جاسکدی',
 'resetpass-no-info' => 'تسی لاگ ان ہوکے ای اس صفحے نوں ویکھ سکدے او۔',
@@ -1058,8 +1044,6 @@ $1",
 'recentchangesdays-max' => 'میکسیمم $1 {{PLURAL:$1|دن|دن}}',
 'recentchangescount' => 'ڈیفالٹ چ تبدیلیاں دی گنتی:',
 'prefs-help-recentchangescount' => 'ہن دیاں تبدیلیاں صفیاں دے رکارڈ تے لاگاں ہیگیاں نیں۔',
-'prefs-help-watchlist-token' => 'ایس فیلڈ نوں پعرنا اک لکی کنجی نال تواڈی اکھ تھلے رکھی لسٹ لئی اک آر ایس ایس فیڈ بناۓ گا۔ کوئی وی ایس فیلڈ چ جیہڑا کنجی جاندا اے  تواڈی اکھ تھلے رکھی  لسٹ نوں پڑھ لے گا، ایس لئی اک پکا نمبر چنو۔
-ایتھے اک الٹا پلٹا نمبر دتا گیا اے جینوں تسیں ورت سکدے او: $1',
 'savedprefs' => 'تواڈیاں تانگاں بچا لئیاں گئیاں نیں۔',
 'timezonelegend' => 'ویلے دا علاقہ',
 'localtime' => 'مقامی ویلا:',

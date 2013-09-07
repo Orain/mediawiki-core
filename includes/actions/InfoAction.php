@@ -116,6 +116,9 @@ class InfoAction extends FormlessAction {
 
 		// Render page information
 		foreach ( $pageInfo as $header => $infoTable ) {
+			// Messages:
+			// pageinfo-header-basic, pageinfo-header-edits, pageinfo-header-restrictions,
+			// pageinfo-header-properties, pageinfo-category-info
 			$content .= $this->makeHeader( $this->msg( "pageinfo-${header}" )->escaped() ) . "\n";
 			$table = "\n";
 			foreach ( $infoTable as $infoRow ) {
@@ -279,6 +282,7 @@ class InfoAction extends FormlessAction {
 		// Use robot policy logic
 		$policy = $this->page->getRobotPolicy( 'view', $pOutput );
 		$pageInfo['header-basic'][] = array(
+			// Messages: pageinfo-robot-index, pageinfo-robot-noindex
 			$this->msg( 'pageinfo-robot-policy' ), $this->msg( "pageinfo-robot-${policy['index']}" )
 		);
 
@@ -393,6 +397,7 @@ class InfoAction extends FormlessAction {
 				$message = $this->msg( 'protect-default' )->escaped();
 			} else {
 				// Administrators only
+				// Messages: protect-level-autoconfirmed, protect-level-sysop
 				$message = $this->msg( "protect-level-$protectionLevel" );
 				if ( $message->isDisabled() ) {
 					// Require "$1" permission
@@ -402,6 +407,8 @@ class InfoAction extends FormlessAction {
 				}
 			}
 
+			// Messages: restriction-edit, restriction-move, restriction-create,
+			// restriction-upload
 			$pageInfo['header-restrictions'][] = array(
 				$this->msg( "restriction-$restrictionType" ), $message
 			);
@@ -607,7 +614,7 @@ class InfoAction extends FormlessAction {
 
 		if ( !$wgDisableCounters ) {
 			// Number of views
-			$views = (int) $dbr->selectField(
+			$views = (int)$dbr->selectField(
 				'page',
 				'page_counter',
 				array( 'page_id' => $id ),
@@ -617,7 +624,7 @@ class InfoAction extends FormlessAction {
 		}
 
 		// Number of page watchers
-		$watchers = (int) $dbr->selectField(
+		$watchers = (int)$dbr->selectField(
 			'watchlist',
 			'COUNT(*)',
 			array(
@@ -629,7 +636,7 @@ class InfoAction extends FormlessAction {
 		$result['watchers'] = $watchers;
 
 		// Total number of edits
-		$edits = (int) $dbr->selectField(
+		$edits = (int)$dbr->selectField(
 			'revision',
 			'COUNT(rev_page)',
 			array( 'rev_page' => $id ),
@@ -638,7 +645,7 @@ class InfoAction extends FormlessAction {
 		$result['edits'] = $edits;
 
 		// Total number of distinct authors
-		$authors = (int) $dbr->selectField(
+		$authors = (int)$dbr->selectField(
 			'revision',
 			'COUNT(DISTINCT rev_user_text)',
 			array( 'rev_page' => $id ),
@@ -650,7 +657,7 @@ class InfoAction extends FormlessAction {
 		$threshold = $dbr->timestamp( time() - $wgRCMaxAge );
 
 		// Recent number of edits
-		$edits = (int) $dbr->selectField(
+		$edits = (int)$dbr->selectField(
 			'revision',
 			'COUNT(rev_page)',
 			array(
@@ -662,7 +669,7 @@ class InfoAction extends FormlessAction {
 		$result['recent_edits'] = $edits;
 
 		// Recent number of distinct authors
-		$authors = (int) $dbr->selectField(
+		$authors = (int)$dbr->selectField(
 			'revision',
 			'COUNT(DISTINCT rev_user_text)',
 			array(
@@ -680,7 +687,7 @@ class InfoAction extends FormlessAction {
 
 			// Subpages of this page (redirects)
 			$conds['page_is_redirect'] = 1;
-			$result['subpages']['redirects'] = (int) $dbr->selectField(
+			$result['subpages']['redirects'] = (int)$dbr->selectField(
 				'page',
 				'COUNT(page_id)',
 				$conds,
@@ -688,7 +695,7 @@ class InfoAction extends FormlessAction {
 
 			// Subpages of this page (non-redirects)
 			$conds['page_is_redirect'] = 0;
-			$result['subpages']['nonredirects'] = (int) $dbr->selectField(
+			$result['subpages']['nonredirects'] = (int)$dbr->selectField(
 				'page',
 				'COUNT(page_id)',
 				$conds,
@@ -701,7 +708,7 @@ class InfoAction extends FormlessAction {
 		}
 
 		// Counts for the number of transclusion links (to/from)
-		$result['transclusion']['to'] = (int) $dbr->selectField(
+		$result['transclusion']['to'] = (int)$dbr->selectField(
 			'templatelinks',
 			'COUNT(tl_from)',
 			array(
@@ -711,7 +718,7 @@ class InfoAction extends FormlessAction {
 			__METHOD__
 		);
 
-		$result['transclusion']['from'] = (int) $dbr->selectField(
+		$result['transclusion']['from'] = (int)$dbr->selectField(
 			'templatelinks',
 			'COUNT(*)',
 			array( 'tl_from' => $title->getArticleID() ),

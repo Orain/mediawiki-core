@@ -187,7 +187,6 @@ $messages = array(
 'tog-shownumberswatching' => "'t Aantal gebroekers tuine die dees pagina volg",
 'tog-oldsig' => 'Bestaonde ongerteikening:',
 'tog-fancysig' => 'Es wikiteks behanjele (zonder autematische verwiezing)',
-'tog-showjumplinks' => '"gank nao"-toegankelikheidslinks mäögelik make',
 'tog-uselivepreview' => '"live veurbesjouwing" gebroeke (vereis JavaScript - experimenteel)',
 'tog-forceeditsummary' => "'n Melding gaeve bie 'n laeg samevatting",
 'tog-watchlisthideown' => 'Eige bewirkinge verberge op mien volglies',
@@ -468,17 +467,6 @@ Mäögelik höbs te 'n typefout gemaak in de URL, of 'n verkierde verwiezing gev
 # General errors
 'error' => 'Fout',
 'databaseerror' => 'Databasefout',
-'dberrortext' => 'Bie \'t zeuke is \'n syntaxfout in de database opgetraoje.
-Dit kan zien veroorzaak door \'n fout in de software.
-De lètste zeukpoging in de database waor:
-<blockquote><tt>$1</tt></blockquote>
-vanoet de functie "<tt>$2</tt>".
-Database gaof de foutmelding "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Dao is \'n syntaxfout opgetreje bie \'t zeuke in de database.
-De lèste opgevraogde zeukactie waor:
-"$1"
-vanoet de functie "$2".
-Database brach fout "$3" nao veure: "$4"',
 'laggedslavemode' => 'Waarsjoewing: de pagina kin verauwerd zien.',
 'readonly' => 'Database geblokkeerd',
 'enterlockreason' => "Gaef 'n rae veur de blokkering en wie lank 't dinkelik zal dore. De ingegaeve rae zal aan de gebroekers getuind waere.",
@@ -530,7 +518,6 @@ Query: $2',
 'viewyourtext' => 'Doe kans "dien bewèrkinge" ane brónteks van dees pagina bekieke en euverkopiëre:',
 'protectedinterface' => 'Deze pagina bevat teks veur berichte van de software en is beveilig om misbroek te veurkomme.',
 'editinginterface' => "'''Waarsjoewing:''' Doe bewirks 'n pagina die gebroek waert door de software. Bewirkinge op dees pagina beïnvlode de gebroekersinterface van jederein. Euverwaeg veur euverzèttinge [//translatewiki.net/wiki/Main_Page?setlang=li translatewiki.net] te gebroeke, 't euverzèttingssprojek veur MediaWiki.",
-'sqlhidden' => '(SQL query verborge)',
 'cascadeprotected' => "Deze pagina kin neet bewirk waere, omdet zie is opgenome in de volgende {{PLURAL:$1|pagina|pagina's}} die beveilig {{PLURAL:$1|is|zeen}} mèt de kaskaad-optie:
 $2",
 'namespaceprotected' => "Doe höbs gein rechte om pagina's in de naamruumde '''$1''' te bewirke.",
@@ -561,7 +548,6 @@ Mäögelik waert nog 'n deil pagina's getuind esofs te nog aangemeld bis pès te
 'yourpassword' => 'Die wachwaord',
 'yourpasswordagain' => 'Wachwaord opnuuj intype',
 'remembermypassword' => 'Mien wachwaord onthouwe veur later sessies (hoegstens $1 {{PLURAL:$1|daag|daag}})',
-'securelogin-stick-https' => 'Verbónje blieve via HTTPS nao aanmelle',
 'yourdomainname' => 'Die domein',
 'externaldberror' => "d'r Is 'n fout opgetraoje biej 't aanmelje biej de database of doe höbs gén toesjtömming diene externe gebroeker biej te wèrke.",
 'login' => 'Aanmèlde',
@@ -655,7 +641,7 @@ Doe mós effe wachte ierdets te 't obbenuuts kens perbere.",
 'newpassword' => 'Nuuj wachwaord',
 'retypenew' => "Veur 't nuuj wachwaord nogins in",
 'resetpass_submit' => 'Wachwaord instelle en aanmelje',
-'resetpass_success' => 'Dien wachwaord is verangerd. Bezig mèt aanmelje...',
+'changepassword-success' => 'Dien wachwaord is verangerd. Bezig mèt aanmelje...',
 'resetpass_forbidden' => 'Wachwäörd kónne neet verangerd waere',
 'resetpass-no-info' => 'Doe moos aangemeld zien ierdets doe dees pagina gebroeke kens.',
 'resetpass-submit-loggedin' => 'Wachwaord wiezige',
@@ -1206,9 +1192,6 @@ Mèrk op dat hun indexe van {{SITENAME}} content e bietje gedatierd kint zien.',
 'recentchangesdays-max' => '(maximaal $1 {{PLURAL:$1|daag|daag}})',
 'recentchangescount' => 'Standerd aantal waer te gaeve bewèrkinge:',
 'prefs-help-recentchangescount' => "Dit gelt veur recente wieziginge, paginagesjiedenis en logbookpagina's.",
-'prefs-help-watchlist-token' => 'Door hie ne geheime sleutel in te vulle wurt nen RSS-feed veur dien volglies aangemaak.
-Ederein dae deze sleutel kint kin dien volglies laeze, dus kees ne veilige sleutel.
-Hie volg n willekäörig gegenereerde waerde die se kins gebroeke: $1',
 'savedprefs' => 'Dien veurkäöre zint opgesjlage.',
 'timezonelegend' => 'Tiedzone:',
 'localtime' => 'Plaatselike tied',

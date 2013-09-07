@@ -242,6 +242,7 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 
 	protected $mTablePrefix;
 	protected $mFlags;
+	protected $mForeign;
 	protected $mTrxLevel = 0;
 	protected $mErrorCount = 0;
 	protected $mLBInfo = array();
@@ -666,9 +667,10 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 	 * @param string $dbName database name
 	 * @param $flags
 	 * @param string $tablePrefix database table prefixes. By default use the prefix gave in LocalSettings.php
+	 * @param bool $foreign disable some operations specific to local databases
 	 */
 	function __construct( $server = false, $user = false, $password = false, $dbName = false,
-		$flags = 0, $tablePrefix = 'get from global'
+		$flags = 0, $tablePrefix = 'get from global', $foreign = false
 	) {
 		global $wgDBprefix, $wgCommandLineMode, $wgDebugDBTransactions;
 
@@ -694,6 +696,8 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 		} else {
 			$this->mTablePrefix = $tablePrefix;
 		}
+
+		$this->mForeign = $foreign;
 
 		if ( $user ) {
 			$this->open( $server, $user, $password, $dbName );
@@ -744,7 +748,8 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 				isset( $p['password'] ) ? $p['password'] : false,
 				isset( $p['dbname'] ) ? $p['dbname'] : false,
 				isset( $p['flags'] ) ? $p['flags'] : 0,
-				isset( $p['tablePrefix'] ) ? $p['tablePrefix'] : 'get from global'
+				isset( $p['tablePrefix'] ) ? $p['tablePrefix'] : 'get from global',
+				isset( $p['foreign'] ) ? $p['foreign'] : false
 			);
 		} else {
 			return null;
@@ -877,22 +882,7 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 	 *     for a successful read query, or false on failure if $tempIgnore set
 	 */
 	public function query( $sql, $fname = __METHOD__, $tempIgnore = false ) {
-		$isMaster = !is_null( $this->getLBInfo( 'master' ) );
-		if ( !Profiler::instance()->isStub() ) {
-			# generalizeSQL will probably cut down the query to reasonable
-			# logging size most of the time. The substr is really just a sanity check.
-
-			if ( $isMaster ) {
-				$queryProf = 'query-m: ' . substr( DatabaseBase::generalizeSQL( $sql ), 0, 255 );
-				$totalProf = 'DatabaseBase::query-master';
-			} else {
-				$queryProf = 'query: ' . substr( DatabaseBase::generalizeSQL( $sql ), 0, 255 );
-				$totalProf = 'DatabaseBase::query';
-			}
-
-			wfProfileIn( $totalProf );
-			wfProfileIn( $queryProf );
-		}
+		global $wgUser, $wgDebugDBTransactions;
 
 		$this->mLastQuery = $sql;
 		if ( !$this->mDoneWrites && $this->isWriteQuery( $sql ) ) {
@@ -902,7 +892,6 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 		}
 
 		# Add a comment for easy SHOW PROCESSLIST interpretation
-		global $wgUser;
 		if ( is_object( $wgUser ) && $wgUser->isItemLoaded( 'name' ) ) {
 			$userName = $wgUser->getName();
 			if ( mb_strlen( $userName ) > 15 ) {
@@ -926,7 +915,6 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 			# is really used by application
 			$sqlstart = substr( $sql, 0, 10 ); // very much worth it, benchmark certified(tm)
 			if ( strpos( $sqlstart, "SHOW " ) !== 0 && strpos( $sqlstart, "SET " ) !== 0 ) {
-				global $wgDebugDBTransactions;
 				if ( $wgDebugDBTransactions ) {
 					wfDebug( "Implicit transaction start.\n" );
 				}
@@ -939,6 +927,21 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 		if ( $this->mTrxLevel && !$this->mTrxDoneWrites && $this->isWriteQuery( $sql ) ) {
 			$this->mTrxDoneWrites = true;
 			Profiler::instance()->transactionWritingIn( $this->mServer, $this->mDBname );
+		}
+
+		$isMaster = !is_null( $this->getLBInfo( 'master' ) );
+		if ( !Profiler::instance()->isStub() ) {
+			# generalizeSQL will probably cut down the query to reasonable
+			# logging size most of the time. The substr is really just a sanity check.
+			if ( $isMaster ) {
+				$queryProf = 'query-m: ' . substr( DatabaseBase::generalizeSQL( $sql ), 0, 255 );
+				$totalProf = 'DatabaseBase::query-master';
+			} else {
+				$queryProf = 'query: ' . substr( DatabaseBase::generalizeSQL( $sql ), 0, 255 );
+				$totalProf = 'DatabaseBase::query';
+			}
+			wfProfileIn( $totalProf );
+			wfProfileIn( $queryProf );
 		}
 
 		if ( $this->debug() ) {
@@ -1602,7 +1605,8 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 		$sql = preg_replace( '/\s+/', ' ', $sql );
 
 		# All numbers => N
-		$sql = preg_replace( '/-?[0-9]+/s', 'N', $sql );
+		$sql = preg_replace( '/-?\d+(,-?\d+)+/s', 'N,...,N', $sql );
+		$sql = preg_replace( '/-?\d+/s', 'N', $sql );
 
 		return $sql;
 	}
@@ -2073,6 +2077,7 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 		} else {
 			list( $table ) = $dbDetails;
 			if ( $wgSharedDB !== null # We have a shared database
+				&& $this->mForeign == false # We're not working on a foreign database
 				&& !$this->isQuotedIdentifier( $table ) # Paranoia check to prevent shared tables listing '`table`'
 				&& in_array( $table, $wgSharedTables ) # A shared table is selected
 			) {
@@ -3104,10 +3109,9 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 			foreach ( $callbacks as $callback ) {
 				try {
 					$this->clearFlag( DBO_TRX ); // make each query its own transaction
-					$callback();
+					call_user_func( $callback );
 					$this->setFlag( $autoTrx ? DBO_TRX : 0 ); // restore automatic begin()
-				} catch ( Exception $e ) {
-				}
+				} catch ( Exception $e ) {}
 			}
 		} while ( count( $this->mTrxIdleCallbacks ) );
 
@@ -3128,7 +3132,7 @@ abstract class DatabaseBase implements IDatabase, DatabaseType {
 			$this->mTrxPreCommitCallbacks = array(); // recursion guard
 			foreach ( $callbacks as $callback ) {
 				try {
-					$callback();
+					call_user_func( $callback );
 				} catch ( Exception $e ) {}
 			}
 		} while ( count( $this->mTrxPreCommitCallbacks ) );

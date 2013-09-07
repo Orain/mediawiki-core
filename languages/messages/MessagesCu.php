@@ -347,12 +347,15 @@ $messages = array(
 'loginsuccess' => "'''нꙑнѣ тꙑ {{GENDER|въшьлъ|въшьла}} въ {{grammar:locative|{{SITENAME}}}} подь имьньмъ ⁖ $1 ⁖.'''",
 'mailmypassword' => 'посъли ново таино слово',
 'accountcreated' => 'мѣсто сътворєно ѥстъ',
+'accountcreatedtext' => 'польꙃєватєльско мѣсто [[{{ns:User}}:$1|$1]] ([[{{ns:User talk}}:$1|бєсѣда]]) сътворєно бѣ',
 'loginlanguagelabel' => 'ѩꙁꙑкъ : $1',
 
 # Change password dialog
 'resetpass' => 'таина словєсє иꙁмѣнѥниѥ',
+'resetpass_header' => 'таина слова иꙁмѣнѥниѥ',
 'oldpassword' => 'старо таино слово :',
 'newpassword' => 'ново таино слово :',
+'retypenew' => 'опакꙑ ново таиноѥ слово напиши :',
 'resetpass-submit-loggedin' => 'таина словєсє иꙁмѣнѥниѥ',
 
 # Special:PasswordReset
@@ -387,16 +390,19 @@ $messages = array(
 <span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} съвѧꙁанꙑ їсторїѩ видѣти]</span> можєши ⁙ сътворити жє си страницѧ нє можєши',
 'userpage-userdoesnotexist' => 'польꙃєватєльска мѣста ⁖ $1 ⁖ нꙑнѣ нѣстъ ⁙
 прѣдъ сътворѥниѥмь или исправлѥниѥмь си страницѧ помꙑсли жє ащє исто тъ дѣиство ноуждьно ли',
+'userpage-userdoesnotexist-view' => 'польꙃєватєльско мѣсто ⁖ $1 ⁖ сътворєно нѣстъ',
 'clearyourcache' => "'''НАРОЧИТО''': По съхранѥнии можєши обити своѥго съмотрила съхранъ да видѣлъ би мѣнꙑ
 * '''Mozilla ли Firefox ли Safari''' ли жьмꙑи ''Shift'' а мꙑшиѭ жьми ''Reload'' или жьми ''Ctrl-F5'' ꙗко жє ''Ctrl-R'' (⌘-R вън Apple Mac)
 * '''Google Chrome:''' ли жьмꙑи ''Ctrl-Shift-R'' (⌘-Shift-R въ Mac)
 * '''Internet Explorer''' ли жьмꙑи ''Ctrl'' а мꙑшиѭ жьми ''Refresh'' или жьми ''Ctrl-F5'' 
 * '''Опєрꙑ''' польꙃєватєльмъ можєть бꙑти ноужда пльнѣ поничьжити ихъ съмотрила съхранъ въ ''Tools → Preferences'' ⁙",
+'updated' => '(оновлѥно ѥстъ)',
 'note' => "'''НАРОЧИТО:'''",
 'editing' => 'исправлѥниѥ: $1',
 'creating' => 'сътворѥниѥ ⁖ $1 ⁖',
 'editingsection' => 'исправлѥниѥ ⁖ $1 ⁖ (чѧсть)',
 'editingcomment' => 'исправлѥниѥ ⁖ $1 ⁖ (нова чѧсть)',
+'yourtext' => 'твоѥ напьсаниѥ',
 'templatesused' => 'сѥѩ страницѧ {{PLURAL:$1|сь обраꙁьць польꙃоуѥтъ сѧ ѥстъ|с҄и обраꙁьца польꙃоуѭтъ сѧ ѥстє|с҄и обраꙁьци польꙃоуѭтъ сѧ сѫтъ}} :',
 'template-protected' => '(ꙁабранєно ѥстъ)',
 'template-semiprotected' => '(чѧстьно ꙁабранѥно)',
@@ -421,6 +427,8 @@ $messages = array(
 'history-feed-item-nocomment' => '$1 при $2',
 
 # Revision deletion
+'rev-deleted-comment' => '(мѣнꙑ опьсаниѥ съкрꙑто ѥстъ)',
+'rev-deleted-user' => '(польꙃєватєлꙗ имѧ съкрꙑто ѥстъ)',
 'rev-delundel' => 'каꙁаниѥ / съкрꙑтиѥ',
 'rev-showdeleted' => 'виждь',
 'revdelete-show-file-submit' => 'да',
@@ -448,14 +456,16 @@ $messages = array(
 'searchprofile-articles-tooltip' => 'ищи въ $1',
 'searchprofile-project-tooltip' => 'исканиѥ въ $1',
 'searchprofile-images-tooltip' => 'исканиѥ дѣлъ',
+'searchprofile-everything-tooltip' => 'ищи вьсѩ страницѧ въкоупомь съ бѣсєдꙑ',
 'search-result-size' => '$1 ({{PLURAL:$2|$2 слово|$2 слова|$2 словєсъ}})',
 'search-redirect' => '(прѣнаправлєниѥ $1)',
 'search-section' => '(чѧсть $1)',
+'search-suggest' => '⁖ $1 ⁖ мьниши ли',
 'search-interwiki-caption' => 'родьствьна опꙑтьствованиꙗ',
 'search-interwiki-more' => '(вѧщє)',
 'searchall' => 'вьсꙗ',
 'search-nonefound' => 'исканиѥ сꙗ слова ничєсо жє нє авило ѥстъ',
-'powersearch' => 'ищи',
+'powersearch' => 'вѧщєѥ исканиѥ',
 'powersearch-redir' => 'прѣнаправлѥниꙗ',
 
 # Preferences page
@@ -471,6 +481,9 @@ $messages = array(
 'prefs-editing' => 'исправлѥниѥ',
 'rows' => 'рѧдꙑ :',
 'searchresultshead' => 'исканиѥ',
+'savedprefs' => 'твои строи иꙁмѣнєнъ ѥстъ',
+'localtime' => 'мѣстьно врѣмѧ :',
+'guesstimezone' => 'иꙁ твоѥго жє съмотрила врѣмєни обраꙁа поѩтиѥ',
 'timezoneregion-africa' => 'Афрїка',
 'timezoneregion-america' => 'Амєрїка',
 'timezoneregion-antarctica' => 'Антарктїка',
@@ -489,7 +502,7 @@ $messages = array(
 'prefs-memberingroups' => '{{GENDER:$2|польꙃєватєлꙗ}} {{PLURAL:$1|чинъ|чина|чинꙑ}} :',
 'yourrealname' => 'истиньно имѧ :',
 'yourlanguage' => 'ѩꙁꙑкъ :',
-'yournick' => 'аѵтографъ :',
+'yournick' => 'новъ аѵтографъ :',
 'yourgender' => 'полъ :',
 'gender-male' => 'мѫжъ',
 'gender-female' => 'жєна',
@@ -655,6 +668,8 @@ $messages = array(
 'ancientpages' => 'давьни страницѧ',
 'move' => 'прѣимєнованиѥ',
 'movethispage' => 'си страницѧ прѣимєнованиѥ',
+'pager-newer-n' => '{{PLURAL:$1|нова 1|новꙑ $1|новъ $1}}',
+'pager-older-n' => '{{PLURAL:$1|давьнꙗ 1|давьни $1|давьн҄ь $1}}',
 
 # Book sources
 'booksources-go' => 'прѣиди',
@@ -774,7 +789,7 @@ $messages = array(
 'sp-contributions-submit' => 'ищи',
 
 # What links here
-'whatlinkshere' => 'дос̑ьдєщьнѩ съвѧꙁи',
+'whatlinkshere' => 'дос҄ьдєщьнѩ съвѧꙁи',
 'whatlinkshere-title' => 'страницѧ ижє съ ⁖ $1 ⁖ съвѧꙁи имѫтъ',
 'whatlinkshere-page' => 'страница :',
 'isredirect' => 'прѣнаправлѥниѥ',
@@ -872,6 +887,10 @@ $messages = array(
 'pageinfo-category-pages' => 'страницѩ число',
 'pageinfo-category-files' => 'дѣлъ число',
 
+# Browsing diffs
+'previousdiff' => '← давьнꙗ мѣна',
+'nextdiff' => 'нова мѣна →',
+
 # Media information
 'file-info-size' => '$1 × $2 п҃ѯ · дѣла мѣра : $3 · MIME тѷпъ : $4',
 'svg-long-desc' => 'дѣло SVG · обꙑчьнъ обраꙁъ : $1 × $2 п҃ѯ · дѣла мѣра : $3',
@@ -911,6 +930,7 @@ $messages = array(
 'exif-iimcategory-spo' => 'аѳлитїка',
 
 # External editor support
+'edit-externally' => 'дѣла иꙁмѣнѥниѥ вънѣщьниимь орѫдиѥмь',
 'edit-externally-help' => '(ꙁьри [//www.mediawiki.org/wiki/Manual:External_editors помощь] вѧщєи плирофорїѩ дѣлꙗ)',
 
 # 'all' in various places, this might be different for inflected languages
@@ -938,6 +958,7 @@ $messages = array(
 
 # Special:Version
 'version' => 'MediaWiki обраꙁъ',
+'version-specialpages' => 'нарочьнꙑ страницѧ',
 'version-version' => '(обраꙁъ $1)',
 'version-license' => 'прощєниѥ',
 'version-software-version' => 'обраꙁъ',

@@ -105,7 +105,8 @@ class LoginForm extends SpecialPage {
 		$this->mLoginattempt = $request->getCheck( 'wpLoginattempt' );
 		$this->mAction = $request->getVal( 'action' );
 		$this->mRemember = $request->getCheck( 'wpRemember' );
-		$this->mStickHTTPS = $request->getBool( 'wpStickHTTPS' );
+		$this->mFromHTTP = $request->getBool( 'fromhttp', false );
+		$this->mStickHTTPS = ( !$this->mFromHTTP && $request->detectProtocol() === 'https' ) || $request->getBool( 'wpForceHttps', false );
 		$this->mLanguage = $request->getText( 'uselang' );
 		$this->mSkipCookieCheck = $request->getCheck( 'wpSkipCookieCheck' );
 		$this->mToken = ( $this->mType == 'signup' ) ? $request->getVal( 'wpCreateaccountToken' ) : $request->getVal( 'wpLoginToken' );
@@ -175,10 +176,10 @@ class LoginForm extends SpecialPage {
 			$query = array(
 				'returnto' => $this->mReturnTo,
 				'returntoquery' => $this->mReturnToQuery,
-				'wpStickHTTPS' => $this->mStickHTTPS
 			);
 			$url = $title->getFullURL( $query, false, PROTO_HTTPS );
-			if ( $wgSecureLogin ) {
+			if ( $wgSecureLogin && wfCanIPUseHTTPS( $this->getRequest()->getIP() ) ) {
+				$url = wfAppendQuery( $url, 'fromhttp=1' );
 				$this->getOutput()->redirect( $url );
 				return;
 			} else {
@@ -734,7 +735,7 @@ class LoginForm extends SpecialPage {
 	}
 
 	function processLogin() {
-		global $wgMemc, $wgLang, $wgSecureLogin;
+		global $wgMemc, $wgLang, $wgSecureLogin, $wgPasswordAttemptThrottle;
 
 		switch ( $this->authenticateUserData() ) {
 			case self::SUCCESS:
@@ -814,7 +815,10 @@ class LoginForm extends SpecialPage {
 				$this->userBlockedMessage( $this->getUser()->isBlockedFromCreateAccount() );
 				break;
 			case self::THROTTLED:
-				$this->mainLoginForm( $this->msg( 'login-throttled' )->text() );
+				$this->mainLoginForm( $this->msg( 'login-throttled' )
+				->params ( $this->getLanguage()->formatDuration( $wgPasswordAttemptThrottle['seconds'] ) )
+				->text()
+				);
 				break;
 			case self::USER_BLOCKED:
 				$this->mainLoginForm( $this->msg( 'login-userblocked',
@@ -1038,7 +1042,7 @@ class LoginForm extends SpecialPage {
 		global $wgEnableEmail, $wgEnableUserEmail;
 		global $wgHiddenPrefs, $wgLoginLanguageSelector;
 		global $wgAuth, $wgEmailConfirmToEdit, $wgCookieExpiration;
-		global $wgSecureLogin, $wgSecureLoginDefaultHTTPS, $wgPasswordResetRoutes;
+		global $wgSecureLogin, $wgPasswordResetRoutes;
 
 		$titleObj = $this->getTitle();
 		$user = $this->getUser();
@@ -1121,11 +1125,6 @@ class LoginForm extends SpecialPage {
 			$template->set( 'link', '' );
 		}
 
-		// Decide if we default stickHTTPS on
-		if ( $wgSecureLoginDefaultHTTPS && $this->mAction != 'submitlogin' && !$this->mLoginattempt ) {
-			$this->mStickHTTPS = true;
-		}
-
 		$resetLink = $this->mType == 'signup'
 			? null
 			: is_array( $wgPasswordResetRoutes ) && in_array( true, array_values( $wgPasswordResetRoutes ) );
@@ -1155,7 +1154,7 @@ class LoginForm extends SpecialPage {
 		$template->set( 'usereason', $user->isLoggedIn() );
 		$template->set( 'remember', $user->getOption( 'rememberpassword' ) || $this->mRemember );
 		$template->set( 'cansecurelogin', ( $wgSecureLogin === true ) );
-		$template->set( 'stickHTTPS', (int)$this->mStickHTTPS );
+		$template->set( 'stickhttps', (int)$this->mStickHTTPS );
 
 		if ( $this->mType === 'signup' && $user->isLoggedIn() ) {
 			$template->set( 'createAnother', true );
@@ -1213,14 +1212,16 @@ class LoginForm extends SpecialPage {
 	}
 
 	/**
-	 * @private
+	 * Whether the login/create account form should display a link to the
+	 * other form (in addition to whatever the skin provides).
 	 *
 	 * @param $user User
-	 *
-	 * @return Boolean
+	 * @return bool
 	 */
-	function showCreateOrLoginLink( &$user ) {
-		if ( $this->mType == 'signup' ) {
+	private function showCreateOrLoginLink( &$user ) {
+		if ( $user->isLoggedIn() ) {
+			return false;
+		} elseif ( $this->mType == 'signup' ) {
 			return true;
 		} elseif ( $user->isAllowed( 'createaccount' ) ) {
 			return true;
@@ -1305,18 +1306,7 @@ class LoginForm extends SpecialPage {
 			$wgCookieSecure = false;
 		}
 
-		// If either we don't trust PHP's entropy, or if we need
-		// to change cookie settings when logging in because of
-		// wpStickHTTPS, then change the session ID manually.
-		$cookieParams = session_get_cookie_params();
-		if ( wfCheckEntropy() && $wgCookieSecure == $cookieParams['secure'] ) {
-			session_regenerate_id( false );
-		} else {
-			$tmp = $_SESSION;
-			session_destroy();
-			wfSetupSession( MWCryptRand::generateHex( 32 ) );
-			$_SESSION = $tmp;
-		}
+		wfResetSessionID();
 	}
 
 	/**

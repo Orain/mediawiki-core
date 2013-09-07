@@ -82,7 +82,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Amorê karberunê şêrkerdoğu bıasne',
 'tog-oldsig' => 'İmza mewcude:',
 'tog-fancysig' => 'İmza rê mamelê wikimeqaley bıke (bê girewo otomatik)',
-'tog-showjumplinks' => 'Girê "so"y feal ke',
 'tog-uselivepreview' => 'Verqayto cande bıgurene (JavaScript) (hona cerrebnayene dero)',
 'tog-forceeditsummary' => 'Mı ke xulasa kerde cı vira, hay be mı ser de',
 'tog-watchlisthideown' => 'Vurnayisunê mı lista mına şêrkerdişi de wedare',
@@ -365,18 +364,6 @@ Jü lista pelunê vêrdoğu bınê [[Special:SpecialPages|{{int:specialpages}}]]
 # General errors
 'error' => 'Xeta',
 'databaseerror' => 'Xeta panga daeyu',
-'dberrortext' => 'Jü xeta persê cumla panga daeyu de amê meydan.
-Heni aseno ke na xeta nustene de esta.
-Persê panga daeyuno peyên nia bi:
-<blockquote><tt>$1</tt></blockquote>
-ebe gurê zerrê "<tt>$2</tt>"y ra.
-Panga daeyu xetawa ke asnena "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Rêza cumleunê panga daeyu de jü xeta amê meydan.
-Heni aseno ke na xeta nustene de esta.
-Persê panga daeyuno peyên nia bi:
-"$1"
-Fonksiyono ke gureniyo "$2".
-Panga daeyu xetawa ke asnena "$3: $4"',
 'laggedslavemode' => 'Teme: Beno ke vurnaisê peyêni pele de niyê.',
 'readonly' => 'Panga daeyu kılit kerdiya',
 'enterlockreason' => 'Serba kılit-kerdişi jü sebeb bıde ke, kılitkerdis texminen key beno ra',
@@ -427,7 +414,6 @@ Kerem kerê, deqêna oncia bıcerrebnê.",
 'editinginterface' => "Teme:''' Sıma hawo jü pela ke serba nustê meqalunê caunê bırnau dana, vurnenê.
 Vurnaisê na pele karberunê binu rê serpela karberi kena ke bıasno.
 Serba çarnaişi, yardımê [//translatewiki.net/wiki/Main_Page?setlang=kiu translatewiki.net]i ra procêdoskerdene rê diqet kerê.",
-'sqlhidden' => '(Persê SQLi nımıteo)',
 'cascadeprotected' => 'Na pele esterıtene ra sıtar biya, çıke na zerrê {{PLURAL:$1|pela ke|pelunê ke}} dera/derê be "cascading" opsiyoni kılit biya, $2 de bena ra.',
 'namespaceprotected' => "'''$1''' ''namespace'' de desturê sıma be vurnaisê pelu çino.",
 'ns-specialprotected' => 'Pelê xususi nêvurrinê.',
@@ -448,7 +434,6 @@ Beno ke taê peli sıma hona cıkote asnenê, hata ke sıma ''browser cache''ê 
 'yourpassword' => 'Parola:',
 'yourpasswordagain' => 'Parola tekrar ke:',
 'remembermypassword' => 'Cıkotena mı na komputeri de bia ho viri (seba tewr jêde $1 {{PLURAL:$1|roze|rozu}})',
-'securelogin-stick-https' => 'Cıkotene ra dıme HTTPS rê giredae bımane',
 'yourdomainname' => 'Bandıra sıma:',
 'externaldberror' => 'Cıfeteliyaisê naskerdene de ya xeta esta ya ki tebera vırastena hesabê sıma rê destur çino.',
 'login' => 'Cı kuye',
@@ -514,7 +499,7 @@ Kerem ke, oncia bıcerrebne.',
 'newpassword' => 'Parola newiye:',
 'retypenew' => 'Parola newiye tekrar ke:',
 'resetpass_submit' => 'Parola ayar ke u cı kuye',
-'resetpass_success' => 'Parola sıma ebe serkotene vurriye! Nıka hesabê sıma beno ra...',
+'changepassword-success' => 'Parola sıma ebe serkotene vurriye! Nıka hesabê sıma beno ra...',
 'resetpass_forbidden' => 'Paroley nêşikinê bıvurniyê',
 'resetpass-submit-loggedin' => 'Parola bıvurne',
 'resetpass-submit-cancel' => 'Bıtexelne',

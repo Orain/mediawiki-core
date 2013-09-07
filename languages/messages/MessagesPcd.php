@@ -306,7 +306,6 @@ Si s'n'est poin ch'cas-lo, pététe éq ch'est un bogue din ch'businkillache. <b
 'viewsource' => "Vir l'source",
 'viewsource-title' => "Vir l'source éd $1",
 'protectedpagetext' => "L'pache-lo ale o té garantie pou impétcher chés canjemints.",
-'sqlhidden' => "(l'édminde SQL est muchée)",
 'ns-specialprotected' => "Ches paches éspéchiales, is n'peute poin éte éditées.",
 
 # Virus scanner
@@ -317,7 +316,6 @@ Si s'n'est poin ch'cas-lo, pététe éq ch'est un bogue din ch'businkillache. <b
 'yourpassword' => "Mot d'passe:",
 'yourpasswordagain' => "Intrer à nouvieu ch'mot d'passe:",
 'remembermypassword' => "Intrer oùtonmatiquemint l'prochaine fouos (pour un maximum éd $1 {{PLURAL:$1|jour|jours}})",
-'securelogin-stick-https' => "Réster connécté in HTTPS apré l'connécsion",
 'yourdomainname' => 'Vote donmène:',
 'login' => 'Intrer',
 'nav-login-createaccount' => 'Intrer / créer vote conpte',

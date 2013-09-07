@@ -143,7 +143,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Jonön numi gebanas galädöl',
 'tog-oldsig' => 'Dispenäd dabinöl:',
 'tog-fancysig' => 'Dispenäd balugik (nen yüms lü gebanapad)',
-'tog-showjumplinks' => 'Dälön lügolovi me yüms „lübunöl“',
 'tog-uselivepreview' => 'Gebön büologedi itjäfidik (JavaScript) (Sperimäntik)',
 'tog-forceeditsummary' => 'Sagön obe, ven redakaplän brefik vagon',
 'tog-watchlisthideown' => 'Klänedön redakamis obik se galädalised',
@@ -420,17 +419,6 @@ Mögos i, das atos sinifon, das dabinon säkädil pö program fa {{SITENAME}} pa
 # General errors
 'error' => 'Pöl',
 'databaseerror' => 'Pöl in nünodem',
-'dberrortext' => 'Süntagapök pö geb vüka at ejenon.
-Atos ba sinifön, das dabinon säkäd pö program.
-Steifül lätik ad gebön vüki äbinon:
-<blockquote><code>$1</code></blockquote>
-se dunod: „<code>$2</code>“.
-Nünodem ägesedon pökanuni: „<samp>$3: $4</samp>“.',
-'dberrortextcl' => 'Süntagapök pö geb vüka at ejenon.
-Steifül lätik ad gebön vüki at äbinon:
-„$1“
-se dunod: „$2“.
-Nünodem ägesedon pökanuni: „$3: $4“',
 'laggedslavemode' => 'Nuned: pad ba labon votükamis brefabüik',
 'readonly' => 'Vük pefärmükon',
 'enterlockreason' => 'Penolös kodi löka, keninükamü täxet dula onik e dela, kü pomoükon',
@@ -478,7 +466,6 @@ Beg: $2',
 'editinginterface' => "'''Nuned:''' redakol padi, kel labükon vödemis bevüik pro programem.
 Votükams pada at oflunons logoti gebanasita pro gebans votik.
 Ad läükön u votükön tradutodis pro els wiki valik, demolös gebi ela [//translatewiki.net/?setlang=vo translatewiki.net]: topükamaproyeg ela MediaWiki.",
-'sqlhidden' => '(SQL beg peklänedon)',
 'cascadeprotected' => 'Pad at pejelon ta redakam, bi pakeninükon fa {{PLURAL:$1|pad|pads}} sököl, kels pejelons ma „jänajel“: $2',
 'namespaceprotected' => "No dalol redakön padis in nemaspad: '''$1'''.",
 'ns-specialprotected' => 'Pads patik no kanons paredakön.',
@@ -597,7 +584,7 @@ Stebedolös büä osteifülol nogna.',
 'newpassword' => 'Letavöd nulik:',
 'retypenew' => 'Klavolöd dönu letavödi nulik:',
 'resetpass_submit' => 'Välön letavödi e nunädön omi',
-'resetpass_success' => 'Letavöd olik pevotükon benosekiko! Anu sit nunädon oli...',
+'changepassword-success' => 'Letavöd olik pevotükon benosekiko! Anu sit nunädon oli...',
 'resetpass_forbidden' => 'Letavöds no kanons pavotükön',
 'resetpass-no-info' => 'Mutol nunädön oli ad logön padi at nemediko.',
 'resetpass-submit-loggedin' => 'Votükön letavödi',

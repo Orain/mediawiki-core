@@ -569,6 +569,44 @@ class WebRequest {
 	}
 
 	/**
+	 * Return the contents of the Query with no decoding. Use when you need to
+	 * know exactly what was sent, e.g. for an OAuth signature over the elements.
+	 *
+	 * @return String
+	 */
+	public function getRawQueryString() {
+		return $_SERVER['QUERY_STRING'];
+	}
+
+	/**
+	 * Return the contents of the POST with no decoding. Use when you need to
+	 * know exactly what was sent, e.g. for an OAuth signature over the elements.
+	 *
+	 * @return String
+	 */
+	public function getRawPostString() {
+		if ( !$this->wasPosted() ) {
+			return '';
+		}
+		return $this->getRawInput();
+	}
+
+	/**
+	 * Return the raw request body, with no processing. Cached since some methods
+	 * disallow reading the stream more than once. As stated in the php docs, this
+	 * does not work with enctype="multipart/form-data".
+	 *
+	 * @return String
+	 */
+	public function getRawInput() {
+		static $input = false;
+		if ( $input === false ) {
+			$input = file_get_contents( 'php://input' );
+		}
+		return $input;
+	}
+
+	/**
 	 * Get the HTTP method used for this request.
 	 *
 	 * @return String
@@ -1103,7 +1141,7 @@ HTML;
 			# unless the address is not sensible (e.g. private). However, prefer private
 			# IP addresses over proxy servers controlled by this site (more sensible).
 			foreach ( $ipchain as $i => $curIP ) {
-				$curIP = IP::canonicalize( $curIP );
+				$curIP = IP::sanitizeIP( IP::canonicalize( $curIP ) );
 				if ( wfIsTrustedProxy( $curIP ) && isset( $ipchain[$i + 1] ) ) {
 					if ( wfIsConfiguredProxy( $curIP ) || // bug 48919
 						( IP::isPublic( $ipchain[$i + 1] ) || $wgUsePrivateIPs )
@@ -1389,6 +1427,30 @@ class FauxRequest extends WebRequest {
 	 */
 	public function isPathInfoBad( $extWhitelist = array() ) {
 		return false;
+	}
+
+	/**
+	 * FauxRequests shouldn't depend on raw request data (but that could be implemented here)
+	 * @return String
+	 */
+	public function getRawQueryString() {
+		return '';
+	}
+
+	/**
+	 * FauxRequests shouldn't depend on raw request data (but that could be implemented here)
+	 * @return String
+	 */
+	public function getRawPostString() {
+		return '';
+	}
+
+	/**
+	 * FauxRequests shouldn't depend on raw request data (but that could be implemented here)
+	 * @return String
+	 */
+	public function getRawInput() {
+		return '';
 	}
 
 	/**

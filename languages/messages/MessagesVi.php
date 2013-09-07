@@ -9,6 +9,7 @@
  *
  * @author Apple
  * @author Arisa
+ * @author Baonguyen21022003
  * @author Cheers!
  * @author DHN
  * @author Kaganer
@@ -353,7 +354,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Hiển thị số người đang xem',
 'tog-oldsig' => 'Chữ ký hiện tại:',
 'tog-fancysig' => 'Xem chữ ký là mã wiki (không có liên kết tự động)',
-'tog-showjumplinks' => 'Bật liên kết “bước tới” trên đầu trang cho bộ trình duyệt thuần văn bản hay âm thanh',
 'tog-uselivepreview' => 'Xem trước trực tiếp (JavaScript; chưa ổn định)',
 'tog-forceeditsummary' => 'Nhắc tôi khi tôi quên tóm lược sửa đổi',
 'tog-watchlisthideown' => 'Ẩn các sửa đổi của tôi khỏi danh sách theo dõi',
@@ -368,6 +368,7 @@ $messages = array(
 'tog-noconvertlink' => 'Tắt liên kết chuyển đổi tựa đề',
 'tog-norollbackdiff' => 'Không so sánh sau khi lùi sửa',
 'tog-useeditwarning' => 'Cảnh báo khi tôi thoát trang sửa đổi mà chưa lưu trang',
+'tog-prefershttps' => 'Luôn kết nối an toàn khi đăng nhập',
 
 'underline-always' => 'Luôn luôn',
 'underline-never' => 'Không bao giờ',
@@ -620,12 +621,12 @@ $1',
 'viewdeleted' => 'Xem $1?',
 'restorelink' => '{{PLURAL:$1|một|$1}} sửa đổi đã xóa',
 'feedlinks' => 'Nạp:',
-'feed-invalid' => 'Định dạng nguồn tin (feed) không hợp lệ.',
-'feed-unavailable' => 'Nguồn tin (feed) không có sẵn tại đây',
-'site-rss-feed' => 'Nguồn tin RSS của $1',
-'site-atom-feed' => 'Nguồn tin Atom của $1',
-'page-rss-feed' => 'Nguồn tin RSS của “$1”',
-'page-atom-feed' => 'Nguồn tin Atom của “$1”',
+'feed-invalid' => 'Định dạng nguồn cấp dữ liệu không hợp lệ.',
+'feed-unavailable' => 'Nguồn cấp dữ liệu không có sẵn tại đây',
+'site-rss-feed' => 'Nguồn cấp RSS của $1',
+'site-atom-feed' => 'Nguồn cấp Atom của $1',
+'page-rss-feed' => 'Nguồn cấp RSS của “$1”',
+'page-atom-feed' => 'Nguồn cấp Atom của “$1”',
 'red-link-title' => '$1 (trang chưa được viết)',
 'sort-descending' => 'Sắp xếp giảm dần',
 'sort-ascending' => 'Sắp xếp tăng dần',
@@ -648,24 +649,13 @@ $1',
 Có thể bạn đã gõ nhầm địa chỉ URL, hoặc nhấn vào một liên kết sai.
 Nó cũng có thể là dấu hiệu của một lỗi trong phần mềm mà {{SITENAME}} sử dụng.',
 'nosuchspecialpage' => 'Không có trang đặc biệt nào có tên này',
-'nospecialpagetext' => '<strong>Bạn đã yêu cầu một trang đặc biệt không tồn tại.</strong>
+'nospecialpagetext' => '<strong>Bạn đã đi đến một liên kết trang đặc biệt không tồn tại.</strong>
 
 Có danh sách trang đặc biệt tại [[Special:SpecialPages|{{int:specialpages}}]].',
 
 # General errors
 'error' => 'Lỗi',
 'databaseerror' => 'Lỗi cơ sở dữ liệu',
-'dberrortext' => 'Đã xảy ra lỗi cú pháp trong truy vấn cơ sở dữ liệu.
-Có vẻ như nguyên nhân của vấn đề này xuất phát từ một lỗi trong phần mềm.
-Truy vấn vừa rồi là:
-<blockquote><code>$1</code></blockquote>
-từ hàm “<code>$2</code>”.
-Cơ sở dữ liệu  báo lỗi “<samp>$3: $4</samp>”.',
-'dberrortextcl' => 'Đã xảy ra lỗi cú pháp trong truy vấn cơ sở dữ liệu.
-Truy vấn vừa rồi là:
-“$1”
-từ hàm “$2”.
-Cơ sở dữ liệu báo lỗi “$3: $4”',
 'laggedslavemode' => 'Cảnh báo: Trang có thể chưa được cập nhật.',
 'readonly' => 'Cơ sở dữ liệu bị khóa',
 'enterlockreason' => 'Nêu lý do khóa, cùng với thời hạn khóa',
@@ -698,6 +688,7 @@ Xin hãy báo nó cho một [[Special:ListUsers/sysop|bảo quản viên]], tron
 'cannotdelete-title' => 'Không thể xóa trang “$1”',
 'delete-hook-aborted' => 'Một phần bổ trợ phần mềm đã bỏ qua việc xóa này.
 Không có lý do nào được đưa ra.',
+'no-null-revision' => 'Không thể tạo phiên bản không nội dung mới cho trang “$1”',
 'badtitle' => 'Tựa trang sai',
 'badtitletext' => 'Tựa trang yêu cầu không đúng, rỗng, hoặc là một liên kết ngôn ngữ hoặc liên kết wiki sai. Nó có thể chứa một hoặc nhiều ký tự mà tựa trang không thể sử dụng.',
 'perfcached' => 'Dữ liệu sau được lấy từ bộ nhớ đệm và có thể đã lỗi thời. Tối đa có sẵn {{PLURAL:$1|một kết quả|$1 kết quả}} trong bộ nhớ đệm.',
@@ -715,7 +706,6 @@ Truy vấn: $2',
 'viewyourtext' => "Bạn vẫn có thể xem và chép xuống mã nguồn '''các sửa đổi của bạn''' tại trang này:",
 'protectedinterface' => 'Trang này cung cấp một thông điệp trong giao diện phần mềm, và bị khóa để tránh phá hoại. Để bổ sung hoặc thay đổi bản dịch ở bất cứ wiki nào, xin vui lòng đóng góp vào [//translatewiki.net/wiki/Main_Page?setlang=vi translatewiki.net], dự án bản địa hóa của MediaWiki.',
 'editinginterface' => "'''Lưu ý:''' Bạn đang sửa chữa một trang dùng để cung cấp thông điệp giao diện cho phần mềm. Những thay đổi tại trang này sẽ ảnh hưởng đến giao diện của rất nhiều người dùng wiki này. Để bổ sung hoặc thay đổi bản dịch ở bất cứ wiki nào, xin vui lòng đóng góp vào [//translatewiki.net/wiki/Main_Page?setlang=vi translatewiki.net], dự án bản địa hóa của MediaWiki.",
-'sqlhidden' => '(đã giấu truy vấn SQL)',
 'cascadeprotected' => 'Trang này đã bị khóa không cho sửa đổi, vì nó được nhúng vào {{PLURAL:$1|trang|những trang}} đã bị khóa với tùy chọn “khóa theo tầng” được kích hoạt:
 $2',
 'namespaceprotected' => "Bạn không có quyền sửa các trang trong không gian tên '''$1'''.",
@@ -744,7 +734,7 @@ Bảo quản viên khóa nó đưa lý do là: “$3”.',
 # Login and logout pages
 'logouttext' => "'''Bạn đã đăng xuất.'''
 
-Bạn có thể tiếp tục dùng {{SITENAME}} một cách vô danh, hoặc bạn có thể <span class='plainlinks'>[$1 đăng nhập lại]</span> dưới cùng tên người dùng này hoặc một tên người dùng khác. Xin lưu ý rằng một vài trang có thể vẫn hiển thị như khi bạn còn đăng nhập, cho đến khi bạn xóa vùng nhớ đệm (''cache'') của trình duyệt.",
+Xin lưu ý rằng một vài trang có thể vẫn hiển thị như khi bạn còn đăng nhập, cho đến khi bạn xóa vùng nhớ đệm (''cache'') của trình duyệt.",
 'welcomeuser' => 'Hoan nghênh, $1!',
 'welcomecreation-msg' => 'Tài khoản của bạn đã được mở.
 Hãy nhớ thay đổi [[Special:Preferences|tùy chọn cá nhân {{SITENAME}}]] của bạn.',
@@ -762,7 +752,6 @@ Hãy nhớ thay đổi [[Special:Preferences|tùy chọn cá nhân {{SITENAME}}]
 'remembermypassword' => 'Nhớ thông tin đăng nhập của tôi trên máy tính này (cho đến $1 ngày)',
 'userlogin-remembermypassword' => 'Giữ trạng thái đăng nhập',
 'userlogin-signwithsecure' => 'Sử dụng kết nối an toàn',
-'securelogin-stick-https' => 'Giữ kết nối với HTTPS sau khi đăng nhập',
 'yourdomainname' => 'Tên miền của bạn:',
 'password-change-forbidden' => 'Bạn không thể đổi mật khẩu trên wiki này.',
 'externaldberror' => 'Có lỗi khi xác nhận cơ sở dữ liệu bên ngoài hoặc bạn không được phép cập nhật tài khoản bên ngoài.',
@@ -791,7 +780,7 @@ Hãy nhớ thay đổi [[Special:Preferences|tùy chọn cá nhân {{SITENAME}}]
 'createacct-emailoptional' => 'Địa chỉ thư điện tử (tùy chọn)',
 'createacct-email-ph' => 'Nhập địa chỉ thư điện tử của bạn',
 'createacct-another-email-ph' => 'Nhập địa chỉ thư điện tử',
-'createaccountmail' => 'Sử dụng mật khẩu ngẫu nhiên tạm và gửi nó cho địa chỉ thư điện tử được chỉ định ở dưới',
+'createaccountmail' => 'Sử dụng mật khẩu ngẫu nhiên tạm và gửi nó cho địa chỉ thư điện tử được chỉ định',
 'createacct-realname' => 'Tên thật (tùy chọn)',
 'createaccountreason' => 'Lý do:',
 'createacct-reason' => 'Lý do',
@@ -857,10 +846,13 @@ Hãy nhập một địa chỉ có định dạng đúng hoặc bỏ trống ô 
 Xin hãy bỏ qua thông điệp này nếu tài khoản này không phải do bạn tạo ra.',
 'usernamehasherror' => 'Tên người dùng không thể chứa dấu rào',
 'login-throttled' => 'Bạn đã thử quá nhiều mật khẩu của tài khoản này.
-Xin hãy đợi chốc lát rồi thử lại.',
+Xin hãy đợi $1 rồi thử lại.',
 'login-abort-generic' => 'Thất bại khi đăng nhập',
 'loginlanguagelabel' => 'Ngôn ngữ: $1',
 'suspicious-userlogout' => 'Đã bỏ qua yêu cầu đăng xuất bạn, hình như được gửi từ trình duyệt hoặc máy proxy nhớ đệm hư.',
+'createacct-another-realname-tip' => 'Tên thật là không bắt buộc. 
+
+Nếu bạn đồng ý cung cấp, nó sẽ dùng để ghi nhận công lao của bạn.',
 
 # Email sending
 'php-mail-error-unknown' => 'Lỗi không rõ trong hàm PHP mail()',
@@ -876,7 +868,7 @@ Xin hãy đợi chốc lát rồi thử lại.',
 'newpassword' => 'Mật khẩu mới:',
 'retypenew' => 'Gõ lại:',
 'resetpass_submit' => 'Chọn mật khẩu và đăng nhập',
-'resetpass_success' => 'Đã đổi mật khẩu thành công! Đang đăng nhập…',
+'changepassword-success' => 'Đã đổi mật khẩu thành công!',
 'resetpass_forbidden' => 'Không được đổi mật khẩu',
 'resetpass-no-info' => 'Bạn phải đăng nhập mới có thể truy cập trực tiếp trang này.',
 'resetpass-submit-loggedin' => 'Thay đổi mật khẩu',
@@ -936,6 +928,19 @@ Mật khẩu tạm: $2',
 'changeemail-password' => 'Mật khẩu của bạn tại {{SITENAME}}:',
 'changeemail-submit' => 'Đổi địa chỉ',
 'changeemail-cancel' => 'Hủy bỏ',
+
+# Special:ResetTokens
+'resettokens' => 'Đặt lại dấu hiệu',
+'resettokens-text' => 'Bạn có thể đặt lại các dấu hiệu cho phép truy cập những dữ liệu cá nhân của tài khoản của bạn tại đây.
+
+Bạn nên sử dụng chức năng này nếu bạn đã vô tình chia sẻ các dấu hiệu với người khác hoặc tài khoản của bạn đã bị xâm phạm.',
+'resettokens-no-tokens' => 'Không có dấu hiệu để đặt lại.',
+'resettokens-legend' => 'Đặt lại dấu hiệu',
+'resettokens-tokens' => 'Dấu hiệu:',
+'resettokens-token-label' => '$1 (giá trị hiện tại: $2)',
+'resettokens-watchlist-token' => 'Dấu hiệu cho nguồn cấp [[Special:Watchlist|thay đổi trong danh sách theo dõi]] (dạng Atom/RSS)',
+'resettokens-done' => 'Đã đặt lại các dấu hiệu.',
+'resettokens-resetbutton' => 'Đặt lại các dấu hiệu được chọn',
 
 # Edit page toolbar
 'bold_sample' => 'Chữ đậm',
@@ -1015,9 +1020,7 @@ Có thể nó đã bị di chuyển hoặc xóa đi trong khi bạn đang xem tr
 'loginreqlink' => 'đăng nhập',
 'loginreqpagetext' => 'Bạn phải $1 mới có quyền xem các trang khác.',
 'accmailtitle' => 'Đã gửi mật khẩu.',
-'accmailtext' => "Một mật khẩu được tạo ngẫu nhiên cho [[User talk:$1|$1]] đã được gửi đến $2.
-
-Có thể đổi mật khẩu cho tài khoản mới này tại trang ''[[Special:ChangePassword|đổi mật khẩu]]'' sau khi đã đăng nhập.",
+'accmailtext' => "Một mật khẩu được tạo ngẫu nhiên cho [[User talk:$1|$1]] đã được gửi đến $2. Có thể đổi mật khẩu tại trang ''[[Special:ChangePassword|đổi mật khẩu]]'' sau khi đã đăng nhập.",
 'newarticle' => '(Mới)',
 'newarticletext' => "Bạn đi đến đây từ một liên kết đến một trang chưa tồn tại. Để tạo trang, hãy bắt đầu gõ vào ô bên dưới (xem [[{{MediaWiki:Helppage}}|trang trợ giúp]] để có thêm thông tin). Nếu bạn đến đây do nhầm lẫn, chỉ cần nhấn vào nút '''Lùi''' (''Back'') trong trình duyệt của bạn.",
 'anontalkpagetext' => "----''Đây là trang thảo luận của một người dùng vô danh chưa tạo tài khoản hoặc có tài khoản nhưng không đăng nhập.
@@ -1466,9 +1469,9 @@ Xem chi tiết trong [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}}
 'recentchangesdays-max' => '(tối đa $1 {{PLURAL:$1|ngày|ngày}})',
 'recentchangescount' => 'Số sửa đổi hiển thị mặc định:',
 'prefs-help-recentchangescount' => 'Số này bao gồm các thay đổi gần đây, lịch sử trang, và nhật trình.',
-'prefs-help-watchlist-token' => 'Điền vào ô này một khóa bí mật để tạo ra bản tin RSS cho danh sách theo dõi của bạn.
-Bất cứ ai biết được khóa trong ô này cũng có thể đọc được danh sách theo dõi của bạn, vì vậy hãy chọn một giá trị an toàn.
-Đây là giá trị được tạo ngẫu nhiên mà bạn có thể sử dụng: $1',
+'prefs-help-watchlist-token2' => 'Đây là chìa khóa bí mật cho nguồn cấp dữ liệu danh sách theo dõi của bạn.
+Bất cứ ai biết nó sẽ có thể để đọc danh sách theo dõi của bạn, vì vậy đừng chia sẻ nó.
+[[Special:ResetTokens|Nhấn chuột vào đây nếu bạn cần phải thiết lập lại nó]].',
 'savedprefs' => 'Đã lưu các tùy chọn cá nhân.',
 'timezonelegend' => 'Múi giờ:',
 'localtime' => 'Giờ hiện tại:',
@@ -1513,11 +1516,12 @@ Không có thể lùi lại tác động này.',
 'badsig' => 'Chữ ký không hợp lệ; hãy kiểm tra thẻ HTML.',
 'badsiglength' => 'Chữ ký của bạn quá dài.
 Nó không được dài quá $1 ký tự.',
-'yourgender' => 'Giới tính:',
-'gender-unknown' => 'Không chỉ rõ',
+'yourgender' => 'Bạn muốn được miêu tả như thế nào?',
+'gender-unknown' => 'Tôi không muốn chỉ rõ',
 'gender-male' => 'Nam',
 'gender-female' => 'Nữ',
-'prefs-help-gender' => 'Tùy chọn: được phần mềm sử dụng để xác định đúng giới tính.
+'prefs-help-gender' => 'Tùy chỉnh này không được bắt buộc.
+Phần mềm sử dụng giá trị này để xưng hô bạn với giới tính đúng.
 Thông tin này là công khai.',
 'email' => 'Thư điện tử',
 'prefs-help-realname' => 'Tên thật là không bắt buộc.
@@ -1530,7 +1534,7 @@ Nếu bạn đồng ý cung cấp, nó sẽ dùng để ghi nhận công lao c�
 'prefs-signature' => 'Chữ ký',
 'prefs-dateformat' => 'Kiểu ngày tháng',
 'prefs-timeoffset' => 'Chênh giờ',
-'prefs-advancedediting' => 'Tổng quát',
+'prefs-advancedediting' => 'Tùy chọn chung',
 'prefs-editor' => 'Trình soạn',
 'prefs-preview' => 'Xem trước',
 'prefs-advancedrc' => 'Tùy chọn nâng cao',
@@ -1540,6 +1544,7 @@ Nếu bạn đồng ý cung cấp, nó sẽ dùng để ghi nhận công lao c�
 'prefs-displayrc' => 'Tùy chọn hiển thị',
 'prefs-displaysearchoptions' => 'Tùy chọn hiển thị',
 'prefs-displaywatchlist' => 'Tùy chọn hiển thị',
+'prefs-tokenwatchlist' => 'Dấu hiệu',
 'prefs-diffs' => 'Khác biệt',
 
 # User preference: email validation using jQuery
@@ -1564,10 +1569,10 @@ Nếu bạn đồng ý cung cấp, nó sẽ dùng để ghi nhận công lao c�
 'userrights-no-interwiki' => 'Bạn không có quyền thay đổi quyền hạn của thành viên tại các wiki khác.',
 'userrights-nodatabase' => 'Cơ sở dữ liệu $1 không tồn tại hoặc nằm ở bên ngoài.',
 'userrights-nologin' => 'Bạn phải [[Special:UserLogin|đăng nhập]] vào một tài khoản có quyền quản lý để gán quyền cho thành viên.',
-'userrights-notallowed' => 'Tài khoản của bạn không có quyền gán hoặc bãi miễn quyền cho thành viên.',
+'userrights-notallowed' => 'Bạn không có quyền gán hoặc bãi miễn quyền cho thành viên.',
 'userrights-changeable-col' => 'Những nhóm bạn có thể thay đổi',
 'userrights-unchangeable-col' => 'Những nhóm bạn không thể thay đổi',
-'userrights-conflict' => 'Mâu thuẫn thay đổi sửa nhóm thành viên! Xin vui lòng áp dụng các thay đổi của bạn một lần nữa.',
+'userrights-conflict' => 'Mâu thuẫn thay đổi sửa nhóm thành viên! Xin vui lòng xem lại và xác nhận các thay đổi của bạn.',
 'userrights-removed-self' => 'Bạn đã loại bỏ quyền của chính mình nên không còn truy cập được trang này.',
 
 # Groups
@@ -1715,11 +1720,13 @@ Nếu bạn đồng ý cung cấp, nó sẽ dùng để ghi nhận công lao c�
 
 # Recent changes
 'nchanges' => '$1 {{PLURAL:$1|thay đổi|thay đổi}}',
+'enhancedrc-since-last-visit' => '$1 {{PLURAL:$1|sau lần truy cập vừa rồi}}',
+'enhancedrc-history' => 'lịch sử',
 'recentchanges' => 'Thay đổi gần đây',
 'recentchanges-legend' => 'Tùy chọn thay đổi gần đây',
 'recentchanges-summary' => 'Xem các thay đổi gần đây nhất tại wiki trên trang này.',
 'recentchanges-noresult' => 'Không có thay đổi trong khoảng thời gian phù hợp với các tiêu chí này.',
-'recentchanges-feed-description' => 'Theo dõi các thay đổi gần đây nhất của wiki dùng nguồn tin này.',
+'recentchanges-feed-description' => 'Theo dõi các thay đổi gần đây nhất của wiki dùng nguồn cấp dữ liệu này.',
 'recentchanges-label-newpage' => 'Bản sửa này tạo ra trang mới',
 'recentchanges-label-minor' => 'Đây là một sửa đổi nhỏ',
 'recentchanges-label-bot' => 'Sửa đổi này do bot thực hiện',
@@ -2119,6 +2126,13 @@ Hãy nhớ kiểm tra các liên kết khác đến bản mẫu trước khi xó
 'randompage' => 'Trang ngẫu nhiên',
 'randompage-nopages' => 'Hiện chưa có trang nào trong {{PLURAL:$2||các}} không gian tên: $1.',
 
+# Random page in category
+'randomincategory' => 'Trang ngẫu nhiên trong thể loại',
+'randomincategory-invalidcategory' => '“$1” không phải tên thể loại hợp lệ.',
+'randomincategory-nopages' => 'Không có trang nào trong [[:Category:$1]].',
+'randomincategory-selectcategory' => 'Xem trang ngẫu nhiên trong thể loại: $1 $2.',
+'randomincategory-selectcategory-submit' => 'Xem',
+
 # Random redirect
 'randomredirect' => 'Trang đổi hướng ngẫu nhiên',
 'randomredirect-nopages' => 'Không có trang đổi hướng nào trong không gian tên “$1”.',
@@ -2153,6 +2167,8 @@ Hãy nhớ kiểm tra các liên kết khác đến bản mẫu trước khi xó
 'pageswithprop-text' => 'Trang này liệt kê các trang sử dụng một thuộc tính trang nào đó.',
 'pageswithprop-prop' => 'Tên thuộc tính:',
 'pageswithprop-submit' => 'Xem',
+'pageswithprop-prophidden-long' => 'giá trị thuộc tính văn bản dài dòng bị ẩn ($1)',
+'pageswithprop-prophidden-binary' => 'giá trị thuộc tính nhị phân bị ẩn ($1)',
 
 'doubleredirects' => 'Đổi hướng kép',
 'doubleredirectstext' => 'Trang này liệt kê các trang đổi hướng đến một trang đổi hướng khác.
@@ -2210,6 +2226,7 @@ Các mục <del>bị gạch bỏ</del> là các trang đã được sửa.',
 'mostrevisions' => 'Trang được sửa đổi nhiều lần nhất',
 'prefixindex' => 'Tất cả các trang trùng với tiền tố',
 'prefixindex-namespace' => 'Tất cả các trang trùng với tiền tố (không gian $1)',
+'prefixindex-strip' => 'Ẩn tiền tố trong danh sách',
 'shortpages' => 'Trang ngắn nhất',
 'longpages' => 'Trang dài nhất',
 'deadendpages' => 'Trang đường cùng',
@@ -2327,7 +2344,8 @@ Xem thêm [[Special:WantedCategories|thể loại cần thiết]].',
 'listgrouprights' => 'Nhóm thành viên',
 'listgrouprights-summary' => 'Dưới đây là danh sách nhóm thành viên được định nghĩa tại wiki này, với mức độ truy cập của từng nhóm.
 Có [[{{MediaWiki:Listgrouprights-helppage}}|thông tin thêm]] về từng nhóm riêng biệt.',
-'listgrouprights-key' => '* <span class="listgrouprights-granted">Quyền được trao</span>
+'listgrouprights-key' => 'Chú giải:
+* <span class="listgrouprights-granted">Quyền được trao</span>
 * <span class="listgrouprights-revoked">Quyền bị tước</span>',
 'listgrouprights-group' => 'Nhóm',
 'listgrouprights-rights' => 'Khả năng',
@@ -2665,7 +2683,7 @@ $1',
 'sp-contributions-blocked-notice-anon' => 'Địa chỉ IP này đang bị cấm. Hãy tham khảo mục mới nhất trong nhật trình cấm IP này:',
 'sp-contributions-search' => 'Tìm kiếm đóng góp',
 'sp-contributions-username' => 'Địa chỉ IP hay tên thành viên:',
-'sp-contributions-toponly' => 'Chỉ hiện các phiên bản gần đây',
+'sp-contributions-toponly' => 'Chỉ hiện các phiên bản mới nhất',
 'sp-contributions-submit' => 'Tìm kiếm',
 
 # What links here
@@ -3087,8 +3105,8 @@ Lưu nó vào máy tính của bạn rồi tải nó lên đây.',
 'tooltip-n-help' => 'Nơi tìm hiểu thêm cách dùng.',
 'tooltip-t-whatlinkshere' => 'Các trang liên kết đến đây',
 'tooltip-t-recentchangeslinked' => 'Thay đổi gần đây của các trang liên kết đến đây',
-'tooltip-feed-rss' => 'Nguồn tin RSS của trang này',
-'tooltip-feed-atom' => 'Nguồn tin Atom của trang này',
+'tooltip-feed-rss' => 'Nguồn cấp RSS của trang này',
+'tooltip-feed-atom' => 'Nguồn cấp Atom của trang này',
 'tooltip-t-contributions' => 'Xem đóng góp của người này',
 'tooltip-t-emailuser' => 'Gửi thư cho người này',
 'tooltip-t-upload' => 'Tải hình ảnh hoặc tập tin lên',
@@ -3181,9 +3199,9 @@ Lưu nó vào máy tính của bạn rồi tải nó lên đây.',
 'pageinfo-length' => 'Chiều dài của trang (byte)',
 'pageinfo-article-id' => 'Mã số trang',
 'pageinfo-language' => 'Ngôn ngữ nội dung trang',
-'pageinfo-robot-policy' => 'Trạng thái công cụ tìm kiếm',
-'pageinfo-robot-index' => 'Có thể ghi chỉ mục',
-'pageinfo-robot-noindex' => 'Không thể ghi chỉ mục',
+'pageinfo-robot-policy' => 'Ghi chỉ mục bởi robot',
+'pageinfo-robot-index' => 'Cho phép',
+'pageinfo-robot-noindex' => 'Không cho phép',
 'pageinfo-views' => 'Số lần xem',
 'pageinfo-watchers' => 'Số người theo dõi trang',
 'pageinfo-few-watchers' => 'Không tới $1 người theo dõi',
@@ -3577,7 +3595,7 @@ Những thông tin khác mặc định sẽ được ẩn đi.
 'exif-compression-34712' => 'JPEG 2000',
 
 'exif-copyrighted-true' => 'Dưới bản quyền',
-'exif-copyrighted-false' => 'Phạm vi công cộng',
+'exif-copyrighted-false' => 'Cờ bản quyền không được đặt',
 
 'exif-photometricinterpretation-2' => 'RGB',
 
@@ -3847,13 +3865,13 @@ Mã xác nhận này sẽ hết hạn vào $4.',
 'confirmemail_body_set' => 'Ai đó, có thể là bạn, từ địa chỉ IP $1, đã đặt địa chỉ này là địa
 chỉ thư điện tử của tài khoản "$2" tại {{SITENAME}}.
 
-Để xác nhận rằng tài khoản này thực sự là của bạn và để tái kích hoạt tính năng
+Để xác nhận rằng tài khoản này thực sự là của bạn và để kích hoạt các tính năng
 thư điện tử tại {{SITENAME}}, xin mở liên kết này trong trình duyệt:
 
 $3
 
-Nếu tài khoản *không* phải là của bạn, hãy nhấn vào liên kết này để hủy thủ
-tục xác nhận địa chỉ thư điện tử:
+Nếu tài khoản *không* phải là của bạn, hãy nhấn vào liên kết này để hủy thủ tục
+xác nhận địa chỉ thư điện tử:
 
 $5
 
@@ -3908,8 +3926,8 @@ Xin hãy xác nhận bạn thực sự muốn tạo lại trang này.",
 'table_pager_empty' => 'Không tìm thấy kết quả',
 
 # Auto-summaries
-'autosumm-blank' => 'Tẩy trống trang',
-'autosumm-replace' => 'Thay cả nội dung bằng “$1”',
+'autosumm-blank' => 'Đã tẩy trống trang',
+'autosumm-replace' => 'Đã thay thế cả nội dung bằng “$1”',
 'autoredircomment' => 'Đổi hướng đến [[$1]]',
 'autosumm-new' => 'Tạo trang mới với nội dung “$1”',
 
@@ -4031,6 +4049,7 @@ Bạn cũng có thể [[Special:EditWatchlist|dùng trang sửa đổi bình th�
 'version-license' => 'Giấy phép bản quyền',
 'version-poweredby-credits' => "Wiki này chạy trên '''[//www.mediawiki.org/ MediaWiki]''', bản quyền © 2001–$1 $2.",
 'version-poweredby-others' => 'những người khác',
+'version-poweredby-translators' => 'các biên dịch viên translatewiki.net',
 'version-credits-summary' => 'Chúng tôi muốn công nhận những người sau đã đóng góp vào [[Special:Version|MediaWiki]].',
 'version-license-info' => "MediaWiki là phần mềm tự do; bạn được phép tái phân phối và/hoặc sửa đổi nó theo những điều khoản của Giấy phép Công cộng GNU do Quỹ Phần mềm Tự do xuất bản; phiên bản 2 hay bất kỳ phiên bản nào mới hơn nào của Giấy phép.
 
@@ -4272,5 +4291,20 @@ Nếu không thì bạn có thể điền biểu mẫu đơn giản ở dưới.
 
 # Image rotation
 'rotate-comment' => 'Đã quay hình $1 độ theo chiều kim đồng hồ',
+
+# Limit report
+'limitreport-title' => 'Dữ liệu hồ sơ bộ phân tích:',
+'limitreport-cputime' => 'Sử dụng thời gian CPU',
+'limitreport-cputime-value' => '$1 giây',
+'limitreport-walltime' => 'Sử dụng tức thời',
+'limitreport-walltime-value' => '$1 giây',
+'limitreport-ppvisitednodes' => 'Số nút được truy cập bởi bộ tiền xử lý',
+'limitreport-ppgeneratednodes' => 'Số nút do bộ tiền xử lý tạo',
+'limitreport-postexpandincludesize' => 'Kích thước bao gồm sau khi bung',
+'limitreport-postexpandincludesize-value' => '$1/$2 byte',
+'limitreport-templateargumentsize' => 'Kích thước đối số bản mẫu',
+'limitreport-templateargumentsize-value' => '$1/$2 byte',
+'limitreport-expansiondepth' => 'Độ sâu bung cao nhất',
+'limitreport-expensivefunctioncount' => 'Số lời gọi hàm cú pháp tốn cần mức độ xử lý cao',
 
 );

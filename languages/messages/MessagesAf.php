@@ -19,6 +19,7 @@
  * @author Purodha
  * @author Reedy
  * @author SPQRobin
+ * @author Shirayuki
  * @author Spacebirdy
  * @author Xethron
  * @author පසිඳු කාවින්ද
@@ -222,7 +223,7 @@ $messages = array(
 'tog-editsection' => 'Wys [wysig]-skakels vir elke afdeling',
 'tog-editsectiononrightclick' => 'Wysig afdeling met regskliek op afdeling se titel (JavaScript)',
 'tog-showtoc' => 'Wys inhoudsopgawe (by bladsye met meer as drie opskrifte)',
-'tog-rememberpassword' => 'Onthou dat ek op hierdie rekenaar ingeteken het (vir \'n maksimum van $1 {{PLURAL:$|dag|dae}})',
+'tog-rememberpassword' => "Onthou dat ek op hierdie rekenaar ingeteken het (vir 'n maksimum van $1 {{PLURAL:$1|dag|dae}})",
 'tog-watchcreations' => 'Voeg bladsye wat ek skep en lêers wat ek oplaai by my dophoulys',
 'tog-watchdefault' => 'Voeg bladsye en lêers wat ek wysig by my dophoulys',
 'tog-watchmoves' => 'Voeg bladsye en lêers wat ek skuif by my dophoulys',
@@ -238,7 +239,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Wys die aantal gebruikers wat dophou',
 'tog-oldsig' => 'Bestaande handtekening:',
 'tog-fancysig' => 'Doodgewone handtekening (sonder outomatiese skakel)',
-'tog-showjumplinks' => 'Wys "spring na"-skakels vir toeganklikheid',
 'tog-uselivepreview' => 'Gebruik lewendige voorskou (JavaScript) (eksperimenteel)',
 'tog-forceeditsummary' => "Let my daarop as ek nie 'n opsomming van my wysiging gee nie",
 'tog-watchlisthideown' => 'Versteek my wysigings in dophoulys',
@@ -538,17 +538,6 @@ Dit kan ook dui op 'n fout in die sagteware van {{SITENAME}}.",
 # General errors
 'error' => 'Fout',
 'databaseerror' => 'Databasisfout',
-'dberrortext' => 'Daar was \'n sintaksisfout in die databasisnavraag.
-Dit kan moontlik dui op \'n fout in die sagteware.
-Die laaste navraag was:
-<blockquote><code>$1</code></blockquote>
-vanuit funksie "<code>$2</code>".
-Databasis gee foutboodskap "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Sintaksisfout in databasisnavraag.
-Die laaste navraag was:
-"$1"
-vanuit funksie "$2".
-Databasis gee foutboodskap: "$3: $4".',
 'laggedslavemode' => 'Waarskuwing: Onlangse wysigings dalk nie in bladsy vervat nie.',
 'readonly' => 'Databasis gesluit',
 'enterlockreason' => 'Rede vir die sluiting,
@@ -603,7 +592,6 @@ Probeer asseblief weer oor 'n paar minute.",
 'protectedinterface' => 'Hierdie bladsy verskaf teks vir die koppelvlak van die sagteware, en is beskerm om misbruik te voorkom.
 Gebruik asseblief [//translatewiki.net/ translatewiki.net] om vertalings by te voeg of te wysig.',
 'editinginterface' => "'''Waarskuwing:''' U is besig om 'n bladsy te redigeer wat koppelvlakinligting aan die programmatuur voorsien. Wysigings aan hierdie bladsy sal die voorkoms van die gebruikerskoppelvlak vir ander gebruikers beïnvloed. Vir vertalings, oorweeg om eerder [//translatewiki.net/wiki/Main_Page?setlang=af translatewiki.net] (die vertalingsprojek vir MediaWiki) te gebruik.",
-'sqlhidden' => '(SQL navraag versteek)',
 'cascadeprotected' => 'Hierdie bladsy is beskerm teen redigering omdat dit ingesluit is in die volgende {{PLURAL:$1|bladsy|bladsye}} wat beskerm is met die "kaskade" opsie aangeskakel: $2',
 'namespaceprotected' => "U het nie toestemming om bladsye in die '''$1'''-naamruimte te wysig nie.",
 'customcssprotected' => "U het nie toestemming om hierdie CSS-bladsy te redigeer nie, want dit bevat 'n ander gebruiker se persoonlike verstellings.",
@@ -647,10 +635,9 @@ Moenie vergeet om u [[Special:Preferences|voorkeure vir {{SITENAME}}]] te stel n
 'yourpasswordagain' => 'Herhaal wagwoord',
 'createacct-yourpasswordagain' => 'Bevestig wagwoord',
 'createacct-yourpasswordagain-ph' => 'Sleutel weer u wagwoord in',
-'remembermypassword' => 'Onthou dat ek op hierdie rekenaar ingeteken het (vir \'n maksimum van $1 {{PLURAL:$|dag|dae}})',
+'remembermypassword' => "Onthou dat ek op hierdie rekenaar ingeteken het (vir 'n maksimum van $1 {{PLURAL:$1|dag|dae}})",
 'userlogin-remembermypassword' => 'Hou my aangemeld',
 'userlogin-signwithsecure' => 'Gebruik veilige verbinding',
-'securelogin-stick-https' => 'Bly verbind met HTTPS na aanmelding',
 'yourdomainname' => 'U domein:',
 'password-change-forbidden' => 'U kan nie wagwoorde op hierdie wiki verander nie.',
 'externaldberror' => "'n Databasisfout het tydens aanmelding voorgekom of u het nie toestemming om u eksterne rekening op te dateer nie.",
@@ -777,7 +764,7 @@ Om voort te gaan moet u 'n nuwe wagwoord hier kies:",
 'newpassword' => 'Nuwe wagwoord',
 'retypenew' => 'Tik nuwe wagwoord weer in',
 'resetpass_submit' => 'Stel wagwoord en meld aan',
-'resetpass_success' => 'U wagwoord is suksesvol gewysig!
+'changepassword-success' => 'U wagwoord is suksesvol gewysig!
 Besig om u aan te meld...',
 'resetpass_forbidden' => 'Wagwoorde kannie gewysig word nie.',
 'resetpass-no-info' => 'U moet ingeteken wees om hierdie bladsy direk te kan gebruik.',
@@ -1370,9 +1357,6 @@ U kan ook 'n naamruimte as voorvoegsel gebruik.",
 'recentchangesdays-max' => 'Maksimum $1 {{PLURAL:$1|dag|dae}}',
 'recentchangescount' => 'Aantal wysigings om by verstek te vertoon:',
 'prefs-help-recentchangescount' => 'Dit geld vir onlangse wysigings, bladsygeskiedenis en logboekbladsye.',
-'prefs-help-watchlist-token' => "Deur 'n geheime sleutel hier in te sleutel word 'n RSS-voer vir u dophoulys geskep.
-Enige een wat die sleutel ken sal u dophoulys kan lees. Kies dus 'n veilige sleutel.
-Hier volg 'n lukraak gegenereerde waarde wat u kan gebruik: $1",
 'savedprefs' => 'U voorkeure is gestoor.',
 'timezonelegend' => 'Tydsone:',
 'localtime' => 'Plaaslike tyd:',
@@ -3564,8 +3548,8 @@ Ander velde sal versteek wees.
 'exif-gpslongitude-w' => 'Westerlengte',
 
 # Pseudotags used for GPSAltitudeRef
-'exif-gpsaltitude-above-sealevel' => '$1 {{PLURAL:$1|meter|meter}} bo seespieël',
-'exif-gpsaltitude-below-sealevel' => '$1 {{PLURAL:$1|meter|meter}} onder seespieël',
+'exif-gpsaltitude-above-sealevel' => '$1 {{PLURAL:$1|meter}} bo seespieël',
+'exif-gpsaltitude-below-sealevel' => '$1 {{PLURAL:$1|meter}} onder seespieël',
 
 'exif-gpsstatus-a' => 'Besig met meting',
 'exif-gpsstatus-v' => 'Meetinteroperabiliteit',

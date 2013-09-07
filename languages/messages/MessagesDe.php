@@ -57,6 +57,7 @@
  * @author Saibo
  * @author Se4598
  * @author Sebastian Wallroth
+ * @author Shirayuki
  * @author Spacebirdy
  * @author Srhat
  * @author TMg
@@ -423,12 +424,12 @@ $messages = array(
 'tog-hidepatrolled' => 'Kontrollierte Änderungen in den „Letzten Änderungen“ ausblenden',
 'tog-newpageshidepatrolled' => 'Kontrollierte Seiten bei den „Neuen Seiten“ ausblenden',
 'tog-extendwatchlist' => 'Erweiterte Beobachtungsliste zur Anzeige aller Änderungen',
-'tog-usenewrc' => 'Änderungen auf „Letzte Änderungen“ und Beobachtungsliste nach Seite gruppieren (benötigt JavaScript)',
+'tog-usenewrc' => 'Änderungen auf „Letzte Änderungen“ und Beobachtungsliste nach Seite gruppieren',
 'tog-numberheadings' => 'Überschriften automatisch nummerieren',
-'tog-showtoolbar' => 'Bearbeiten-Werkzeugleiste anzeigen (benötigt JavaScript)',
-'tog-editondblclick' => 'Seiten mit Doppelklick bearbeiten (benötigt JavaScript)',
+'tog-showtoolbar' => 'Bearbeiten-Werkzeugleiste anzeigen',
+'tog-editondblclick' => 'Seiten mit Doppelklick bearbeiten',
 'tog-editsection' => 'Links zum Bearbeiten einzelner Abschnitte anzeigen',
-'tog-editsectiononrightclick' => 'Einzelne Abschnitte per Rechtsklick bearbeiten (benötigt JavaScript)',
+'tog-editsectiononrightclick' => 'Einzelne Abschnitte per Rechtsklick bearbeiten',
 'tog-showtoc' => 'Anzeige eines Inhaltsverzeichnisses auf Seiten mit mehr als drei Überschriften',
 'tog-rememberpassword' => 'Mit diesem Browser dauerhaft angemeldet bleiben (maximal $1 {{PLURAL:$1|Tag|Tage}})',
 'tog-watchcreations' => 'Selbst erstellte Seiten und hochgeladene Dateien automatisch beobachten',
@@ -446,8 +447,7 @@ $messages = array(
 'tog-shownumberswatching' => 'Anzahl der beobachtenden Benutzer anzeigen',
 'tog-oldsig' => 'Vorhandene Signatur:',
 'tog-fancysig' => 'Signatur als Wikitext behandeln (ohne automatische Verlinkung)',
-'tog-showjumplinks' => '„Wechseln-zu“-Links aktivieren',
-'tog-uselivepreview' => 'Vorschau sofort anzeigen (benötigt JavaScript) (experimentell)',
+'tog-uselivepreview' => 'Vorschau sofort anzeigen (experimentell)',
 'tog-forceeditsummary' => 'Warnen, sofern beim Speichern die Zusammenfassung fehlt',
 'tog-watchlisthideown' => 'Eigene Bearbeitungen in der Beobachtungsliste ausblenden',
 'tog-watchlisthidebots' => 'Bearbeitungen durch Bots in der Beobachtungsliste ausblenden',
@@ -461,6 +461,7 @@ $messages = array(
 'tog-noconvertlink' => 'Konvertierung des Titels deaktivieren',
 'tog-norollbackdiff' => 'Unterschied nach dem Zurücksetzen unterdrücken',
 'tog-useeditwarning' => 'Warnen, sofern eine zur Bearbeitung geöffnete Seite verlassen wird, die nicht gespeicherte Änderungen enthält',
+'tog-prefershttps' => 'Wenn angemeldet, immer eine sichere Verbindung benutzen.',
 
 'underline-always' => 'immer',
 'underline-never' => 'nie',
@@ -561,7 +562,7 @@ $messages = array(
 'newwindow' => '(wird in einem neuen Fenster geöffnet)',
 'cancel' => 'Abbrechen',
 'moredotdotdot' => 'Mehr …',
-'morenotlisted' => 'Weitere, nicht aufgeführte …',
+'morenotlisted' => 'Diese Liste ist nicht vollständig.',
 'mypage' => 'Eigene Seite',
 'mytalk' => 'Diskussion',
 'anontalk' => 'Diskussionsseite dieser IP',
@@ -749,15 +750,12 @@ Alle verfügbaren Spezialseiten sind in der [[Special:SpecialPages|Liste der Spe
 # General errors
 'error' => 'Fehler',
 'databaseerror' => 'Datenbankfehler',
-'dberrortext' => 'Es ist ein Datenbankfehler aufgetreten.
-Der Grund kann ein Programmierfehler sein.
-Die letzte Datenbankabfrage lautete:
-<blockquote><code>$1</code></blockquote>
-aus der Funktion „<code>$2</code>“.
-Die Datenbank meldete den Fehler „<samp>$3: $4</samp>“.',
-'dberrortextcl' => 'Es gab einen Syntaxfehler in der Datenbankabfrage.
-Die letzte Datenbankabfrage lautete: „$1“ aus der Funktion „<tt>$2</tt>“.
-Die Datenbank meldete den Fehler: „<tt>$3: $4</tt>“.',
+'databaseerror-text' => 'Es ist ein Datenbankabfragefehler aufgetreten.
+Dies könnte auf einen Fehler in der Software hindeuten.',
+'databaseerror-textcl' => 'Es ist ein Datenbankabfragefehler aufgetreten.',
+'databaseerror-query' => 'Abfrage: $1',
+'databaseerror-function' => 'Funktion: $1',
+'databaseerror-error' => 'Fehler: $1',
 'laggedslavemode' => "'''Achtung:''' Die angezeigte Seite könnte unter Umständen nicht die letzten Bearbeitungen enthalten.",
 'readonly' => 'Datenbank gesperrt',
 'enterlockreason' => 'Bitte gib einen Grund ein, warum die Datenbank gesperrt werden soll und eine Abschätzung über die Dauer der Sperrung',
@@ -790,6 +788,7 @@ Möglicherweise wurde sie bereits von jemand anderem gelöscht.',
 'cannotdelete-title' => 'Seite „$1“ kann nicht gelöscht werden',
 'delete-hook-aborted' => 'Die Löschung wurde von einer Programmerweiterung zu MediaWiki verhindert.
 Es ist hierzu keine Erklärung verfügbar.',
+'no-null-revision' => 'Die neue Nullversion für die Seite „$1“ konnte nicht erstellt werden',
 'badtitle' => 'Ungültiger Titel',
 'badtitletext' => 'Der Titel der angeforderten Seite ist ungültig, leer oder ein ungültiger Sprachlink von einem anderen Wiki.',
 'perfcached' => 'Die folgenden Daten stammen aus dem Cache und sind möglicherweise nicht aktuell. Maximal {{PLURAL:$1|ein Ergebnis ist|$1 Ergebnisse sind}} im Cache verfügbar.',
@@ -812,7 +811,6 @@ Nutze bitte [//translatewiki.net/ translatewiki.net], das Lokalisierungsprojekt 
 'editinginterface' => "'''Warnung:''' Diese Seite enthält von der MediaWiki-Software genutzten Text.
 Änderungen auf dieser Seite wirken sich auf die Benutzeroberfläche dieses Wikis aus.
 Nutze bitte [//translatewiki.net/ translatewiki.net], das Lokalisierungsprojekt von MediaWiki, um Übersetzungen für alle Wikis hinzuzufügen oder zu ändern.",
-'sqlhidden' => '(Die SQL-Datenbankabfrage ist verborgen.)',
 'cascadeprotected' => 'Diese Seite ist zur Bearbeitung gesperrt. Sie ist in die {{PLURAL:$1|folgende Seite|folgenden Seiten}} eingebunden, die mittels der Kaskadensperroption geschützt {{PLURAL:$1|ist|sind}}:
 $2',
 'namespaceprotected' => "Du hast nicht die erforderliche Berechtigung, um Seiten im Namensraum '''$1''' bearbeiten zu können.",
@@ -841,7 +839,6 @@ Der Administrator, der den Schreibzugriff sperrte, gab folgenden Grund an: „$3
 # Login and logout pages
 'logouttext' => "'''Du bist nun abgemeldet.'''
 
-Du kannst {{SITENAME}} jetzt anonym weiternutzen oder dich erneut unter dem selben oder einem anderen Benutzernamen <span class='plainlinks'>[$1 anmelden]</span>.
 Beachte, dass einige Seiten noch anzeigen können, dass du angemeldet bist, solange du nicht deinen Browsercache geleert hast.",
 'welcomeuser' => 'Willkommen, $1!',
 'welcomecreation-msg' => 'Dein Benutzerkonto wurde erstellt.
@@ -860,7 +857,6 @@ Vergiss nicht, deine [[Special:Preferences|{{SITENAME}}-Einstellungen]] zu ände
 'remembermypassword' => 'Mit diesem Browser dauerhaft angemeldet bleiben (maximal $1 {{PLURAL:$1|Tag|Tage}})',
 'userlogin-remembermypassword' => 'Angemeldet bleiben',
 'userlogin-signwithsecure' => 'Sichere Verbindung verwenden',
-'securelogin-stick-https' => 'Nach dem Anmelden mit HTTPS verbunden bleiben',
 'yourdomainname' => 'Deine Domain:',
 'password-change-forbidden' => 'Du kannst auf diesem Wiki keine Passwörter ändern.',
 'externaldberror' => 'Entweder es liegt ein Fehler bei der externen Authentifizierung vor oder du darfst dein externes Benutzerkonto nicht aktualisieren.',
@@ -889,7 +885,7 @@ Vergiss nicht, deine [[Special:Preferences|{{SITENAME}}-Einstellungen]] zu ände
 'createacct-emailoptional' => 'E-Mail-Adresse (optional)',
 'createacct-email-ph' => 'Gib deine E-Mail-Adresse ein',
 'createacct-another-email-ph' => 'E-Mail-Adresse',
-'createaccountmail' => 'Ein temporäres Zufallspasswort verwenden und an die unten angegebene E-Mail-Adresse versenden',
+'createaccountmail' => 'Ein temporäres Zufallspasswort verwenden und an die angegebene E-Mail-Adresse versenden',
 'createacct-realname' => 'Bürgerlicher Name (optional)',
 'createaccountreason' => 'Grund:',
 'createacct-reason' => 'Begründung',
@@ -897,7 +893,7 @@ Vergiss nicht, deine [[Special:Preferences|{{SITENAME}}-Einstellungen]] zu ände
 'createacct-captcha' => 'Sicherheitsprüfung',
 'createacct-imgcaptcha-ph' => 'Gib den Text ein, den du oben siehst.',
 'createacct-submit' => 'Dein Benutzerkonto erstellen',
-'createacct-another-submit' => 'Ein anderes Benutzerkonto erstellen',
+'createacct-another-submit' => 'Anderes Benutzerkonto erstellen',
 'createacct-benefit-heading' => '{{SITENAME}} wird von Leuten wie dir erstellt.',
 'createacct-benefit-body1' => '{{PLURAL:$1|Bearbeitung|Bearbeitungen}}',
 'createacct-benefit-body2' => '{{PLURAL:$1|Seite|Seiten}}',
@@ -963,10 +959,12 @@ Besucher, die diese IP-Adresse verwenden, können momentan keine Benutzerkonten 
 Falls das Benutzerkonto irrtümlich angelegt wurde, kannst du diese Nachricht ignorieren.',
 'usernamehasherror' => 'Benutzernamen dürfen kein Rautenzeichen enthalten',
 'login-throttled' => 'Du hast zu oft versucht, dich anzumelden.
-Bitte warte, bevor du es erneut probierst.',
+Bitte warte $1, bevor du es erneut probierst.',
 'login-abort-generic' => 'Deine Anmeldung war nicht erfolgreich – Abgebrochen',
 'loginlanguagelabel' => 'Sprache: $1',
 'suspicious-userlogout' => 'Deine Abmeldeanfrage wurde verweigert, da sie vermutlich von einem defekten Browser oder einem Cache-Proxy gesendet wurde.',
+'createacct-another-realname-tip' => 'Der bürgerliche Name ist optional.
+Wenn du ihn angibst, wird er für die Zuordnung der Beiträge verwendet.',
 
 # Email sending
 'php-mail-error-unknown' => 'Unbekannter Fehler mit der Funktion mail() von PHP',
@@ -982,7 +980,7 @@ Bitte warte, bevor du es erneut probierst.',
 'newpassword' => 'Neues Passwort:',
 'retypenew' => 'Neues Passwort (nochmal):',
 'resetpass_submit' => 'Passwort übermitteln und anmelden',
-'resetpass_success' => 'Dein Passwort wurde erfolgreich geändert. Es folgt die Anmeldung …',
+'changepassword-success' => 'Dein Passwort wurde erfolgreich geändert!',
 'resetpass_forbidden' => 'Das Passwort kann nicht geändert werden.',
 'resetpass-no-info' => 'Du musst dich anmelden, um auf diese Seite direkt zuzugreifen.',
 'resetpass-submit-loggedin' => 'Passwort ändern',
@@ -1038,6 +1036,19 @@ Temporäres Passwort: $2',
 'changeemail-password' => 'Dein {{SITENAME}}-Passwort:',
 'changeemail-submit' => 'E-Mail-Adresse ändern',
 'changeemail-cancel' => 'Abbrechen',
+
+# Special:ResetTokens
+'resettokens' => 'Tokens zurücksetzen',
+'resettokens-text' => 'Du kannst Tokens zurücksetzen, die dir den Zugriff auf bestimmte private Daten ermöglichen, die mit deinem Benutzerkonto hier verknüpft sind.
+
+Du solltest dies nur machen, wenn du die Tokens versehentlich mit jemandem geteilt hast oder dein Konto gefährdet ist.',
+'resettokens-no-tokens' => 'Es gibt keine Tokens zum Zurücksetzen.',
+'resettokens-legend' => 'Tokens zurücksetzen',
+'resettokens-tokens' => 'Tokens:',
+'resettokens-token-label' => '$1 (aktueller Wert: $2)',
+'resettokens-watchlist-token' => 'Token für den Webfeed (Atom/RSS) der [[Special:Watchlist|Änderungen an Seiten auf deiner Beobachtungsliste]]',
+'resettokens-done' => 'Tokens zurückgesetzt.',
+'resettokens-resetbutton' => 'Ausgewählte Tokens zurücksetzen',
 
 # Edit page toolbar
 'bold_sample' => 'Fetter Text',
@@ -1115,9 +1126,7 @@ Vermutlich wurde er verschoben oder gelöscht, nachdem du die Seite aufgerufen h
 'loginreqlink' => 'anmelden',
 'loginreqpagetext' => 'Du musst dich $1, um Seiten lesen zu können.',
 'accmailtitle' => 'Passwort wurde verschickt',
-'accmailtext' => 'Ein zufällig generiertes Passwort für [[User talk:$1|$1]] wurde an $2 versandt.
-
-Das Passwort für dieses neue Benutzerkonto kann auf der Spezialseite „[[Special:ChangePassword|Passwort ändern]]“ geändert werden.',
+'accmailtext' => "Ein zufällig generiertes Passwort für [[User talk:$1|$1]] wurde an $2 versandt. Es kann auf der Seite ''[[Special:ChangePassword|Passwort ändern]]'' nach der Anmeldung geändert werden.",
 'newarticle' => '(Neu)',
 'newarticletext' => "Du bist einem Link zu einer Seite gefolgt, die nicht vorhanden ist.
 Um diese Seite anzulegen, trage deinen Text in das untenstehende Bearbeitungsfeld ein (weitere Informationen auf der [[{{MediaWiki:Helppage}}|Hilfeseite]]).
@@ -1249,7 +1258,7 @@ Wenn du angemeldet bist, kannst du das Anzeigen dieser Warnung im Bereich „Bea
 'content-model-css' => 'CSS',
 
 # Parser/template warnings
-'expensive-parserfunction-warning' => "'''Achtung''': Diese Seite enthält zu viele Aufrufe aufwändiger Parserfunktionen.
+'expensive-parserfunction-warning' => "'''Achtung:''' Diese Seite enthält zu viele Aufrufe aufwändiger Parserfunktionen.
 
 Sie darf nicht mehr als $2 {{PLURAL:$2|Aufruf|Aufrufe}} haben, es {{PLURAL:$1|ist aktuell $1 Aufruf|sind aktuell $1 Aufrufe}}.",
 'expensive-parserfunction-category' => 'Seiten, die aufwändige Parserfunktionen zu oft aufrufen',
@@ -1552,7 +1561,7 @@ Einzelheiten sind im [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}}
 'prefs-rendering' => 'Aussehen',
 'saveprefs' => 'Einstellungen speichern',
 'resetprefs' => 'Eingaben verwerfen',
-'restoreprefs' => 'Alle Standardeinstellungen wiederherstellen',
+'restoreprefs' => 'Alle Standardeinstellungen wiederherstellen (in allen Abschnitten)',
 'prefs-editing' => 'Bearbeiten',
 'rows' => 'Zeilen:',
 'columns' => 'Spalten:',
@@ -1564,9 +1573,9 @@ Einzelheiten sind im [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}}
 'recentchangesdays-max' => 'Maximal $1 {{PLURAL:$1|Tag|Tage}}',
 'recentchangescount' => 'Anzahl der standardmäßig angezeigten Bearbeitungen:',
 'prefs-help-recentchangescount' => 'Dies umfasst die Liste der letzten Änderungen, die Versionsgeschichte und die Logbücher.',
-'prefs-help-watchlist-token' => 'Das Ausfüllen dieses Feldes mit einem geheimen Schlüssel generiert einen RSS-Feed für deine Beobachtungsliste.
-Jeder, der diesen Schlüssel kennt, kann deine Beobachtungsliste einsehen. Wähle also einen sicheren Wert.
-Hier ein zufällig generierter Wert, den du verwenden kannst: $1',
+'prefs-help-watchlist-token2' => 'Dies ist der geheime Schlüssel zum Webfeed deiner Beobachtungsliste.
+Jeder, der ihn kennt, kann deine Beobachtungsliste lesen. Teile ihn deshalb nicht.
+[[Special:ResetTokens|Klicke hier, wenn du ihn zurücksetzen musst]].',
 'savedprefs' => 'Deine Einstellungen wurden gespeichert.',
 'timezonelegend' => 'Zeitzone:',
 'localtime' => 'Ortszeit:',
@@ -1611,12 +1620,14 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 'yournick' => 'Signatur:',
 'prefs-help-signature' => 'Beiträge auf Diskussionsseiten sollten mit „<nowiki>~~~~</nowiki>“ signiert werden, was dann in die Signatur mit Zeitstempel umgewandelt wird.',
 'badsig' => 'Die Syntax der Signatur ist ungültig; bitte HTML überprüfen.',
-'badsiglength' => 'Die Signatur darf maximal $1 {{PLURAL:$1|Zeichen|Zeichen}} lang sein.',
-'yourgender' => 'Geschlecht:',
-'gender-unknown' => 'Nicht angegeben',
-'gender-male' => 'Männlich',
-'gender-female' => 'Weiblich',
-'prefs-help-gender' => 'Optional: Wird unter anderem von der Software für die geschlechtsspezifische Anrede genutzt. Diese Information ist öffentlich.',
+'badsiglength' => 'Die Signatur darf maximal $1 {{PLURAL:$1|Zeichen}} lang sein.',
+'yourgender' => 'Wie willst du dich beschreiben?',
+'gender-unknown' => 'Ich will es nicht beschreiben',
+'gender-male' => 'Er bearbeitet Wikiseiten',
+'gender-female' => 'Sie bearbeitet Wikiseiten',
+'prefs-help-gender' => 'Das Festlegen dieser Einstellung ist optional.
+Die Software verwendet den Wert, um dich anzureden und zur Erwähnung für andere durch Verwendung des passenden grammatikalischen Geschlechts.
+Diese Information ist öffentlich.',
 'email' => 'E-Mail',
 'prefs-help-realname' => 'Optional. Damit kann dein bürgerlicher Name deinen Beiträgen zugeordnet werden.',
 'prefs-help-email' => 'Die Angabe einer E-Mail-Adresse ist optional, ermöglicht aber die Zusendung eines Ersatzpasswortes, sofern du dein Passwort vergessen hast.',
@@ -1627,7 +1638,7 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 'prefs-signature' => 'Signatur',
 'prefs-dateformat' => 'Datumsformat',
 'prefs-timeoffset' => 'Zeitunterschied',
-'prefs-advancedediting' => 'Allgemein',
+'prefs-advancedediting' => 'Allgemeine Optionen',
 'prefs-editor' => 'Bearbeitungsprogramm',
 'prefs-preview' => 'Vorschau',
 'prefs-advancedrc' => 'Erweiterte Optionen',
@@ -1637,7 +1648,9 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 'prefs-displayrc' => 'Anzeigeoptionen',
 'prefs-displaysearchoptions' => 'Anzeigeoptionen',
 'prefs-displaywatchlist' => 'Anzeigeoptionen',
+'prefs-tokenwatchlist' => 'Token',
 'prefs-diffs' => 'Versionsvergleich',
+'prefs-help-prefershttps' => 'Diese Einstellung wird bei deiner nächsten Anmeldung wirksam',
 
 # User preference: email validation using jQuery
 'email-address-validity-valid' => 'Diese E-Mail-Adresse scheint gültig zu sein.',
@@ -1665,7 +1678,7 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 'userrights-notallowed' => 'Du verfügst nicht über die erforderlichen Berechtigungen, um Benutzerrechte vergeben oder entziehen zu können.',
 'userrights-changeable-col' => 'Gruppenzugehörigkeit, die du ändern kannst',
 'userrights-unchangeable-col' => 'Gruppenzugehörigkeit, die du nicht ändern kannst',
-'userrights-conflict' => 'Benutzerrechtekonflikt! Bitte führe deine Änderungen erneut durch.',
+'userrights-conflict' => 'Benutzerrechteänderungskonflikt! Bitte überprüfe und bestätige deine Änderungen.',
 'userrights-removed-self' => 'Du hast deine eigenen Rechte erfolgreich entfernt. Du kannst nicht länger auf diese Seite zugreifen.',
 
 # Groups
@@ -1730,7 +1743,7 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 'right-hideuser' => 'Benutzernamen sperren und verbergen',
 'right-ipblock-exempt' => 'Ausnahme von IP-Sperren, automatischen Sperren und Rangesperren',
 'right-proxyunbannable' => 'Ausnahme von automatischen Proxysperren',
-'right-unblockself' => 'Sich selbst entsperren',
+'right-unblockself' => 'Sich entsperren',
 'right-protect' => 'Seitenschutzstatus ändern und kaskadengeschützte Seiten bearbeiten',
 'right-editprotected' => 'Seiten bearbeiten, die als „{{int:protect-level-sysop}}“ geschützt sind',
 'right-editsemiprotected' => 'Seiten bearbeiten, die als „{{int:protect-level-autoconfirmed}}“ geschützt sind',
@@ -1813,6 +1826,8 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 
 # Recent changes
 'nchanges' => '$1 {{PLURAL:$1|Änderung|Änderungen}}',
+'enhancedrc-since-last-visit' => '$1 {{PLURAL:$1|seit dem letzten Besuch}}',
+'enhancedrc-history' => 'Versionsgeschichte',
 'recentchanges' => 'Letzte Änderungen',
 'recentchanges-legend' => 'Anzeigeoptionen',
 'recentchanges-summary' => 'Auf dieser Seite kannst du die letzten Änderungen in diesem Wiki nachverfolgen.',
@@ -1846,7 +1861,7 @@ Stand: $4, $5 Uhr.",
 'rc-change-size' => '$1 {{PLURAL:$1|Byte|Bytes}}',
 'rc-change-size-new' => '$1 {{PLURAL:$1|Byte|Bytes}} nach der Änderung',
 'newsectionsummary' => 'Neuer Abschnitt /* $1 */',
-'rc-enhanced-expand' => 'Einzelheiten anzeigen (benötigt JavaScript)',
+'rc-enhanced-expand' => 'Einzelheiten anzeigen',
 'rc-enhanced-hide' => 'Einzelheiten verstecken',
 'rc-old-title' => 'ursprünglich erstellt als „$1“',
 
@@ -1920,7 +1935,7 @@ Um ein '''Bild''' in einer Seite zu verwenden, nutze einen Link in der folgenden
 'large-file' => 'Die Dateigröße sollte nach Möglichkeit $1 nicht überschreiten. Diese Datei ist $2 groß.',
 'largefileserver' => 'Die Datei ist größer als die vom Server eingestellte Maximalgröße.',
 'emptyfile' => 'Die hochgeladene Datei ist leer. Der Grund kann ein Tippfehler im Dateinamen sein. Bitte kontrolliere, ob du die Datei wirklich hochladen willst.',
-'windows-nonascii-filename' => 'Dieses Wiki unterstützt keine Dateinamen die Sonderzeichen enthalten.',
+'windows-nonascii-filename' => 'Dieses Wiki unterstützt keine Dateinamen, die Sonderzeichen enthalten.',
 'fileexists' => 'Eine Datei dieses Namens ist bereits vorhanden. Bitte prüfe <strong>[[:$1]]</strong>, sofern du dir nicht sicher bist, ob du sie ändern möchtest.
 [[$1|thumb]]',
 'filepageexists' => 'Eine Beschreibungsseite wurde bereits als <strong>[[:$1]]</strong> erstellt, es ist aber keine Datei mit diesem Namen vorhanden.
@@ -2108,8 +2123,7 @@ Aus Sicherheitsgründen ist img_auth.php deaktiviert.',
 'upload_source_file' => ' (eine Datei auf deinem Computer)',
 
 # Special:ListFiles
-'listfiles-summary' => 'Diese Spezialseite listet alle hochgeladenen Dateien auf. 
-Sofern nach einem bestimmten Benutzer gefiltert wird, werden nur die Dateien gezeigt, bei denen er die letzte Version hochgeladen hat.',
+'listfiles-summary' => 'Diese Spezialseite listet alle hochgeladenen Dateien auf.',
 'listfiles_search_for' => 'Suche nach Datei:',
 'imgfile' => 'Datei',
 'listfiles' => 'Dateiliste',
@@ -2120,6 +2134,10 @@ Sofern nach einem bestimmten Benutzer gefiltert wird, werden nur die Dateien gez
 'listfiles_size' => 'Größe',
 'listfiles_description' => 'Beschreibung',
 'listfiles_count' => 'Versionen',
+'listfiles-show-all' => 'Alte Bildversionen einschließen',
+'listfiles-latestversion' => 'Aktuelle Version',
+'listfiles-latestversion-yes' => 'Ja',
+'listfiles-latestversion-no' => 'Nein',
 
 # File description page
 'file-anchor-link' => 'Datei',
@@ -2214,6 +2232,13 @@ Vielleicht möchtest du die Beschreibung auf der dortigen [$2 Dateibeschreibungs
 'randompage' => 'Zufällige Seite',
 'randompage-nopages' => 'Es sind keine Seiten {{PLURAL:$2|im folgenden Namensraum|in den folgenden Namensräumen}} enthalten: „$1“',
 
+# Random page in category
+'randomincategory' => 'Zufällige Seite einer Kategorie',
+'randomincategory-invalidcategory' => '„$1“ ist kein gültiger Kategorienname.',
+'randomincategory-nopages' => 'Es gibt keine Seiten in [[:Category:$1]].',
+'randomincategory-selectcategory' => 'Zufällige Seite aus der Kategorie: $1 $2',
+'randomincategory-selectcategory-submit' => 'Los',
+
 # Random redirect
 'randomredirect' => 'Zufällige Weiterleitung',
 'randomredirect-nopages' => 'Im Namensraum „$1“ sind keine Weiterleitungen vorhanden.',
@@ -2250,8 +2275,8 @@ Eine Seite gilt als Begriffsklärungsseite, wenn sie mindestens eine der auf der
 'pageswithprop-text' => 'Diese Spezialseite listet Seiten auf, die eine bestimmte Seiteneigenschaft verwenden.',
 'pageswithprop-prop' => 'Eigenschaftsname:',
 'pageswithprop-submit' => 'Los',
-'pageswithprop-prophidden-long' => 'Langtexteigenschaftswert versteckt ($1 Kilobyte)',
-'pageswithprop-prophidden-binary' => 'Binäreigenschaftswert versteckt ($1 Kilobyte)',
+'pageswithprop-prophidden-long' => 'Langtexteigenschaftswert versteckt ($1)',
+'pageswithprop-prophidden-binary' => 'Binäreigenschaftswert versteckt ($1)',
 
 'doubleredirects' => 'Doppelte Weiterleitungen',
 'doubleredirectstext' => 'Diese Liste enthält Weiterleitungen, die auf Weiterleitungen verlinken.
@@ -2309,6 +2334,7 @@ Jede Zeile enthält Links zur ersten und zweiten Weiterleitung sowie dem Ziel de
 'mostrevisions' => 'Seiten mit den meisten Versionen',
 'prefixindex' => 'Alle Seiten (mit Präfix)',
 'prefixindex-namespace' => 'Alle Seiten mit Präfix (Namensraum $1)',
+'prefixindex-strip' => 'Präfix in der Liste abschneiden',
 'shortpages' => 'Kurze Seiten',
 'longpages' => 'Lange Seiten',
 'deadendpages' => 'Nicht verlinkende Seiten',
@@ -2857,8 +2883,8 @@ Zur Aufhebung der Sperre siehe die [[Special:BlockList|Liste aller aktiven Sperr
 'blocklist-nousertalk' => 'darf eigene Diskussionsseite nicht bearbeiten',
 'ipblocklist-empty' => 'Die Liste enthält keine Einträge.',
 'ipblocklist-no-results' => 'Die gesuchte IP-Adresse/der Benutzername ist nicht gesperrt.',
-'blocklink' => 'Sperren',
-'unblocklink' => 'Freigeben',
+'blocklink' => 'sperren',
+'unblocklink' => 'freigeben',
 'change-blocklink' => 'Sperre ändern',
 'contribslink' => 'Beiträge',
 'emaillink' => 'E-Mail senden',
@@ -3243,7 +3269,7 @@ Diese auf dem lokalen Rechner speichern und danach hier hochladen.',
 'lastmodifiedatby' => 'Diese Seite wurde zuletzt am $1 um $2 Uhr von $3 geändert.',
 'othercontribs' => 'Basierend auf der Arbeit von $1.',
 'others' => 'anderen',
-'siteusers' => '{{SITENAME}}-{{PLURAL:$2|Benutzer|Benutzer}} $1',
+'siteusers' => '{{SITENAME}}-{{PLURAL:$2|Benutzer}} $1',
 'anonusers' => '{{PLURAL:$2|unangemeldetem|unangemeldeten}} {{SITENAME}}-{{PLURAL:$2|Benutzer|Benutzern}} $1',
 'creditspage' => 'Seiteninformationen',
 'nocredits' => 'Für diese Seite sind keine Informationen vorhanden.',
@@ -3270,13 +3296,13 @@ Das liegt wahrscheinlich an einem Link auf eine externe Seite.',
 'pageinfo-length' => 'Seitenlänge (in Bytes)',
 'pageinfo-article-id' => 'Seitenkennnummer',
 'pageinfo-language' => 'Seiteninhaltssprache',
-'pageinfo-robot-policy' => 'Suchmaschinenstatus',
-'pageinfo-robot-index' => 'Indexierbar',
-'pageinfo-robot-noindex' => 'Nicht indexierbar',
+'pageinfo-robot-policy' => 'Indexierung durch Robots',
+'pageinfo-robot-index' => 'Erlaubt',
+'pageinfo-robot-noindex' => 'Nicht erlaubt',
 'pageinfo-views' => 'Anzahl der Seitenaufrufe',
 'pageinfo-watchers' => 'Anzahl der Beobachter der Seite',
 'pageinfo-few-watchers' => 'Weniger als {{PLURAL:$1|ein|$1}} Beobachter',
-'pageinfo-redirects-name' => 'Weiterleitungen zu dieser Seite',
+'pageinfo-redirects-name' => 'Anzahl der Weiterleitungen zu dieser Seite',
 'pageinfo-redirects-value' => '$1',
 'pageinfo-subpages-name' => 'Unterseiten dieser Seite',
 'pageinfo-subpages-value' => '$1 ($2 {{PLURAL:$2|Weiterleitung|Weiterleitungen}}; $3 {{PLURAL:$3|Unterseite|Unterseiten}})',
@@ -3364,7 +3390,7 @@ Durch das Herunterladen und Öffnen der Datei kann dein Computer beschädigt wer
 'file-info-gif-looped' => 'Endlosschleife',
 'file-info-gif-frames' => '$1 {{PLURAL:$1|Bild|Bilder}}',
 'file-info-png-looped' => 'Endlosschleife',
-'file-info-png-repeat' => '$1-{{PLURAL:$1|mal|mal}} abgespielt',
+'file-info-png-repeat' => '$1-{{PLURAL:$1|mal}} abgespielt',
 'file-info-png-frames' => '$1 {{PLURAL:$1|Bild|Bilder}}',
 'file-no-thumb-animation' => "'''Hinweis: Aufgrund technischer Beschränkungen werden Vorschaubilder dieser Datei nicht animiert.'''",
 'file-no-thumb-animation-gif' => "'''Hinweis: Aufgrund technischer Beschränkungen werden Vorschaubilder hochauflösender GIF-Dateien wie dieser nicht animiert.'''",
@@ -3390,7 +3416,7 @@ Durch das Herunterladen und Öffnen der Datei kann dein Computer beschädigt wer
 'months' => '{{PLURAL:$1|1 Monat|$1 Monate}}',
 'years' => '{{PLURAL:$1|1 Jahr|$1 Jahre}}',
 'ago' => 'vor $1',
-'just-now' => 'Gerade eben',
+'just-now' => 'gerade eben',
 
 # Human-readable timestamps
 'hours-ago' => 'vor {{PLURAL:$1|einer Stunde|$1 Stunden}}',
@@ -3617,7 +3643,7 @@ Weitere werden standardmäßig nicht angezeigt.
 'exif-compression-4' => 'CCITT Gruppe 4 Faxcodierung',
 
 'exif-copyrighted-true' => 'Geschützt',
-'exif-copyrighted-false' => 'Copyright Flag nicht gesetzt',
+'exif-copyrighted-false' => 'Urheberrechtsstatus nicht festgelegt',
 
 'exif-unknowndate' => 'Unbekanntes Datum',
 
@@ -3749,8 +3775,8 @@ Weitere werden standardmäßig nicht angezeigt.
 'exif-gpslongitude-w' => 'westl. Länge',
 
 # Pseudotags used for GPSAltitudeRef
-'exif-gpsaltitude-above-sealevel' => '$1 {{plural:$1|Meter|Meter}} über dem Meeresspiegel',
-'exif-gpsaltitude-below-sealevel' => '$1 {{plural:$1|Meter|Meter}} unter dem Meeresspiegel',
+'exif-gpsaltitude-above-sealevel' => '$1 {{plural:$1|Meter}} über dem Meeresspiegel',
+'exif-gpsaltitude-below-sealevel' => '$1 {{plural:$1|Meter}} unter dem Meeresspiegel',
 
 'exif-gpsstatus-a' => 'Messung läuft',
 'exif-gpsstatus-v' => 'Interoperabilität von Messungen',
@@ -3882,7 +3908,7 @@ Dieser Bestätigungscode ist gültig bis $4.',
 hat die E-Mail-Adresse des Benutzerkontos „$2“ auf {{SITENAME}} zu dieser E-Mail-Adresse abgeändert.
 
 Um zu bestätigen, dass dieses Benutzerkonto wirklich zu dir gehört
-und um die E-Mail-Funktionen auf {{SITENAME}} wieder zu aktivieren, öffne bitte den folgenden Link in deinem Browser:
+und um die E-Mail-Funktionen auf {{SITENAME}} zu aktivieren, öffne bitte den folgenden Link in deinem Browser:
 
 $3
 
@@ -4028,6 +4054,7 @@ Du kannst auch die [[Special:EditWatchlist|Standardseite]] zum Bearbeiten benutz
 'version-license' => 'Lizenz',
 'version-poweredby-credits' => "Diese Website nutzt '''[//www.mediawiki.org/wiki/MediaWiki/de MediaWiki]''', Copyright © 2001–$1 $2.",
 'version-poweredby-others' => 'andere',
+'version-poweredby-translators' => 'Übersetzer von translatewiki.net',
 'version-credits-summary' => 'Wir danken folgenden Personen für ihre Beiträge zu [[Special:Version|MediaWiki]].',
 'version-license-info' => "MediaWiki ist eine Freie Software, d. h. sie kann, gemäß den Bedingungen der von der Free Software Foundation veröffentlichten ''GNU General Public License'', weiterverteilt und/oder modifiziert werden. Dabei kann die Version 2, oder nach eigenem Ermessen, jede neuere Version der Lizenz verwendet werden.
 
@@ -4130,6 +4157,7 @@ Eine [{{SERVER}}{{SCRIPTPATH}}/COPYING Kopie der ''GNU General Public License'']
 'dberr-problems' => 'Entschuldigung. Diese Seite hat momentan technische Schwierigkeiten.',
 'dberr-again' => 'Warte einige Minuten und versuche dann neu zu laden.',
 'dberr-info' => '(Kann keine Verbindung zum Datenbank-Server herstellen: $1)',
+'dberr-info-hidden' => '(Es konnte keine Verbindung mit dem Datenbankserver hergestellt werden)',
 'dberr-usegoogle' => 'Du könntest in der Zwischenzeit mit Google suchen.',
 'dberr-outofdate' => 'Beachte, dass der Suchindex unserer Inhalte bei Google veraltet sein kann.',
 'dberr-cachederror' => 'Folgendes ist eine Kopie des Caches der angeforderten Seite und kann veraltet sein.',
@@ -4264,5 +4292,23 @@ Anderenfalls kannst du auch das untenstehende einfache Formular nutzen. Dein Kom
 
 # Image rotation
 'rotate-comment' => 'Bild um $1 {{PLURAL:$1|Grad}} im Uhrzeigersinn gedreht',
+
+# Limit report
+'limitreport-title' => 'Parser-Profiling-Daten:',
+'limitreport-cputime' => 'CPU-Zeit-Nutzung',
+'limitreport-cputime-value' => '{{PLURAL:$1|Eine Sekunde|$1 Sekunden}}',
+'limitreport-walltime' => 'Echtzeitnutzung',
+'limitreport-walltime-value' => '{{PLURAL:$1|Eine Sekunde|$1 Sekunden}}',
+'limitreport-ppvisitednodes' => 'Besuchte Knotenanzahl des Präprozessors',
+'limitreport-ppvisitednodes-value' => '$1/$2',
+'limitreport-ppgeneratednodes' => 'Erzeugte Knotenanzahl des Präprozessors',
+'limitreport-ppgeneratednodes-value' => '$1/$2',
+'limitreport-postexpandincludesize' => 'Einbindungsgröße nach dem Expandieren',
+'limitreport-postexpandincludesize-value' => '$1/$2 Bytes',
+'limitreport-templateargumentsize' => 'Vorlagenargumentgröße',
+'limitreport-templateargumentsize-value' => '$1/$2 Bytes',
+'limitreport-expansiondepth' => 'Höchste Expansionstiefe',
+'limitreport-expansiondepth-value' => '$1/$2',
+'limitreport-expensivefunctioncount' => 'Anzahl aufwändiger Parserfunktionen',
 
 );

@@ -879,10 +879,10 @@ function wfMakeUrlIndexes( $url ) {
 function wfMatchesDomainList( $url, $domains ) {
 	$bits = wfParseUrl( $url );
 	if ( is_array( $bits ) && isset( $bits['host'] ) ) {
+		$host = '.' . $bits['host'];
 		foreach ( (array)$domains as $domain ) {
-			// FIXME: This gives false positives. http://nds-nl.wikipedia.org will match nl.wikipedia.org
-			// We should use something that interprets dots instead
-			if ( substr( $bits['host'], -strlen( $domain ) ) === $domain ) {
+			$domain = '.' . $domain;
+			if ( substr( $host, -strlen( $domain ) ) === $domain ) {
 				return true;
 			}
 		}
@@ -1225,36 +1225,31 @@ function wfIncrStats( $key, $count = 1 ) {
 }
 
 /**
- * Check if the wiki read-only lock file is present. This can be used to lock
- * off editing functions, but doesn't guarantee that the database will not be
- * modified.
+ * Check whether the wiki is in read-only mode.
  *
  * @return bool
  */
 function wfReadOnly() {
-	global $wgReadOnlyFile, $wgReadOnly;
-
-	if ( !is_null( $wgReadOnly ) ) {
-		return (bool)$wgReadOnly;
-	}
-	if ( $wgReadOnlyFile == '' ) {
-		return false;
-	}
-	// Set $wgReadOnly for faster access next time
-	if ( is_file( $wgReadOnlyFile ) ) {
-		$wgReadOnly = file_get_contents( $wgReadOnlyFile );
-	} else {
-		$wgReadOnly = false;
-	}
-	return (bool)$wgReadOnly;
+	return wfReadOnlyReason() !== false;
 }
 
 /**
- * @return bool
+ * Get the value of $wgReadOnly or the contents of $wgReadOnlyFile.
+ *
+ * @return string|bool: String when in read-only mode; false otherwise
  */
 function wfReadOnlyReason() {
-	global $wgReadOnly;
-	wfReadOnly();
+	global $wgReadOnly, $wgReadOnlyFile;
+
+	if ( $wgReadOnly === null ) {
+		// Set $wgReadOnly for faster access next time
+		if ( is_file( $wgReadOnlyFile ) && filesize( $wgReadOnlyFile ) > 0 ) {
+			$wgReadOnly = file_get_contents( $wgReadOnlyFile );
+		} else {
+			$wgReadOnly = false;
+		}
+	}
+
 	return $wgReadOnly;
 }
 
@@ -2015,15 +2010,42 @@ function wfCheckLimits( $deflimit = 50, $optionname = 'rclimit' ) {
  * @return String
  */
 function wfEscapeWikiText( $text ) {
-	$text = strtr( "\n$text", array(
-		'"' => '&#34;', '&' => '&#38;', "'" => '&#39;', '<' => '&#60;',
-		'=' => '&#61;', '>' => '&#62;', '[' => '&#91;', ']' => '&#93;',
-		'{' => '&#123;', '|' => '&#124;', '}' => '&#125;',
-		"\n#" => "\n&#35;", "\n*" => "\n&#42;",
-		"\n:" => "\n&#58;", "\n;" => "\n&#59;",
-		'://' => '&#58;//', 'ISBN ' => 'ISBN&#32;', 'RFC ' => 'RFC&#32;',
-	) );
-	return substr( $text, 1 );
+	static $repl = null, $repl2 = null;
+	if ( $repl === null ) {
+		$repl = array(
+			'"' => '&#34;', '&' => '&#38;', "'" => '&#39;', '<' => '&#60;',
+			'=' => '&#61;', '>' => '&#62;', '[' => '&#91;', ']' => '&#93;',
+			'{' => '&#123;', '|' => '&#124;', '}' => '&#125;',
+			"\n#" => "\n&#35;", "\r#" => "\r&#35;",
+			"\n*" => "\n&#42;", "\r*" => "\r&#42;",
+			"\n:" => "\n&#58;", "\r:" => "\r&#58;",
+			"\n;" => "\n&#59;", "\r;" => "\r&#59;",
+			"\n " => "\n&#32;", "\r " => "\r&#32;",
+			'__' => '_&#95;', '://' => '&#58;//',
+		);
+
+		// We have to catch everything "\s" matches in PCRE
+		foreach ( array( 'ISBN', 'RFC', 'PMID' ) as $magic ) {
+			$repl["$magic "] = "$magic&#32;";
+			$repl["$magic\t"] = "$magic&#9;";
+			$repl["$magic\r"] = "$magic&#13;";
+			$repl["$magic\n"] = "$magic&#10;";
+			$repl["$magic\f"] = "$magic&#12;";
+		}
+
+		// And handle protocols that don't use "://"
+		global $wgUrlProtocols;
+		$repl2 = array();
+		foreach ( $wgUrlProtocols as $prot ) {
+			if ( substr( $prot, -1 ) === ':' ) {
+				$repl2[] = preg_quote( substr( $prot, 0, -1 ), '/' );
+			}
+		}
+		$repl2 = $repl2 ? '/\b(' . join( '|', $repl2 ) . '):/i' : '/^(?!)/';
+	}
+	$text = substr( strtr( "\n$text", $repl ), 1 );
+	$text = preg_replace( $repl2, '$1&#58;', $text );
+	return $text;
 }
 
 /**
@@ -3161,9 +3183,9 @@ function wfBaseConvert( $input, $sourceBase, $destBase, $pad = 1, $lowercase = t
 		$sourceBase > 36 ||
 		$destBase < 2 ||
 		$destBase > 36 ||
-		$sourceBase != (int) $sourceBase ||
-		$destBase != (int) $destBase ||
-		$pad != (int) $pad ||
+		$sourceBase != (int)$sourceBase ||
+		$destBase != (int)$destBase ||
+		$pad != (int)$pad ||
 		!preg_match( "/^[" . substr( '0123456789abcdefghijklmnopqrstuvwxyz', 0, $sourceBase ) . "]+$/i", $input )
 	) {
 		return false;
@@ -3217,7 +3239,7 @@ function wfBaseConvert( $input, $sourceBase, $destBase, $pad = 1, $lowercase = t
 				$work += $digit;
 
 				if ( $workDigits || $work >= $destBase ) {
-					$workDigits[] = (int) ( $work / $destBase );
+					$workDigits[] = (int)( $work / $destBase );
 				}
 				$work %= $destBase;
 			}
@@ -3306,6 +3328,27 @@ function wfFixSessionID() {
 }
 
 /**
+ * Reset the session_id
+ * @since 1.22
+ */
+function wfResetSessionID() {
+	global $wgCookieSecure;
+	$oldSessionId = session_id();
+	$cookieParams = session_get_cookie_params();
+	if ( wfCheckEntropy() && $wgCookieSecure == $cookieParams['secure'] ) {
+		session_regenerate_id( false );
+	} else {
+		$tmp = $_SESSION;
+		session_destroy();
+		wfSetupSession( MWCryptRand::generateHex( 32 ) );
+		$_SESSION = $tmp;
+	}
+	$newSessionId = session_id();
+	wfRunHooks( 'ResetSessionID', array( $oldSessionId, $newSessionId ) );
+}
+
+
+/**
  * Initialise php session
  *
  * @param $sessionId Bool
@@ -3390,7 +3433,7 @@ function wfForeignMemcKey( $db, $prefix /*, ... */ ) {
 	} else {
 		$key = $db . ':' . implode( ':', $args );
 	}
-	return $key;
+	return str_replace( ' ', '_', $key );
 }
 
 /**
@@ -3950,4 +3993,17 @@ function wfIsBadImage( $name, $contextTitle = false, $blacklist = null ) {
 	$bad = isset( $badImages[$name] ) && !isset( $badImages[$name][$contextKey] );
 	wfProfileOut( __METHOD__ );
 	return $bad;
+}
+
+/**
+ * Determine whether the client at a given source IP is likely to be able to
+ * access the wiki via HTTPS.
+ *
+ * @param string $ip The IPv4/6 address in the normal human-readable form
+ * @return boolean
+ */
+function wfCanIPUseHTTPS( $ip ) {
+	$canDo = true;
+	wfRunHooks( 'CanIPUseHTTPS', array( $ip, &$canDo ) );
+	return !!$canDo;
 }

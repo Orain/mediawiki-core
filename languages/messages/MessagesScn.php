@@ -182,7 +182,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Ammustra lu nùmmiru di utenti ca sèquinu la pàggina',
 'tog-oldsig' => 'Firma attuali:',
 'tog-fancysig' => 'Interpitra li cumanna wiki nâ firma (senza liami automaticu)',
-'tog-showjumplinks' => "Attiva li culligamenti accissìbbili 'và a'",
 'tog-uselivepreview' => "Attiva la funzioni ''Live preview'' (richiedi JavaScript; spirimintali)",
 'tog-forceeditsummary' => "Chiedi cunferma siddu l'uggettu dû canciamentu è vacanti",
 'tog-watchlisthideown' => "Ammuccia li mè canciamenti nta l'ossirvati spiciali",
@@ -480,17 +479,6 @@ L'alencu dî pàggini spiciali vàlidi s'attrova 'n [[Special:SpecialPages|Alenc
 # General errors
 'error' => 'Erruri',
 'databaseerror' => 'Erruri dû database',
-'dberrortext' => 'Erruri di sintassi ntâ richiesta nultrata a lu databbasi.
-Chistu putissi innicari la prisenza d\'un bug ntô software.
-L\'ùrtima query mannata a lu database fu:
-<blockquote><tt>$1</tt></blockquote>
-richiamata dâ funzioni "<tt>$2</tt>".
-Lu databbasi desi l\'erruri "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Erruri di sintassi ntâ richiesta nultrata a lu database.
-L\'ùrtima query mannata a lu database hà stata:
-"$1"
-richiamata dâ funzioni "$2".
-MySQL hà ristituitu lu siquenti erruri "$3: $4".',
 'laggedslavemode' => "Accura: La pàggina putissi nun ripurtari l'aggiurnamenti cchiù ricenti.",
 'readonly' => 'Database bluccatu',
 'enterlockreason' => "Ìnnica lu mutivu dû bloccu, spicificannu lu mumentu 'n cui è prisumìbbili ca veni rimossu.",
@@ -538,7 +526,6 @@ Query: $2',
 'viewyourtext' => "È pussibbili visualizzarei cupiari lu còdici surgenti dî '''tò canciamenti''' nti sta pàggina:",
 'protectedinterface' => "Sta pàggina cunteni un elementu ca fà parti dâ nterfaccia utenti dû software eggh'è  prutetta p'evitari pussìbbili abbusi. Pi jùnciri o canciari li traduzzioni pi tutti li wiki usari [//translatewiki.net/translatewiki.net] lu pruggettu di lucalizzazzioni di Mediawiki.",
 'editinginterface' => "'''Accura:''' Lu testu di sta pàggina fà parti dî interfaccia utenti dû situ. Tutti li canciamenti appurtati a sta pàggina si riflèttinu supra li missaggi visualizzati pi tutti l'utenti. Pi li traduzioni, cunsidira â pussibilità di usari [//translatewiki.net/wiki/Main_Page?setlang=scn translatewiki.net], u prugettu di localizzazioni MediaWiki.",
-'sqlhidden' => '(la query SQL hà statu ammucciata)',
 'cascadeprotected' => 'Supra sta pàggina nun è pussìbbili effittuari canciamenti pirchì veni nclusa nt{{PLURAL:$1|â pàggina siquenti, ca fu prutetta|ê pàggini siquenti, ca foru prutetti}} silizziunannu la prutizzioni "ricursiva":
 $2',
 'namespaceprotected' => "Nun hai lu pirmissu pi canciari li pàggini ntô namespace '''$1'''.",
@@ -574,7 +561,6 @@ Accura chi quarchi pàggina pò cuntinuari a èssiri ammustrata comu si nun avis
 'remembermypassword' => 'Arricorda la password supra stu computer (pi ô massimu $1 {{PLURAL:$1|jornu|jorna}})',
 'userlogin-remembermypassword' => 'Mantènimi culligatu',
 'userlogin-signwithsecure' => 'Usa na cunnissioni sicura',
-'securelogin-stick-https' => 'Resta cunnittutu cu HTTPS doppu la trasuta',
 'yourdomainname' => 'Lu tò dominiu',
 'password-change-forbidden' => 'Nun putiti canciari la password nti sta wiki',
 'externaldberror' => "S'havi virificatu n'erruri cû server d'autinticazzioni sternu, oppuru nun si disponi di l'auturizzazzioni nicissari p'aggiurnari lu propiu accessu sternu.",
@@ -674,7 +660,7 @@ Aspetta tanticchia prima di pruvari  n'àutra vota.",
 'newpassword' => 'Password nova:',
 'retypenew' => "Scrivi n'àutra vota la password",
 'resetpass_submit' => 'Mposta la password e accedi',
-'resetpass_success' => "Lu canciu password hà statu effittuatu cu successu! Ora stai effittuannu l'accessu...",
+'changepassword-success' => "Lu canciu password hà statu effittuatu cu successu! Ora stai effittuannu l'accessu...",
 'resetpass_forbidden' => 'Li password nun ponnu èssiri canciati sùpira sta wiki',
 'resetpass-no-info' => 'Pi tràsiri nta sta pàggina hà èssiri riggistratu',
 'resetpass-submit-loggedin' => 'Cancia la password',
@@ -1130,7 +1116,6 @@ S'havi accirtari ca la cuntinuità storica di la pàggina nun veni altirata.",
 'recentchangesdays-max' => '(màssimu $1 {{PLURAL:$1|jornu|jorna}})',
 'recentchangescount' => 'Nùmmiru di canciamenti da ammustrari di default:',
 'prefs-help-recentchangescount' => 'Ciò includi li canciamenti ricenti, storii e riggistri.',
-'prefs-help-watchlist-token' => "Cumpilannu stu campu cu na chiavi sigreta sarà giniratu nu feed RSS pi propri ossirvati spiciali. Chiunqui sa sta chiavi ni stu campu putrà leggiri li osservati speciali, quindi assicurati di nsiriri nu valori sicuru. Ccà c'è nu valori ginirato casualmenti ca si pò usari: $1",
 'savedprefs' => 'Li tò prifirenzi foru sarvati.',
 'timezonelegend' => 'Fusu orariu:',
 'localtime' => 'Uràriu lucali',

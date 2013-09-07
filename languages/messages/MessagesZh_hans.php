@@ -42,6 +42,7 @@
  * @author Li3939108
  * @author Liangent
  * @author Linforest
+ * @author Liuxinyu970226
  * @author M13253
  * @author Makecat
  * @author Mark85296341
@@ -388,7 +389,6 @@ $messages = array(
 'tog-shownumberswatching' => '显示监视用户数',
 'tog-oldsig' => '当前签名：',
 'tog-fancysig' => '将签名视为维基代码（不自动生成链接）',
-'tog-showjumplinks' => '启用“跳转到”访问链接',
 'tog-uselivepreview' => '使用实时预览（需要JavaScript）（实验功能）',
 'tog-forceeditsummary' => '未输入编辑摘要时提醒我',
 'tog-watchlisthideown' => '在监视列表中隐藏我的编辑',
@@ -403,6 +403,7 @@ $messages = array(
 'tog-noconvertlink' => '停用链接文字转换',
 'tog-norollbackdiff' => '执行回退后不显示差异',
 'tog-useeditwarning' => '如在更改未保存时离开页面，则发出警告',
+'tog-prefershttps' => '登录时始终使用安全连接',
 
 'underline-always' => '总是使用',
 'underline-never' => '从不使用',
@@ -504,7 +505,7 @@ $messages = array(
 'newwindow' => '（在新窗口中打开）',
 'cancel' => '取消',
 'moredotdotdot' => '更多',
-'morenotlisted' => '更多模板未列出...',
+'morenotlisted' => '此列表未完成。',
 'mypage' => '页面',
 'mytalk' => '讨论',
 'anontalk' => '该IP地址的讨论',
@@ -588,7 +589,7 @@ $messages = array(
 'viewtalkpage' => '查看讨论',
 'otherlanguages' => '其他语言',
 'redirectedfrom' => '（重定向自$1）',
-'redirectpagesub' => '重定向页',
+'redirectpagesub' => '重定向页面',
 'lastmodifiedat' => '本页面最后修改于$1 $2。',
 'viewcount' => '此页面已被浏览过$1次。',
 'protectedpage' => '受保护页面',
@@ -689,15 +690,12 @@ $1',
 # General errors
 'error' => '错误',
 'databaseerror' => '数据库错误',
-'dberrortext' => '发生数据库查询语法错误。
-可能是由于软件自身的错误所引起。
-最后一次数据库查询指令是：
-<blockquote><code>$1</code></blockquote>
-来自于函数“<code>$2</code>”。
-数据库返回错误“<samp>$3: $4</samp>”。',
-'dberrortextcl' => '发生了数据库查询语法错误。最后一次数据库查询指令是：
-“$1”
-来自函数“$2”内。数据库返回错误“$3: $4”。',
+'databaseerror-text' => '出现了一个数据库查询错误。
+这可能表明软件中存在bug。',
+'databaseerror-textcl' => '数据库查询错误。',
+'databaseerror-query' => '查询：$1',
+'databaseerror-function' => '功能：$1',
+'databaseerror-error' => '错误：$1',
 'laggedslavemode' => "'''警告'''：页面可能未包含最近的更新。",
 'readonly' => '数据库被锁定',
 'enterlockreason' => '请输入锁定的原因，包括预计重新开放的时间',
@@ -730,6 +728,7 @@ $1',
 它可能已被其他人删除了。',
 'cannotdelete-title' => '无法删除“$1”',
 'delete-hook-aborted' => '删除被扩展钩子取消。钩子并没有给出解释。',
+'no-null-revision' => '无法创建对"$1"页面新的空白修订',
 'badtitle' => '错误标题',
 'badtitletext' => '所请求页面的标题是无效的、不存在，跨语言或跨wiki链接的标题错误。它可能包含一个或更多的不能用于标题的字符。',
 'perfcached' => '下列数据已缓存，但可能已过时。最高{{PLURAL:$1|一个结果|$1个结果}}在缓存中可用。',
@@ -751,7 +750,6 @@ $1',
 'editinginterface' => "'''警告：'''您正在编辑的页面是用于提供软件的界面文字。
 改变此页将影响其他在此wiki上的用户界面外观。
 如欲修改所有wiki的翻译，请到[//translatewiki.net/ translatewiki.net]上的MediaWiki本地化计划。",
-'sqlhidden' => '（SQL查询已隐藏）',
 'cascadeprotected' => '此页面已被保护，因为这个页面被以下已标注“联锁保护”的{{PLURAL:$1|一个|多个}}被保护页面包含：
 $2',
 'namespaceprotected' => "您没有权限编辑'''$1'''名字空间内的页面。",
@@ -779,7 +777,7 @@ $2',
 # Login and logout pages
 'logouttext' => "'''您现在已经退出。'''
 
-您可以继续以匿名方式使用{{SITENAME}}，或再次以相同或不同用户身份<span class='plainlinks'>[$1 登录]</span>。请注意一些页面可能仍然显示您为登录状态，直到您清空您的浏览器缓存为止。",
+请注意一些页面可能仍然显示您为登录状态，直到您清空您的浏览器缓存为止。",
 'welcomeuser' => '欢迎，$1！',
 'welcomecreation-msg' => '你的账户已创建。请不要忘记更改你的[[Special:Preferences|{{SITENAME}}设置]]。',
 'yourname' => '用户名：',
@@ -796,7 +794,6 @@ $2',
 'remembermypassword' => '在该浏览器保存我的登录状态（最长$1日）',
 'userlogin-remembermypassword' => '记住我的登录状态',
 'userlogin-signwithsecure' => '使用安全连接',
-'securelogin-stick-https' => '登录后继续使用HTTPS连接',
 'yourdomainname' => '您的域名：',
 'password-change-forbidden' => '您不能在本wiki上更改密码。',
 'externaldberror' => '验证数据库出错或您被禁止更新您的外部账号。',
@@ -821,11 +818,11 @@ $2',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|登录帮助]]',
 'createacct-join' => '请在下面输入你的信息。',
 'createacct-another-join' => '在下方输入新帐户信息。',
-'createacct-emailrequired' => '电子邮件地址：',
-'createacct-emailoptional' => '电子邮件地址 (可选)',
+'createacct-emailrequired' => '电子邮件地址',
+'createacct-emailoptional' => '电子邮件地址（可选）',
 'createacct-email-ph' => '请输入您的电子邮件地址',
 'createacct-another-email-ph' => '输入电子邮件地址',
-'createaccountmail' => '使用一个临时的随机密码，并将它发送到以下指定的电子邮件地址',
+'createaccountmail' => '使用一个临时的随机密码并将其发送到指定的电子邮件地址中',
 'createacct-realname' => '真实姓名 (可选)',
 'createaccountreason' => '原因：',
 'createacct-reason' => '原因',
@@ -890,10 +887,12 @@ $2',
 
 如果该账户创建错误的话，您可以忽略此信息。',
 'usernamehasherror' => '用户名中不可包含哈希（hash）字符',
-'login-throttled' => '你最近尝试登录的次数过多。请稍后重试。',
+'login-throttled' => '你最近尝试登录的次数过多。请等待$1后再试。',
 'login-abort-generic' => '登录失败 - 已终止',
 'loginlanguagelabel' => '语言：$1',
 'suspicious-userlogout' => '注销请求被拒绝，因为它似乎是由有设计缺陷的浏览器或缓存代理发出的。',
+'createacct-another-realname-tip' => '真实姓名是选填项目。
+如果你选择提供它，它将会用于贡献署名。',
 
 # Email sending
 'php-mail-error-unknown' => '在 PHP 的 mail() 函数中的未知错误',
@@ -909,7 +908,7 @@ $2',
 'newpassword' => '新密码：',
 'retypenew' => '确认密码：',
 'resetpass_submit' => '设定密码并登录',
-'resetpass_success' => '您已经修改了您的密码！正在为您登录……',
+'changepassword-success' => '您已经修改了您的密码！',
 'resetpass_forbidden' => '无法更改密码',
 'resetpass-no-info' => '您必须登录后直接进入这个页面。',
 'resetpass-submit-loggedin' => '更改密码',
@@ -960,6 +959,19 @@ $2
 'changeemail-submit' => '更改电子邮件地址',
 'changeemail-cancel' => '取消',
 
+# Special:ResetTokens
+'resettokens' => '重置权标',
+'resettokens-text' => '您可以重置权标，其允许访问某些与您的帐户相关联的私人数据。
+
+如果您意外地与他人共享权标，或您的帐户已遭到破坏，您应该重置权标。',
+'resettokens-no-tokens' => '没有可重置得权标。',
+'resettokens-legend' => '重置权标',
+'resettokens-tokens' => '权标：',
+'resettokens-token-label' => '$1（当前值：$2）',
+'resettokens-watchlist-token' => '请在[[Special:Watchlist|您的监视列表]]中更改Web订阅（Atom或RSS）的权标',
+'resettokens-done' => '权标已重置。',
+'resettokens-resetbutton' => '重置所选的权标',
+
 # Edit page toolbar
 'bold_sample' => '粗体文字',
 'bold_tip' => '粗体文字',
@@ -970,7 +982,7 @@ $2
 'extlink_sample' => 'http://www.example.com 链接文字',
 'extlink_tip' => '外部链接（加前缀 http://）',
 'headline_sample' => '大标题文字',
-'headline_tip' => '2级标题文字',
+'headline_tip' => '2级标题',
 'nowiki_sample' => '在此插入非格式文本',
 'nowiki_tip' => '插入非格式文本',
 'image_sample' => '范例.jpg',
@@ -990,9 +1002,8 @@ $2
 'showpreview' => '显示预览',
 'showlivepreview' => '实时预览',
 'showdiff' => '显示差异',
-'anoneditwarning' => "'''警告：'''您没有登录。
-您的IP地址将记录在此页的编辑历史中。",
-'anonpreviewwarning' => "''您没有登录。保存页面将会把您的IP地址记录在此页的编辑历史中。''",
+'anoneditwarning' => "'''警告：'''你没有登录。你的IP地址将被记录在该页面的编辑历史中。",
+'anonpreviewwarning' => "''你没有登录。保存会记录你的IP地址于该页面的编辑历史中。''",
 'missingsummary' => "'''提示：'''你没有提供编辑摘要。如果你再次点击“{{int:savearticle}}”，你的编辑将不带编辑摘要保存。",
 'missingcommenttext' => '请在下面输入评论。',
 'missingcommentheader' => "'''提示：''' 您还没有为此评论提供一个标题。如果您再次点击“{{int:savearticle}}”，您的编辑将不带标题保存。",
@@ -1031,7 +1042,7 @@ $2
 'loginreqlink' => '登录',
 'loginreqpagetext' => '您必须$1才能查看其它页面。',
 'accmailtitle' => '密码已寄出',
-'accmailtext' => "'[[User talk:$1|$1]]'的随机密码已经发送到$2。这个账户的密码可在登陆后的'[[Special:ChangePassword|更改密码]]'''页面中更改。",
+'accmailtext' => "为[[User talk:$1|$1]]随机生成的密码已送至$2。登陆后可以在''[[Special:ChangePassword|更改密码]]''页面中修改。",
 'newarticle' => '（新页面）',
 'newarticletext' => '您进入了一个尚未创建的页面。
 要创建该页面，请在下面的编辑框中输入内容（详情参见[[{{MediaWiki:Helppage}}|帮助页]]）。
@@ -1195,7 +1206,7 @@ $3的理由是''$2''",
 说明：'''（{{int:cur}}）'''=与最后版本之间的差异，'''（{{int:last}}）'''=与上一版本之间的差异，'''{{int:minoreditletter}}'''=小编辑。",
 'history-fieldset-title' => '浏览历史',
 'history-show-deleted' => '仅被删除的',
-'histfirst' => '最旧',
+'histfirst' => '最早',
 'histlast' => '最新',
 'historysize' => '（$1字节）',
 'historyempty' => '（空）',
@@ -1429,7 +1440,7 @@ $1",
 'prefs-rendering' => '显示',
 'saveprefs' => '保存',
 'resetprefs' => '清除未保存的更改',
-'restoreprefs' => '恢复所有默认设置',
+'restoreprefs' => '恢复所有默认设置（所有部分）',
 'prefs-editing' => '编辑',
 'rows' => '行：',
 'columns' => '列：',
@@ -1441,7 +1452,9 @@ $1",
 'recentchangesdays-max' => '最多$1天',
 'recentchangescount' => '默认显示的编辑数：',
 'prefs-help-recentchangescount' => '该项包含最近更改、页面历史和日志。',
-'prefs-help-watchlist-token' => '此栏填写的密钥可以生成您监视列表的RSS源。任何知晓本栏密钥的人都能阅读您的监视列表，因此请使用安全的数值。这里已提供了一个随机生成的数值供您选择：$1',
+'prefs-help-watchlist-token2' => '这是您的监视列表网络订阅源密钥的关键。
+知道它的人将能够读取您的监视列表，所以不应分享它。
+[[Special:ResetTokens|点击这里以重置它]]。',
 'savedprefs' => '你的系统设置已保存。',
 'timezonelegend' => '时区：',
 'localtime' => '当地时间：',
@@ -1484,11 +1497,13 @@ $1",
 'prefs-help-signature' => '讨论页面上的评论应该使用“<nowiki>~~~~</nowiki>”签名，它会自动转换为你的签名及时间戳。',
 'badsig' => '错误的原始签名。请检查HTML标签。',
 'badsiglength' => '签名过长。请不超过$1个字符。',
-'yourgender' => '性别：',
-'gender-unknown' => '不指明',
+'yourgender' => '您希望如何显示性别？',
+'gender-unknown' => '我不想指定',
 'gender-male' => '男',
 'gender-female' => '女',
-'prefs-help-gender' => '选填项目。使软件使用正确的性别称呼。该信息将会公开。',
+'prefs-help-gender' => '这是选填项目。
+软件使用其以显示正确的性别称呼。
+该信息将会公开。',
 'email' => '电子邮件',
 'prefs-help-realname' => '真实姓名是选填项目。如果你选择提供它，它将会用于贡献署名。',
 'prefs-help-email' => '电子邮件地址是选填项目，但是当你忘记密码需要重置密码时需要该项信息。',
@@ -1499,7 +1514,7 @@ $1",
 'prefs-signature' => '签名',
 'prefs-dateformat' => '日期格式',
 'prefs-timeoffset' => '时差',
-'prefs-advancedediting' => '通用',
+'prefs-advancedediting' => '一般选项',
 'prefs-editor' => '编辑',
 'prefs-preview' => '预览',
 'prefs-advancedrc' => '高级选项',
@@ -1509,7 +1524,9 @@ $1",
 'prefs-displayrc' => '显示',
 'prefs-displaysearchoptions' => '显示',
 'prefs-displaywatchlist' => '显示',
+'prefs-tokenwatchlist' => '权标',
 'prefs-diffs' => '差异对比',
+'prefs-help-prefershttps' => '此首选项将在您下次登录时生效。',
 
 # User preference: email validation using jQuery
 'email-address-validity-valid' => '电子邮件地址有效',
@@ -1533,10 +1550,10 @@ $1",
 'userrights-no-interwiki' => '您并没有权限去编辑在其它wiki上的用户权限。',
 'userrights-nodatabase' => '数据库$1不存在或并非为本地的。',
 'userrights-nologin' => '您必须要以管理员帐户[[Special:UserLogin|登录]]之后才可以指定用户权限。',
-'userrights-notallowed' => '你的账户没有权限添加或删除用户权限。',
+'userrights-notallowed' => '你没有权限添加或删除用户权限。',
 'userrights-changeable-col' => '你可以更改的用户组',
 'userrights-unchangeable-col' => '你不能更改的用户组',
-'userrights-conflict' => '用户权限冲突 ！请重新应用您的更改。',
+'userrights-conflict' => '用户权限的更改存在冲突！请检查并确认您的更改。',
 'userrights-removed-self' => '您已成功删除您自己的权利。因此，您不再能够访问此页。',
 
 # Groups
@@ -1601,7 +1618,7 @@ $1",
 'right-hideuser' => '封禁并隐藏用户名',
 'right-ipblock-exempt' => '避开IP封禁、自动封禁和IP段封禁',
 'right-proxyunbannable' => '避开代理服务器的自动封禁',
-'right-unblockself' => '自己解封',
+'right-unblockself' => '自我解封',
 'right-protect' => '更改保护级别和编辑受连锁保护的页面',
 'right-editprotected' => '编辑页面保护需要“{{int:protect-level-sysop}}”',
 'right-editsemiprotected' => '编辑页面保护需要“{{int:protect-level-autoconfirmed}}”',
@@ -1684,14 +1701,16 @@ $1",
 
 # Recent changes
 'nchanges' => '$1个更改',
+'enhancedrc-since-last-visit' => '$1 {{PLURAL:$1|自上次访问}}',
+'enhancedrc-history' => '历史',
 'recentchanges' => '最近更改',
 'recentchanges-legend' => '最近更改选项',
 'recentchanges-summary' => '在此页面上跟踪维基的更改。',
 'recentchanges-noresult' => '在此期间没有符合这些条件的编辑',
 'recentchanges-feed-description' => '用这个源跟踪本wiki的最近更改。',
-'recentchanges-label-newpage' => '这次编辑建立了一个新页面',
+'recentchanges-label-newpage' => '该编辑创建了新页面',
 'recentchanges-label-minor' => '这是一个小编辑',
-'recentchanges-label-bot' => '这次编辑是由机器人进行',
+'recentchanges-label-bot' => '该编辑由机器人进行',
 'recentchanges-label-unpatrolled' => '该编辑尚未巡查',
 'rcnote' => "下面是过去'''$2'''天的最后'''$1'''个更改，截至$4 $5。",
 'rcnotefrom' => "下面是自'''$2'''起的更改（最多显示'''$1'''个）。",
@@ -1772,7 +1791,7 @@ $1",
 'filetype-unwanted-type' => "'''\".\$1\"'''是一种不需要的文件类型。
 建议的{{PLURAL:\$3|一种|多种}}文件类型有\$2。",
 'filetype-banned-type' => '\'\'\'".$1"\'\'\'{{PLURAL:$4|不是一个允许的文件类型|不是一个允许的文件类型}}。
-允许 {{PLURAL:$3|文件类型是|文件类型是}} $2。',
+允许 {{PLURAL:$3|文件类型是}} $2。',
 'filetype-missing' => '该文件名称并没有扩展名（例如“.jpg”）。',
 'empty-file' => '您所提交的文件为空文件。',
 'file-too-large' => '您所提交的文件过大。',
@@ -1875,7 +1894,7 @@ $1',
 'backend-fail-connect' => '无法连接到存储后端“$1。',
 'backend-fail-internal' => '存储后端“$1”发生了一个未知错误。',
 'backend-fail-contenttype' => '无法判断文件的内容类型来储存于“$1”。',
-'backend-fail-batchsize' => '存储后端被给予了一批$1个文件{{PLURAL:$1|操作|操作}}；限值为$2个{{PLURAL:$2|操作|操作}}。',
+'backend-fail-batchsize' => '存储后端被给予了一批$1个文件{{PLURAL:$1|操作}}；限值为$2个{{PLURAL:$2|操作}}。',
 'backend-fail-usable' => '权限不足或缺少目录/贮存器，无法读取或写入文件“$1”。',
 
 # File journal errors
@@ -1951,7 +1970,7 @@ $1',
 'upload_source_file' => '（您计算机上的一个文件）',
 
 # Special:ListFiles
-'listfiles-summary' => '本特殊页面显示所有上传的文件。当按用户过滤时，只显示输入的用户最后上传的文件版本。',
+'listfiles-summary' => '本特殊页面显示所有上传的文件。',
 'listfiles_search_for' => '按媒体名称搜索：',
 'imgfile' => '文件',
 'listfiles' => '文件列表',
@@ -1962,6 +1981,10 @@ $1',
 'listfiles_size' => '大小',
 'listfiles_description' => '说明',
 'listfiles_count' => '版本',
+'listfiles-show-all' => '包括图片的旧版本',
+'listfiles-latestversion' => '当前版本',
+'listfiles-latestversion-yes' => '是',
+'listfiles-latestversion-no' => '否',
 
 # File description page
 'file-anchor-link' => '文件',
@@ -1989,15 +2012,11 @@ $1',
 'morelinkstoimage' => '查看连接到这个文件的[[Special:WhatLinksHere/$1|更多链接]]。',
 'linkstoimage-redirect' => '$1（文件重定向）$2',
 'duplicatesoffile' => '以下{{PLURAL:$1|文件|$1个文件}}是本文件的副本（[[Special:FileDuplicateSearch/$2|更多细节]]）：',
-'sharedupload' => '该文件来自于$1，它可能在其它计划项目中被应用。',
-'sharedupload-desc-there' => '该文件来自于$1，它可能在其它计划项目中被应用。
-请参阅在[$2 文件描述页面]以了解其相关信息。',
-'sharedupload-desc-here' => '该文件来自于$1，它可能在其它计划项目中被应用。
-它在[$2 文件描述页面]那边上的描述于下面显示。',
-'sharedupload-desc-edit' => '该文件来自$1，它可能在其它计划项目中被使用。
-或许您可以在其[$2 文件描述页面]上编辑说明。',
-'sharedupload-desc-create' => '此文件来自$1并可能由其他项目使用。
-也许您想在其[$2 文件描述页面]编辑描述信息。',
+'sharedupload' => '本文件来自$1并可能被其它项目使用。',
+'sharedupload-desc-there' => '本文件来自$1并可能被其它项目使用。更多信息请见[$2 文件说明页面]。',
+'sharedupload-desc-here' => '本文件来自$1并可能被其它项目使用。其[$2 文件说明页面]上的说明显示在下面。',
+'sharedupload-desc-edit' => '本文件来自$1并可能被其它项目使用。也许你想要编辑其[$2 文件说明页面]上的说明。',
+'sharedupload-desc-create' => '本文件来自$1并可能被其他项目使用。也许你想要编辑其[$2 文件说明页面]上的说明。',
 'filepage-nofile' => '不存在此名称的文件。',
 'filepage-nofile-link' => '不存在此名称的文件，但您可以[$1 上传它]。',
 'uploadnewversion-linktext' => '上传该文件的新版本',
@@ -2047,7 +2066,7 @@ $1',
 'unwatchedpages' => '未被监视的页面',
 
 # List redirects
-'listredirects' => '重定向页列表',
+'listredirects' => '重定向列表',
 
 # Unused templates
 'unusedtemplates' => '未使用模板',
@@ -2056,10 +2075,17 @@ $1',
 
 # Random page
 'randompage' => '随机页面',
-'randompage-nopages' => '在以下{{PLURAL:$2|名字空间|名字空间}}中没有页面：$1。',
+'randompage-nopages' => '在以下{{PLURAL:$2|名字空间}}中没有页面：$1。',
+
+# Random page in category
+'randomincategory' => '分类中的随机页面',
+'randomincategory-invalidcategory' => '“$1”不是一个有效的分类名称。',
+'randomincategory-nopages' => '[[:Category:$1]]中没有页面。',
+'randomincategory-selectcategory' => '从分类获取随机页面：$1 $2。',
+'randomincategory-selectcategory-submit' => '显示',
 
 # Random redirect
-'randomredirect' => '随机重定向页',
+'randomredirect' => '随机重定向',
 'randomredirect-nopages' => '在 "$1" 名字空间中没有重定向页面。',
 
 # Statistics
@@ -2085,21 +2111,23 @@ $1',
 
 'disambiguations' => '链接至消歧义页面的页面',
 'disambiguationspage' => 'Template:消歧义',
-'disambiguations-text' => "以下的页面都有到'''消歧义页'''的链接，但它们可能可以链接到更适当的页面。<br />一个页面如果使用了[[MediaWiki:Disambiguationspage]]内的模板，则会被视为消歧义页。",
+'disambiguations-text' => "以下页面包含至少一个至'''消歧义页面'''的链接。它们可能应该链接至更适当的页面。<br />如果页面使用了链自[[MediaWiki:Disambiguationspage]]的模板，则被视为消歧义页面。",
 
 'pageswithprop' => '有页面属性的页面',
 'pageswithprop-legend' => '有页面属性的页面',
 'pageswithprop-text' => '此页面列出了使用特定页面属性的页面名单。',
 'pageswithprop-prop' => '属性名称：',
 'pageswithprop-submit' => '提交',
+'pageswithprop-prophidden-long' => '长文本属性值已隐藏($1)',
+'pageswithprop-prophidden-binary' => '已隐藏二进制属性值($1)',
 
-'doubleredirects' => '双重重定向页',
+'doubleredirects' => '双重重定向',
 'doubleredirectstext' => '本页面列出重定向至其他重定向页的页面。每行含有第一及第二重定向的链接和第二重定向的目标（通常是第一重定向应该指向的“真实”目标页面）。<del>带删除线的</del>条目已被解决。',
 'double-redirect-fixed-move' => '[[$1]]已被移动。它现在重定向至[[$2]]。',
 'double-redirect-fixed-maintenance' => '修复双重重定向自[[$1]]至[[$2]]。',
 'double-redirect-fixer' => '重定向页修复器',
 
-'brokenredirects' => '受损重定向页',
+'brokenredirects' => '受损重定向',
 'brokenredirectstext' => '以下的重定向页面指向的是不存在的页面：',
 'brokenredirects-edit' => '编辑',
 'brokenredirects-delete' => '删除',
@@ -2147,6 +2175,7 @@ $1',
 'mostrevisions' => '最多版本页面',
 'prefixindex' => '所有有前缀的页面',
 'prefixindex-namespace' => '所有有前缀的页面（$1名字空间）',
+'prefixindex-strip' => '在列表中省略前缀',
 'shortpages' => '短页面',
 'longpages' => '长页面',
 'deadendpages' => '断链页面',
@@ -2403,7 +2432,7 @@ $UNWATCHURL
 'exblank' => '页面为空',
 'delete-confirm' => '删除“$1”',
 'delete-legend' => '删除',
-'historywarning' => '警告：您将要删除的页面有约$1个{{PLURAL:$1|修订|修订}}版本的历史：',
+'historywarning' => '警告：您将要删除的页面有约$1个{{PLURAL:$1|修订}}版本的历史：',
 'confirmdeletetext' => '您即将删除一个页面或图像以及其历史。
 请确定您要进行此项操作，并且了解其后果，同时您的行为符合[[{{MediaWiki:Policy-url}}]]。',
 'actioncomplete' => '操作完成',
@@ -2719,7 +2748,7 @@ $1被封禁的理由是：“$2”',
 'ipb_hide_invalid' => '无法隐藏此账户，它可能有太多编辑。',
 'ipb_already_blocked' => '“$1”已被封禁',
 'ipb-needreblock' => '$1已被封禁。您是否想更改封禁设置？',
-'ipb-otherblocks-header' => '其他{{PLURAL:$1|封禁|封禁}}',
+'ipb-otherblocks-header' => '其他{{PLURAL:$1|封禁}}',
 'unblock-hideuser' => '您无法取消封禁该用户，因为他们的用户名已被隐藏。',
 'ipb_cant_unblock' => '错误：找不到封禁ID$1。可能已经解除封禁。',
 'ipb_blocked_as_range' => '错误：IP地址$1未被直接封禁，故无法解除封禁。然而，它位于IP地址段$2的封禁范围内，后者可被解除封禁。',
@@ -2875,12 +2904,12 @@ $1被封禁的理由是：“$2”',
 'allmessages' => '系统信息',
 'allmessagesname' => '名称',
 'allmessagesdefault' => '默认信息文字',
-'allmessagescurrent' => '当前消息文本',
+'allmessagescurrent' => '当前信息文字',
 'allmessagestext' => '此处列出了MediaWiki名字空间下的所有有效系统消息。
 如果想为MediaWiki的本地化贡献翻译，请访问[//www.mediawiki.org/wiki/Localisation MediaWiki本地化]和[//translatewiki.net translatewiki.net]。',
 'allmessagesnotsupportedDB' => "此页面无法使用，因为'''\$wgUseDatabaseMessages'''已被设置关闭。",
 'allmessages-filter-legend' => '过滤',
-'allmessages-filter' => '以自定状况过滤：',
+'allmessages-filter' => '按自定义状态过滤：',
 'allmessages-filter-unmodified' => '未修改',
 'allmessages-filter-all' => '所有',
 'allmessages-filter-modified' => '曾修改',
@@ -3007,7 +3036,7 @@ $2',
 'tooltip-t-recentchangeslinked' => '链自本页的页面的最近更改',
 'tooltip-feed-rss' => '本页面的RSS源',
 'tooltip-feed-atom' => '本页面的Atom源',
-'tooltip-t-contributions' => '查看该用户的贡献列表',
+'tooltip-t-contributions' => '该用户的贡献的列表',
 'tooltip-t-emailuser' => '给该用户发送电子邮件',
 'tooltip-t-upload' => '上传文件',
 'tooltip-t-specialpages' => '所有特殊页面的列表',
@@ -3099,13 +3128,13 @@ $2',
 'pageinfo-length' => '页面长度（字节）',
 'pageinfo-article-id' => '页面ID',
 'pageinfo-language' => '页面内容语言',
-'pageinfo-robot-policy' => '搜索引擎状态',
-'pageinfo-robot-index' => '可索引',
-'pageinfo-robot-noindex' => '不可索引',
+'pageinfo-robot-policy' => '机器人索引',
+'pageinfo-robot-index' => '允许',
+'pageinfo-robot-noindex' => '不允许',
 'pageinfo-views' => '查看数',
 'pageinfo-watchers' => '页面监视者数',
 'pageinfo-few-watchers' => '少于$1个监视者',
-'pageinfo-redirects-name' => '本页重定向页数',
+'pageinfo-redirects-name' => '重定向到此页的数量',
 'pageinfo-subpages-name' => '本页子页面数',
 'pageinfo-subpages-value' => '$1（$2个重定向页，$3个非重定向页）',
 'pageinfo-firstuser' => '页面创建者',
@@ -3469,7 +3498,7 @@ Variants for Chinese language
 'exif-compression-6' => 'JPEG（旧）',
 
 'exif-copyrighted-true' => '受版权保护',
-'exif-copyrighted-false' => '公共领域',
+'exif-copyrighted-false' => '版权状态未设定',
 
 'exif-unknowndate' => '未知日期',
 
@@ -3727,10 +3756,9 @@ $3
 $5
 
 确认码会在$4过期。',
-'confirmemail_body_set' => '拥有IP地址$1的用户（可能是您）在{{SITENAME}}将账户“$2”的电子邮箱地址设置
-到了这个电子邮件地址。
+'confirmemail_body_set' => '拥有IP地址$1的用户（可能是您）在{{SITENAME}}将账户“$2”的电子邮箱地址设置为这个电子邮件地址。
 
-请确认这个账户是属于您的，并同时重新激活在{{SITENAME}}上的电子邮件功能。请
+请确认这个账户是属于您的，并同时激活在{{SITENAME}}上的电子邮件功能。请
 在浏览器中打开下面的链接：
 
 $3
@@ -3788,7 +3816,7 @@ $5
 'table_pager_first' => '首页',
 'table_pager_last' => '末页',
 'table_pager_limit' => '每页显示$1项',
-'table_pager_limit_label' => '每页项目数：',
+'table_pager_limit_label' => '每页项数：',
 'table_pager_limit_submit' => '提交',
 'table_pager_empty' => '没有结果',
 
@@ -3861,6 +3889,7 @@ $5
 'version-license' => '授权协议',
 'version-poweredby-credits' => "本Wiki由'''[//www.mediawiki.org/ MediaWiki]'''驱动，版权所有 © 2001-$1 $2。",
 'version-poweredby-others' => '其他',
+'version-poweredby-translators' => 'translatewiki.net上的翻译者',
 'version-credits-summary' => '我们感谢下列人士为[[Special:Version|MediaWiki]]作出的贡献。',
 'version-license-info' => "MediaWiki是自由软件，你可以依据自由软件基金会发行的'''GNU公众授权协议'''第2版或任意后续版本的条款，传播和/或修改本软件。
 
@@ -3877,7 +3906,7 @@ MediaWiki发表时预期有用，但对此'''无任何保证'''，亦无隐含�
 'version-entrypoints-scriptpath' => '[https://www.mediawiki.org/wiki/Manual:$wgScriptPath 脚本路径]',
 
 # Special:Redirect
-'redirect' => '重定向',
+'redirect' => '重定向（按文件、用户或版本ID）',
 'redirect-legend' => '重定向至文件或页面',
 'redirect-summary' => '本特殊页面会重定向到一个文件（给予文件名），一个页面（给予修订版本ID），或一个用户页面（给予用户数字ID）。',
 'redirect-submit' => '提交',
@@ -3963,6 +3992,7 @@ MediaWiki发表时预期有用，但对此'''无任何保证'''，亦无隐含�
 本网站出现了一些技术问题。',
 'dberr-again' => '请等待几分钟后重试。',
 'dberr-info' => '（无法连接到数据库服务器：$1）',
+'dberr-info-hidden' => '（无法连接到数据库服务器）',
 'dberr-usegoogle' => '在此期间您可以尝试用 Google 来搜索。',
 'dberr-outofdate' => '须注意他们索引出来的内容可能不是最新的。',
 'dberr-cachederror' => '这是所请求页面的缓存副本，可能不是最新的。',
@@ -4047,8 +4077,8 @@ MediaWiki发表时预期有用，但对此'''无任何保证'''，亦无隐含�
 'api-error-copyuploaddisabled' => '通过URL上传的功能已被此服务器禁用。',
 'api-error-duplicate' => '在网站上已经具有相同内容的{{PLURAL:$1|[$2 另一个文件]|[$2 另一些文件]}}。',
 'api-error-duplicate-archive' => '在网站上曾经具有相同内容的{{PLURAL:$1|[$2 另一个文件]|[$2 另一些文件]}}，但已被删除。',
-'api-error-duplicate-archive-popup-title' => '已被删的除重复{{PLURAL:$1|文件|文件}}',
-'api-error-duplicate-popup-title' => '重复的 {{PLURAL:$1|文件|文件}}',
+'api-error-duplicate-archive-popup-title' => '已被删的除重复{{PLURAL:$1|文件}}。',
+'api-error-duplicate-popup-title' => '重复的 {{PLURAL:$1|文件}}。',
 'api-error-empty-file' => '您提交的文件是空的。',
 'api-error-emptypage' => '不能创建没有内容的新页面。',
 'api-error-fetchfileerror' => '内部错误：获取文件时发生错误。',
@@ -4095,6 +4125,21 @@ MediaWiki发表时预期有用，但对此'''无任何保证'''，亦无隐含�
 'duration-millennia' => '$1千年',
 
 # Image rotation
-'rotate-comment' => '图像已顺时针方向旋转了 $1 {{PLURAL:$1|度|度}}',
+'rotate-comment' => '图像已顺时针方向旋转了 $1 {{PLURAL:$1|度}}',
+
+# Limit report
+'limitreport-title' => '分析器分析数据：',
+'limitreport-cputime' => 'CPU使用时间',
+'limitreport-cputime-value' => '$1秒',
+'limitreport-walltime' => '实际使用时间',
+'limitreport-walltime-value' => '$1秒',
+'limitreport-ppvisitednodes' => '预处理器访问节点计数',
+'limitreport-ppgeneratednodes' => '预处理器生成节点计数',
+'limitreport-postexpandincludesize' => '展开后大小',
+'limitreport-postexpandincludesize-value' => '$1/$2字节',
+'limitreport-templateargumentsize' => '模板参数大小',
+'limitreport-templateargumentsize-value' => '$1/$2 字节',
+'limitreport-expansiondepth' => '最高扩展深度',
+'limitreport-expensivefunctioncount' => '昂贵的函数分析技术器',
 
 );

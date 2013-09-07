@@ -172,7 +172,6 @@ $messages = array(
 'tog-shownumberswatching' => 'It tal brûkers sjen litte dat dizze side folget',
 'tog-oldsig' => 'Hûdige sinjatuerprintallyk:',
 'tog-fancysig' => 'Sinjatuer as wikitekst behannelje (sûnder automatyske keppeling)',
-'tog-showjumplinks' => '"gean nei"-tapaslikens-links ynskeakelje',
 'tog-uselivepreview' => '"live proefbyld" brûke (JavaScript nedich - eksperimenteel)',
 'tog-forceeditsummary' => 'Warskôgje at ik de gearfetting leech lit.',
 'tog-watchlisthideown' => 'Eigen bewurkings op myn folchlist ferbergje',
@@ -432,16 +431,6 @@ $1",
 # General errors
 'error' => 'Fout',
 'databaseerror' => 'Databankfout',
-'dberrortext' => 'Sinboufout in databankfraach.
-De lêst besochte databankfraach wie:
-<blockquote><tt>$1</tt></blockquote>
-fan funksje "<tt>$2</tt>" út.
-MySQL joech fout "<tt>$3: $4</tt>" werom.',
-'dberrortextcl' => 'Sinboufout yn databankfraach.
-De lêst besochte databankfraach wie:
-"$1"
-fanút funksje "$2" .
-MySQL joech fout "$3: $4"',
 'laggedslavemode' => 'Warskôging: Mûglik binne resinte bewurkings noch net trochfierd.',
 'readonly' => "Databank is 'Net-skriuwe'.",
 'enterlockreason' => "Skriuw wêrom de databank 'net-skriuwe' makke is, en hoenear't men wêr nei alle gedachten wer skriuwe kin.",
@@ -486,7 +475,6 @@ Query: $2',
 'viewsourcetext' => 'Jo kinne de boarnetekst fan dizze side besjen en kopiearje:',
 'protectedinterface' => "Dizze side befettet tekst foar berjochten fan 'e software en is befeilige om misbrûk tefoaren te kommen.",
 'editinginterface' => "'''Warskôging;''' Jo bewurkje in side dy't brûkt wurdt troch software. Bewurkings op dizze side beynfloedzje de gebrûksynterface fan elkenien. Oerweagje foar oersettings [//translatewiki.net/wiki/Main_Page?setlang=fy translatewiki.net] te brûken, it oersetprojekt foar MediaWiki.",
-'sqlhidden' => '(SQL query ferburgen)',
 'cascadeprotected' => 'Dizze side is skoattele tsjin wizigjen, om\'t der in ûnderdiel útmakket fan de neikommende {{PLURAL:$1|side|siden}}, dy\'t skoattele {{PLURAL:$1|is|binne}} mei de "ûnderlizzende siden" opsje ynskeakele: $2',
 'namespaceprotected' => "Jo hawwe gjin rjochten om siden yn'e nammerûmte '''$1''' te bewurkjen.",
 'ns-specialprotected' => "Siden yn'e nammerûmte {{ns:special}} kinne net bewurke wurde.",
@@ -582,7 +570,7 @@ Jo moatte efkes wachtsje foar't jo it op'e nij besykje kinne.",
 'newpassword' => 'Nij wachtwurd',
 'retypenew' => 'Nij wachtwurd (nochris)',
 'resetpass_submit' => 'Wachtwurd ynstelle en oanmelde',
-'resetpass_success' => 'Jo wachtwurd is feroare. Dwaande mei oanmelden ...',
+'changepassword-success' => 'Jo wachtwurd is feroare. Dwaande mei oanmelden ...',
 'resetpass_forbidden' => 'Wachtwurden kinne net feroare wurde',
 'resetpass-no-info' => "Jo moatte oanmeld wêze foar't Jo dizze side brûke kinne.",
 'resetpass-submit-loggedin' => 'Wachtwurd feroarje',

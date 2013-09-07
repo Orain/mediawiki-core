@@ -111,7 +111,6 @@ $messages = array(
 'tog-shownumberswatching' => 'İzləyən istifadəçilərin sayını göstər',
 'tog-oldsig' => 'Hazırkı imza:',
 'tog-fancysig' => 'Vikimətn şəklində imza (avtomatik keçid yaratmadan)',
-'tog-showjumplinks' => '"Keçid et:" linklərini aktivləşdir',
 'tog-uselivepreview' => 'Canlı sınaq baxışı xüsusiyyətindən istifadə et (JavaScript tələb edir, sınaq mərhələsindədir)',
 'tog-forceeditsummary' => 'Qısa məzmunu boş saxladıqda mənə bildir',
 'tog-watchlisthideown' => 'Mənim redaktələrimi izləmə siyahısında gizlət',
@@ -399,16 +398,6 @@ Mövcud xüsusi səhifələrin siyahısı: [[Special:SpecialPages|Xüsusi səhif
 # General errors
 'error' => 'Xəta',
 'databaseerror' => 'Verilənlər bazası xətası',
-'dberrortext' => 'Verilənlər bazası sorğusunda sintaksis xətası yarandı.
-Bu proqram təminatındakı xəta ilə əlaqədar ola bilər.
-Verilənlər bazasına sonuncu sorğu "<tt>$2</tt>" funksiyasından 
-yaranan <blockquote><tt>$1</tt></blockquote>.
-Verilənlər bazasının göstərdiyi xəta "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Verilənlər bazası sorğusunda sintaksis xətası yarandı.
-Verilənlər bazasına sonuncu sorğu:
-"$1"
-"$2" funksiyasından yaranmışdır.
-Verilənlər bazasının göstərdiyi xəta "$3: $4"',
 'laggedslavemode' => "'''Xəbərdarlıq:''' Səhifə son əlavələri əks etdirməyə bilər.",
 'readonly' => 'Verilənlər bazası bloklanıb',
 'enterlockreason' => 'Bloklamanın səbəbini və nəzərdə tutulan müddətini qeyd edin',
@@ -458,7 +447,6 @@ Sorğu: $2',
 'editinginterface' => "'''Diqqət!''' Siz proqram təminatı interfeysinin mətn olan səhifəsini redaktə edirsiniz.
 Onun dəyişdirilməsi digər istifadəçilərin interfeysinin xarici görünüşünə təsir göstərir.
 Tərcümə üçün daha yaxşı olar ki, MediaWiki-nin lokallaşması üçün olan [//translatewiki.net/wiki/Main_Page?setlang=az translatewiki.net]  layihəsindən istifadə edəsiniz.",
-'sqlhidden' => '(SQL gizli sorğu)',
 'cascadeprotected' => 'Səhifə mühafizə olunub, çünki o kaskad mühafizə olunan {{PLURAL:$1|növbəti səhifəyə|növbəti səhifələrə}} qoşulub:
 $2',
 'namespaceprotected' => 'Sizin adlarında $1 olan məqalələrdə redaktə etməyə icazəniz yoxdur.',
@@ -482,7 +470,6 @@ Siz {{SITENAME}} saytını anonim olaraq istifadə etməyə davam edə bilər v�
 'yourpassword' => 'Parol:',
 'yourpasswordagain' => 'Parolu təkrar yazın:',
 'remembermypassword' => 'Məni bu kompyuterdə xatırla (maksimum $1 {{PLURAL:$1|gün|gün}})',
-'securelogin-stick-https' => 'Daxil olduqdan sonra HTTPS-lə əlaqədə qal',
 'yourdomainname' => 'Sizin domain',
 'password-change-forbidden' => 'Bu vikidə parolunuzu dəyişdirə bilməzsiniz.',
 'externaldberror' => 'Verilənlər bazasının doğruluğunu yoxlamada xəta baş verib və yaxud sizin xarici istifadəçi qeydiyyatını yeniləmək hüququnuz yoxdur.',
@@ -570,7 +557,7 @@ Sistemə daxil olmanı yekunlaşdırmaq üçün yeni parolu bura yazmalısınız
 'newpassword' => 'Yeni parol:',
 'retypenew' => 'Yeni parolu təkrar yazın:',
 'resetpass_submit' => 'Parol yaradın və sistemə daxil olun',
-'resetpass_success' => 'Parolunuz dəyişdirldi! Hazırda sistemə daxil olursunuz...',
+'changepassword-success' => 'Parolunuz dəyişdirldi! Hazırda sistemə daxil olursunuz...',
 'resetpass_forbidden' => 'Parolu dəyişmək mümkün deyil',
 'resetpass-no-info' => 'Bu səhifəni birbaşa açmaq üçün sistemə daxil olmalısınız.',
 'resetpass-submit-loggedin' => 'Parolu dəyiş',
@@ -975,7 +962,7 @@ $1",
 'prefs-rendering' => 'Görünüş',
 'saveprefs' => 'Qeyd et',
 'resetprefs' => 'Yarat',
-'restoreprefs' => 'Bütün nizamlamaları bərpa et',
+'restoreprefs' => 'Bütün nizamlamaları bərpa et (bütün bölmələrdə)',
 'prefs-editing' => 'Redaktə',
 'rows' => 'Sıralar:',
 'columns' => 'Sütunlar:',
@@ -987,9 +974,6 @@ $1",
 'recentchangesdays-max' => 'Maksimum $1 {{PLURAL:$1|gün|gün}}',
 'recentchangescount' => 'Son dəyişikliklərdə başlıq sayı:',
 'prefs-help-recentchangescount' => 'Buraya yeni dəyişikliklər, səhifələrin və jurnalların tarixçəsi daxildir.',
-'prefs-help-watchlist-token' => 'Bu sahəni gizli parolla doldurmağınız sizin izləmə siyahınız üçün RSS yayım kanalı yaradacaqdır.
-Bu parolu bilən hər kəs izləmə siyahınızı oxuya bilər, bu səbəbdən etibarlı parol seçin.
-Təsadüfi yolla seçilmiş bu paroldan istifadə edə bilərsiniz: $1',
 'savedprefs' => 'Seçiminiz qeyd edildi.',
 'timezonelegend' => 'Vaxt zonası:',
 'localtime' => 'Yerli vaxt:',

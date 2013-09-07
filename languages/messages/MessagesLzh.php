@@ -180,7 +180,6 @@ $messages = array(
 'tog-shownumberswatching' => '放哨有',
 'tog-oldsig' => '覽原署名：',
 'tog-fancysig' => '署以本碼待之（免自連）',
-'tog-showjumplinks' => '鏈往字',
 'tog-uselivepreview' => '即覽嚐鮮（JavaScript）',
 'tog-forceeditsummary' => '漏概醒之',
 'tog-watchlisthideown' => '不哨己文',
@@ -478,15 +477,6 @@ $1',
 # General errors
 'error' => '有誤',
 'databaseerror' => '庫藏誤然',
-'dberrortext' => '問庫語誤，或軟體瑕焉。
-末語道：
-<blockquote><tt>$1</tt></blockquote>
-內此函式"<tt>$2</tt>".
-庫藏報有誤"<tt>$3: $4</tt>"。',
-'dberrortextcl' => '庫藏問語有誤，末道：
-"$1"
-內此函式"$2".
-庫藏報有誤"$3: $4"',
 'laggedslavemode' => '警示，此頁不新',
 'readonly' => '鎖庫藏',
 'enterlockreason' => '何以鎖之？何日啟之？',
@@ -528,7 +518,6 @@ $1',
 'viewsourcetext' => '爾可視及複之本頁之原始碼。',
 'protectedinterface' => '此頁司版，錮之以遠濫。',
 'editinginterface' => "'''警示：'''此頁司版，一髮牽身，惠慎之。如譯之，可慮[//translatewiki.net/wiki/Main_Page?setlang=zh-hant translatewiki.net]也，為MediaWiki軟件本地化之計劃也。",
-'sqlhidden' => '（SQL隱然）',
 'cascadeprotected' => '此頁"迭緘"矣。$1頁牽連如下：
 $2',
 'namespaceprotected' => "子權未逮，莫能纂'''$1'''。",
@@ -565,7 +554,6 @@ $2',
 'remembermypassword' => '吾之簿通越（達至$1日）',
 'userlogin-remembermypassword' => '記吾',
 'userlogin-signwithsecure' => '以安全伺服登簿',
-'securelogin-stick-https' => '登後仍以HTTPS通接',
 'yourdomainname' => '子之網域',
 'password-change-forbidden' => '符節不能改乎此維基也。',
 'externaldberror' => '認庫之錯或禁更爾之外簿。',
@@ -671,7 +659,7 @@ $2',
 'newpassword' => '新符節：',
 'retypenew' => '重察新符節：',
 'resetpass_submit' => '設符再登',
-'resetpass_success' => '爾之符節已改！
+'changepassword-success' => '爾之符節已改！
 現登簿中...',
 'resetpass_forbidden' => '無改符節',
 'resetpass-no-info' => '爾須登簿後方進此頁。',
@@ -1139,9 +1127,6 @@ $1",
 'recentchangesdays-max' => '最大有$1',
 'recentchangescount' => '修著凡幾︰',
 'prefs-help-recentchangescount' => '含近易、史與誌。',
-'prefs-help-watchlist-token' => '添匙參爾之RSS哨。
-且人知匙，可閱矣之，擇全之值也。
-任成之值，爾可選之：$1',
 'savedprefs' => '簿註書矣',
 'timezonelegend' => '時區：',
 'localtime' => '本地時：',

@@ -15,6 +15,7 @@
  * @author Growingup
  * @author Kgbek
  * @author Muratjumashev
+ * @author Tynchtyk Chorotegin
  * @author Ztimur
  * @author Викиней
  */
@@ -64,7 +65,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Көзөмөлдөп жаткан колдонуучулардын санын көрсөтүү',
 'tog-oldsig' => 'Учурдагы кол тамга:',
 'tog-fancysig' => 'Кол тамгамдын уики-белгиси гана (автоматтык шилтемесиз)',
-'tog-showjumplinks' => '«өтүү» деген жардамчы шилтемелерди жандыруу',
 'tog-uselivepreview' => 'Тез алдын ала көрсөтүүнү колдонуу (JavaScript талап кылынат) (эксперименталдык)',
 'tog-forceeditsummary' => 'Оңдоо баяндоосунун көзөнөгү бош калган кезинде мага эскертүү',
 'tog-watchlisthideown' => 'Көзөмөлдөө тизмесинен менин оңдоолорумду жашыруу',
@@ -142,6 +142,8 @@ $messages = array(
 'nov' => 'Ноя',
 'dec' => 'Дек',
 'january-date' => 'Январь (Үчтүн айы) $1',
+'february-date' => '$1-феврал',
+'march-date' => '$1-март',
 
 # Categories related messages
 'pagecategories' => '{{PLURAL:$1|Категория|Категориялар}}',
@@ -344,12 +346,6 @@ $1',
 # General errors
 'error' => 'Ката',
 'databaseerror' => 'Маалымат базасынын катасы',
-'dberrortext' => 'Маалымат базасынын суроо синтаксисинде ката табылды.
-Бул программалык камсыздоодо ката бар болгонун билдирет.
-Акыркы маалымат базасынын суроосу:
-<blockquote><code>$1</code></blockquote>
-«<code>$2</code>» функциясынан пайда болду.
-Маалымат базасы «<samp>$3: $4</samp>» катасын кайтарды.',
 'laggedslavemode' => "'''Эскертүү:''' баракта акыркы жаңыртуулар жок болуп калышы мүмкүн.",
 'readonly' => 'Маалымат базасы бөгөттөлгөн',
 'enterlockreason' => 'Бөгөттөөнүн себебин жана мөөнөтүн көрсөтүңүз',
@@ -384,7 +380,6 @@ $1',
 'viewsource-title' => '$1 барагынын баштапкы кодун көрүү',
 'actionthrottled' => 'Аралык боюнча чектөө',
 'viewsourcetext' => 'Сиз бул барактын баштапкы кодун көрүп жана көчүрүп алсаңыз болот:',
-'sqlhidden' => '(SQL суроо жашырылган)',
 'ns-specialprotected' => 'Кызматык барактарды оңдоого мүмкүн эмес.',
 'invalidtitle-unknownnamespace' => 'Туура эмес баш сөз',
 'exception-nologin' => 'Сиз системге кирген жоксуз',
@@ -414,7 +409,6 @@ $1',
 'remembermypassword' => 'Бул браузерде колдонуучу атымды ($1 {{PLURAL:$1|күнгө}} чейин сактоо)',
 'userlogin-remembermypassword' => 'Мени системге кирген боюнча калтыр',
 'userlogin-signwithsecure' => 'Коопсуз байланышты колдонуу',
-'securelogin-stick-https' => 'Киргенден кийин HTTPS аркылуу туташтырууну улантуу',
 'yourdomainname' => 'Сиздин домен:',
 'password-change-forbidden' => 'Сиз бул уикиден сырсөзүңүздү өзгөртө албайсыз.',
 'externaldberror' => 'Маалымат базасында ката кетти же сизге сырткы эсебиңизди жаңыртууга уруксат берилген эмес.',
@@ -515,7 +509,7 @@ $1',
 'newpassword' => 'Жаңы сырсөз:',
 'retypenew' => 'Жаңы сырсөздү кайра териңиз:',
 'resetpass_submit' => 'Сырсөздү терип анан кирүү',
-'resetpass_success' => 'Сиздин сырсөзүңүз ийгиликтүү өзгөртүлдү!
+'changepassword-success' => 'Сиздин сырсөзүңүз ийгиликтүү өзгөртүлдү!
 Системага кирүү аткарылып жатат...',
 'resetpass_forbidden' => 'Сырсөздү өзгөртүүгө мүмкүн эмес',
 'resetpass-no-info' => 'Бул баракка түз кайрылыш үчүн, сиз системага киришиңиз керек.',
@@ -1605,7 +1599,7 @@ To include a file in a page, use a link in one of the following forms:
 'exif-compression-1' => 'Кыстырылбаган',
 
 'exif-copyrighted-true' => 'Автордук укук менен корголгон',
-'exif-copyrighted-false' => 'Коомдук мүлк',
+'exif-copyrighted-false' => 'Автордук укук абалы көрсөтүлгөн эмес',
 
 'exif-unknowndate' => 'Белгисиз дата',
 

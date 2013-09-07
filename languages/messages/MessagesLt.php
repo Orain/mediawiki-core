@@ -215,7 +215,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Rodyti stebinčių naudotojų skaičių',
 'tog-oldsig' => 'Esamo parašo peržiūra:',
 'tog-fancysig' => 'Laikyti parašą vikitekstu (be automatinių nuorodų)',
-'tog-showjumplinks' => 'Įjungti „peršokti į“ pasiekiamumo nuorodas',
 'tog-uselivepreview' => 'Naudoti tiesioginę peržiūrą (JavaScript) (Eksperimentinis)',
 'tog-forceeditsummary' => 'Klausti, kai palieku tuščią keitimo komentarą',
 'tog-watchlisthideown' => 'Slėpti mano keitimus stebimų sąraše',
@@ -515,17 +514,6 @@ Egzistuojančių specialiųjų puslapių sąrašą galite rasti [[Special:Specia
 # General errors
 'error' => 'Klaida',
 'databaseerror' => 'Duomenų bazės klaida',
-'dberrortext' => 'Neteisinga duomenų bazės užklausos sintaksė.
-Galima klaida programinėje įrangoje.
-Paskutinė mėginta užklausa:
-<blockquote><tt>$1</tt></blockquote>
-iš funkcijos: „<tt>$2</tt>“.
-Duomenų bazė grąžino klaidą „<tt>$3: $4</tt>“.',
-'dberrortextcl' => 'Įvyko duomenų bazės užklausos sintaksės klaida.
-Paskutinė mėginta duomenų bazės užklausa buvo:
-„$1“
-iš funkcijos: „$2“.
-Duomenų bazė grąžino klaidą „$3: $4“',
 'laggedslavemode' => 'Dėmesio: Puslapyje gali nesimatyti naujausių pakeitimų.',
 'readonly' => 'Duomenų bazė užrakinta',
 'enterlockreason' => 'Įveskite užrakinimo priežastį, taip pat datą, kada bus atrakinta',
@@ -579,7 +567,6 @@ Užklausa: $2',
 'protectedinterface' => 'Šiame puslapyje yra apsaugotas nuo piktnaudžiavimo programinės įrangos sąsajos tekstas.',
 'editinginterface' => "'''Dėmesio:''' Jūs redaguojate puslapį, kuris yra naudojamas programinės įrangos sąsajos tekste. Pakeitimai šiame puslapyje taip pat pakeis naudotojo sąsajos išvaizdą ir kitiems naudotojams šiame wiki.
 Jei norite pridėti ir keisti vertimus, siūlome pasinaudoti [//translatewiki.net/wiki/Main_Page?setlang=lt „translatewiki.net“], „MediaWiki“ lokalizacijos projektu.",
-'sqlhidden' => '(SQL užklausa paslėpta)',
 'cascadeprotected' => 'Šis puslapis buvo apsaugotas nuo redagavimo, kadangi jis yra įtrauktas į {{PLURAL:$1|šį puslapį, apsaugotą|šiuos puslapius, apsaugotus}} „pakopinės apsaugos“ pasirinktimi:
 $2',
 'namespaceprotected' => "Jūs neturite teisės redaguoti puslapių '''$1''' srityje.",
@@ -627,7 +614,6 @@ Nepamirškite pakeisti savo [[Special:Preferences|{{SITENAME}} nustatymų]].',
 'remembermypassword' => 'Prisiminti prisijungimo duomenis šiame kompiuteryje (daugiausiai $1 {{PLURAL:$1|dieną|dienas|dienų}})',
 'userlogin-remembermypassword' => 'Įsiminti mane',
 'userlogin-signwithsecure' => 'Naudoti saugią jungtį',
-'securelogin-stick-https' => 'Likite prisijungę prie HTTPS po prisijungimo',
 'yourdomainname' => 'Jūsų domenas:',
 'password-change-forbidden' => 'Jus negalite keisti slaptažodžių šioje wiki.',
 'externaldberror' => 'Yra arba išorinė autorizacijos duomenų bazės klaida arba jums neleidžiama atnaujinti jūsų išorinės paskyros.',
@@ -755,7 +741,7 @@ Palaukite prieš bandant vėl.',
 'newpassword' => 'Naujas slaptažodis:',
 'retypenew' => 'Pakartokite naują slaptažodį:',
 'resetpass_submit' => 'Nustatyti slaptažodį ir prisijungti',
-'resetpass_success' => 'Jūsų slaptažodis pakeistas sėkmingai! Dabar prisijungiama...',
+'changepassword-success' => 'Jūsų slaptažodis pakeistas sėkmingai! Dabar prisijungiama...',
 'resetpass_forbidden' => 'Slaptažodžiai negali būti pakeisti',
 'resetpass-no-info' => 'Jūs turite būti prisijungęs, kad pasiektumėte puslapį tiesiogiai.',
 'resetpass-submit-loggedin' => 'Keisti slaptažodį',
@@ -1315,9 +1301,6 @@ Prašome patikrinti sąrašus.',
 'recentchangesdays-max' => '(daugiausiai $1 {{PLURAL:$1|diena|dienos|dienų}})',
 'recentchangescount' => 'Numatytasis rodomas keitimų skaičius:',
 'prefs-help-recentchangescount' => 'Į tai įeina naujausi keitimai, puslapių istorijos ir specialiųjų veiksmų sąrašai.',
-'prefs-help-watchlist-token' => 'Įrašius slaptą raktą į šį laukelį, bus sugeneruotas RSS srautas su jūsų stebimųjų sąrašu.
-Bet kas, žinantis šio lauko raktą, galės matyti jūsų stebimų sąrašą, todėl pasirinkite saugią reikšmę.
-Galite panaudoti šią atsitiktinai sugeneruotą reikšmę: $1',
 'savedprefs' => 'Nustatymai sėkmingai išsaugoti.',
 'timezonelegend' => 'Laiko juosta:',
 'localtime' => 'Vietinis laikas:',
@@ -1837,6 +1820,9 @@ Kai sąrašas susiaurinamas pagal naudotoją, rodomi tik tie failai, kurių nauj
 'listfiles_size' => 'Dydis',
 'listfiles_description' => 'Aprašymas',
 'listfiles_count' => 'Versijos',
+'listfiles-latestversion' => 'Dabartinė versija',
+'listfiles-latestversion-yes' => 'Taip',
+'listfiles-latestversion-no' => 'Ne',
 
 # File description page
 'file-anchor-link' => 'Failas',

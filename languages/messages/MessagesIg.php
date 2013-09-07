@@ -104,7 +104,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Zi onuogụgụ ndi na banife nke ne lé',
 'tog-oldsig' => 'Létu ntakiri ndẹlu ejị a ma gí:',
 'tog-fancysig' => 'Mesò ka nkábi nwéré édé wiki (nké énwéghị jikodo nke nọr na onwe)',
-'tog-showjumplinks' => 'Kwé ka njikodo "mani énū" I mé',
 'tog-uselivepreview' => 'Jí nlé ntàkírí dí ndụ (Í gí nwé JavaScript) (mmètú kanyí lé)',
 'tog-forceeditsummary' => 'Gwam mgbè okwu nsem màkà orüm rürü a díghị',
 'tog-watchlisthideown' => 'Zonari orüm fwuör ndetu ihem ne lé',
@@ -423,7 +422,6 @@ Orürü: $1<br />
 'editinginterface' => "'''Okwu egú:''' I na rü ihü né nyé ihu maka mkpurụ edemede nke eji-a-rü nka.
 Gbanwere më ihüa ga mètú ihu élélé nke onye-na-banife maka ndi ozor.
 Maka ikuwaria na asụsụ nke ozor, biko chetu I ji [//translatewiki.net/wiki/Main_Page?setlang=ig translatewiki.net], ihe orü MediaWiki di na ama ama.",
-'sqlhidden' => '(nchowa SQL zonari a zonari)',
 'namespaceprotected' => "I weghị ike I rüwa élu ihü nor na '''$1''' áháama.",
 'ns-specialprotected' => 'Ihü mkpà, a nweriki ru na ya.',
 
@@ -490,7 +488,7 @@ Biko meríáríá ya.',
 'newpassword' => 'Mkpurụ okwu ejị a gafẹ nke ohúrù',
 'retypenew' => 'Dechákwari mkpurụ okwu ejị a gafẹ nke ohúrù:',
 'resetpass_submit' => 'Bá okwu éjị gáfè na áhà Í bànyè',
-'resetpass_success' => 'Mkpurụ okwu ejị a gafẹ a gbanwere nke oma!
+'changepassword-success' => 'Mkpurụ okwu ejị a gafẹ a gbanwere nke oma!
 I na á banye...',
 'resetpass_forbidden' => 'Okwu éjị à gáfè enwéghịkị gabnwe',
 'resetpass-submit-loggedin' => 'Gbanwe okwu éjị à gáfe',

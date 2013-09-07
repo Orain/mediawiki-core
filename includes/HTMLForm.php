@@ -575,6 +575,21 @@ class HTMLForm extends ContextSource {
 	}
 
 	/**
+	 * Add an array of hidden fields to the output
+	 *
+	 * @since 1.22
+	 * @param array $fields Associative array of fields to add;
+	 *        mapping names to their values
+	 * @return HTMLForm $this for chaining calls
+	 */
+	public function addHiddenFields( array $fields ) {
+		foreach ( $fields as $name => $value ) {
+			$this->mHiddenFields[] = array( $value, array( 'name' => $name ) );
+		}
+		return $this;
+	}
+
+	/**
 	 * Add a button to the form
 	 * @param string $name field name.
 	 * @param string $value field value
@@ -643,8 +658,8 @@ class HTMLForm extends ContextSource {
 			: 'application/x-www-form-urlencoded';
 		# Attributes
 		$attribs = array(
-			'action' => $this->mAction === false ? $this->getTitle()->getFullURL() : $this->mAction,
-			'method' => $this->mMethod,
+			'action' => $this->getAction(),
+			'method' => $this->getMethod(),
 			'class' => 'visualClear',
 			'enctype' => $encType,
 		);
@@ -968,9 +983,10 @@ class HTMLForm extends ContextSource {
 	 * @param $fields array[]|HTMLFormField[] array of fields (either arrays or objects)
 	 * @param string $sectionName ID attribute of the "<table>" tag for this section, ignored if empty
 	 * @param string $fieldsetIDPrefix ID prefix for the "<fieldset>" tag of each subsection, ignored if empty
+	 * @param boolean &$hasUserVisibleFields Whether the section had user-visible fields
 	 * @return String
 	 */
-	public function displaySection( $fields, $sectionName = '', $fieldsetIDPrefix = '' ) {
+	public function displaySection( $fields, $sectionName = '', $fieldsetIDPrefix = '', &$hasUserVisibleFields = false ) {
 		$displayFormat = $this->getDisplayFormat();
 
 		$html = '';
@@ -990,20 +1006,38 @@ class HTMLForm extends ContextSource {
 				if ( $labelValue != '&#160;' && $labelValue !== '' ) {
 					$hasLabel = true;
 				}
+
+				if ( get_class( $value ) !== 'HTMLHiddenField' &&
+						get_class( $value ) !== 'HTMLApiField' ) {
+					$hasUserVisibleFields = true;
+				}
 			} elseif ( is_array( $value ) ) {
-				$section = $this->displaySection( $value, "mw-htmlform-$key", "$fieldsetIDPrefix$key-" );
-				$legend = $this->getLegend( $key );
-				if ( isset( $this->mSectionHeaders[$key] ) ) {
-					$section = $this->mSectionHeaders[$key] . $section;
+				$subsectionHasVisibleFields = false;
+				$section = $this->displaySection( $value, "mw-htmlform-$key", "$fieldsetIDPrefix$key-", $subsectionHasVisibleFields );
+				$legend = null;
+
+				if ( $subsectionHasVisibleFields === true ) {
+					// Display the section with various niceties.
+					$hasUserVisibleFields = true;
+
+					$legend = $this->getLegend( $key );
+
+					if ( isset( $this->mSectionHeaders[$key] ) ) {
+						$section = $this->mSectionHeaders[$key] . $section;
+					}
+					if ( isset( $this->mSectionFooters[$key] ) ) {
+						$section .= $this->mSectionFooters[$key];
+					}
+
+					$attributes = array();
+					if ( $fieldsetIDPrefix ) {
+						$attributes['id'] = Sanitizer::escapeId( "$fieldsetIDPrefix$key" );
+					}
+					$subsectionHtml .= Xml::fieldset( $legend, $section, $attributes ) . "\n";
+				} else {
+					// Just return the inputs, nothing fancy.
+					$subsectionHtml .= $section;
 				}
-				if ( isset( $this->mSectionFooters[$key] ) ) {
-					$section .= $this->mSectionFooters[$key];
-				}
-				$attributes = array();
-				if ( $fieldsetIDPrefix ) {
-					$attributes['id'] = Sanitizer::escapeId( "$fieldsetIDPrefix$key" );
-				}
-				$subsectionHtml .= Xml::fieldset( $legend, $section, $attributes ) . "\n";
 			}
 		}
 
@@ -1106,6 +1140,33 @@ class HTMLForm extends ContextSource {
 	public function setAction( $action ) {
 		$this->mAction = $action;
 		return $this;
+	}
+
+	/**
+	 * Get the value for the action attribute of the form.
+	 *
+	 * @since 1.22
+	 *
+	 * @return string
+	 */
+	public function getAction() {
+		global $wgScript, $wgArticlePath;
+
+		// If an action is alredy provided, return it
+		if ( $this->mAction !== false ) {
+			return $this->mAction;
+		}
+
+		// Check whether we are in GET mode and $wgArticlePath contains a "?"
+		// meaning that getLocalURL() would return something like "index.php?title=...".
+		// As browser remove the query string before submitting GET forms,
+		// it means that the title would be lost. In such case use $wgScript instead
+		// and put title in an hidden field (see getHiddenFields()).
+		if ( strpos( $wgArticlePath, '?' ) !== false && $this->getMethod() === 'get' ) {
+			return $wgScript;
+		}
+
+		return $this->getTitle()->getLocalURL();
 	}
 }
 

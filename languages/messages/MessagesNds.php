@@ -246,7 +246,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Wies de Tall vun Brukers, de op disse Siet oppasst',
 'tog-oldsig' => 'Gellen Ünnerschrift',
 'tog-fancysig' => 'Signatur as Wikitext behanneln (ahn automaatsch Lenk)',
-'tog-showjumplinks' => '„Wesseln-na“-Lenken tolaten',
 'tog-uselivepreview' => 'Live-Vörschau bruken (JavaScript) (Experimental)',
 'tog-forceeditsummary' => 'Segg mi bescheid, wenn ik keen Tosamenfaten geven heff, wat ik allens ännert heff',
 'tog-watchlisthideown' => 'Ännern vun mi sülvs op de Oppasslist nich wiesen',
@@ -527,17 +526,6 @@ En List vun de Spezialsieden gifft dat ünner [[Special:SpecialPages|{{int:speci
 # General errors
 'error' => 'Fehler',
 'databaseerror' => 'Fehler in de Datenbank',
-'dberrortext' => 'Dor weer en Syntaxfehler in de Datenbankaffraag.
-De Grund kann en Programmeerfehler ween
-De letzte Datenbankaffraag weer:
-
-<blockquote><tt>$1</tt></blockquote>
-
-ut de Funkschoon <tt>$2</tt>.
-MySQL mell den Fehler <tt>$3: $4</tt>.',
-'dberrortextcl' => 'Dor weer en Syntaxfehler in de Datenbankaffraag.
-De letzte Datenbankaffraag weer: $1 ut de Funkschoon <tt>$2</tt>.
-MySQL mell den Fehler: <tt>$3: $4</tt>.',
 'laggedslavemode' => 'Wohrschau: Disse Siet is villicht nich mehr op den ne’esten Stand.',
 'readonly' => 'Datenbank is sparrt',
 'enterlockreason' => 'Giff den Grund an, worüm de Datenbank sparrt warrn schall un taxeer, wo lang de Sparr duert',
@@ -586,7 +574,6 @@ Query: $2',
 'editinginterface' => "'''Wohrschau:''' Disse Siet bargt Text, de vun de MediaWiki-Software för ehr Böverflach bruukt warrt.
 Wat du hier ännerst, warkt sik op dat kumplette Wiki ut.
 Wenn du Text översetten wist, de betherto noch gornich översett is, denn maak dat opbest op [//translatewiki.net/wiki/Main_Page?setlang=nds translatewiki.net], dat Översett-Projekt vun MediaWiki.",
-'sqlhidden' => '(SQL-Affraag versteken)',
 'cascadeprotected' => 'Disse Siet is sperrt un kann nich ännert warrn. Dat kummt dorvun dat se in disse {{PLURAL:$1|Siet|Sieden}} inbunnen is, de över Kaskadensperr schuult {{PLURAL:$1|is|sünd}}:
 $2',
 'namespaceprotected' => "Du hest keen Rechten, Sieden in’n Naamruum '''$1''' to ännern.",
@@ -696,7 +683,7 @@ Tööv en Stoot, ehrdat du dat noch wedder versöchst.',
 'newpassword' => 'Nee Passwoort',
 'retypenew' => 'Nee Passwoort (nochmal)',
 'resetpass_submit' => 'Passwoort instellen un inloggen',
-'resetpass_success' => 'Dien Passwoort is mit Spood ännert worrn. Warrst nu anmellt …',
+'changepassword-success' => 'Dien Passwoort is mit Spood ännert worrn. Warrst nu anmellt …',
 'resetpass_forbidden' => 'Passwöör köönt nich ännert warrn.',
 'resetpass-no-info' => 'Du musst anmellt wesen, dat du disse Sied direkt opropen kannst.',
 'resetpass-submit-loggedin' => 'Passwoord ännern',
@@ -1164,9 +1151,6 @@ de aver nich jümmer den aktuellsten Stand weerspegelt.<p>',
 'recentchangesdays-max' => '(Maximal $1 {{PLURAL:$1|Dag|Daag}})',
 'recentchangescount' => 'Antall Ännern, de wiest warrt:',
 'prefs-help-recentchangescount' => 'Dor höört de Ne’esten Ännern, Versionsgeschichten un Logböker to.',
-'prefs-help-watchlist-token' => 'Wenn du in dit Feld in gehemen Slötel ingiffst, denn warrt för dien Oppasslist en RSS-Feed opstellt.
-Elkeen, de den Slötel kennt, kann denn dien Oppasslist ankieken. Söök di also en good Slötel ut.
-Hier is en Tofalls-Slötel, den du bruken kannst: $1',
 'savedprefs' => 'Allens spiekert.',
 'timezonelegend' => 'Tiedrebeed:',
 'localtime' => 'Oortstied:',

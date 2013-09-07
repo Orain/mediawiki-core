@@ -338,15 +338,18 @@
 			this.order = 0;
 			this.count = 0;
 
-			if ( $( this ).is( '.unsortable' ) ) {
+			if ( $( this ).hasClass( table.config.unsortableClass ) ) {
 				this.sortDisabled = true;
 			}
 
 			if ( !this.sortDisabled ) {
 				$( this )
 					.addClass( table.config.cssHeader )
-					.attr( 'title', msg[1] )
-					.prop( 'tabIndex', 0 ).attr( 'role', 'button' );
+					.prop( 'tabIndex', 0 )
+					.attr( {
+						role: 'columnheader button',
+						title: msg[1]
+					} );
 			}
 
 			// add cell to headerList
@@ -656,6 +659,7 @@
 				sortInitialOrder: 'asc',
 				sortMultiSortKey: 'shiftKey',
 				sortLocaleCompare: false,
+				unsortableClass: 'unsortable',
 				parsers: {},
 				widgets: [],
 				headers: {},
@@ -713,10 +717,9 @@
 					// Build headers
 					$headers = buildHeaders( table, sortMsg );
 
-					// Grab and process locale settings
+					// Grab and process locale settings.
 					buildTransformTable();
 					buildDateTable();
-					buildCollationTable();
 
 					// Precaching regexps can bring 10 fold
 					// performance improvements in some browsers.
@@ -724,6 +727,12 @@
 
 					function setupForFirstSort() {
 						firstTime = false;
+
+						// Defer buildCollationTable to first sort. As user and site scripts
+						// may customize tableSorterCollation but load after $.ready(), other
+						// scripts may call .tablesorter() before they have done the
+						// tableSorterCollation customizations.
+						buildCollationTable();
 
 						// Legacy fix of .sortbottoms
 						// Wrap them inside inside a tfoot (because that's what they actually want to be) &
@@ -746,7 +755,7 @@
 
 					// Apply event handling to headers
 					// this is too big, perhaps break it out?
-					$headers.filter( ':not(.unsortable)' ).on( 'keypress click', function ( e ) {
+					$headers.not( '.' + table.config.unsortableClass ).on( 'keypress click', function ( e ) {
 						if ( e.type === 'click' && e.target.nodeName.toLowerCase() === 'a' ) {
 							// The user clicked on a link inside a table header.
 							// Do nothing and let the default link click action continue.

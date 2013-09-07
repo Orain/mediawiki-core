@@ -72,7 +72,6 @@ $messages = array(
 'tog-shownumberswatching' => "Näütäq, ku pall'o pruukjit taa lehe perrä kaes",
 'tog-oldsig' => 'Parhillanõ alakirotus:',
 'tog-fancysig' => 'Pruugiq vikiteksti moodulist alakirotust (ilma automaatsõ lingildä)',
-'tog-showjumplinks' => 'Panõq lehe algustõ kipõqlingiq',
 'tog-uselivepreview' => 'Pruugiq kipõkaehust (JavaScript) (proomi)',
 'tog-forceeditsummary' => 'Annaq teedäq, ku olõ-i kirotõt kokkovõtõt',
 'tog-watchlisthideown' => 'Näüdäku-i perräkaemisnimekirän mu hindä toimõnduisi',
@@ -350,17 +349,6 @@ Olõmanolõvaq tallitusleheküleq ommaq löüdäq leheküle päält [[Special:Sp
 # General errors
 'error' => 'Viga',
 'databaseerror' => 'Teedüskogo viga',
-'dberrortext' => 'Teedüskogo perräküsümisen oll\' süntaksiviga.
-Perräküsümine oll\' viganõ vai om tarkvaran viga.
-Viimäne teedüskogo perräküsümine oll\':
-<blockquote><tt>$1</tt></blockquote>
-ja tuu tetti funktsioonist "<tt>$2</tt>".
-Teedüskogo and\' viateedüse "<tt>$3: $4</tt>".',
-'dberrortextcl' => 'Teedüskogo perräküsümisen oll\' süntaksiviga.
-Viimäne teedüskogo perräküsümine oll\':
-"$1"
-ja tuu tetti funktsioonist "$2".
-Teedüskogo and\' viateedüse "$3: $4".',
 'laggedslavemode' => 'Hoiatus: Taa lehe pääl pruugi-i ollaq perämäidsi muutmiisi.',
 'readonly' => 'Teedüskogo kirotuskaitsõ all',
 'enterlockreason' => 'Kirodaq lukkupandmisõ põhjus ja ligikaudnõ vallalõvõtmisõ aig',
@@ -405,7 +393,6 @@ Perräküsümine: $2',
 'viewsourcetext' => 'Võit kaiaq ja kopidaq taa lehe lättekoodi:',
 'protectedinterface' => "Taa lehe pääl om tarkvara pruukjapalgõ tekst. Leht om lukku pant, et taad saasi-i ärq ts'urkiq.",
 'editinginterface' => "'''Hoiatus:''' Sa toimõndat tarkvara pruukjapalgõ tekstiga lehte. Ku siin midä muudat, mõotas tuu pruukjapalõt. Ümbrepandmisõs tasos pruukiq MediaWiki ümbrepandmisõ tüüriista [//translatewiki.net/wiki/Main_Page?setlang=fiu-vro translatewiki.net].",
-'sqlhidden' => '(SQL-perräküsümine käkit)',
 'cascadeprotected' => 'Taa leht om kirotuskaidsõt, selle et taa {{PLURAL:$1|kuulus alanolõvidõ kaidsõtuidõ lehti hulka|kuulus alanolõvidõ kaidsõtuidõ lehti hulka}}:
 $2',
 'namespaceprotected' => "Sul olõ-i lubat toimõndaq nimeruumi '''$1''' lehti.",
@@ -503,7 +490,7 @@ Oodaq vähä inne ku proovit vahtsõst.",
 'newpassword' => 'Vahtsõnõ salasõna',
 'retypenew' => 'Kirodaq viilkõrd vahtsõnõ salasõna',
 'resetpass_submit' => 'Kirodaq salasõna ja mineq nimega sisse',
-'resetpass_success' => 'Salasõna vaihtaminõ läts kõrda.',
+'changepassword-success' => 'Salasõna vaihtaminõ läts kõrda.',
 'resetpass_forbidden' => 'Salasõnno saa-i muutaq.',
 'resetpass-no-info' => 'Taa lehe pääle päsemises piät olõma nimega sisse lännüq.',
 'resetpass-submit-loggedin' => 'Muudaq salasõnna',

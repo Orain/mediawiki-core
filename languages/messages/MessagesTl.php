@@ -10,6 +10,7 @@
  * @author AnakngAraw
  * @author Dosmiin Barsbold
  * @author Felipe Aira
+ * @author Jojit fb
  * @author Kaganer
  * @author Sky Harbor
  * @author tl.wikipedia.org sysops
@@ -174,7 +175,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Ipakita ang bilang ng mga nagbabantay na tagagamit',
 'tog-oldsig' => 'Umiiral na lagda:',
 'tog-fancysig' => 'Ituring ang lagda bilang teksto ng wiki (walang automatikong pagkawing)',
-'tog-showjumplinks' => 'Payagan ang mga "tumalon sa" na kawing pampagamit',
 'tog-uselivepreview' => 'Gamitin ang buhay na paunang tingin (JavaScript) (Eksperimental)',
 'tog-forceeditsummary' => 'Pagsabihan ako kapag nagpapasok ng walang-lamang buod ng pagbabago',
 'tog-watchlisthideown' => 'Itago ang aking mga pagbabago mula sa tala ng mga binabantayan',
@@ -482,17 +482,6 @@ Matatagpuan ang isang tala ng mga tamang natatanging pahina sa [[Special:Special
 # General errors
 'error' => 'Kamalian',
 'databaseerror' => 'Kamalian sa kalipunan ng datos',
-'dberrortext' => 'Naganap ang isang pagkakamali sa pag-uusisa na pampalaugnayan sa kalipunan ng datos.
-Maaaring magpahiwatig ito ng isang surot sa loob ng sopwer.
-Ang huling tinangkang pag-uusisa sa kalipunan ng datos ay:
-<blockquote><code>$1</code></blockquote>
-magmula sa loob ng tungkuling "<code>$2</code>".
-Nagbalik ang kalipunan ng dato ng kamalian na "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Nagkaroon po ng isang pagkakamali sa usisang pampalaugnayan sa kalipunan ng datos.
-Ang huling sinubukang paguusisa sa kalipunan ng datos ay:
-"$1"
-mula sa gawaing "$2".
-Ibinalik ng kalipunan ng datos ang kamaliang "$3: $4"',
 'laggedslavemode' => "'''Babala:''' Maaaring hindi naglalaman ang pahina ng mga huling dagdag.",
 'readonly' => 'Nakakandado ang kalipunan ng datos',
 'enterlockreason' => 'Maglagay ng dahilan sa pagkakandado, kasama ang taya kung kailan magtatapos ang pagkakandado',
@@ -548,7 +537,6 @@ Pakisubok na lang ulit pagkaraan ng kaunting mga minuto.",
 'editinginterface' => "'''Babala:''' Binabago mo ang isang pahinang ginagamit sa pagbibigay ng tekstong panghangganan para sa sopwer.
 Makaaapekto ang mga pagbago sa pahinang ito sa anyo ng hangganang (''interface'') pantagagamit na para sa ibang mga tagagamit sa wiking ito.
 Upang magdagag o magbago ng mga salinwika, isaaalang-alang na lang po ang paggamit ng [//translatewiki.net/wiki/Main_Page?setlang=en translatewiki.net], ang proyekto para sa lokalisasyon ng MediaWiki.",
-'sqlhidden' => '(nakatago ang tanong ng SQL)',
 'cascadeprotected' => 'Nakasanggalang ang pahinang ito mula sa mga pagbabago, dahil kabilang ito sa sumusunod na {{PLURAL:$1|pahinang|mga pahinang}} nakasanggalang sa pamamagitan ng binuhay na opsyong "nahuhulog" (kumakaskada):
 $2',
 'namespaceprotected' => "Wala kang pahintulot na magbago ng mga pahinang nasa ngalan-espasyong '''$1'''.",
@@ -588,7 +576,6 @@ Huwag kalimutang baguhin ang iyong [[Special:Preferences|mga kagustuhan sa {{SIT
 'createacct-yourpasswordagain' => 'Tiyakin ang hudyat',
 'remembermypassword' => 'Tandaan ang paglagda ko sa kompyuter na ito (pinakamarami na ang $1 {{PLURAL:$1|araw|mga araw}})',
 'userlogin-remembermypassword' => 'Panatilihin akong nakalagda',
-'securelogin-stick-https' => 'Manatiling konektado sa HTTPS matapos lumagda',
 'yourdomainname' => 'Dominyo mo:',
 'password-change-forbidden' => 'Hindi mo maaaring palitan ang mga hudyat sa wiking ito.',
 'externaldberror' => 'Maaaring may kamalian sa pagpapatotoo ng kalipunan ng mga dato o kaya hindi ka pinahintulutang isapanahon ng iyong panlabas na kuwenta o patnugutan.',
@@ -618,14 +605,14 @@ Huwag kalimutang baguhin ang iyong [[Special:Preferences|mga kagustuhan sa {{SIT
 Pumili po ng ibang pangalan.',
 'loginerror' => 'Kamalian sa paglagda',
 'createaccounterror' => 'Hindi mailikha ang kuwenta: $1',
-'nocookiesnew' => "Nilikha na ang kuwentang pantagagamit, ngunit hindi ka nakalagda.
-Gumagamit ang {{SITENAME}} ng mga kuki (''cookies'') para mailagda ang mga tagagamit.
-Hindi mo pinagagana ang mga kuki.
-Paki-andar mo po ang mga ito, pagkatapos ay lumagda na gamit ang bago mong pangalan ng tagagamit at hudyat.",
+'nocookiesnew' => "Nalikha ang kuwenta ng tagagamit, ngunit hindi ka nakalagda.
+Gumagamit ang {{SITENAME}} ng mga kuki (''cookies'') upang makalagda ang mga tagagamit.
+Hindi pinapagana ng pambasa-basa mo ang mga kuki.
+Paganahin ito ang subukang lumagda na kasama ang bagong bansag (''username'') at hudyat (''password'').",
 'nocookieslogin' => "Gumagamit ang {{SITENAME}} ng mga kuki (''cookies'') para mailagda ang mga tagagamit.
 Hindi mo pinagagana ang mga kuki.
 Paki-andar mo ang mga ito at sumubok uli.",
-'nocookiesfornew' => 'Hindi nalikha ang kuwenta ng tagagamit, dahil hindi namin matiyak ang pinagmulan nito.
+'nocookiesfornew' => 'Hindi nalikha ang kuwenta ng tagagamit, dahil hindi namin matiyak ang pinagmulan nito. 
 Tiyaking mayroon kang pinagaganang mga kuki, ikarga muli ang pahinang ito at subukan muli.',
 'nocookiesforlogin' => '{{int:nocookieslogin}}',
 'noname' => 'Hindi mo tinukoy ang isang tanggap na pangalan ng tagagamit.',
@@ -705,7 +692,7 @@ Para tapusin ang paglagda, dapat kang magtakda ng isang bagong hudyat dito:',
 'newpassword' => 'Bagong hudyat:',
 'retypenew' => 'Ipasok muli ang bagong hudyat:',
 'resetpass_submit' => 'Itakda ang hudyat at lumagda',
-'resetpass_success' => 'Matagumpay na nabago ang iyong hudyat!  Inilalagda ka na ngayon...',
+'changepassword-success' => 'Matagumpay na nabago ang iyong hudyat!  Inilalagda ka na ngayon...',
 'resetpass_forbidden' => 'Hindi mababago ang mga hudyat',
 'resetpass-no-info' => 'Nakalagda ka dapat para tuwirang mapuntahan ang pahina ito.',
 'resetpass-submit-loggedin' => 'Baguhin ang hudyat',
@@ -834,17 +821,15 @@ Maaaring inilipat o ibinura ito habang tinitingnan mo ang pahina.',
 'loginreqlink' => 'lumagda/tumala',
 'loginreqpagetext' => 'Kailangan mong $1 para matanaw ang ibang mga pahina.',
 'accmailtitle' => 'Ipinadala na ang hudyat.',
-'accmailtext' => "Ipinadala na sa $2 ang isang hudyat na nilikha ng pagkakataon para kay [[User talk:$1|$1]].
-
-Ang hudyat para sa bagong akawnt na ito ay mababago sa pahina ng ''[[Special:ChangePassword|mga nais ko]]'' kapag lumagdang papasok.",
+'accmailtext' => "Ipinadala na sa $2 ang isang hudyat na nilikha ng pagkakataon para kay [[User talk:$1|$1]].  Maaari itong baguhin sa pahinang ''[[Special:ChangePassword|palitan ng hudyat]]'' kapag lumagdang papasok.",
 'newarticle' => '(Bago)',
 'newarticletext' => "Sinundan mo ang isang kawing para sa isang pahinang hindi pa umiiral.
 Para likhain ang pahina, magsimulang magmakinilya sa loob ng kahong nasa ibaba (tingnan ang [[{{MediaWiki:Helppage}}|pahina ng tulong]] para sa mas maraming kabatiran).
 Kung napunta ka rito dahil sa pagkakamali, pakipindot ang pinduntang '''balik''' ('''''back''''') ng iyong pantingin-tingin (''browser'').",
-'anontalkpagetext' => "Usapan ito para sa isang hindi nakikilalang tagagamit na hindi pa lumilikha ng kuwenta/akawnt, o kaya hindi ito ginagamit.
-Kaya't kinailangan naming gamitin ang may bilang na adres ng IP para makilala siya.
-Maaaring pagsaluhan ng ilang mga tagagamit ang ganyang adres ng IP.
-Kung isa kang hindi nagpapakilalang tagagamit at nakadaramang may mga walang saysay na puna/kumentong patungkol sa iyo, [[Special:UserLogin/signup|pakilikha ng isang kuwenta]] o [[Special:UserLogin|lumagda]] para maiwasan ang kalituhan o mapagkamalan ka bilang ibang hindi nakikilalang mga tagagamit sa hinaharap.",
+'anontalkpagetext' => "Ito ang pahinang usapan para sa isang hindi nakikilalang tagagamit na hindi pa lumilikha ng kuwenta, o kaya hindi ito ginagamit.
+Kaya't kinailangan naming gamitin ang may bilang na direksiyonng IP para makilala siya.
+Maaaring pagsaluhan ng ilang mga tagagamit ang ganiyang  direksiyong IP.
+Kung isa kang hindi nagpapakilalang tagagamit at nakadaramang may mga walang saysay na komentong patungkol sa iyo, [[Special:UserLogin/signup|pakilikha ng isang kuwenta]] o [[Special:UserLogin|lumagda]] para maiwasan ang kalituhan o mapagkamalan ka bilang ibang hindi nakikilalang mga tagagamit sa hinaharap.",
 'noarticletext' => 'Kasalukuyang walang teksto sa loob ng pahinang ito.
 Maaari mong [[Special:Search/{{PAGENAME}}|hanapin ang pamagat ng pahinang ito]] sa loob iba pang mga pahina,
 <span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} maghanap sa kaugnay na mga talaan],
@@ -943,8 +928,8 @@ Ang pinakahuling entrada sa talaan ay ibinigay sa baba para sa inyong pagsasangg
 'hiddencategories' => 'Ang pahinang ito ay kasapi sa {{PLURAL:$1|1 nakatagong kategorya|$1 nakatagong kategorya}}:',
 'edittools' => '<!-- Ang teksto rito ay ipapakita sa ilalim ng mga pormularyo ng pagbabago at pagkarga. -->',
 'edittools-upload' => '-',
-'nocreatetext' => 'Naglagay ng hangganan (restriksyon/limitasyon) ang {{SITENAME}} sa kakayahang makalikha ng bagong mga pahina.
-Maaari kang bumalik at magbago ng isang umiiral na pahina, o kaya [[Special:UserLogin|lumagda o lumikha ng kuwenta/akawnt]].',
+'nocreatetext' => "Naglagay ng hangganan (restriksyon/limitasyon) ang {{SITENAME}} sa kakayahang makalikha ng bagong mga pahina.
+Maaari kang bumalik at magbago ng isang umiiral na pahina, o kaya [[Special:UserLogin|lumagda o lumikha ng kuwenta (''account'')]].",
 'nocreate-loggedin' => 'Wala kang pahintulot para lumikha ng bagong mga pahina.',
 'sectioneditnotsupported-title' => 'Hindi sinusuportahan ang pagpapatnugot ng seksyon',
 'sectioneditnotsupported-text' => 'Hindi sinusuportahan ang pagpapatnugot ng seksyon sa pahinang ito.',
@@ -1291,7 +1276,6 @@ Subuking lagyan ng unlapi/paunang ''all:'' upang hanapin ang lahat ng mga nialal
 'recentchangesdays-max' => '(pinakamataas na ang $1 {{PLURAL:$1|araw|mga araw}})',
 'recentchangescount' => 'Bilang ng mga pagbabagong ipapakita sa pamamagitan ng likas na katakdaan:',
 'prefs-help-recentchangescount' => 'Kasama nito ang mga huling binago, kasaysayan ng mga pahina, at mga tala.',
-'prefs-help-watchlist-token' => "Ang pagpupuno sa lugar na ito na ginagamitan ng lihim na susi ay lilikha ng pakaing RSS para sa iyong talaan ng mga binabantayan.  Ang sinumang nakakaalam ng susi sa loob ng lugar na ito ay makababasa ng iyong talaan ng mga binabantayan, kaya't pumili ng ligtas na halaga.  Narito ang magagamit mong isang halagang nilikha ng pagkakataon: $1",
 'savedprefs' => 'Nasagip na ang mga kagustuhan mo.',
 'timezonelegend' => 'Sona ng oras:',
 'localtime' => 'Lokal na oras:',
@@ -1387,7 +1371,7 @@ Kung pipiliin mong ibigay ito, gagamitin ito para mabigyan ka ng pagkilala para 
 'userrights-no-interwiki' => 'Wala kang pahintulot na baguhin ang mga karapatan ng tagagamit sa ibang mga wiki.',
 'userrights-nodatabase' => 'Hindi umiiral o hindi lokal ang kalipunan ng datos na $1',
 'userrights-nologin' => 'Kailangang [[Special:UserLogin|nakalagda ka]] bilang tagapangasiwa upang maitalaga ang mga karapatan ng tagagamit.',
-'userrights-notallowed' => 'Walang pahintulot ang akawnt mo na magdagdag o magtanggal ng mga karapatan ng tagagamit.',
+'userrights-notallowed' => 'Wala kang pahintulot na magdagdag o magtanggal ng mga karapatan ng tagagamit.',
 'userrights-changeable-col' => 'Mga pangkat na maaari mong baguhin',
 'userrights-unchangeable-col' => 'Mga pangkat na hindi mo mababago',
 'userrights-irreversible-marker' => '$1*',
@@ -2148,10 +2132,10 @@ Maaaring may mga [[{{MediaWiki:Listgrouprights-helppage}}|karagdagang kabatiran]
 'listgrouprights-removegroup' => 'Maaaring tanggalin ang {{PLURAL:$2|pangkat|mga pangkat}} na: $1',
 'listgrouprights-addgroup-all' => 'Maaaring idagdag ang lahat ng mga pangkat',
 'listgrouprights-removegroup-all' => 'Maaaring tanggalin ang lahat ng mga pangkat',
-'listgrouprights-addgroup-self' => 'Idagdag ang {{PLURAL:$2|pangkat|mga pangkat}} na magmamay-ari ng akawnt: $1',
-'listgrouprights-removegroup-self' => 'Tanggalin ang {{PLURAL:$2|pangkat|mga pangkat}} mula sa sariling akawnt: $1',
-'listgrouprights-addgroup-self-all' => 'Idagdag ang lahat ng mga pangkat sa sariling akawnt',
-'listgrouprights-removegroup-self-all' => 'Alisin ang lahat ng mga pangkat mula sa sariling akawnt',
+'listgrouprights-addgroup-self' => 'Idagdag ang {{PLURAL:$2|pangkat|mga pangkat}} sa sariling kuwenta: $1',
+'listgrouprights-removegroup-self' => 'Tanggalin ang {{PLURAL:$2|pangkat|mga pangkat}} mula sa sariling kuwenta: $1',
+'listgrouprights-addgroup-self-all' => 'Idagdag ang lahat ng mga pangkat sa sariling kuwenta',
+'listgrouprights-removegroup-self-all' => 'Alisin ang lahat ng mga pangkat mula sa sariling kuwenta',
 
 # Email user
 'mailnologin' => 'Walang adres na mapagpapadalahan',
@@ -2346,7 +2330,7 @@ Tingnan ang [[Special:ProtectedPages|talaan ng pinuprutektahang mga pahina]] par
 Narito ang mga pangkasalukuyang pagtatakda para sa pahinang '''$1''':",
 'protect-locked-dblock' => "Hindi mababago ang mga antas ng panananggalang dahil sa isang umiiral na pagkandado ng kalipunan ng dato.
 Narito ang pangkasalukuyang mga pagtatakda para sa pahinang '''$1''':",
-'protect-locked-access' => "Wala kapahintulutan ang iyong kuwenta/patnugutan/akawnt para makapagbago ng mga antas ng panananggalang ng pahina.
+'protect-locked-access' => "Wala kapahintulutan ang iyong kuwenta para makapagbago ng mga antas ng panananggalang ng pahina.
 Narito ang pangkasalukuyang mga pagtatakda para sa pahinang '''$1''':",
 'protect-cascadeon' => 'Kasalukuyang nakasanggalang na ang pahinang ito dahil kabilang/kasama ito sa sumusunod na {{PLURAL:$1|pahinang may|mga pahinang may}} buhay/umiiral na baita-baitang na mga panananggalang.
 Maaari mong baguhin ang antas ng panananggalang ng pahina, ngunit hindi ito makakaapekto sa baita-baitang na panananggalang.',
@@ -2460,7 +2444,7 @@ $1',
 
 'sp-contributions-newbies' => 'Ipakita ang mga ambag ng mga bagong kuwenta lamang',
 'sp-contributions-newbies-sub' => 'Para sa mga bagong kuwenta',
-'sp-contributions-newbies-title' => 'Mga ambag ng tagagamit para sa mga bagong kuwenta/akawnt',
+'sp-contributions-newbies-title' => 'Mga ambag ng tagagamit para sa mga bagong kuwenta',
 'sp-contributions-blocklog' => 'Tala ng paglipat',
 'sp-contributions-deleted' => 'naburang mga ambag ng tagagamit',
 'sp-contributions-uploads' => 'mga ikinargang paitaas',
@@ -2552,7 +2536,7 @@ Tingnan ang [[Special:BlockList|talaan ng mga hinadlangan]] upang suriin ang mga
 'blocklist' => 'Hinahadlangang mga tagagamit',
 'ipblocklist' => 'Hinahadlangang mga tagagamit',
 'ipblocklist-legend' => 'Hanapin ang isang hinarang na tagagamit',
-'blocklist-userblocks' => 'Itago ang mga paghahadlang ng akawnt',
+'blocklist-userblocks' => 'Itago ang mga paghaharang ng kuwenta',
 'blocklist-tempblocks' => 'Pansamantalang ikubli ang mga pagharang',
 'blocklist-addressblocks' => 'Itago ang isahang mga paghadlang sa IP',
 'blocklist-rangeblocks' => 'Itago ang mga tipak ng nasasaklawan',
@@ -2569,7 +2553,7 @@ Tingnan ang [[Special:BlockList|talaan ng mga hinadlangan]] upang suriin ang mga
 'expiringblock' => 'magtatapos sa $1 sa ganap na $2',
 'anononlyblock' => 'di kilala lamang',
 'noautoblockblock' => 'hindi gumagana ang awtomatikong pagharang',
-'createaccountblock' => 'Hinarang ang paglikha ng akawnt',
+'createaccountblock' => 'isinalanta ang paglikha ng kuwenta',
 'emailblock' => 'Hinarang/hinadlangan ang e-liham',
 'blocklist-nousertalk' => 'hindi mo mababago ang iyong pansariling pahina ng usapan',
 'ipblocklist-empty' => 'Walang laman ang talaan ng pagharang/paghadlang.',
@@ -2593,7 +2577,7 @@ Hindi nakalista ang mga tirahan ng IP ng kusang hinadlangan.
 Tingnan ang [[Special:BlockList|talaan ng pagharang]] para sa lista ng kasalukuyang may bisa na mga pagbabawal at mga paghadlang.',
 'unblocklogentry' => 'tinanggal ang pagharang/paghadlang kay $1',
 'block-log-flags-anononly' => 'mga di-kilalang tagagamit lamang',
-'block-log-flags-nocreate' => 'Nakapatay ang paglikha ng akawnt',
+'block-log-flags-nocreate' => 'isinalanta ang paglikha ng kuwenta',
 'block-log-flags-noautoblock' => 'Nakapatay ang awtomatikong pagharang',
 'block-log-flags-noemail' => 'hinadlangan/hinarang ang e-liham',
 'block-log-flags-nousertalk' => 'hindi mo mababago ang iyong pansariling pahina ng usapan',
@@ -2602,7 +2586,7 @@ Tingnan ang [[Special:BlockList|talaan ng pagharang]] para sa lista ng kasalukuy
 'range_block_disabled' => 'Hindi gumagana ang kakayahan ng tagapangasiwa para makalikha ng mga pagharang/paghadlang na may sakop.',
 'ipb_expiry_invalid' => 'Hindi tama ang oras ng pagtatapos.',
 'ipb_expiry_temp' => 'Kinakailangang pamalagian ang mga nakatagong paghadlang ng pangalan ng tagagamit.',
-'ipb_hide_invalid' => 'Hindi nasupil ang akawnt na ito; maaaring mayroon itong napakaraming mga pagbabago.',
+'ipb_hide_invalid' => 'Hindi maisupil ang kuwentang ito; maaaring may napakaraming pagbabago ito.',
 'ipb_already_blocked' => 'Nakaharang na ang "$1"',
 'ipb-needreblock' => 'Hinarang/hinadlangan na si $1.  Ibig mo bang baguhin ang mga pagtatakda?',
 'ipb-otherblocks-header' => 'Ibang {{PLURAL:$1|harang|mga harang}}',
@@ -3919,7 +3903,7 @@ Dapat na nakatanggap ka ng [{{SERVER}}{{SCRIPTPATH}}/COPYING isang sipi ng Pangk
 * <span class="mw-specialpagerestricted">Pinaghihigpitang natatanging mga pahina.</span>',
 'specialpages-group-maintenance' => 'Mga pagpapanatiling ulat',
 'specialpages-group-other' => 'Iba pang natatanging mga pahina',
-'specialpages-group-login' => 'Lumagda / lumikha ng akawnt',
+'specialpages-group-login' => 'Lumagda / lumikha ng kuwenta',
 'specialpages-group-changes' => 'Mga huling binago at mga tala',
 'specialpages-group-media' => 'Mga ulat ng midya at mga pagkarga',
 'specialpages-group-users' => 'Mga tagagamit at mga karapatan',
@@ -4022,7 +4006,7 @@ Dapat na nakatanggap ka ng [{{SERVER}}{{SCRIPTPATH}}/COPYING isang sipi ng Pangk
 'logentry-newusers-newusers' => 'Nilikha ang kuwenta ng tagagamit na $1',
 'logentry-newusers-create' => 'Lumikha si $1 ng isang kuwenta ng tagagamit',
 'logentry-newusers-create2' => 'Lumikha si $1 ng isang kuwenta ng tagagamit na $3',
-'logentry-newusers-autocreate' => 'Kusang nalikha ang akawnt na $1',
+'logentry-newusers-autocreate' => 'Automatikong {{GENDER:$2|inilikha}} ang kuwenta ng tagagamit na $1',
 'rightsnone' => '(wala)',
 
 # Feedback

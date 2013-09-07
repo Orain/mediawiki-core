@@ -156,7 +156,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Jarraitzen duen erabiltzaile kopurua erakutsi',
 'tog-oldsig' => 'Egungo sinadura:',
 'tog-fancysig' => 'Sinadura wikitestu gisa tratatu (lotura automatikorik gabe)',
-'tog-showjumplinks' => '"Hona jo" irisgarritasun loturak gaitu',
 'tog-uselivepreview' => 'Zuzeneko aurrebista erakutsi (JavaScript) (Proba fasean)',
 'tog-forceeditsummary' => 'Aldaketaren laburpena zuri uzterakoan ohartarazi',
 'tog-watchlisthideown' => 'Segimendu zerrendan nire aldaketak ezkutatu',
@@ -456,17 +455,6 @@ Existitzen direnen zerrenda ikus dezakezu  [[Special:SpecialPages|{{int:specialp
 # General errors
 'error' => 'Errorea',
 'databaseerror' => 'Datu-base errorea',
-'dberrortext' => 'Datu-basean kontsulta egiterakoan sintaxi errore bat gertatu da. 
-Baliteke softwareak bug bat izatea. 
-Datu-basean egindako azken kontsulta:
-<blockquote><code>$1</code></blockquote>
-funtzio honekin: "<code>$2</code>".
-Datu-baseak emandako errorea: "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Datu-basean kontsulta egiterakoan sintaxi errore bat gertatu da.
-Datu-basean egindako azken kontsulta:
-"$1"
-funtzio honekin: "$2".
-Datu-baseak emandako errore informazioa: "$3: $4"',
 'laggedslavemode' => 'Oharra: Baliteke orrialde honetan azken aldaketak ez erakustea.',
 'readonly' => 'Datu-basea blokeatuta dago',
 'enterlockreason' => 'Zehaztu blokeatzeko arrazoia, noiz kenduko den jakinaraziz',
@@ -521,7 +509,6 @@ Wiki guztientzako aldaketak egin edo gehitzeko, mesedez erabili [//translatewiki
 'editinginterface' => "'''Oharra:''' Softwarearen interfazerako testua duen orri bat aldatzen ari zara.
 Orri honetako aldaketek wiki honetako erabiltzaile guztiei eragingo diete.
 Itzulpenetarako, erabil ezazu [//translatewiki.net/ translatewiki.net], MediaWiki proiektuan.",
-'sqlhidden' => '(ezkutuko SQL kontsulta)',
 'cascadeprotected' => "Orrialde hau aldaketen aurka babestua dago, ''kaskada'' aukerarekin babestu {{PLURAL:$1|duten orrialde honetan|dituzten orrialde hauetan}} txertaturik dagoelako:
 $2",
 'namespaceprotected' => "Ez daukazu '''$1''' izen-tarteko orrialdeak aldatzeko baimenik.",
@@ -556,6 +543,7 @@ Ez ezazu ahaztu zure [[Special:Preferences|{{SITENAME}} hobespenak]] aldatzea.',
 'yourname' => 'Erabiltzaile izena',
 'userlogin-yourname' => 'Erabiltzale izena',
 'userlogin-yourname-ph' => 'Sartu zure erabiltzaile izena',
+'createacct-another-username-ph' => 'Lankide-izena idatzi',
 'yourpassword' => 'Pasahitza:',
 'userlogin-yourpassword' => 'Pasahitza',
 'userlogin-yourpassword-ph' => 'Sartu zuren pasahitza',
@@ -566,7 +554,6 @@ Ez ezazu ahaztu zure [[Special:Preferences|{{SITENAME}} hobespenak]] aldatzea.',
 'remembermypassword' => 'Nire saioa ordenagailu honetan gogoratu ({{PLURAL:$1|egun baterako|$1 egunetarako }} gehienez)',
 'userlogin-remembermypassword' => 'Manten nazazu barruan',
 'userlogin-signwithsecure' => 'Erabili konexio ziurra',
-'securelogin-stick-https' => 'Mantendu konektatua HTTPSra sartu ondoren',
 'yourdomainname' => 'Zure domeinua',
 'password-change-forbidden' => 'Ezin duzu pasahitzarik aldatu wiki honetan.',
 'externaldberror' => 'Kanpoko datu-base autentifikazio errorea gertatu da edo ez duzu zure kanpo kontua eguneratzeko baimenik.',
@@ -593,6 +580,7 @@ Ez ezazu ahaztu zure [[Special:Preferences|{{SITENAME}} hobespenak]] aldatzea.',
 'createacct-emailrequired' => 'E-posta helbidea',
 'createacct-emailoptional' => 'E-posta helbidea (hautazkoa)',
 'createacct-email-ph' => 'Sartu zure e-posta helbidea',
+'createacct-another-email-ph' => 'Posta elektronikoaren helbidea sartu',
 'createaccountmail' => 'Erabili behin-behineko pasahitz ausazko bat eta bidali behean agertzeko den e-posta helbidera',
 'createacct-realname' => 'Benetako izena (hautazkoa)',
 'createaccountreason' => 'Arrazoia:',
@@ -601,6 +589,7 @@ Ez ezazu ahaztu zure [[Special:Preferences|{{SITENAME}} hobespenak]] aldatzea.',
 'createacct-captcha' => 'Segurtasun froga',
 'createacct-imgcaptcha-ph' => 'Sartu gainean ikusten duzun testua',
 'createacct-submit' => 'Kontua sortu',
+'createacct-another-submit' => 'Beste kontu bat sortu',
 'createacct-benefit-heading' => '{{SITENAME}} zu bezalako pertsonek egiten dute.',
 'createacct-benefit-body1' => '{{PLURAL:$1|edizio bat|$1 edizio}}',
 'createacct-benefit-body2' => '{{PLURAL:$1|Orrialde 1|$1 orrialde}}',
@@ -688,7 +677,7 @@ Berriro saiatu aurretik itxaron ezazu, mesedez.',
 'newpassword' => 'Pasahitz berria:',
 'retypenew' => 'Pasahitz berria berriz idatzi:',
 'resetpass_submit' => 'Pasahitza definitu eta saioa hasi',
-'resetpass_success' => 'Zure pasahitza aldatu egin da! Saioa hasten...',
+'changepassword-success' => 'Zure pasahitza aldatu egin da! Saioa hasten...',
 'resetpass_forbidden' => 'Ezin dira pasahitzak aldatu',
 'resetpass-no-info' => 'Orrialde honetara zuzenean sartzeko izena eman behar duzu.',
 'resetpass-submit-loggedin' => 'Pasahitza aldatu',

@@ -118,7 +118,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Ozutada niiden kävutajiden lugu, kudambad oma mülütanuded lehtpolen ičeze kaclendnimikirjutesihe',
 'tog-oldsig' => 'Nügüdläine allekirjutez',
 'tog-fancysig' => 'Ičeze allekirjutesen wiki-znamišt (avtomatižeta kosketuseta)',
-'tog-showjumplinks' => 'Ližata "hüpähtada..."-abukosketused',
 'tog-uselivepreview' => 'Kävutada hered ezikacund (JavaScript) (Eksperimentaline)',
 'tog-forceeditsummary' => 'Varutada, kunz toižetusen ümbrikirjutandan pöud ei ole täuttud',
 'tog-watchlisthideown' => 'Peitta minun redakcijad kaclendnimikirjutesespäi',
@@ -400,11 +399,6 @@ Kc. [[Special:SpecialPages|specialižiden lehtpoliden nimikirj]].",
 # General errors
 'error' => 'Petuz',
 'databaseerror' => 'Andmusiden bazan petuz',
-'dberrortextcl' => 'Andmusiden bazas ectes ozaižihe petuz.
-Jäl\'gmäine ecind andmusiden bazas oli:
-"$1"
-funkcijaspäi "$2".
-Andmusiden baz pördi petusen "$3: $4"',
 'laggedslavemode' => "Varutuz: voib olda, lehtpolen versijal ei ole jäl'gmäižid ližadusid.",
 'readonly' => 'Andmusiden baz om luklostadud',
 'enterlockreason' => 'Kirjutagat sü da pandud blokiruindan strok',
@@ -452,7 +446,6 @@ Ecind: $2',
 'editinginterface' => "'''Homaikat:''' Tö ladit redaktiruida lehtpol't, kudambal om programman interfeistekst.
 Mugoi tegend toižetab interfeisan irdnägu toižiden kävutajiden täht.
 Kändmižen täht om paremb kävutada [//translatewiki.net/wiki/Main_Page?setlang=vep translatewiki.net] - MediaWikin lokalizacijan projekt.",
-'sqlhidden' => '(SQL-küzelend om peittud)',
 'namespaceprotected' => "Teil ei ole oiktust redaktiruida lehtpolid '''$1'''-nimiavaruses.",
 'customcssprotected' => 'Teil ei ole oiktust redaktiruida nece CSS-lehtpol’, sikš sil oma toižen ühtnijan personaližed järgendused.',
 'customjsprotected' => 'Teil ei ole oiktust redaktiruida nece JavaScript-lehtpol’, sikš sil oma toižen ühtnijan personaližed järgendused.',
@@ -474,7 +467,6 @@ Otkat sil'mnägubale, miše erasid lehtpolid ozutaškatas mugažo, kut i edel te
 'yourpassword' => 'Peitsana:',
 'yourpasswordagain' => 'Kirjutagat peitsana udes:',
 'remembermypassword' => 'Panda muštho minun tulendandmused neciš kompjuteras (enintään $1 {{PLURAL:$1|päivä|päivää}})',
-'securelogin-stick-https' => "Jäda sidotud HTTPS-ha tulendan jäl'ghe",
 'yourdomainname' => 'Teiden domen:',
 'externaldberror' => 'Ozaižihe petuz autentifikacijan, kudamb tehtihe andmusiden irdbazan turbiš, aigan, vai teile ei ulotu oiktusid toižetada ičetoi irdregistracijad.',
 'login' => 'Kirjutadas sistemha',
@@ -556,7 +548,7 @@ Miše tulda sistemha lopuližikš, teile pidab säta uz' peitsana naku:",
 'newpassword' => "Uz' peitsana:",
 'retypenew' => "Toštkat uz' peitsana:",
 'resetpass_submit' => 'Säta peitsana da kirjutadas sistemha',
-'resetpass_success' => 'Teiden peisana om vajehtadud jügedusita! Tulend sistemha...',
+'changepassword-success' => 'Teiden peisana om vajehtadud jügedusita! Tulend sistemha...',
 'resetpass_forbidden' => 'Ei voi vajehtada peitsanad',
 'resetpass-no-info' => 'Miše kirjutada necil lehtpolel, teile pidab kirjutadas sistemha.',
 'resetpass-submit-loggedin' => 'Vajehtada peitsana',

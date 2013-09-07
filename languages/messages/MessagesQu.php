@@ -295,7 +295,6 @@ $messages = array(
 'tog-shownumberswatching' => "Rikuchiy hayk'a watiqaq ruraqkuna",
 'tog-oldsig' => "Kachkaqña silq'uy:",
 'tog-fancysig' => "Silq'uyta wiki qillqa hinata llamk'achiy (mana kikinmanta t'inkichaq silq'uy)",
-'tog-showjumplinks' => "«Chayman phinkiy» aypanalla t'inkikunata saqillay",
 'tog-uselivepreview' => "''Live preview'' nisqa ñawpaq qhawayta llamk'achiy (JavaScript) (llamiy aknaraq)",
 'tog-forceeditsummary' => "Ch'usaq llamk'apuy waqaychasqa kachkaptinqa ch'itiyay.",
 'tog-watchlisthideown' => "Watiqasqaykunapiqa ñuqap llamk'apusqaykunata pakay",
@@ -596,17 +595,6 @@ Allin sapaq p'anqakunataqa tarinki [[Special:SpecialPages|Sapaq p'anqakuna]] nis
 # General errors
 'error' => 'Pantasqa',
 'databaseerror' => 'Willañiqintin pantasqa',
-'dberrortext' => 'Willañiqimanta mañakuptiyki sintaksis pantasqam tukurqan.
-Llamp\'u kaq wakichipi pantasqachá.
-Qayna willañiqimanta mañakusqaqa karqan kaypacham:
-<blockquote><code>$1</code></blockquote>
-kay ruraypim: "<code>$2</code>".
-Willañiqintinpa kutichisqan pantasqaqa karqan "<samp>$3: $4</samp>".',
-'dberrortextcl' => 'Willañiqimanta mañakuptiyki sintaksis pantasqam tukurqan.
-Qayna willañiqimanta mañakusqaqa karqan kaymi:
-"$1"
-kay ruraymantam: "$2".
-MySQL-pa kutichisqan pantasqaqa karqan "$3: $4".',
 'laggedslavemode' => "'''Paqtataq''': Kay p'anqapiqa manaraqchá kachkanchu aswan qayna musuqchasqakuna.",
 'readonly' => "Willañiqintinqa hark'asqam",
 'enterlockreason' => "Qillqamuy imarayku hark'asqa karqan, hayk'appas manañachá hark'asqachu kanqa",
@@ -660,7 +648,6 @@ Tukuy wikikunapi uyapuraman t'ikrasqakunata yapayta icha hukchayta munaspaykiqa,
 'editinginterface' => "'''Paqtataq:''' Llamp'u kaqpaq uyapura qillqakuna ruranapaq p'anqatam llamk'apuchkanki.
 Hukchaptiykiqa, chay uyapurap rikch'ayninqa hukyanqa kay wikipi huk ruraqkunapaqpas.
 Uyapuraman t'ikrasqakunata yapayta icha hukchayta munaspaykiqa, [//translatewiki.net/wiki/Main_Page?setlang=qu translatewiki.net] nisqa MediaWiki t'ikrana ruraykamay llika tiyaypi ruranaykimanta hamut'ariy.",
-'sqlhidden' => '(SQL tapunaqa pakasqam)',
 'cascadeprotected' => "Kay p'anqaqa amachasqam kachkan, ''phaqcha'' nisqa kamachiwan amachasqa kay {{PLURAL:$1|p'anqapi|p'anqakunapi}} ch'aqtasqa kaspanmi:
 $2",
 'namespaceprotected' => "'''$1''' nisqa suti k'ititaqa llamk'apuyta manam saqillasunkichu.",
@@ -703,7 +690,6 @@ Ama qunqaychu [[Special:Preferences|{{SITENAME}} allinkachinaykikunata]] hukchay
 'remembermypassword' => "Ruraqpa sutiyta yaykuna rimaytapas yuyaykuy llamk'ay tiyayniypura ({{PLURAL:$1|huk p'unchawkama|$1 p'unchawkama}})",
 'userlogin-remembermypassword' => 'Yaykusqa kakunaytam munani',
 'userlogin-signwithsecure' => "Amachasqa t'inkinakusqata llamk'achiy",
-'securelogin-stick-https' => "Yaykurquspa HTTPS nisqawan t'inkisqa kakuy",
 'yourdomainname' => 'Duminyuykip sutin',
 'password-change-forbidden' => 'Kay wikipi yaykuna rimataqa manam hukchayta atinkichu.',
 'externaldberror' => 'Hawa yaykuna pantasqam karqan, ichataq manam saqillasunkichu hawa rakiqunaykita musuqchayta.',
@@ -816,7 +802,7 @@ Kay willay pantasqa kaptinqa, qhawarparillay.',
 'newpassword' => 'Musuq yaykuna rima:',
 'retypenew' => 'Musuq yaykuna rimaykita takyachiy:',
 'resetpass_submit' => 'Yaykuna rimata hukchaspa yaykuy',
-'resetpass_success' => 'Yaykuna rimaykiqa hukchasqañam. Yaykamuchkankim...',
+'changepassword-success' => 'Yaykuna rimaykiqa hukchasqañam. Yaykamuchkankim...',
 'resetpass_forbidden' => 'Manam saqillanchu yaykuna rimata hukchayta',
 'resetpass-no-info' => "Yaykunaykim tiyan kay p'anqata chiqalla aypanaykipaq.",
 'resetpass-submit-loggedin' => 'Yaykuna rimata hukchay',
@@ -1388,8 +1374,6 @@ Imaymanata [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} qulluy ha
 'recentchangesdays-max' => "(ama $1-manta aswan {{PLURAL:$1|p'unchaw|p'unchaw}} kachunchu)",
 'recentchangescount' => 'Rikuchina hukchasqakunap yupaynin, kikinmanta:',
 'prefs-help-recentchangescount' => "Kaypiqa ñaqha hukchasqakunam, p'anqap wiñay kawsayninkunam, hallch'akunapas.",
-'prefs-help-watchlist-token' => "Kay k'itichata pakasqa llawiwan hunt'aspaykiqa, watiqasqaykikunapaq RSS mikhuchinatam kamarinki.
-Pi kay k'itichapi llawiykita riqsiqpas watiqasqaykikunata ñawiriytam atinqa. Chayrayku takyaq chanita akllay. Kaypiqa kikinmanta kamarisqa akllanallayki chanitam rikunki: $1",
 'savedprefs' => "Allinkachinaykikunaqa hallch'asqañam.",
 'timezonelegend' => "Pacha t'urpi:",
 'localtime' => 'Tiyaylla pacha:',

@@ -227,7 +227,6 @@ $messages = array(
 'tog-shownumberswatching' => 'แสดงจำนวนผู้ใช้ที่เฝ้าดู',
 'tog-oldsig' => 'ลายเซ็นที่ใช้อยู่:',
 'tog-fancysig' => 'ใช้คำสั่งวิกิที่ปรากฏในลายเซ็นนี้ (โดยไม่มีลิงก์อัตโนมัติ)',
-'tog-showjumplinks' => 'เปิดใช้งาน "กระโดด" อัตโนมัติไปตามลิงก์',
 'tog-uselivepreview' => 'แสดงตัวอย่างการแก้ไขแบบทันที (จาวาสคริปต์) (ทดลอง)',
 'tog-forceeditsummary' => 'เตือนเมื่อช่องคำอธิบายอย่างย่อว่าง',
 'tog-watchlisthideown' => 'ซ่อนการแก้ไขของฉันจากรายการเฝ้าดู',
@@ -528,17 +527,6 @@ $1',
 # General errors
 'error' => 'ข้อผิดพลาด',
 'databaseerror' => 'ความผิดพลาดที่ฐานข้อมูล',
-'dberrortext' => 'ไวยากรณ์ในการค้นฐานข้อมูลผิดพลาด
-สาเหตุอาจเกิดจากบั๊กของซอฟต์แวร์
-การค้นฐานข้อมูลล่าสุดกระทำเมื่อ:
-<blockquote><tt>$1</tt></blockquote>
-จากฟังก์ชัน "<tt>$2</tt>"
-ฐานข้อมูลแจ้งข้อผิดพลาดว่า "<samp>$3: $4</samp>"',
-'dberrortextcl' => 'ไวยากรณ์ในการค้นฐานข้อมูลผิดพลาด
-การค้นฐานข้อมูลล่าสุดกระทำเมื่อ:
-"$1"
-จากฟังก์ชัน "$2"
-ฐานข้อมูลแจ้งข้อผิดพลาดว่า "$3: $4"',
 'laggedslavemode' => "'''คำเตือน:''' ข้อมูลในหน้าอาจไม่ใช่ข้อมูลล่าสุด",
 'readonly' => 'ฐานข้อมูลถูกล็อก',
 'enterlockreason' => 'ใส่เหตุแห่งการล็อก ทั้งเวลาที่คาดว่าจะปลดล็อก',
@@ -592,14 +580,13 @@ $1',
 'editinginterface' => "'''คำเตือน:''' คุณกำลังแก้ไขหน้าที่ใช้เพื่อให้ข้อความอินเตอร์เฟซแก่ซอฟต์แวร์
 การเปลี่ยนแปลงหน้านี้จะกระทบต่อลักษณะของอินเตอร์เฟซผู้ใช้แก่ผู้ใช้อื่นบนวิกินี้
 ในการเพิ่มหรือเปลี่ยนแปลงคำแปลสำหรับทุกวิกิ โปรดใช้ [//translatewiki.net/wiki/Main_Page?setlang=th translatewiki.net] โครงการแปลมีเดียวิกิเป็นภาษาถิ่น",
-'sqlhidden' => '(คำสั่ง SQL ซ่อนอยู่)',
 'cascadeprotected' => 'หน้านี้ได้รับการป้องกันจากการแก้ไข เนื่องจากหน้านี้ถูกใช้เป็นส่วนหนึ่งใน{{PLURAL:$1|หน้า $2 ซึ่งได้รับการป้องกันแบบ "ทบทุกลำดับขั้น"|หน้าซึ่งได้รับการป้องกันแบบ "ทบทุกลำดับขั้น" ดังต่อไปนี้: $2}}',
 'namespaceprotected' => "คุณไม่มีสิทธิแก้ไขหน้าในเนมสเปซ '''$1'''",
 'customcssprotected' => 'คุณไม่มีสิทธิแก้ไขหน้าสไตล์ CSS นี้ เนื่องจากหน้านี้มีการตั้งค่าส่วนบุคคลของผู้ใช้อื่น',
 'customjsprotected' => 'คุณไม่มีสิทธิแก้ไขหน้าจาวาสคริปต์นี้ เนื่องจากหน้านี้มีการตั้งค่าส่วนบุคคลของผู้ใช้อื่น',
 'mycustomcssprotected' => 'คุณไม่ได้รับอนุญาตให้แก้ไขหน้าซีเอสเอสนี้',
 'mycustomjsprotected' => 'คุณไม่ได้รับอนุญาตให้แก้ไขหน้าจาวาสคริปต์นี้',
-'myprivateinfoprotected' => 'คุณไม่ได้รับอนุญาตให้แก้ไขสารสนเทศส่วนตัวของคุณ',
+'myprivateinfoprotected' => 'คุณไม่ได้รับอนุญาตให้แก้ไขข้อมูลส่วนตัวของคุณ',
 'mypreferencesprotected' => 'คุณไม่ได้รับอนุญาตให้แก้ไขการตั้งค่าของคุณ',
 'ns-specialprotected' => 'หน้าพิเศษไม่สามารถแก้ไขได้',
 'titleprotected' => "ชื่อเรื่องนี้ถูกป้องกันมิให้สร้างโดย [[User:$1|$1]] 
@@ -619,8 +606,7 @@ $1',
 # Login and logout pages
 'logouttext' => "'''ขณะนี้คุณได้ล็อกเอาต์แล้ว'''
 
-คุณสามารถใช้งาน {{SITENAME}} ต่อในฐานะผู้ใช้นิรนาม หรือคุณสามารถ<span class='plainlinks'>[$1 ล็อกอินกลับเข้าไป]</span>ด้วยชื่อผู้ใช้เดิมหรือชื่อผู้ใช้อื่น
-อย่างไรก็ตามอาจมีบางหน้าที่แสดงผลเสมือนว่าคุณกำลังล็อกอินอยู่ จนกว่าคุณจะล้างแคชเบราว์เซอร์ของคุณ",
+หมายเหตุว่า บางหน้าอาจยังแสดงผลเสมือนว่าคุณกำลังล็อกอินอยู่ จนกว่าคุณจะล้างแคชเบราว์เซอร์ของคุณ",
 'welcomeuser' => 'ยินดีต้อนรับ $1!',
 'welcomecreation-msg' => 'บัญชีของคุณถูกสร้างขึ้นแล้ว
 อย่าลืมเปลี่ยนแปลง[[Special:Preferences|การตั้งค่าใน {{SITENAME}}]] ของคุณ',
@@ -638,7 +624,6 @@ $1',
 'remembermypassword' => 'จำการล็อกอินของฉันบนเบราเซอร์นี้ (นานสุด $1 วัน)',
 'userlogin-remembermypassword' => 'ให้ฉันอยู่ในระบบ',
 'userlogin-signwithsecure' => 'ใช้การเชื่อมต่อที่ปลอดภัย',
-'securelogin-stick-https' => 'ยังคงเชื่อมต่อกับ HTTPS หลังจากล็อกอิน',
 'yourdomainname' => 'โดเมนของคุณ:',
 'password-change-forbidden' => 'คุณไม่สามารถเปลี่ยนรหัสผ่านบนวิกินี้',
 'externaldberror' => 'มีข้อผิดพลาดของฐานข้อมูลในการพิสูจน์ตัวจริง หรือคุณไม่ได้รับอนุญาตให้ปรับบัญชีภายนอกของคุณ',
@@ -662,7 +647,7 @@ $1',
 'helplogin-url' => 'Help:การล็อกอิน',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|คำอธิบายเรื่องการล็อกอิน]]',
 'createacct-join' => 'กรอกสารสนเทศของคุณด้านล่าง',
-'createacct-another-join' => 'กรอกสารสนเทศของบัญชีใหม่ด้านล่าง',
+'createacct-another-join' => 'กรอกข้อมูลของบัญชีใหม่ด้านล่าง',
 'createacct-emailrequired' => 'ที่อยู่อีเมล',
 'createacct-emailoptional' => 'ที่อยู่อีเมล (เลือกไม่ใส่ได้)',
 'createacct-email-ph' => 'กรอกที่อยู่อีเมล',
@@ -754,7 +739,7 @@ $1',
 'newpassword' => 'รหัสผ่านใหม่:',
 'retypenew' => 'พิมพ์รหัสผ่านใหม่อีกครั้ง:',
 'resetpass_submit' => 'ตั้งรหัสผ่านและล็อกอิน',
-'resetpass_success' => 'เปลี่ยนรหัสผ่านของคุณเรียบร้อย ขณะนี้กำลังล็อกอินให้คุณ...',
+'changepassword-success' => 'เปลี่ยนรหัสผ่านของคุณเรียบร้อย ขณะนี้กำลังล็อกอินให้คุณ...',
 'resetpass_forbidden' => 'ไม่สามารถเปลี่ยนรหัสผ่านได้',
 'resetpass-no-info' => 'คุณต้องล็อกอินเพื่อเข้าถึงหน้านี้โดยตรง',
 'resetpass-submit-loggedin' => 'เปลี่ยนรหัสผ่าน',
@@ -806,6 +791,19 @@ $2
 'changeemail-password' => 'รหัสผ่าน {{SITENAME}} ของคุณ:',
 'changeemail-submit' => 'เปลี่ยนอีเมล',
 'changeemail-cancel' => 'ยกเลิก',
+
+# Special:ResetTokens
+'resettokens' => 'ตั้งโทเค็นใหม่',
+'resettokens-text' => 'คุณสามารถตั้งโทเค็นใหม่ ซึ่งให้การเข้าถึงข้อมูลส่วนตัวบางอย่างที่เกี่ยวข้องกับบัญชีของคุณที่นี่
+
+คุณควรตั้งโทเค็นใหม่ หากคุณบอกผู้อื่นโดยมิได้ตั้งใจหรือบัญชีของคุณถูกเจาะ',
+'resettokens-no-tokens' => 'ไม่มีโทเค็นให้ตั้งใหม่',
+'resettokens-legend' => 'ตั้งโทเค็นใหม่',
+'resettokens-tokens' => 'โทเค็น:',
+'resettokens-token-label' => '$1 (ค่าปัจจุบัน: $2)',
+'resettokens-watchlist-token' => 'โทเค็นการป้อนเว็บรายการเฝ้าดู',
+'resettokens-done' => 'ตั้งโทเค็นใหม่แล้ว',
+'resettokens-resetbutton' => 'ตั้งโทเค็นที่เลือกใหม่',
 
 # Edit page toolbar
 'bold_sample' => 'ข้อความตัวหนา',
@@ -1034,6 +1032,7 @@ $2
 'undo-failure' => 'การแก้ไขนี้ไม่สามารถย้อนกลับได้ เนื่องจากขัดแย้งกับการแก้ไขปัจจุบัน',
 'undo-norev' => 'ไม่สามารถย้อนการแก้ไขนี้ เพราะไม่มีหรือถูกลบไปแล้ว',
 'undo-summary' => 'ย้อนการแก้ไขรุ่น $1 โดย [[Special:Contributions/$2|$2]] ([[User talk:$2|พูดคุย]])',
+'undo-summary-username-hidden' => 'ย้อนรุ่น $1 โดยผู้ใช้ไม่ระบุชื่อ',
 
 # Account creation failure
 'cantcreateaccounttitle' => 'ไม่สามารถสร้างบัญชีได้',
@@ -1326,9 +1325,9 @@ $1",
 'recentchangesdays-max' => 'มากสุด $1 วัน',
 'recentchangescount' => 'จำนวนการแก้ไขที่แสดงโดยปริยาย:',
 'prefs-help-recentchangescount' => 'นี่รวมถึงการปรับปรุงล่าสุด ประวิติหน้า และปูม',
-'prefs-help-watchlist-token' => 'การเติมช่องนี้ด้วยรหัสลับจะสร้างฟีด RSS แก่รายการเฝ้าดูของคุณ
-ผู้ใดที่รู้รหัสในช่องนี้จะสามารถอ่านรายการเฝ้าดูของคุณได้ ฉะนั้นให้เลือกรหัสที่ปลอดภัย
-นี่คือรหัสที่สุ่มเลือกขึ้นมาที่คุณสามารถใช้ได้: $1',
+'prefs-help-watchlist-token2' => 'นี่คือแป้นลับสำหรับเข้าการป้อนเว็บรายการเฝ้าดูของคุณ
+ใครก็ตามที่ทราบจะสามารถอ่านรายการเฝ้าดูของคุณได้ ฉะนั้นอย่าบอกผู้อื่น
+[[Special:ResetTokens|คลิกที่นี่หากคุณต้องการตั้งใหม่]]',
 'savedprefs' => 'การตั้งค่าของคุณได้ถูกบันทึกแล้ว',
 'timezonelegend' => 'เขตเวลา:',
 'localtime' => 'เวลาท้องถิ่น',
@@ -1387,7 +1386,7 @@ $1",
 'prefs-signature' => 'ลายเซ็น',
 'prefs-dateformat' => 'รูปแบบวันที่',
 'prefs-timeoffset' => 'ส่วนต่างเวลา',
-'prefs-advancedediting' => 'ทั่วไป',
+'prefs-advancedediting' => 'ตัวเลือกทั่วไป',
 'prefs-preview' => 'การแสดงตัวอย่าง',
 'prefs-advancedrc' => 'ตัวเลือกขั้นสูง',
 'prefs-advancedrendering' => 'ตัวเลือกขั้นสูง',
@@ -1396,6 +1395,7 @@ $1",
 'prefs-displayrc' => 'ตัวเลือกผลแสดง',
 'prefs-displaysearchoptions' => 'ตัวเลือกผลแสดง',
 'prefs-displaywatchlist' => 'ตัวเลือกผลแสดง',
+'prefs-tokenwatchlist' => 'โทเค็น',
 'prefs-diffs' => 'ผลต่าง',
 
 # User preference: email validation using jQuery
@@ -1563,8 +1563,8 @@ $1",
 'action-sendemail' => 'ส่งอีเมล',
 'action-editmywatchlist' => 'แก้ไขรายการเฝ้าดูของคุณ',
 'action-viewmywatchlist' => 'ดูรายการเฝ้าดูของคุณ',
-'action-viewmyprivateinfo' => 'ดูสารสนเทศส่วนตัวของคุณ',
-'action-editmyprivateinfo' => 'แก้ไขสารสนเทศส่วนตัวของคุณ',
+'action-viewmyprivateinfo' => 'ดูข้อมูลส่วนตัวของคุณ',
+'action-editmyprivateinfo' => 'แก้ไขข้อมูลส่วนตัวของคุณ',
 
 # Recent changes
 'nchanges' => '$1 การแก้ไข',
@@ -1928,6 +1928,13 @@ $1',
 'randompage' => 'สุ่มหน้า',
 'randompage-nopages' => 'ไม่มีหน้าใดใน{{PLURAL:$2|เนมสเปซ}}ต่อไปนี้: "$1"',
 
+# Random page in category
+'randomincategory' => 'สุ่มหน้าในหมวดหมู่',
+'randomincategory-invalidcategory' => '"$1" มิใช่ชื่อหมวดหมู่ที่ถูกต้อง',
+'randomincategory-nopages' => 'ไม่มีหน้าใน[[:Category:$1]]',
+'randomincategory-selectcategory' => 'ดึงหน้าแบบสุ่มจากหมวดหมู่: $1 $2',
+'randomincategory-selectcategory-submit' => 'ไป',
+
 # Random redirect
 'randomredirect' => 'สุ่มหน้าเปลี่ยนทาง',
 'randomredirect-nopages' => 'ไม่มีหน้าเปลี่ยนทางในเนมสเปซ "$1"',
@@ -1958,6 +1965,12 @@ $1',
 'disambiguations-text' => "หน้าต่อไปนี้มีการเชื่อมโยงไปยัง'''หน้าความกำกวม'''อย่างน้อยหนึ่งแห่ง
 ซึ่งอาจต้องเชื่อมโยงไปยังหน้าที่เหมาะสมกว่าแทน<br />
 หน้าใดที่ใช้แม่แบบที่เชื่อมโยงมาจาก [[MediaWiki:Disambiguationspage]] จะถูกนับเป็นหน้าความกำกวม",
+
+'pageswithprop' => 'หน้าพร้อมคุณสมบัติหน้า',
+'pageswithprop-legend' => 'หน้าพร้อมคุณสมบัติหน้า',
+'pageswithprop-text' => 'หน้านี้แสดงรายการหน้าที่ใช้คุณสมบัติหน้าอย่างใดอย่างหนึ่งโดยเฉพาะ',
+'pageswithprop-prop' => 'ชื่อคุณสมบัติ:',
+'pageswithprop-submit' => 'ไป',
 
 'doubleredirects' => 'หน้าเปลี่ยนทางซ้ำซ้อน',
 'doubleredirectstext' => 'หน้านี้แสดงรายการหน้าที่เปลี่ยนทางไปยังหน้าเปลี่ยนทางอื่น
@@ -2308,7 +2321,7 @@ $UNWATCHURL
 ผู้แก้ไขล่าสุดของหน้านี้คือ [[User:$3|$3]] ([[User talk:$3|พูดคุย]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]])',
 'editcomment' => "คำอธิบายอย่างย่อคือ: \"''\$1''\"",
 'revertpage' => 'ย้อนการแก้ไขของ [[Special:Contributions/$2|$2]] ([[User talk:$2|Talk]]) ไปยังรุ่นของ [[User:$1|$1]]',
-'revertpage-nouser' => 'ย้อนการแก้ไขโดย (ชื่อผู้ใช้ถูกลบออก) ไปยังรุ่นล่าสุดโดย [[User:$1|$1]]',
+'revertpage-nouser' => 'ย้อนการแก้ไขโดยผู้ใช้ไม่ระบุชื่อไปยังรุ่นล่าสุดโดย [[User:$1|$1]]',
 'rollback-success' => 'ย้อนรุ่นที่แก้ไขโดย $1 ไปยังรุ่นล่าสุดโดย $2',
 
 # Edit tokens
@@ -2970,10 +2983,12 @@ $1',
 'pageinfo-article-id' => 'หมายเลขประจำหน้า',
 'pageinfo-language' => 'ภาษาเนื้อหาของหน้า',
 'pageinfo-robot-policy' => 'สถานะเสิร์ชเอนจิน',
+'pageinfo-robot-index' => 'อนุญาต',
+'pageinfo-robot-noindex' => 'ไม่อนุญาต',
 'pageinfo-views' => 'จำนวนการเข้าดู',
 'pageinfo-watchers' => 'จำนวนผู้เข้าดูหน้า',
 'pageinfo-few-watchers' => '{{PLURAL:$1|ผู้เฝ้าดู|ผู้เฝ้าดู}}น้อยกว่า $1 คน',
-'pageinfo-redirects-name' => 'หน้าเปลี่ยนทางมายังหน้านี้',
+'pageinfo-redirects-name' => 'จำนวนการเปลี่ยนทางมาหน้านี้',
 'pageinfo-subpages-name' => 'หน้าย่อยของหน้านี้',
 'pageinfo-subpages-value' => '$1 ($2 หน้าเปลี่ยนทาง; $3 หน้าไม่เปลี่ยนทาง)',
 'pageinfo-firstuser' => 'ผู้สร้างหน้า',
@@ -3616,6 +3631,7 @@ $5
 'version-license' => 'สัญญาอนุญาต',
 'version-poweredby-credits' => "วิกินี้จัดทำโดย '''[//www.mediawiki.org/ MediaWiki]''', สงวนลิขสิทธิ์ © 2001-$1 โดย $2",
 'version-poweredby-others' => 'ผู้อื่น',
+'version-poweredby-translators' => 'ผู้แปล translatewiki.net',
 'version-license-info' => 'มีเดียวิกิเป็นซอฟต์แวร์เสรี คุณสามารถแจกจ่าย และ/หรือ แก้ไขได้ภายใต้เงื่อนไขแห่งสัญญาอนุญาตสาธารณะทั่วไปของกนูตามที่เผยแพร่โดยมูลนิธิซอฟต์แวร์เสรี ไม่ว่ารุ่นที่ 2 แห่งสัญญาอนุญาต หรือรุ่นภายหลังอื่นใด (ตามที่คุณเลือก)
 
 มีเดียวิกิมีถูกแจกจ่ายด้วยหวังว่าจะเป็นประโยชน์ แต่ไม่มีการรับประกันใด ๆ ทั้งสิ้น ไม่มีแม้การรับประกันโดยนัยเพื่อการค้า หรือความเหมาะสมสำหรับวัตถุประสงค์เฉพาะ ดูรายละเอียดเพิ่มเติมที่สัญญาอนุญาตสาธารณะทั่วไปของกนู
@@ -3727,9 +3743,9 @@ $5
 'logentry-delete-delete' => '$1 ลบหน้า $3',
 'logentry-delete-restore' => '$1 กู้คืนหน้า $3',
 'logentry-delete-event' => '$1 เปลี่ยนทัศนวิสัยของ $5 รายการปูมใน $3: $4',
-'logentry-delete-revision' => '$1 เปลี่ยนแปลงทัศนวิสัยของ $5 รุ่น ในหน้า $3: $4',
-'logentry-delete-event-legacy' => '$1 เปลี่ยนแปลงทัศนวิสัยของเหตุการณ์ปูมในหน้า $3',
-'logentry-delete-revision-legacy' => '$1 เปลี่ยนแปลงทัศนวิสัยของรุ่นในหน้า $3',
+'logentry-delete-revision' => '$1 เปลี่ยนทัศนวิสัยของ $5 รุ่น ในหน้า $3: $4',
+'logentry-delete-event-legacy' => '$1 เปลี่ยนทัศนวิสัยของเหตุการณ์ปูมในหน้า $3',
+'logentry-delete-revision-legacy' => '$1 เปลี่ยนทัศนวิสัยของรุ่นในหน้า $3',
 'logentry-suppress-delete' => '$1 ระงับหน้า $3',
 'logentry-suppress-event' => '$1 เปลี่ยนทัศนวิสัยอย่างลับ ๆ ของ $5 รายการปูมบน $3: $4',
 'logentry-suppress-revision' => '$1 เปลี่ยนทัศนวิสัยอย่างลับ ๆ ของ $5 รุ่นบนหน้า $3: $4',
@@ -3744,14 +3760,15 @@ $5
 'revdelete-restricted' => 'เพิ่มการจำกัดกับผู้ดูแลระบบ',
 'revdelete-unrestricted' => 'ยกเลิกการจำกัดแก่ผู้ดูแลระบบ',
 'logentry-move-move' => '$1 ย้ายหน้า $3 ไปยัง $4',
-'logentry-move-move-noredirect' => '$1 ย้ายหน้า $3 ไปยัง $4 (ไม่สร้างหน้าเปลี่ยนทางตามมา)',
+'logentry-move-move-noredirect' => '$1 ย้ายหน้า $3 ไปยัง $4 โดยไม่สร้างหน้าเปลี่ยนทางตามมา',
 'logentry-move-move_redir' => '$1 ย้ายหน้า $3 ไปยัง $4 ทับหน้าเปลี่ยนทาง',
-'logentry-move-move_redir-noredirect' => '$1 ย้ายหน้า $3 ไปยัง $4 ทับหน้าเปลี่ยนทาง (ไม่สร้างหน้าเปลี่ยนทางตามมา)',
+'logentry-move-move_redir-noredirect' => '$1 ย้ายหน้า $3 ไปยัง $4 ทับหน้าเปลี่ยนทาง โดยไม่สร้างหน้าเปลี่ยนทางตามมา',
 'logentry-patrol-patrol' => '$1 ทำเครื่องหมายว่ารุ่น $4 ของหน้า $3 ได้รับการตรวจสอบแล้ว',
 'logentry-patrol-patrol-auto' => '$1 ทำเครื่องหมายโดยอัตโนมัติว่ารุ่น $4 ของหน้า $3 ได้รับการตรวจสอบแล้ว',
 'logentry-newusers-newusers' => 'บัญชีผู้ใช้ $1 ถูกสร้างขึ้น',
 'logentry-newusers-create' => 'บัญชีผู้ใช้ $1 ถูกสร้างขึ้น',
 'logentry-newusers-create2' => 'บัญชีผู้ใช้ $3 ถูกสร้างขึ้นโดย $1',
+'logentry-newusers-byemail' => 'บัญชีผู้ใช้ $3 ถูกสร้างขึ้นโดย $1 และส่งรหัสผ่านไปทางอีเมลแล้ว',
 'logentry-newusers-autocreate' => 'บัญชีผู้ใช้ $1 ถูกสร้างขึ้นอัตโนมัติ',
 'rightsnone' => '(ไม่มี)',
 

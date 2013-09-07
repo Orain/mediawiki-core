@@ -44,7 +44,6 @@ $messages = array(
 'tog-shownumberswatching' => "I'tus tirada isticmaalayaasha wax waardiyeynaayo",
 'tog-oldsig' => 'Saxiixa jiro:',
 'tog-fancysig' => "u isticmaal saxiixa sida qoraalada wiki  (ayada oo linki auomaatik la'aan)",
-'tog-showjumplinks' => 'Shid "ku bood" links-ka la geli karo',
 'tog-uselivepreview' => 'Isticmaal horfiirinta tooska ah (JavaScript) (Wuxuu ku jiraa tijaabo)',
 'tog-forceeditsummary' => "I'xasuusi markii uusan qoraalkeyga raacsiisnay faahfaahin gaaban",
 'tog-watchlisthideown' => 'Ka qari wax bedelkeyga  liiska waardiyaha',
@@ -505,7 +504,7 @@ Hadii aad rabtid in aad dhameestirtid gudagelkaaga, waa in aad meeshaan ku qorta
 'newpassword' => 'Ereysir cusub:',
 'retypenew' => 'Qor mar labaad ereysirka cusub:',
 'resetpass_submit' => 'Qor eraysirka gudaha neh gal',
-'resetpass_success' => 'Ereysirkaada si fiican oo kuugu bedelmay!
+'changepassword-success' => 'Ereysirkaada si fiican oo kuugu bedelmay!
 Hadda gudaha ku gal',
 'resetpass_forbidden' => 'ereyada sirta ah mala bedeli karo',
 'resetpass-no-info' => 'Waa in aad gudaha u gashaa hadii aad rabto in aad si toos ah ugu soo gudubto boggaan.',
@@ -1137,6 +1136,7 @@ Hadii aad rabootid in aad boggan ka saartid wardiyeynta, dhagsii \"Ha' wardiyeyn
 'enotif_subject_created' => '{{SITENAME}} Bogga $1 Qof ayaa sameeyey {{gender:$2|$2}}',
 'enotif_subject_changed' => '{{SITENAME}} Bogga $1 Waxaa {{GENDER:$2|Bedel}} ku sameeyey qof $2',
 'enotif_body_intro_created' => 'Bogga {{SITENAME}} ga $1 waxaa la sameeyey $PAGEEDITDATE qof {{gender:$2|$2}}, eeg $3 sida laga dhigay hadda.',
+'enotif_body_intro_moved' => 'Bogga {{SITENAME}} $1 {{GENDER:$2|move|loo wareejiyey}} $2 ee $PAGEEDITDATE. si aad u aragto sida uu yahay hadda eeg $3.',
 'enotif_body_intro_restored' => 'Booga {{SITENAME}} $1 waa labadelay {{GENDER:$2|dib u habayn}} waqtigaan $PAGEEDITDATE waxaana badalay $2, eeg $3 sida hadda laga dhigay.',
 'enotif_body_intro_changed' => 'Bogga {{SITENAME}} ga $1 waxaa la badelay $PAGEEDITDATE qof {{gender:$2|$2}}, eeg $3 sida laga dhigay hadda.',
 'enotif_lastvisited' => 'Eeg $1 Dhamaan isbedeleda ilaa goortii kuugu dambaysay.',
@@ -1523,5 +1523,9 @@ waxaad awoodaa [[Special:EditWatchlist/raw|Liiska wax ka bedel]].',
 'api-error-unknown-code' => 'Qalad la aqoon: "$1"',
 'api-error-unknown-warning' => 'Digniin la aqoon: $1',
 'api-error-uploaddisabled' => 'Soo gelinta waa laga xiray wikigaan.',
+
+# Limit report
+'limitreport-cputime' => 'Waqtiga adeegsiga CPU',
+'limitreport-walltime' => 'Waqtiga dhabta ah adeegsiga',
 
 );

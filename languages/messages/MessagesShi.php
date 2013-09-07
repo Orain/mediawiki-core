@@ -43,7 +43,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Ml uṭṭun n Midn lli swurn ɣ tasna yad',
 'tog-oldsig' => 'Asmmaql (Tiẓṛi) n ukrraj n ufus lli illan:',
 'tog-fancysig' => 'Skr akrrag n ufus s taɣarast  n  wikitext (bla azday utumatik)',
-'tog-showjumplinks' => 'Srɣ izdayn « Amuddu » d « acnubc » niḍ « Asiǧl » ɣ uflla n tasna',
 'tog-uselivepreview' => 'Skr s umẓri amaynu izrbn (ira JavaScript) (Arm)',
 'tog-forceeditsummary' => 'Ayyit tini iɣ ur iwiɣ imsmun n imbdln',
 'tog-watchlisthideown' => 'hbo ghayli bdlgh gh omdfor inu',
@@ -322,12 +321,6 @@ Tifilit n tasnayin gaddanin ratn taft ɣid [[Special:SpecialPages|{{int:specialp
 # General errors
 'error' => 'Laffut',
 'databaseerror' => 'Laffut ɣ database',
-'dberrortext' => 'Tlla laffut ɣikli s tskert database.
-Ulla mayad kis kra ntmukrist.
-May igguran ittu isigal ɣ mayad igat.
-<blockquote><tt>$1</tt></blockquote>
-S ussiglad "<tt>$2</tt>".
-laffut d yurrin ɣ database "<tt>$3: $4</tt>".',
 'laggedslavemode' => 'Ḥan tasnayad ur gis graygan ambddel amaynu.',
 'readonly' => 'Tqqn tabase',
 'missing-article' => 'lqaa\'ida n lbayanat ortofa nass ad gh tawriqt  liss ikhssa asti taf limism "$1" $2.
@@ -412,7 +405,7 @@ Ussaɣ n isqdacn ḥiln hlli.
 'newpassword' => 'Awal iḥḍan amaynu:',
 'retypenew' => 'Als i tirra n w-awal iḥḍan:',
 'resetpass_submit' => 'Sbadl awal n uzri tkcmt',
-'resetpass_success' => 'Awal n uzri nk ibudl mzyan! rad nit tilit ɣ ifalan',
+'changepassword-success' => 'Awal n uzri nk ibudl mzyan! rad nit tilit ɣ ifalan',
 'resetpass_forbidden' => 'Iwaliwn n uzri ur ufan ad badln.',
 'resetpass-no-info' => 'illa fllak ad zwar tilit ɣ ifalan bac ad tkcmt s tasna yad',
 'resetpass-submit-loggedin' => 'Bdl awal n ukccum (tangalt)',

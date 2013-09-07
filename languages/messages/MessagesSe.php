@@ -397,7 +397,6 @@ $messages = array(
 'viewsource' => 'Geahča gáldu',
 'protectedpagetext' => 'Dát siidu lea suodjaluvvon rievdadusain.',
 'viewsourcetext' => 'Sáhtát geahčat ja kopieret dán siiddu gáldokoda:',
-'sqlhidden' => '(SQL-jearahallan lea čihkojuvvon)',
 
 # Login and logout pages
 'logouttext' => "'''Don leat dál loggen olggos {{GRAMMAR:elative|{{SITENAME}}}}s.'''
@@ -462,7 +461,7 @@ Sáhtát joatkit {{GRAMMAR:genitive|{{SITENAME}}}} geavaheami anonyman dahje log
 'newpassword' => 'Ođđa suollemassátni',
 'retypenew' => 'Ođđa suollemassátni ođđasit',
 'resetpass_submit' => 'Čále suollemassáni ja čálligoađe sisa',
-'resetpass_success' => 'Suollemassáni rievdadeapmim lihkosmuvai.',
+'changepassword-success' => 'Suollemassáni rievdadeapmim lihkosmuvai.',
 'resetpass_forbidden' => 'Suollemassániid rievdan ii lihkosmuva dán wikis.',
 'resetpass-submit-loggedin' => 'Molsso suollemassáni',
 

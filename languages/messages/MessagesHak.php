@@ -46,7 +46,6 @@ $messages = array(
 'tog-shownumberswatching' => '展示監視中嘅使用人數目',
 'tog-oldsig' => '現有簽名：',
 'tog-fancysig' => '將簽名看做維基文字（毋會自動產生鏈接）',
-'tog-showjumplinks' => '啟用“跳轉到”訪問鏈接',
 'tog-uselivepreview' => '使用即時預覽（愛有 JavaScript）（實驗中）',
 'tog-forceeditsummary' => '還吂輸入編寫摘要時提醒亻厓',
 'tog-watchlisthideown' => '監視列表肚隱藏亻厓嘅編寫',
@@ -332,17 +331,6 @@ $1',
 # General errors
 'error' => '差錯',
 'databaseerror' => '數據庫差錯',
-'dberrortext' => '發生數據庫查詢語法錯誤。
-可能係由於軟體自身嘅錯誤所引起。
-最後一次數據庫查詢指令係：
-<blockquote><code>$1</code></blockquote>
-來自於函數“<code>$2</code>”。
-數據庫返回錯誤“<samp>$3: $4</samp>”。',
-'dberrortextcl' => '發生數據庫查詢語法錯誤。
-最後一次嘅數據庫查詢是:
-「$1」
-來自於函數「$2」。
-數據庫返回錯誤「$3: $4」。',
 'laggedslavemode' => "'''警告：'''頁面可能毋包含最近嘅更新。",
 'readonly' => '數據庫分人鎖定',
 'enterlockreason' => '請撳入禁止訪問原因, 包括估計重新開放嘅時間',
@@ -398,7 +386,6 @@ $1',
 'editinginterface' => "'''警告：'''汝今下編寫緊嘅頁面係用於提供軟件嘅界面文字。
 改變邇頁將影響其他在邇隻wiki上嘅用戶界面外觀。
 假使愛修改所有wiki嘅翻譯，請到[//translatewiki.net/ translatewiki.net]上嘅MediaWiki本地化計劃。",
-'sqlhidden' => '（隱藏SQL查詢）',
 'cascadeprotected' => '邇隻頁面已經畀保護，因為邇隻頁面被以下已標註"聯鎖保護"嘅{{PLURAL:$1|一個|多個}}畀保護頁面包含：
 $2',
 'namespaceprotected' => "汝還無權限編輯'''$1'''名字空間嘅頁面。",
@@ -439,7 +426,6 @@ $2',
 'remembermypassword' => '在邇隻瀏覽器上記下𠊎嘅登入狀態（最長$1日）',
 'userlogin-remembermypassword' => '保持𠊎嘅登入狀態',
 'userlogin-signwithsecure' => '使用安全連線',
-'securelogin-stick-https' => '登入後繼續用HTTPS連接',
 'yourdomainname' => '汝嘅域名：',
 'password-change-forbidden' => '汝做毋得更改本wiki上嘅密碼。',
 'externaldberror' => '邇可能係由於驗證數據庫差錯或者汝分系統禁止更新汝嘅外部賬號。',
@@ -555,7 +541,7 @@ $2',
 'newpassword' => '舊密碼:',
 'retypenew' => '再一擺輸入密碼：',
 'resetpass_submit' => '設定密碼並登入',
-'resetpass_success' => '汝成功更改矣汝嘅密碼！
+'changepassword-success' => '汝成功更改矣汝嘅密碼！
 今下為汝登入緊...',
 'resetpass_forbidden' => '無辦法更改密碼',
 'resetpass-no-info' => '汝必須登入後直接進入邇隻頁面。',

@@ -110,7 +110,6 @@ $messages = array(
 'tog-shownumberswatching' => 'Wone limu jëfandikukat yiy topp wii xët',
 'tog-oldsig' => 'Wonendig xaatim gi teew:',
 'tog-fancysig' => 'Soppi sa xaatim (du am lëkkalekaay bu boppu)',
-'tog-showjumplinks' => 'Doxalal lëkkalekaay yii di « joowin » ak « seet »',
 'tog-uselivepreview' => 'Jëfandikul wonendi gu gaaw gi (JavaScript)',
 'tog-forceeditsummary' => 'Wax ma ko suma mottaliwul koju coppite bi',
 'tog-watchlisthideown' => 'Nëbb samay coppite ci limu toppte bi',
@@ -379,17 +378,6 @@ Ab limu xëti jagleel yépp, ma nees na koo gis ci [[Special:SpecialPages|{{int:
 # General errors
 'error' => 'Njuumte',
 'databaseerror' => 'Njuumtey dàttub njoxe bi',
-'dberrortext' => '�Njuumtey mbindin ci laaj bi nga yónne dàttub njoxe bi.
-Man na nekk it ab njuumte ci tëriin bi.
-Laaj bees mujje yónne ci dàttub njoxe bi moo doonoon:
-<blockquote><tt>$1</tt></blockquote>.
-bàyyikoo ci bii solo « <tt>$2</tt> ».
-Dàttub njoxe bee delloo bii njuumte « <tt>$3 : $4</tt> ».',
-'dberrortextcl' => 'Ab laajub dàttub njoxe bi jur na njuumte.
-Laaj bees mujje yónne dàttub njoxe bi moo doon :
-« $1 »
-bàyyikoo ci bii solo « $2 ».
-Dàttub njoxe bi delloo bii njuumte « $3 : $4 ».',
 'laggedslavemode' => 'Moytul, wii xët man naa bañ a man dékku coppite yi ñu mujjee def',
 'readonly' => 'Dàttub njoxe bi dañu koo caabi',
 'enterlockreason' => 'Biralal ngirtey tëj gi ak diir bi mu war a amee',
@@ -431,7 +419,6 @@ Laaj : $2',
 'viewsourcetext' => 'Man ngaa xool te duppi li nekk ci bii jukki ngir man cee liggéey :',
 'protectedinterface' => 'Xët wii dafa am ay mbind yu bokk ci jokkalekaayu tëriin wi, moo tax ñu caabi ko ngir bañ ku ci ëppal.',
 'editinginterface' => "'''Moytul''': mbindu xët wii dafa bokk ci jokkalekaayu tëriin bi. Bépp coppite boo ci def day feeñ ci bataaxal yi yeneen jëfandikukat yi di gis. Ngir tekki yi ñu lay ñaan nga dem ci   [//translatewiki.net/wiki/Main_Page?setlang=wo translatewiki.net] di am sémb ngir bennal bataaxal yi.",
-'sqlhidden' => '(Laaju SQL nëbbu na)',
 'cascadeprotected' => 'Xët wii dañ kaa aar ndaxte daa ëmbu ci {{PLURAL:$1|xët wi toftal|xët yi toftal}}, di yu ñu aar :
 $2',
 'namespaceprotected' => "Amoo sañ-sañu soppi xët yi ne ci bii barabu tur « '''$1''' ».",
@@ -526,7 +513,7 @@ Ngalla néggandikul ab diir door a jéemaat.',
 'newpassword' => 'Baatujàll bu bees :',
 'retypenew' => 'Bindaatal baatujàll bu bees bi :',
 'resetpass_submit' => 'Soppil baatujàll bi te dugg',
-'resetpass_success' => 'Coppiteeg baatujàll bi antu na : Yaa ngi dugg...',
+'changepassword-success' => 'Coppiteeg baatujàll bi antu na : Yaa ngi dugg...',
 'resetpass_forbidden' => 'Baatujàll bi manoo kaa soppi',
 'resetpass-no-info' => 'faaw nga dugg ngir man a jot ci wii xët.',
 'resetpass-submit-loggedin' => 'Soppi baatujàll bi',

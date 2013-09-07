@@ -62,9 +62,15 @@ function wfThumbHandle404() {
 
 	# Set action base paths so that WebRequest::getPathInfo()
 	# recognizes the "X" as the 'title' in ../thumb_handler.php/X urls.
-	$wgArticlePath = false; # Don't let a "/*" article path clober our action path
+	# Note: If Custom per-extension repo paths are set, this may break.
+	$repo = RepoGroup::singleton()->getLocalRepo();
+	$oldArticlePath = $wgArticlePath;
+	$wgArticlePath = $repo->getZoneUrl( 'thumb' ) . '/$1';
 
 	$matches = WebRequest::getPathInfo();
+
+	$wgArticlePath = $oldArticlePath;
+
 	if ( !isset( $matches['title'] ) ) {
 		wfThumbError( 404, 'Could not determine the name of the requested thumbnail.' );
 		return;
@@ -88,7 +94,7 @@ function wfThumbHandle404() {
 function wfStreamThumb( array $params ) {
 	global $wgVaryOnXFP;
 
-	wfProfileIn( __METHOD__ );
+	$section = new ProfileSection( __METHOD__ );
 
 	$headers = array(); // HTTP headers to send
 
@@ -130,13 +136,11 @@ function wfStreamThumb( array $params ) {
 		$bits = explode( '!', $fileName, 2 );
 		if ( count( $bits ) != 2 ) {
 			wfThumbError( 404, wfMessage( 'badtitletext' )->text() );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 		$title = Title::makeTitleSafe( NS_FILE, $bits[1] );
 		if ( !$title ) {
 			wfThumbError( 404, wfMessage( 'badtitletext' )->text() );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 		$img = RepoGroup::singleton()->getLocalRepo()->newFromArchiveName( $title, $fileName );
@@ -147,7 +151,6 @@ function wfStreamThumb( array $params ) {
 	// Check the source file title
 	if ( !$img ) {
 		wfThumbError( 404, wfMessage( 'badtitletext' )->text() );
-		wfProfileOut( __METHOD__ );
 		return;
 	}
 
@@ -157,7 +160,6 @@ function wfStreamThumb( array $params ) {
 		if ( !$img->getTitle() || !$img->getTitle()->userCan( 'read' ) ) {
 			wfThumbError( 403, 'Access denied. You do not have permission to access ' .
 				'the source file.' );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 		$headers[] = 'Cache-Control: private';
@@ -166,12 +168,52 @@ function wfStreamThumb( array $params ) {
 
 	// Check the source file storage path
 	if ( !$img->exists() ) {
+		$redirectedLocation = false;
+		if ( !$isTemp ) {
+			// Check for file redirect
+			if ( $isOld ) {
+				// Since redirects are associated with pages, not versions of files,
+				// we look for the most current version to see if its a redirect.
+				$possibleRedirFile = RepoGroup::singleton()->getLocalRepo()->findFile( $img->getName() );
+			} else {
+				$possibleRedirFile = RepoGroup::singleton()->getLocalRepo()->findFile( $fileName );
+			}
+			if ( $possibleRedirFile && !is_null( $possibleRedirFile->getRedirected() ) ) {
+				$redirTarget = $possibleRedirFile->getName();
+				$targetFile = wfLocalFile( Title::makeTitleSafe( NS_FILE, $redirTarget ) );
+				if ( $targetFile->exists() ) {
+					$newThumbName = $targetFile->thumbName( $params );
+					if ( $isOld ) {
+						$newThumbUrl = $targetFile->getArchiveThumbUrl( $bits[0] . '!' . $targetFile->getName(), $newThumbName );
+					} else {
+						$newThumbUrl = $targetFile->getThumbUrl( $newThumbName );
+					}
+					$redirectedLocation = wfExpandUrl( $newThumbUrl, PROTO_CURRENT );
+				}
+			}
+		}
+
+		if ( $redirectedLocation ) {
+			// File has been moved. Give redirect.
+			$response = RequestContext::getMain()->getRequest()->response();
+			$response->header( "HTTP/1.1 302 " . HttpStatus::getMessage( 302 ) );
+			$response->header( 'Location: ' . $redirectedLocation );
+			$response->header( 'Expires: ' .
+				gmdate( 'D, d M Y H:i:s', time() + 12 * 3600 ) . ' GMT' );
+			if ( $wgVaryOnXFP ) {
+				$varyHeader[] = 'X-Forwarded-Proto';
+			}
+			if ( count( $varyHeader ) ) {
+				$response->header( 'Vary: ' . implode( ', ', $varyHeader ) );
+			}
+			return;
+		}
+
+		// If its not a redirect that has a target as a local file, give 404.
 		wfThumbError( 404, "The source file '$fileName' does not exist." );
-		wfProfileOut( __METHOD__ );
 		return;
 	} elseif ( $img->getPath() === false ) {
 		wfThumbError( 500, "The source file '$fileName' is not locally accessible." );
-		wfProfileOut( __METHOD__ );
 		return;
 	}
 
@@ -186,7 +228,6 @@ function wfStreamThumb( array $params ) {
 		wfRestoreWarnings();
 		if ( wfTimestamp( TS_UNIX, $img->getTimestamp() ) <= $imsUnix ) {
 			header( 'HTTP/1.1 304 Not Modified' );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 	}
@@ -196,13 +237,11 @@ function wfStreamThumb( array $params ) {
 		$thumbName = $img->thumbName( $params );
 		if ( !strlen( $thumbName ) ) { // invalid params?
 			wfThumbError( 400, 'The specified thumbnail parameters are not valid.' );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 		$thumbName2 = $img->thumbName( $params, File::THUMB_FULL_NAME ); // b/c; "long" style
 	} catch ( MWException $e ) {
 		wfThumbError( 500, $e->getHTML() );
-		wfProfileOut( __METHOD__ );
 		return;
 	}
 
@@ -227,13 +266,11 @@ function wfStreamThumb( array $params ) {
 			if ( count( $varyHeader ) ) {
 				$response->header( 'Vary: ' . implode( ', ', $varyHeader ) );
 			}
-			wfProfileOut( __METHOD__ );
 			return;
 		} else {
 			wfThumbError( 404, "The given path of the specified thumbnail is incorrect;
 				expected '" . $img->getThumbRel( $thumbName ) . "' but got '" .
 				rawurldecode( $params['rel404'] ) . "'." );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 	}
@@ -249,7 +286,6 @@ function wfStreamThumb( array $params ) {
 	$thumbPath = $img->getThumbPath( $thumbName );
 	if ( $img->getRepo()->fileExists( $thumbPath ) ) {
 		$img->getRepo()->streamFile( $thumbPath, $headers );
-		wfProfileOut( __METHOD__ );
 		return;
 	}
 
@@ -281,8 +317,6 @@ function wfStreamThumb( array $params ) {
 		// Stream the file if there were no errors
 		$thumb->streamFile( $headers );
 	}
-
-	wfProfileOut( __METHOD__ );
 }
 
 /**
