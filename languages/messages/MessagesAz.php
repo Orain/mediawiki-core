@@ -311,7 +311,7 @@ $1',
 'pool-queuefull' => 'Çıxarış səhifəsi doludur',
 'pool-errorunknown' => 'naməlum xəta',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => '{{SITENAME}} haqqında',
 'aboutpage' => 'Project:İzah',
 'copyright' => 'Bu məzmun $1 əhatəsindədir.',
@@ -1176,7 +1176,7 @@ Həmçinin kimliyinizi gostərmədən belə, başqalarının sizinlə istifadə�
 'action-suppressionlog' => 'xüsusi gündəliyə baxış',
 'action-block' => 'istifadəçinin redaktə etməsini əngəlləmək',
 'action-protect' => 'bu səhifənin mühafizə səviyyəsini dəyişmək',
-'action-import' => 'bu səhifəni başqa vikidən götürmək',
+'action-import' => 'başqa vikidən səhifələrin idxalı',
 'action-importupload' => 'fayl yükləmə vasitəsilə səhifələrin idxalı',
 'action-patrol' => 'Digərlərinin dəyişikliklərini patrullanmış olaraq işarələ',
 'action-autopatrol' => 'öz redaktələrinizi patrullanmış olarq işarələmək',
@@ -1480,11 +1480,6 @@ $1',
 'statistics-users-active' => 'Aktiv istifadəçilər',
 'statistics-users-active-desc' => 'Son {{PLURAL:$1|gün|$1 gündə}} iş görən istifadəçilər',
 'statistics-mostpopular' => 'Ən çox baxılan səhifələr',
-
-'disambiguations' => 'Dəqiqləşdirmə səhifələrinə keçid verən səhifələr',
-'disambiguationspage' => 'Template:dəqiqləşdirmə',
-'disambiguations-text' => "Aşağıdakı səhifələr '''dəqiqləşdirmə səhifələrinə''' keçid verir. Bunun əvəzinə onlar çox guman ki, müvafiq konkret bir məqaləni göstərməlidirlər.
-<br />Səhifə o zaman dəqiqləşdirmə səhifəsi hesab edilir ki, onda  [[MediaWiki:Disambiguationspage]]-dən keçid verilmiş şablon istifadə edilir.",
 
 'doubleredirects' => 'İkiqat istiqamətləndirmələr',
 'double-redirect-fixed-move' => '[[$1]] dəyişdirilib.
@@ -2885,7 +2880,10 @@ Variants for Chinese language
 'tags-title' => 'Etiketlər',
 'tags-tag' => 'Etiket adı',
 'tags-description-header' => 'Anlamının tam açıqlaması',
+'tags-active-header' => 'Aktiv?',
 'tags-hitcount-header' => 'Etiketli dəyişikliklər',
+'tags-active-yes' => 'Bəli',
+'tags-active-no' => 'Xeyr',
 'tags-edit' => 'redaktə',
 'tags-hitcount' => '$1 {{PLURAL:$1|dəyişiklik|dəyişiklik}}',
 
@@ -2900,8 +2898,7 @@ Variants for Chinese language
 
 # Database error messages
 'dberr-header' => 'Bu vikidə problem var',
-'dberr-problems' => 'Üzr istəyirik!
-Bu saytda texniki problemlər var.',
+'dberr-problems' => 'Üzr istəyirik! Bu saytda texniki problemlər var.',
 'dberr-info' => '($1: Məlumat bazası ilə əlaqə yoxdur)',
 
 # HTML forms

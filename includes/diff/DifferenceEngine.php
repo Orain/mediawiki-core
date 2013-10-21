@@ -185,10 +185,14 @@ class DifferenceEngine extends ContextSource {
 		$out = $this->getOutput();
 
 		$missing = array();
-		if ( $this->mOldRev === null ) {
+		if ( $this->mOldRev === null ||
+			( $this->mOldRev && $this->mOldContent === null )
+		) {
 			$missing[] = $this->deletedIdMarker( $this->mOldid );
 		}
-		if ( $this->mNewRev === null ) {
+		if ( $this->mNewRev === null ||
+			( $this->mNewRev && $this->mNewContent === null )
+		) {
 			$missing[] = $this->deletedIdMarker( $this->mNewid );
 		}
 
@@ -416,12 +420,13 @@ class DifferenceEngine extends ContextSource {
 	 */
 	protected function markPatrolledLink() {
 		global $wgUseRCPatrol, $wgEnableAPI, $wgEnableWriteAPI;
+		$user = $this->getUser();
 
 		if ( $this->mMarkPatrolledLink === null ) {
 			// Prepare a change patrol link, if applicable
 			if (
 				// Is patrolling enabled and the user allowed to?
-				$wgUseRCPatrol && $this->mNewPage->quickUserCan( 'patrol', $this->getUser() ) &&
+				$wgUseRCPatrol && $this->mNewPage->quickUserCan( 'patrol', $user ) &&
 				// Only do this if the revision isn't more than 6 hours older
 				// than the Max RC age (6h because the RC might not be cleaned out regularly)
 				RecentChange::isInRCLifespan( $this->mNewRev->getTimestamp(), 21600 )
@@ -439,22 +444,23 @@ class DifferenceEngine extends ContextSource {
 					array( 'USE INDEX' => 'rc_timestamp' )
 				);
 
-				if ( $change ) {
+				if ( $change && $change->getPerformer()->getName() !== $user->getName() ) {
 					$rcid = $change->getAttribute( 'rc_id' );
 				} else {
-					// None found
+					// None found or the page has been created by the current user.
+					// If the user could patrol this it already would be patrolled
 					$rcid = 0;
 				}
 				// Build the link
 				if ( $rcid ) {
 					$this->getOutput()->preventClickjacking();
 					if ( $wgEnableAPI && $wgEnableWriteAPI
-						&& $this->getUser()->isAllowed( 'writeapi' )
+						&& $user->isAllowed( 'writeapi' )
 					) {
 						$this->getOutput()->addModules( 'mediawiki.page.patrol.ajax' );
 					}
 
-					$token = $this->getUser()->getEditToken( $rcid );
+					$token = $user->getEditToken( $rcid );
 					$this->mMarkPatrolledLink = ' <span class="patrollink">[' . Linker::linkKnown(
 						$this->mNewPage,
 						$this->msg( 'markaspatrolleddiff' )->escaped(),
@@ -690,24 +696,6 @@ class DifferenceEngine extends ContextSource {
 	}
 
 	/**
-	 * Make sure the proper modules are loaded before we try to
-	 * make the diff
-	 */
-	private function initDiffEngines() {
-		global $wgExternalDiffEngine;
-		if ( $wgExternalDiffEngine == 'wikidiff' && !function_exists( 'wikidiff_do_diff' ) ) {
-			wfProfileIn( __METHOD__ . '-php_wikidiff.so' );
-			wfDl( 'php_wikidiff' );
-			wfProfileOut( __METHOD__ . '-php_wikidiff.so' );
-		}
-		elseif ( $wgExternalDiffEngine == 'wikidiff2' && !function_exists( 'wikidiff2_do_diff' ) ) {
-			wfProfileIn( __METHOD__ . '-php_wikidiff2.so' );
-			wfDl( 'wikidiff2' );
-			wfProfileOut( __METHOD__ . '-php_wikidiff2.so' );
-		}
-	}
-
-	/**
 	 * Generate a diff, no caching.
 	 *
 	 * This implementation uses generateTextDiffBody() to generate a diff based on the default
@@ -772,8 +760,6 @@ class DifferenceEngine extends ContextSource {
 
 		$otext = str_replace( "\r\n", "\n", $otext );
 		$ntext = str_replace( "\r\n", "\n", $ntext );
-
-		$this->initDiffEngines();
 
 		if ( $wgExternalDiffEngine == 'wikidiff' && function_exists( 'wikidiff_do_diff' ) ) {
 			# For historical reasons, external diff engine expects
@@ -1179,26 +1165,29 @@ class DifferenceEngine extends ContextSource {
 	function loadText() {
 		if ( $this->mTextLoaded == 2 ) {
 			return true;
-		} else {
-			// Whether it succeeds or fails, we don't want to try again
-			$this->mTextLoaded = 2;
 		}
+
+		// Whether it succeeds or fails, we don't want to try again
+		$this->mTextLoaded = 2;
 
 		if ( !$this->loadRevisionData() ) {
 			return false;
 		}
+
 		if ( $this->mOldRev ) {
 			$this->mOldContent = $this->mOldRev->getContent( Revision::FOR_THIS_USER, $this->getUser() );
 			if ( $this->mOldContent === null ) {
 				return false;
 			}
 		}
+
 		if ( $this->mNewRev ) {
 			$this->mNewContent = $this->mNewRev->getContent( Revision::FOR_THIS_USER, $this->getUser() );
 			if ( $this->mNewContent === null ) {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
@@ -1210,13 +1199,16 @@ class DifferenceEngine extends ContextSource {
 	function loadNewText() {
 		if ( $this->mTextLoaded >= 1 ) {
 			return true;
-		} else {
-			$this->mTextLoaded = 1;
 		}
+
+		$this->mTextLoaded = 1;
+
 		if ( !$this->loadRevisionData() ) {
 			return false;
 		}
+
 		$this->mNewContent = $this->mNewRev->getContent( Revision::FOR_THIS_USER, $this->getUser() );
+
 		return true;
 	}
 }

@@ -389,10 +389,10 @@ $1',
 'pool-queuefull' => 'Le cauda commun de processos es plen',
 'pool-errorunknown' => 'Error incognite',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'A proposito de {{SITENAME}}',
 'aboutpage' => 'Project:A proposito',
-'copyright' => 'Le contento es disponibile sub $1.',
+'copyright' => 'Le contento es disponibile sub $1 si non alteremente specificate.',
 'copyrightpage' => '{{ns:project}}:Copyright',
 'currentevents' => 'Actualitates',
 'currentevents-url' => 'Project:Actualitates',
@@ -479,6 +479,8 @@ Un lista de paginas special valide se trova a [[Special:SpecialPages|{{int:speci
 Isto pote indicar un defecto in le software.',
 'databaseerror-textcl' => 'Un error ha occurrite in un consulta del base de datos.',
 'databaseerror-query' => 'Consulta: $1',
+'databaseerror-function' => 'Function: $1',
+'databaseerror-error' => 'Error: $1',
 'laggedslavemode' => 'Attention: Es possibile que le pagina non contine actualisationes recente.',
 'readonly' => 'Base de datos blocate',
 'enterlockreason' => 'Describe le motivo del blocada, includente un estimation
@@ -568,7 +570,7 @@ Nota que alcun paginas pote continuar a apparer como si tu esserea ancora authen
 'welcomecreation-msg' => 'Tu conto ha essite create.
 Non oblida personalisar tu [[Special:Preferences|preferentias in {{SITENAME}}]].',
 'yourname' => 'Nomine de usator:',
-'userlogin-yourname' => 'Nomine de usator�',
+'userlogin-yourname' => 'Nomine de usator',
 'userlogin-yourname-ph' => 'Entra tu nomine de usator',
 'createacct-another-username-ph' => 'Entra le nomine de usator',
 'yourpassword' => 'Contrasigno:',
@@ -603,6 +605,9 @@ Non oblida personalisar tu [[Special:Preferences|preferentias in {{SITENAME}}]].
 'userlogin-resetpassword-link' => 'Reinitialisar contrasigno',
 'helplogin-url' => 'Help:Aperir session',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Adjuta a aperir session]]',
+'userlogin-loggedin' => 'Tu ha jam aperite session como {{GENDER:$1|$1}}.
+Usa le formulario sequente pro aperir session como altere usator.',
+'userlogin-createanother' => 'Crear un altere conto',
 'createacct-join' => 'Specifica tu information hic infra.',
 'createacct-another-join' => 'Specifica le informationes del nove conto ci infra.',
 'createacct-emailrequired' => 'Adresse de e-mail',
@@ -1574,8 +1579,8 @@ Si tu opta pro dar lo, isto essera usate pro dar te attribution pro tu contribut
 'action-block' => 'blocar iste usator de facer modificationes',
 'action-protect' => 'cambiar le nivellos de protection pro iste pagina',
 'action-rollback' => 'revocar rapidemente le modificationes del ultime usator qui modificava un particular pagina',
-'action-import' => 'importar iste pagina ab un altere wiki',
-'action-importupload' => 'importar iste pagina ex un file incargate',
+'action-import' => 'importar paginas ab un altere wiki',
+'action-importupload' => 'importar paginas ex un file incargate',
 'action-patrol' => 'marcar le modificationes de alteros como patruliate',
 'action-autopatrol' => 'haber tu modification marcate como patruliate',
 'action-unwatchedpages' => 'vider le lista de paginas non observate',
@@ -2040,13 +2045,6 @@ Memora verificar que non existe altere ligamines al patronos ante que tu los del
 'statistics-users-active-desc' => 'Usatores qui ha facite un action durante le {{PLURAL:$1|die|$1 dies}} passate',
 'statistics-mostpopular' => 'Le paginas plus visitate',
 
-'disambiguations' => 'Paginas con ligamines a paginas de disambiguation',
-'disambiguationspage' => 'Template:Disambig
-Template:Disambiguation',
-'disambiguations-text' => "Le sequente paginas contine al minus un ligamine a un '''pagina de disambiguation'''.
-Istes debe forsan ligar directemente al articulo sur le thema in question.<br />
-Un pagina se tracta como pagina de disambiguation si illo usa un patrono que es ligate ab [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Paginas con un proprietate de pagina',
 'pageswithprop-legend' => 'Paginas con un proprietate de pagina',
 'pageswithprop-text' => 'Iste pagina lista le paginas que usa un certe proprietate de pagina.',
@@ -2127,6 +2125,7 @@ Le entratas <del>cancellate</del> ha essite resolvite.',
 'listusers' => 'Lista de usatores',
 'listusers-editsonly' => 'Monstrar solmente usatores con modificationes',
 'listusers-creationsort' => 'Ordinar per data de creation',
+'listusers-desc' => 'Ordinar in senso descendente',
 'usereditcount' => '$1 {{PLURAL:$1|modification|modificationes}}',
 'usercreated' => '{{GENDER:$3|Create}} le $1 a $2',
 'newpages' => 'Nove paginas',
@@ -2419,7 +2418,7 @@ un altere persona ha ja modificate o revocate le pagina.
 Le ultime modification esseva facite per [[User:$3|$3]] ([[User talk:$3|discussion]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "Le summario del modification esseva: \"''\$1''\".",
 'revertpage' => 'Reverteva modificationes per [[Special:Contributions/$2|$2]] ([[User talk:$2|Discussion]]) al ultime version per [[User:$1|$1]]',
-'revertpage-nouser' => 'Reverteva modificationes per un usator celate al ultime version per [[User:$1|$1]]',
+'revertpage-nouser' => 'Reverteva modificationes per un usator celate al ultime version per {{GENDER:$1|[[User:$1|$1]]}}',
 'rollback-success' => 'Revocava modificationes per $1;
 retornava al version per $2.',
 
@@ -2566,7 +2565,7 @@ $1',
 'contributions' => 'Contributiones del {{GENDER:$1|usator}}',
 'contributions-title' => 'Contributiones del usator $1',
 'mycontris' => 'Contributiones',
-'contribsub2' => 'Pro $1 ($2)',
+'contribsub2' => 'Pro {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'Necun modification ha essite trovate secundo iste criterios.',
 'uctop' => '(ultime)',
 'month' => 'A partir del mense (e anterior):',
@@ -3931,7 +3930,10 @@ Vos deberea haber recipite [{{SERVER}}{{SCRIPTPATH}}/COPYING un exemplar del Lic
 'tags-tag' => 'Nomine del etiquetta',
 'tags-display-header' => 'Apparentia in listas de modificationes',
 'tags-description-header' => 'Description complete del significato',
+'tags-active-header' => 'Active?',
 'tags-hitcount-header' => 'Modificationes etiquettate',
+'tags-active-yes' => 'Si',
+'tags-active-no' => 'No',
 'tags-edit' => 'modificar',
 'tags-hitcount' => '$1 {{PLURAL:$1|modification|modificationes}}',
 
@@ -4097,9 +4099,9 @@ Si non, tu pote usar le formulario facile hic infra. Tu commento essera addite a
 'limitreport-ppvisitednodes' => 'Numero de nodos de preprocessor visitate',
 'limitreport-ppgeneratednodes' => 'Numero de nodos de preprocessor generate',
 'limitreport-postexpandincludesize' => 'Dimension de inclusion post expansion',
-'limitreport-postexpandincludesize-value' => '$1/$2 bytes',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
 'limitreport-templateargumentsize' => 'Dimension del argumento del patrono',
-'limitreport-templateargumentsize-value' => '$1/$2 bytes',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
 'limitreport-expansiondepth' => 'Maxime profunditate de expansion',
 'limitreport-expensivefunctioncount' => 'Numero de functiones analysator costose',
 

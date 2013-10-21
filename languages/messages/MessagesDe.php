@@ -35,6 +35,7 @@
  * @author Li-sung
  * @author Locos epraix
  * @author Lyzzy
+ * @author MBq
  * @author MF-Warburg
  * @author Man77
  * @author Melancholie
@@ -662,10 +663,10 @@ $1',
 'pool-queuefull' => 'Poolwarteschlange ist voll',
 'pool-errorunknown' => 'Unbekannter Fehler',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Über {{SITENAME}}',
 'aboutpage' => 'Project:Über_{{SITENAME}}',
-'copyright' => 'Der Inhalt ist verfügbar unter der Lizenz $1.',
+'copyright' => 'Der Inhalt ist verfügbar unter der Lizenz $1, sofern nicht anders angegeben.',
 'copyrightpage' => '{{ns:project}}:Urheberrechte',
 'currentevents' => 'Aktuelle Ereignisse',
 'currentevents-url' => 'Project:Aktuelle Ereignisse',
@@ -879,6 +880,9 @@ Vergiss nicht, deine [[Special:Preferences|{{SITENAME}}-Einstellungen]] zu ände
 'userlogin-resetpassword-link' => 'Passwort zurücksetzen',
 'helplogin-url' => 'Help:Anmelden',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Hilfe beim Anmelden]]',
+'userlogin-loggedin' => 'Du bist bereits als {{GENDER:$1|$1}} angemeldet.
+Benutze das unten stehende Formular, um sich unter einem anderen Benutzer anzumelden.',
+'userlogin-createanother' => 'Ein weiteres Benutzerkonto erstellen',
 'createacct-join' => 'Gib unten deine Informationen ein.',
 'createacct-another-join' => 'Gib unten die Informationen des neuen Benutzerkontos ein.',
 'createacct-emailrequired' => 'E-Mail-Adresse',
@@ -894,7 +898,7 @@ Vergiss nicht, deine [[Special:Preferences|{{SITENAME}}-Einstellungen]] zu ände
 'createacct-imgcaptcha-ph' => 'Gib den Text ein, den du oben siehst.',
 'createacct-submit' => 'Dein Benutzerkonto erstellen',
 'createacct-another-submit' => 'Anderes Benutzerkonto erstellen',
-'createacct-benefit-heading' => '{{SITENAME}} wird von Leuten wie dir erstellt.',
+'createacct-benefit-heading' => '{{SITENAME}} wird von Menschen wie dir geschaffen.',
 'createacct-benefit-body1' => '{{PLURAL:$1|Bearbeitung|Bearbeitungen}}',
 'createacct-benefit-body2' => '{{PLURAL:$1|Seite|Seiten}}',
 'createacct-benefit-body3' => '{{PLURAL:$1|aktiver Autor|aktive Autoren}}',
@@ -1621,15 +1625,15 @@ Dies kann nicht mehr rückgängig gemacht werden.',
 'prefs-help-signature' => 'Beiträge auf Diskussionsseiten sollten mit „<nowiki>~~~~</nowiki>“ signiert werden, was dann in die Signatur mit Zeitstempel umgewandelt wird.',
 'badsig' => 'Die Syntax der Signatur ist ungültig; bitte HTML überprüfen.',
 'badsiglength' => 'Die Signatur darf maximal $1 {{PLURAL:$1|Zeichen}} lang sein.',
-'yourgender' => 'Wie willst du dich beschreiben?',
-'gender-unknown' => 'Ich will es nicht beschreiben',
-'gender-male' => 'Er bearbeitet Wikiseiten',
-'gender-female' => 'Sie bearbeitet Wikiseiten',
-'prefs-help-gender' => 'Das Festlegen dieser Einstellung ist optional.
-Die Software verwendet den Wert, um dich anzureden und zur Erwähnung für andere durch Verwendung des passenden grammatikalischen Geschlechts.
+'yourgender' => 'Welches Geschlecht hast du?',
+'gender-unknown' => 'Ich möchte hierzu keine Angabe machen',
+'gender-male' => 'Ich bin männlich',
+'gender-female' => 'Ich bin weiblich',
+'prefs-help-gender' => 'Dies ist eine freiwillige Angabe.
+Die Software nutzt sie, um dich anzureden sowie als Hinweis für andere durch Verwendung des zutreffenden grammatikalischen Geschlechts.
 Diese Information ist öffentlich.',
 'email' => 'E-Mail',
-'prefs-help-realname' => 'Optional. Damit kann dein bürgerlicher Name deinen Beiträgen zugeordnet werden.',
+'prefs-help-realname' => 'Dies ist eine freiwillige Angabe. Damit kann dein bürgerlicher Name deinen Beiträgen zugeordnet werden.',
 'prefs-help-email' => 'Die Angabe einer E-Mail-Adresse ist optional, ermöglicht aber die Zusendung eines Ersatzpasswortes, sofern du dein Passwort vergessen hast.',
 'prefs-help-email-others' => 'Mit anderen Benutzern kannst du auch über die Benutzerdiskussionsseiten Kontakt aufnehmen, ohne dass du deine Identität offenlegen musst.',
 'prefs-help-email-required' => 'Es wird eine gültige E-Mail-Adresse benötigt.',
@@ -2264,12 +2268,6 @@ Vielleicht möchtest du die Beschreibung auf der dortigen [$2 Dateibeschreibungs
 'statistics-users-active-desc' => 'Benutzer mit Bearbeitungen {{PLURAL:$1|während der letzten 24 Stunden|während der vergangenen $1 Tage}}',
 'statistics-mostpopular' => 'Meistbesuchte Seiten',
 
-'disambiguations' => 'Seiten die auf Begriffsklärungsseiten verlinken',
-'disambiguationspage' => 'Template:Begriffsklärung',
-'disambiguations-text' => "Die folgenden Seiten enthalten mindestens einen Link zur einer '''Begriffsklärungsseite'''. Stattdessen sollten sie möglicherweise auf die eigentlich gemeinte Seite verlinken.
-
-Eine Seite gilt als Begriffsklärungsseite, wenn sie mindestens eine der auf der Seite [[MediaWiki:Disambiguationspage|Disambiguationspage]] aufgeführten Vorlagen enthält.",
-
 'pageswithprop' => 'Seiten mit einer Seiteneigenschaft',
 'pageswithprop-legend' => 'Seiten mit einer Seiteneigenschaft',
 'pageswithprop-text' => 'Diese Spezialseite listet Seiten auf, die eine bestimmte Seiteneigenschaft verwenden.',
@@ -2350,6 +2348,7 @@ Jede Zeile enthält Links zur ersten und zweiten Weiterleitung sowie dem Ziel de
 'listusers' => 'Benutzerverzeichnis',
 'listusers-editsonly' => 'Zeige nur Benutzer mit Beiträgen',
 'listusers-creationsort' => 'Nach Erstelldatum sortieren',
+'listusers-desc' => 'In absteigender Reihenfolge sortieren',
 'usereditcount' => '$1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}}',
 'usercreated' => '{{GENDER:$3|Erstellt}} am $1 um $2 Uhr',
 'newpages' => 'Neue Seiten',
@@ -2604,9 +2603,11 @@ Rückmeldungen und weitere Hilfe: {{canonicalurl:{{MediaWiki:Helppage}}}}',
 'deleteotherreason' => 'Anderer/ergänzender Grund:',
 'deletereasonotherlist' => 'Anderer Grund',
 'deletereason-dropdown' => '* Allgemeine Löschgründe
-** Wunsch des Autors
+** Spam
+** Vandalismus
 ** Urheberrechtsverletzung
-** Vandalismus',
+** Wunsch des Autors
+** Defekte Weiterleitung',
 'delete-edit-reasonlist' => 'Löschgründe bearbeiten',
 'delete-toobig' => 'Diese Seite hat mit mehr als $1 {{PLURAL:$1|Version|Versionen}} eine sehr lange Versionsgeschichte. Das Löschen solcher Seiten wurde eingeschränkt, um eine versehentliche Überlastung der Server zu verhindern.',
 'delete-warning-toobig' => 'Diese Seite hat mit mehr als $1 {{PLURAL:$1|Version|Versionen}} eine sehr lange Versionsgeschichte. Das Löschen kann zu Störungen im Datenbankbetrieb führen.',
@@ -2624,7 +2625,7 @@ Rückmeldungen und weitere Hilfe: {{canonicalurl:{{MediaWiki:Helppage}}}}',
 Die letzte Änderung stammt von [[User:$3|$3]] ([[User talk:$3|Diskussion]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "Die Änderungszusammenfassung lautet: ''„$1“''.",
 'revertpage' => 'Änderungen von [[Special:Contributions/$2|$2]] ([[User talk:$2|Diskussion]]) wurden auf die letzte Version von [[User:$1|$1]] zurückgesetzt',
-'revertpage-nouser' => 'Änderungen von einem versteckten Benutzer rückgängig gemacht und letzte Version von [[User:$1|$1]] wiederhergestellt',
+'revertpage-nouser' => 'Änderungen von einem versteckten Benutzer rückgängig gemacht und letzte Version von {{GENDER:$1|[[User:$1|$1]]}} wiederhergestellt',
 'rollback-success' => 'Die Änderungen von $1 wurden rückgängig gemacht und die letzte Version von $2 wurde wiederhergestellt.',
 
 # Edit tokens
@@ -2763,7 +2764,7 @@ $1',
 'contributions' => '{{GENDER:$1|Benutzerbeiträge}}',
 'contributions-title' => 'Benutzerbeiträge von „$1“',
 'mycontris' => 'Beiträge',
-'contribsub2' => 'Von $1 ($2)',
+'contribsub2' => 'Von {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'Es wurden keine Benutzerbeiträge mit diesen Kriterien gefunden.',
 'uctop' => '(aktuell)',
 'month' => 'und Monat:',
@@ -2883,8 +2884,8 @@ Zur Aufhebung der Sperre siehe die [[Special:BlockList|Liste aller aktiven Sperr
 'blocklist-nousertalk' => 'darf eigene Diskussionsseite nicht bearbeiten',
 'ipblocklist-empty' => 'Die Liste enthält keine Einträge.',
 'ipblocklist-no-results' => 'Die gesuchte IP-Adresse/der Benutzername ist nicht gesperrt.',
-'blocklink' => 'sperren',
-'unblocklink' => 'freigeben',
+'blocklink' => 'Sperren',
+'unblocklink' => 'Freigeben',
 'change-blocklink' => 'Sperre ändern',
 'contribslink' => 'Beiträge',
 'emaillink' => 'E-Mail senden',
@@ -3234,6 +3235,7 @@ Diese auf dem lokalen Rechner speichern und danach hier hochladen.',
 'tooltip-undo' => 'Macht lediglich diese eine Änderung rückgängig und zeigt das Resultat in der Vorschau an, damit in der Zusammenfassungszeile eine Begründung angegeben werden kann.',
 'tooltip-preferences-save' => 'Einstellungen speichern',
 'tooltip-summary' => 'Gib eine kurze Zusammenfassung ein.',
+'tooltip-iwiki' => '$1 – $2',
 
 # Stylesheets
 'common.css' => '/* Das folgende CSS wird für alle Benutzeroberflächen geladen. */',
@@ -4132,11 +4134,16 @@ Eine [{{SERVER}}{{SCRIPTPATH}}/COPYING Kopie der ''GNU General Public License'']
 'tag-filter-submit' => 'Filter',
 'tag-list-wrapper' => '([[Special:Tags|{{PLURAL:$1|Markierung|Markierungen}}]]: $2)',
 'tags-title' => 'Markierungen',
-'tags-intro' => 'Diese Seite zeigt alle Markierungen, die für Bearbeitungen verwendet werden, sowie deren Bedeutung.',
+'tags-intro' => 'Diese Seite zeigt alle Markierungen, die für Bearbeitungen verwendet wurden, sowie deren Bedeutung. 
+
+Bei entsprechender Einstellung können die Missbrauchfilter beliebige Markierungen in die Versionsgeschichte setzen. Man kann die Versionsgeschichte dann nach den Markierungen filtern.',
 'tags-tag' => 'Markierungsname',
 'tags-display-header' => 'Benennung auf den Änderungslisten',
 'tags-description-header' => 'Vollständige Beschreibung',
+'tags-active-header' => 'Aktiv?',
 'tags-hitcount-header' => 'Markierte Änderungen',
+'tags-active-yes' => 'Ja',
+'tags-active-no' => 'Nein',
 'tags-edit' => 'bearbeiten',
 'tags-hitcount' => '$1 {{PLURAL:$1|Änderung|Änderungen}}',
 
@@ -4304,9 +4311,9 @@ Anderenfalls kannst du auch das untenstehende einfache Formular nutzen. Dein Kom
 'limitreport-ppgeneratednodes' => 'Erzeugte Knotenanzahl des Präprozessors',
 'limitreport-ppgeneratednodes-value' => '$1/$2',
 'limitreport-postexpandincludesize' => 'Einbindungsgröße nach dem Expandieren',
-'limitreport-postexpandincludesize-value' => '$1/$2 Bytes',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|Byte|Bytes}}',
 'limitreport-templateargumentsize' => 'Vorlagenargumentgröße',
-'limitreport-templateargumentsize-value' => '$1/$2 Bytes',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|Byte|Bytes}}',
 'limitreport-expansiondepth' => 'Höchste Expansionstiefe',
 'limitreport-expansiondepth-value' => '$1/$2',
 'limitreport-expensivefunctioncount' => 'Anzahl aufwändiger Parserfunktionen',

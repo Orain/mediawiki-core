@@ -46,7 +46,6 @@ abstract class Installer {
 	 */
 	protected $settings;
 
-
 	/**
 	 * List of detected DBs, access using getCompiledDBs().
 	 *
@@ -131,6 +130,7 @@ abstract class Installer {
 		'envCheckLibicu',
 		'envCheckSuhosinMaxValueLength',
 		'envCheckCtype',
+		'envCheckJSON',
 	);
 
 	/**
@@ -158,7 +158,6 @@ abstract class Installer {
 		'wgImageMagickConvertCommand',
 		'wgGitBin',
 		'IP',
-		'wgServer',
 		'wgScriptPath',
 		'wgScriptExtension',
 		'wgMetaNamespace',
@@ -512,6 +511,7 @@ abstract class Installer {
 		if ( file_exists( "$IP/AdminSettings.php" ) ) {
 			require "$IP/AdminSettings.php";
 		}
+
 		return get_defined_vars();
 	}
 
@@ -638,6 +638,7 @@ abstract class Installer {
 			'ss_users' => 0,
 			'ss_images' => 0 ),
 			__METHOD__, 'IGNORE' );
+
 		return Status::newGood();
 	}
 
@@ -669,7 +670,7 @@ abstract class Installer {
 
 		$databases = $this->getCompiledDBs();
 
-		$databases = array_flip ( $databases );
+		$databases = array_flip( $databases );
 		foreach ( array_keys( $databases ) as $db ) {
 			$installer = $this->getDBInstaller( $db );
 			$status = $installer->checkPrerequisites();
@@ -683,9 +684,11 @@ abstract class Installer {
 		$databases = array_flip( $databases );
 		if ( !$databases ) {
 			$this->showError( 'config-no-db', $wgLang->commaList( $allNames ) );
+
 			// @todo FIXME: This only works for the web installer!
 			return false;
 		}
+
 		return true;
 	}
 
@@ -706,8 +709,10 @@ abstract class Installer {
 		$test = new PhpXmlBugTester();
 		if ( !$test->ok ) {
 			$this->showError( 'config-brokenlibxml' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -721,8 +726,10 @@ abstract class Installer {
 		$test->execute();
 		if ( !$test->ok ) {
 			$this->showError( 'config-using531', phpversion() );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -733,8 +740,10 @@ abstract class Installer {
 	protected function envCheckMagicQuotes() {
 		if ( wfIniGetBool( "magic_quotes_runtime" ) ) {
 			$this->showError( 'config-magic-quotes-runtime' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -745,8 +754,10 @@ abstract class Installer {
 	protected function envCheckMagicSybase() {
 		if ( wfIniGetBool( 'magic_quotes_sybase' ) ) {
 			$this->showError( 'config-magic-quotes-sybase' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -757,8 +768,10 @@ abstract class Installer {
 	protected function envCheckMbstring() {
 		if ( wfIniGetBool( 'mbstring.func_overload' ) ) {
 			$this->showError( 'config-mbstring' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -769,8 +782,10 @@ abstract class Installer {
 	protected function envCheckZE1() {
 		if ( wfIniGetBool( 'zend.ze1_compatibility_mode' ) ) {
 			$this->showError( 'config-ze1' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -783,6 +798,7 @@ abstract class Installer {
 			$this->setVar( '_SafeMode', true );
 			$this->showMessage( 'config-safe-mode' );
 		}
+
 		return true;
 	}
 
@@ -793,8 +809,10 @@ abstract class Installer {
 	protected function envCheckXML() {
 		if ( !function_exists( "utf8_encode" ) ) {
 			$this->showError( 'config-xml-bad' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -809,6 +827,7 @@ abstract class Installer {
 	protected function envCheckPCRE() {
 		if ( !function_exists( 'preg_match' ) ) {
 			$this->showError( 'config-pcre' );
+
 			return false;
 		}
 		wfSuppressWarnings();
@@ -821,8 +840,10 @@ abstract class Installer {
 		wfRestoreWarnings();
 		if ( $regexd != '--' || $regexprop != '--' ) {
 			$this->showError( 'config-pcre-no-utf8' );
+
 			return false;
 		}
+
 		return true;
 	}
 
@@ -849,6 +870,7 @@ abstract class Installer {
 				$this->setVar( '_RaiseMemory', true );
 			}
 		}
+
 		return true;
 	}
 
@@ -881,6 +903,7 @@ abstract class Installer {
 		if ( self::apacheModulePresent( 'mod_security' ) ) {
 			$this->showMessage( 'config-mod-security' );
 		}
+
 		return true;
 	}
 
@@ -900,6 +923,7 @@ abstract class Installer {
 			$this->setVar( 'wgDiff3', false );
 			$this->showMessage( 'config-diff3-bad' );
 		}
+
 		return true;
 	}
 
@@ -916,13 +940,14 @@ abstract class Installer {
 		if ( $convert ) {
 			$this->setVar( 'wgImageMagickConvertCommand', $convert );
 			$this->showMessage( 'config-imagemagick', $convert );
+
 			return true;
 		} elseif ( function_exists( 'imagejpeg' ) ) {
 			$this->showMessage( 'config-gd' );
-
 		} else {
 			$this->showMessage( 'config-no-scaling' );
 		}
+
 		return true;
 	}
 
@@ -945,6 +970,7 @@ abstract class Installer {
 			$this->setVar( 'wgGitBin', false );
 			$this->showMessage( 'config-git-bad' );
 		}
+
 		return true;
 	}
 
@@ -953,8 +979,10 @@ abstract class Installer {
 	 */
 	protected function envCheckServer() {
 		$server = $this->envGetDefaultServer();
-		$this->showMessage( 'config-using-server', $server );
-		$this->setVar( 'wgServer', $server );
+		if ( $server !== null ) {
+			$this->showMessage( 'config-using-server', $server );
+			$this->setVar( 'wgServer', $server );
+		}
 		return true;
 	}
 
@@ -974,6 +1002,7 @@ abstract class Installer {
 		$this->setVar( 'IP', $IP );
 
 		$this->showMessage( 'config-using-uri', $this->getVar( 'wgServer' ), $this->getVar( 'wgScriptPath' ) );
+
 		return true;
 	}
 
@@ -989,6 +1018,7 @@ abstract class Installer {
 			$ext = 'php';
 		}
 		$this->setVar( 'wgScriptExtension', ".$ext" );
+
 		return true;
 	}
 
@@ -1034,6 +1064,7 @@ abstract class Installer {
 		# Try the current value of LANG.
 		if ( isset( $candidatesByLocale[getenv( 'LANG' )] ) ) {
 			$this->setVar( 'wgShellLocale', getenv( 'LANG' ) );
+
 			return true;
 		}
 
@@ -1042,6 +1073,7 @@ abstract class Installer {
 		foreach ( $commonLocales as $commonLocale ) {
 			if ( isset( $candidatesByLocale[$commonLocale] ) ) {
 				$this->setVar( 'wgShellLocale', $commonLocale );
+
 				return true;
 			}
 		}
@@ -1052,6 +1084,7 @@ abstract class Installer {
 		if ( isset( $candidatesByLang[$wikiLang] ) ) {
 			$m = reset( $candidatesByLang[$wikiLang] );
 			$this->setVar( 'wgShellLocale', $m[0] );
+
 			return true;
 		}
 
@@ -1059,6 +1092,7 @@ abstract class Installer {
 		if ( count( $candidatesByLocale ) ) {
 			$m = reset( $candidatesByLocale );
 			$this->setVar( 'wgShellLocale', $m[0] );
+
 			return true;
 		}
 
@@ -1080,6 +1114,7 @@ abstract class Installer {
 		if ( !$safe ) {
 			$this->showMessage( 'config-uploads-not-safe', $dir );
 		}
+
 		return true;
 	}
 
@@ -1094,6 +1129,7 @@ abstract class Installer {
 			// Only warn if the value is below the sane 1024
 			$this->showMessage( 'config-suhosin-max-value-length', $maxValueLength );
 		}
+
 		return true;
 	}
 
@@ -1176,8 +1212,23 @@ abstract class Installer {
 	protected function envCheckCtype() {
 		if ( !function_exists( 'ctype_digit' ) ) {
 			$this->showError( 'config-ctype' );
+
 			return false;
 		}
+
+		return true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	protected function envCheckJSON() {
+		if ( !function_exists( 'json_decode' ) ) {
+			$this->showError( 'config-json' );
+
+			return false;
+		}
+
 		return true;
 	}
 
@@ -1206,8 +1257,8 @@ abstract class Installer {
 	 * @param string $path path to search
 	 * @param array $names of executable names
 	 * @param $versionInfo Boolean false or array with two members:
-	 *		 0 => Command to run for version check, with $1 for the full executable name
-	 *		 1 => String to compare the output with
+	 *         0 => Command to run for version check, with $1 for the full executable name
+	 *         1 => String to compare the output with
 	 *
 	 * If $versionInfo is not false, only executables with a version
 	 * matching $versionInfo[1] will be returned.
@@ -1236,6 +1287,7 @@ abstract class Installer {
 				}
 			}
 		}
+
 		return false;
 	}
 
@@ -1253,6 +1305,7 @@ abstract class Installer {
 				return $exe;
 			}
 		}
+
 		return false;
 	}
 
@@ -1286,8 +1339,7 @@ abstract class Installer {
 
 				try {
 					$text = Http::get( $url . $file, array( 'timeout' => 3 ) );
-				}
-				catch ( MWException $e ) {
+				} catch ( MWException $e ) {
 					// Http::get throws with allow_url_fopen = false and no curl extension.
 					$text = null;
 				}
@@ -1295,6 +1347,7 @@ abstract class Installer {
 
 				if ( $text == 'exec' ) {
 					wfRestoreWarnings();
+
 					return $ext;
 				}
 			}
@@ -1319,6 +1372,7 @@ abstract class Installer {
 		ob_start();
 		phpinfo( INFO_MODULES );
 		$info = ob_get_clean();
+
 		return strpos( $info, $moduleName ) !== false;
 	}
 
@@ -1424,13 +1478,13 @@ abstract class Installer {
 	 */
 	protected function getInstallSteps( DatabaseInstaller $installer ) {
 		$coreInstallSteps = array(
-			array( 'name' => 'database',   'callback' => array( $installer, 'setupDatabase' ) ),
-			array( 'name' => 'tables',     'callback' => array( $installer, 'createTables' ) ),
-			array( 'name' => 'interwiki',  'callback' => array( $installer, 'populateInterwikiTable' ) ),
-			array( 'name' => 'stats',      'callback' => array( $this, 'populateSiteStats' ) ),
-			array( 'name' => 'keys',       'callback' => array( $this, 'generateKeys' ) ),
-			array( 'name' => 'sysop',      'callback' => array( $this, 'createSysop' ) ),
-			array( 'name' => 'mainpage',   'callback' => array( $this, 'createMainpage' ) ),
+			array( 'name' => 'database', 'callback' => array( $installer, 'setupDatabase' ) ),
+			array( 'name' => 'tables', 'callback' => array( $installer, 'createTables' ) ),
+			array( 'name' => 'interwiki', 'callback' => array( $installer, 'populateInterwikiTable' ) ),
+			array( 'name' => 'stats', 'callback' => array( $this, 'populateSiteStats' ) ),
+			array( 'name' => 'keys', 'callback' => array( $this, 'generateKeys' ) ),
+			array( 'name' => 'sysop', 'callback' => array( $this, 'createSysop' ) ),
+			array( 'name' => 'mainpage', 'callback' => array( $this, 'createMainpage' ) ),
 		);
 
 		// Build the array of install steps starting from the core install list,
@@ -1463,6 +1517,7 @@ abstract class Installer {
 				'callback' => array( $installer, 'createExtensionTables' )
 			);
 		}
+
 		return $this->installSteps;
 	}
 
@@ -1499,6 +1554,7 @@ abstract class Installer {
 		if ( $status->isOk() ) {
 			$this->setVar( '_InstallDone', true );
 		}
+
 		return $installResults;
 	}
 
@@ -1512,6 +1568,7 @@ abstract class Installer {
 		if ( strval( $this->getVar( 'wgUpgradeKey' ) ) === '' ) {
 			$keys['wgUpgradeKey'] = 16;
 		}
+
 		return $this->doGenerateKeys( $keys );
 	}
 
@@ -1633,10 +1690,11 @@ abstract class Installer {
 			);
 
 			$page->doEditContent( $content,
-					'',
-					EDIT_NEW,
-					false,
-					User::newFromName( 'MediaWiki default' ) );
+				'',
+				EDIT_NEW,
+				false,
+				User::newFromName( 'MediaWiki default' )
+			);
 		} catch ( MWException $e ) {
 			//using raw, because $wgShowExceptionDetails can not be set yet
 			$status->fatal( 'config-install-mainpage-failed', $e->getMessage() );

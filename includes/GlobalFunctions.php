@@ -93,6 +93,18 @@ if ( !function_exists( 'mb_strrpos' ) ) {
 		return Fallback::mb_strrpos( $haystack, $needle, $offset, $encoding );
 	}
 }
+
+// gzdecode function only exists in PHP >= 5.4.0
+// http://php.net/gzdecode
+if ( !function_exists( 'gzdecode' ) ) {
+	/**
+	 * @codeCoverageIgnore
+	 * @return string
+	 */
+	function gzdecode( $data ) {
+		return gzinflate( substr( $data, 10, -8 ) );
+	}
+}
 /// @endcond
 
 /**
@@ -106,12 +118,12 @@ function wfArrayDiff2( $a, $b ) {
 }
 
 /**
- * @param $a
- * @param $b
+ * @param $a array|string
+ * @param $b array|string
  * @return int
  */
 function wfArrayDiff2_cmp( $a, $b ) {
-	if ( !is_array( $a ) ) {
+	if ( is_string( $a ) && is_string( $b ) ) {
 		return strcmp( $a, $b );
 	} elseif ( count( $a ) !== count( $b ) ) {
 		return count( $a ) < count( $b ) ? -1 : 1;
@@ -1691,10 +1703,12 @@ function wfEmptyMsg( $key ) {
  * Throw a debugging exception. This function previously once exited the process,
  * but now throws an exception instead, with similar results.
  *
+ * @deprecated since 1.22; just throw an MWException yourself
  * @param string $msg message shown when dying.
  * @throws MWException
  */
 function wfDebugDieBacktrace( $msg = '' ) {
+	wfDeprecated( __FUNCTION__, '1.22' );
 	throw new MWException( $msg );
 }
 
@@ -1938,23 +1952,6 @@ function wfViewPrevNext( $offset, $limit, $link, $query = '', $atend = false ) {
 }
 
 /**
- * Make a list item, used by various special pages
- *
- * @param string $page Page link
- * @param string $details Text between brackets
- * @param $oppositedm Boolean	Add the direction mark opposite to your
- *								language, to display text properly
- * @return String
- * @deprecated since 1.19; use Language::specialList() instead
- */
-function wfSpecialList( $page, $details, $oppositedm = true ) {
-	wfDeprecated( __METHOD__, '1.19' );
-
-	global $wgLang;
-	return $wgLang->specialList( $page, $details, $oppositedm );
-}
-
-/**
  * @todo document
  * @todo FIXME: We may want to blacklist some broken browsers
  *
@@ -2015,12 +2012,15 @@ function wfEscapeWikiText( $text ) {
 		$repl = array(
 			'"' => '&#34;', '&' => '&#38;', "'" => '&#39;', '<' => '&#60;',
 			'=' => '&#61;', '>' => '&#62;', '[' => '&#91;', ']' => '&#93;',
-			'{' => '&#123;', '|' => '&#124;', '}' => '&#125;',
+			'{' => '&#123;', '|' => '&#124;', '}' => '&#125;', ';' => '&#59;',
 			"\n#" => "\n&#35;", "\r#" => "\r&#35;",
 			"\n*" => "\n&#42;", "\r*" => "\r&#42;",
 			"\n:" => "\n&#58;", "\r:" => "\r&#58;",
-			"\n;" => "\n&#59;", "\r;" => "\r&#59;",
 			"\n " => "\n&#32;", "\r " => "\r&#32;",
+			"\n\n" => "\n&#10;", "\r\n" => "&#13;\n",
+			"\n\r" => "\n&#13;", "\r\r" => "\r&#13;",
+			"\n\t" => "\n&#9;", "\r\t" => "\r&#9;", // "\n\t\n" is treated like "\n\n"
+			"\n----" => "\n&#45;---", "\r----" => "\r&#45;---",
 			'__' => '_&#95;', '://' => '&#58;//',
 		);
 
@@ -2459,7 +2459,7 @@ function wfIsWindows() {
  * @return Bool
  */
 function wfIsHipHop() {
-	return function_exists( 'hphp_thread_set_warmup_enabled' );
+	return defined( 'HPHP_VERSION' );
 }
 
 /**
@@ -2522,7 +2522,7 @@ function wfMkdirParents( $dir, $mode = null, $caller = null ) {
 		wfDebug( "$caller: called wfMkdirParents($dir)\n" );
 	}
 
-	if ( strval( $dir ) === '' || file_exists( $dir ) ) {
+	if ( strval( $dir ) === '' || ( file_exists( $dir ) && is_dir( $dir ) ) ) {
 		return true;
 	}
 
@@ -2538,6 +2538,11 @@ function wfMkdirParents( $dir, $mode = null, $caller = null ) {
 	wfRestoreWarnings();
 
 	if ( !$ok ) {
+		//directory may have been created on another request since we last checked
+		if ( is_dir( $dir ) ) {
+			return true;
+		}
+
 		// PHP doesn't report the path in its warning message, so add our own to aid in diagnosis.
 		wfLogWarning( sprintf( "failed to mkdir \"%s\" mode 0%o", $dir, $mode ) );
 	}
@@ -2627,38 +2632,6 @@ function wfIniGetBool( $setting ) {
 		|| $val == 'true'
 		|| $val == 'yes'
 		|| preg_match( "/^\s*[+-]?0*[1-9]/", $val ); // approx C atoi() function
-}
-
-/**
- * Wrapper function for PHP's dl(). This doesn't work in most situations from
- * PHP 5.3 onward, and is usually disabled in shared environments anyway.
- *
- * @param string $extension A PHP extension. The file suffix (.so or .dll)
- *                          should be omitted
- * @param string $fileName Name of the library, if not $extension.suffix
- * @return Bool - Whether or not the extension is loaded
- */
-function wfDl( $extension, $fileName = null ) {
-	if ( extension_loaded( $extension ) ) {
-		return true;
-	}
-
-	$canDl = false;
-	if ( PHP_SAPI == 'cli' || PHP_SAPI == 'cgi' || PHP_SAPI == 'embed' ) {
-		$canDl = ( function_exists( 'dl' ) && is_callable( 'dl' )
-		&& wfIniGetBool( 'enable_dl' ) && !wfIniGetBool( 'safe_mode' ) );
-	}
-
-	if ( $canDl ) {
-		$fileName = $fileName ? $fileName : $extension;
-		if ( wfIsWindows() ) {
-			$fileName = 'php_' . $fileName;
-		}
-		wfSuppressWarnings();
-		dl( $fileName . '.' . PHP_SHLIB_SUFFIX );
-		wfRestoreWarnings();
-	}
-	return extension_loaded( $extension );
 }
 
 /**
@@ -2760,9 +2733,11 @@ function wfShellExecDisabled() {
  *                 added to the executed command environment.
  * @param array $limits optional array with limits(filesize, memory, time, walltime)
  *                 this overwrites the global wgShellMax* limits.
- * @return string collected stdout as a string (trailing newlines stripped)
+ * @param array $options Array of options. Only one is "duplicateStderr" => true, which
+ *                 Which duplicates stderr to stdout, including errors from limit.sh
+ * @return string collected stdout as a string
  */
-function wfShellExec( $cmd, &$retval = null, $environ = array(), $limits = array() ) {
+function wfShellExec( $cmd, &$retval = null, $environ = array(), $limits = array(), $options = array() ) {
 	global $IP, $wgMaxShellMemory, $wgMaxShellFileSize, $wgMaxShellTime,
 		$wgMaxShellWallClockTime, $wgShellCgroup;
 
@@ -2773,6 +2748,8 @@ function wfShellExec( $cmd, &$retval = null, $environ = array(), $limits = array
 			'Unable to run external programs in safe mode.' :
 			'Unable to run external programs, passthru() is disabled.';
 	}
+
+	$includeStderr = isset( $options['duplicateStderr'] ) && $options['duplicateStderr'];
 
 	wfInitShellLocale();
 
@@ -2796,6 +2773,10 @@ function wfShellExec( $cmd, &$retval = null, $environ = array(), $limits = array
 	$cmd = $envcmd . $cmd;
 
 	if ( php_uname( 's' ) == 'Linux' ) {
+		$stderrDuplication = '';
+		if ( $includeStderr ) {
+			$stderrDuplication = 'exec 2>&1; ';
+		}
 		$time = intval ( isset( $limits['time'] ) ? $limits['time'] : $wgMaxShellTime );
 		if ( isset( $limits['walltime'] ) ) {
 			$wallTime = intval( $limits['walltime'] );
@@ -2811,17 +2792,25 @@ function wfShellExec( $cmd, &$retval = null, $environ = array(), $limits = array
 			$cmd = '/bin/bash ' . escapeshellarg( "$IP/includes/limit.sh" ) . ' ' .
 				escapeshellarg( $cmd ) . ' ' .
 				escapeshellarg(
+					$stderrDuplication .
 					"MW_CPU_LIMIT=$time; " .
 					'MW_CGROUP=' . escapeshellarg( $wgShellCgroup ) . '; ' .
 					"MW_MEM_LIMIT=$mem; " .
 					"MW_FILE_SIZE_LIMIT=$filesize; " .
 					"MW_WALL_CLOCK_LIMIT=$wallTime"
 				);
+		} else {
+			$cmd .= ' 2>&1';
 		}
+	} elseif ( $includeStderr ) {
+		$cmd .= ' 2>&1';
 	}
 	wfDebug( "wfShellExec: $cmd\n" );
 
-	$retval = 1; // error by default?
+	// Default to an unusual value that shouldn't happen naturally,
+	// so in the unlikely event of a weird php bug, it would be
+	// more obvious what happened.
+	$retval = 200;
 	ob_start();
 	passthru( $cmd, $retval );
 	$output = ob_get_contents();
@@ -2831,6 +2820,24 @@ function wfShellExec( $cmd, &$retval = null, $environ = array(), $limits = array
 		wfDebugLog( 'exec', "Possibly missing executable file: $cmd\n" );
 	}
 	return $output;
+}
+
+/**
+ * Execute a shell command, returning both stdout and stderr. Convenience
+ * function, as all the arguments to wfShellExec can become unwieldy.
+ *
+ * @note This also includes errors from limit.sh, e.g. if $wgMaxShellFileSize is exceeded.
+ * @param string $cmd Command line, properly escaped for shell.
+ * @param &$retval null|Mixed optional, will receive the program's exit code.
+ *                 (non-zero is usually failure)
+ * @param array $environ optional environment variables which should be
+ *                 added to the executed command environment.
+ * @param array $limits optional array with limits(filesize, memory, time, walltime)
+ *                 this overwrites the global wgShellMax* limits.
+ * @return string collected stdout and stderr as a string
+ */
+function wfShellExecWithStderr( $cmd, &$retval = null, $environ = array(), $limits = array() ) {
+	return wfShellExec( $cmd, $retval, $environ, $limits, array( 'duplicateStderr' => true ) );
 }
 
 /**

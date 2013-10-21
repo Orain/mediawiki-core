@@ -30,10 +30,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-# Read language names
-global $wgLanguageNames;
-require_once __DIR__ . '/Names.php';
-
 if ( function_exists( 'mb_strtoupper' ) ) {
 	mb_internal_encoding( 'UTF-8' );
 }
@@ -232,7 +228,7 @@ class Language {
 		// Check if there is a language class for the code
 		$class = self::classFromCode( $code );
 		self::preloadLanguageClass( $class );
-		if ( MWInit::classExists( $class ) ) {
+		if ( class_exists( $class ) ) {
 			$lang = new $class;
 			return $lang;
 		}
@@ -246,7 +242,7 @@ class Language {
 
 			$class = self::classFromCode( $fallbackCode );
 			self::preloadLanguageClass( $class );
-			if ( MWInit::classExists( $class ) ) {
+			if ( class_exists( $class ) ) {
 				$lang = Language::newFromCode( $fallbackCode );
 				$lang->setCode( $code );
 				return $lang;
@@ -396,7 +392,8 @@ class Language {
 		}
 
 		if ( $coreLanguageNames === null ) {
-			include MWInit::compiledPath( 'languages/Names.php' );
+			global $IP;
+			include "$IP/languages/Names.php";
 		}
 
 		if ( isset( $coreLanguageNames[$tag] )
@@ -878,7 +875,8 @@ class Language {
 		static $coreLanguageNames;
 
 		if ( $coreLanguageNames === null ) {
-			include MWInit::compiledPath( 'languages/Names.php' );
+			global $IP;
+			include "$IP/languages/Names.php";
 		}
 
 		$names = array();
@@ -2290,6 +2288,8 @@ class Language {
 			// Timestamp within the past week: show the day of the week and time
 			$format = $this->getDateFormatString( 'time', $user->getDatePreference() ?: 'default' );
 			$weekday = self::$mWeekdayMsgs[$ts->timestamp->format( 'w' )];
+			// Messages:
+			// sunday-at, monday-at, tuesday-at, wednesday-at, thursday-at, friday-at, saturday-at
 			$ts = wfMessage( "$weekday-at" )
 				->inLanguage( $this )
 				->params( $this->sprintfDate( $format, $ts->getTimestamp( TS_MW ) ) )
@@ -2617,7 +2617,7 @@ class Language {
 	 */
 	function checkTitleEncoding( $s ) {
 		if ( is_array( $s ) ) {
-			wfDebugDieBacktrace( 'Given array to checkTitleEncoding.' );
+			throw new MWException( 'Given array to checkTitleEncoding.' );
 		}
 		if ( StringUtils::isUtf8( $s ) ) {
 			return $s;
@@ -3068,7 +3068,7 @@ class Language {
 	 * Normally we output all numbers in plain en_US style, that is
 	 * 293,291.235 for twohundredninetythreethousand-twohundredninetyone
 	 * point twohundredthirtyfive. However this is not suitable for all
-	 * languages, some such as Pakaran want ੨੯੩,੨੯੫.੨੩੫ and others such as
+	 * languages, some such as Punjabi want ੨੯੩,੨੯੫.੨੩੫ and others such as
 	 * Icelandic just want to use commas instead of dots, and dots instead
 	 * of commas like "293.291,235".
 	 *

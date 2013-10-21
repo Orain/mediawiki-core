@@ -79,13 +79,15 @@ abstract class MediaHandler {
 	 * Merge a parameter array into a string appropriate for inclusion in filenames
 	 *
 	 * @param $params array Array of parameters that have been through normaliseParams.
+	 * @return String
 	 */
 	abstract function makeParamString( $params );
 
 	/**
 	 * Parse a param string made with makeParamString back into an array
 	 *
-	 * @param $str string
+	 * @param $str string The parameter string without file name (e.g. 122px)
+	 * @return Array|Boolean Array of parameters or false on failure.
 	 */
 	abstract function parseParamString( $str );
 
@@ -643,4 +645,23 @@ abstract class MediaHandler {
 	public static function canRotate() {
 		return false;
 	}
+
+	/**
+	 * On supporting image formats, try to read out the low-level orientation
+	 * of the file and return the angle that the file needs to be rotated to
+	 * be viewed.
+	 *
+	 * This information is only useful when manipulating the original file;
+	 * the width and height we normally work with is logical, and will match
+	 * any produced output views.
+	 *
+	 * For files we don't know, we return 0.
+	 *
+	 * @param $file File
+	 * @return int 0, 90, 180 or 270
+	 */
+	public function getRotation( $file ) {
+		return 0;
+	}
+
 }

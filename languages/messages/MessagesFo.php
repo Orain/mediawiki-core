@@ -119,12 +119,12 @@ $messages = array(
 'tog-hidepatrolled' => 'Krógva eftirkannaðar rættingar í seinastu broytingum',
 'tog-newpageshidepatrolled' => 'Goym eftirkannaðar síður frá listanum yvir nýggjar síður',
 'tog-extendwatchlist' => 'Víðka eftirlitslistan fyri at vísa allar broytingar, ikki bara tær seinastu',
-'tog-usenewrc' => 'Bólkað broytingar eftir síðu í seinastu rættingar og eftirlitslita (krevur JavaScript)',
+'tog-usenewrc' => 'Bólka broytingar eftir síðu í seinastu broytingum og eftirlitslita',
 'tog-numberheadings' => 'Sjálvvirkandi talmerking av yvirskriftum',
-'tog-showtoolbar' => 'Vís rættingar tóllinju (krevur JavaScript)',
-'tog-editondblclick' => 'Rætta síður við at tvíklikkja (krevur JavaScript)',
+'tog-showtoolbar' => 'Vís rættingar-tóllinju',
+'tog-editondblclick' => 'Rætta síður við at tvíklikkja',
 'tog-editsection' => 'Rætta greinpart við hjálp av [rætta] leinkjum',
-'tog-editsectiononrightclick' => 'Rætta greinpart við at høgraklikkja á yvirskrift av greinparti (krevur JavaScript)',
+'tog-editsectiononrightclick' => 'Rætta reglubrot við at høgraklikkja á reglubrotsyvirskrift',
 'tog-showtoc' => 'Vís innihaldsyvirlit (fyri síður við meira enn trimun yvirskriftum)',
 'tog-rememberpassword' => 'Minst til mítt loyniorð á hesum kaga (í mesta lagi í $1 {{PLURAL:$1|dag|dagar}})',
 'tog-watchcreations' => 'Legg síður, sum eg stovni og fílur sum eg leggi út, afturat mínum eftirlitslista',
@@ -142,7 +142,7 @@ $messages = array(
 'tog-shownumberswatching' => 'Vís tal av brúkarum sum fylgja við',
 'tog-oldsig' => 'Verandi undirskrift:',
 'tog-fancysig' => 'Viðgerð undirskriftina sum wikitekstur (uttan sjálvvirkandi leinkju)',
-'tog-uselivepreview' => 'Nýt "live preview" (tørvar JavaScript) (á royndarstøði)',
+'tog-uselivepreview' => 'Nýt "live preview" (á royndarstøði)',
 'tog-forceeditsummary' => 'Gev mær boð, um eg ikki havi skrivað ein samandrátt um mína rætting',
 'tog-watchlisthideown' => 'Fjal mínar rættingar frá eftirliti',
 'tog-watchlisthidebots' => 'Vís ikki rættingar frá botti í eftirlitslistanum',
@@ -356,10 +356,10 @@ $1',
 'pool-queuefull' => 'Køin til "hylin" er full',
 'pool-errorunknown' => 'Ókend villa',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Um {{SITENAME}}',
 'aboutpage' => 'Project:Um',
-'copyright' => 'Innihald er tøkt undir $1.',
+'copyright' => 'Innihaldið er tøkt undir $1, um ikki annað er viðmerkt.',
 'copyrightpage' => '{{ns:project}}:Upphavsrættur',
 'currentevents' => 'Aktuellar hendingar',
 'currentevents-url' => 'Project:Aktuellar hendingar',
@@ -443,6 +443,7 @@ Hetta kann eisini benda á ein feil í software'ini sum {{SITENAME}} brúkar.",
 # General errors
 'error' => 'Villa',
 'databaseerror' => 'Villa í dátagrunni',
+'databaseerror-error' => 'Feilur: $1',
 'laggedslavemode' => "'''Ávaring:''' Síðan inniheldur møguliga ikki nýggjar dagføringar.",
 'readonly' => 'Dátubasan er stongd fyri skriving',
 'enterlockreason' => 'Skriva eina orsøk fyri at stongja síðuna fyri skriving, saman við einari meting av, nær ið síðan verður lást upp aftur',
@@ -1533,7 +1534,7 @@ Tín t-post adressa verður ikki avdúkað, tá aðrir brúkarir seta seg í sam
 'rc_categories_any' => 'Nakar',
 'rc-change-size-new' => '$1 {{PLURAL:$1|byte|bytes}} eftir broyting',
 'newsectionsummary' => '/* $1 */ nýtt innlegg',
-'rc-enhanced-expand' => 'Vís smálutir (krevur JavaScript)',
+'rc-enhanced-expand' => 'Vís smálutir',
 'rc-enhanced-hide' => 'Goym smálutir',
 'rc-old-title' => 'upprunaliga stovnað sum "$1"',
 
@@ -1895,12 +1896,6 @@ Minst til at kanna eftir um aðrar síður slóða til fyrimyndirnar, áðrenn t
 'statistics-users-active' => 'Virknir brúkarir',
 'statistics-users-active-desc' => 'Brúkarar ið hava framt eina handling seinasta/u {{PLURAL:$1|døgnið|$1 dagarnar}}',
 'statistics-mostpopular' => 'Mest sæddu síður',
-
-'disambiguations' => 'Síður sum vísa til síður við fleirfaldum týdningi',
-'disambiguationspage' => 'Template:fleiri týdningar',
-'disambiguations-text' => "Hesar síður innihalda í minsta lagi ein leinkju til eina '''síðu við fleiri týdningum'''.
-Tær eiga heldur at slóða til ein meira passandi síðu í staðin.<br />
-Ein síða verður sædd sum ein síða við fleiri týdningum, um hon brúkar eina fyrimynd, sum slóðar frá [[MediaWiki:Disambiguationspage]].",
 
 'pageswithprop' => 'Síður við síðueginleika',
 'pageswithprop-legend' => 'Síður við einum síðueginleika',

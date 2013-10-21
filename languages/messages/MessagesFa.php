@@ -9,6 +9,7 @@
  *
  * @author Alnokta
  * @author Americophile
+ * @author Amire80
  * @author Armandaneshjoo
  * @author Asoxor
  * @author Baqeri
@@ -29,10 +30,12 @@
  * @author Meno25
  * @author Mjbmr
  * @author Mormegil
+ * @author Omidh
  * @author Omnia
  * @author Pouyana
  * @author Reza1615
  * @author Roozbeh Pournader <roozbeh at gmail.com>
+ * @author Rtemis
  * @author Sahim
  * @author Surena
  * @author Taha
@@ -441,9 +444,9 @@ $messages = array(
 'tog-hidepatrolled' => 'ویرایش‌های گشت‌خورده از فهرست تغییرات اخیر پنهان شوند',
 'tog-newpageshidepatrolled' => 'صفحه‌های نهگبانی‌شده از فهرست صفحه‌های تازه پنهان شوند',
 'tog-extendwatchlist' => 'گسترش فهرست پی‌گیری‌ها برای نمایش همهٔ تغییرات، نه فقط آخرین‌ها',
-'tog-usenewrc' => 'گروه‌بندی تغییرات بر پایه صفحه در تغییرات اخیر و فهرست پیگیری‌ها (نیازمند جاوااسکریپت)',
+'tog-usenewrc' => 'گروه‌بندی تغییرات بر پایهٔ صفحه‌های تغییرات اخیر و فهرست پیگیری‌ها (نیازمند جاوااسکریپت)',
 'tog-numberheadings' => 'شماره‌گذاری خودکار عنوان‌ها',
-'tog-showtoolbar' => 'نوار ابزار جعبهٔ ویرایش نمایش یابد (نیازمند جاوااسکریپت)',
+'tog-showtoolbar' => 'نوار ابزار جعبهٔ ویرایش نمایش یابد',
 'tog-editondblclick' => 'ویرایش صفحه‌ها با دوکلیک (نیازمند جاوااسکریپت)',
 'tog-editsection' => 'ویرایش بخش‌ها از طریق پیوندهای [ویرایش] فعال باشد',
 'tog-editsectiononrightclick' => 'امکان ویرایش بخش‌ها با کلیک راست روی عنوان‌های بخش (نیازمند جاوااسکریپت)',
@@ -579,7 +582,7 @@ $messages = array(
 'newwindow' => '(در پنجرهٔ جدید باز می‌شود)',
 'cancel' => 'لغو',
 'moredotdotdot' => 'بیشتر...',
-'morenotlisted' => 'ادامه لیست...',
+'morenotlisted' => 'این فهرست کامل نیست.',
 'mypage' => 'صفحه',
 'mytalk' => 'بحث',
 'anontalk' => 'بحث برای این آی‌پی',
@@ -679,10 +682,10 @@ $1',
 'pool-queuefull' => 'صف مخزن پر است',
 'pool-errorunknown' => 'خطای ناشناخته',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'دربارهٔ {{SITENAME}}',
 'aboutpage' => 'Project:درباره',
-'copyright' => 'محتوا تحت اجازه‌نامهٔ $1 در دسترس است.',
+'copyright' => 'محتوایات تحت اجازه‌نامهٔ $1 هستند مگر اینکه خلافش ذکر شده باشد.',
 'copyrightpage' => '{{ns:project}}:حق تکثیر',
 'currentevents' => 'رویدادهای کنونی',
 'currentevents-url' => 'Project:رویدادهای کنونی',
@@ -769,6 +772,12 @@ $1',
 # General errors
 'error' => 'خطا',
 'databaseerror' => 'خطای پایگاه داده',
+'databaseerror-text' => 'مشکلی در پایگاه‌داده‌ها رخ داده‌است. 
+این ممکن است نشان‌دهندهٔ ایرادی در نرم‌افزار باشد.',
+'databaseerror-textcl' => 'یک خطای پرس‌وجوی پایگاه داده‌های رخ داده‌است.',
+'databaseerror-query' => 'پرس‌وجو: $1',
+'databaseerror-function' => 'تابع: $1',
+'databaseerror-error' => 'خطا: $1',
 'laggedslavemode' => "'''هشدار:''' صفحه ممکن است به‌روزرسانی‌های اخیر را شامل نشود.",
 'readonly' => 'پایگاه داده قفل شد',
 'enterlockreason' => 'دلیلی برای قفل کردن ذکر کنید، که حاوی تقریبی از زمانی باشد که قفل برداشته خواهد شد',
@@ -861,7 +870,7 @@ $2',
 'userlogin-yourname' => 'نام کاربری',
 'userlogin-yourname-ph' => 'نام کاربریتان را وارد کنید',
 'createacct-another-username-ph' => 'نام کاربریتان را وارد کنید',
-'yourpassword' => 'گذرواژه:',
+'yourpassword' => 'رمز عبور:',
 'userlogin-yourpassword' => 'گذرواژه',
 'userlogin-yourpassword-ph' => 'گذرواژه را وارد کنید',
 'createacct-yourpassword-ph' => 'یک گذرواژه وارد کنید',
@@ -893,12 +902,15 @@ $2',
 'userlogin-resetpassword-link' => 'گذرواژه‌تان را فراموش کردید؟',
 'helplogin-url' => 'Help:ورود به سامانه',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|راهنمای ورود به سامانه]]',
+'userlogin-loggedin' => 'شما در حال حاضر به‌عنوان {{GENDER:$1|$1}} وارد سیستم شده‌اید.
+از فرم پایین برای ورود به‌عنوان یک کاربر دیگر استفاده کنید.',
+'userlogin-createanother' => 'ایجاد یک حساب کاربری دیگر',
 'createacct-join' => 'اطلاعاتتان را در زیر وارد کنید',
 'createacct-another-join' => 'در زیر اطلاعات کاربری جدیدتان را وارد کنید.',
-'createacct-emailrequired' => 'آدرس رایانامه',
-'createacct-emailoptional' => 'آدرس رایانامه (اختیاری)',
-'createacct-email-ph' => 'آدرس رایانامه را وارد کنید',
-'createacct-another-email-ph' => 'آدرس رایانامه را وارد کنید',
+'createacct-emailrequired' => 'نشانی رایانامه',
+'createacct-emailoptional' => 'نشانی رایانامه (اختیاری)',
+'createacct-email-ph' => 'نشانی رایانامه را وارد کنید',
+'createacct-another-email-ph' => 'نشانی رایانامه را وارد کنید',
 'createaccountmail' => 'استفاده از رمز عبور موقت تصادفی و فرستادن آن به نشانی ایمیل مشخص‌شده',
 'createacct-realname' => 'نام واقعی (اختیاری)',
 'createaccountreason' => 'دلیل:',
@@ -909,8 +921,8 @@ $2',
 'createacct-submit' => 'حسابتان را بسازید',
 'createacct-another-submit' => 'ایجاد حساب کاربری دیگر',
 'createacct-benefit-heading' => '{{SITENAME}} توسط افرادی مانند شما ساخته شده‌است',
-'createacct-benefit-body1' => '{{PLURAL:$1|ویرایش|ویرایش‌ها}}',
-'createacct-benefit-body2' => '{{PLURAL:$1|صفحه|صفحه‌ها}}',
+'createacct-benefit-body1' => '{{PLURAL:$1|ویرایش}}',
+'createacct-benefit-body2' => '{{PLURAL:$1|صفحه}}',
 'createacct-benefit-body3' => '{{PLURAL:$1|مشارکت‌کنندهٔ|مشارکت‌کنندگان}} اخیر',
 'badretype' => 'گذرواژه‌هایی که وارد کرده‌اید یکسان نیستند.',
 'userexists' => 'نام کاربری‌ای که وارد کردید قبلاً استفاده شده‌است.
@@ -991,8 +1003,8 @@ $2',
 
 # Email sending
 'php-mail-error-unknown' => 'خطای ناشناخته در تابع  mail()‎ پی‌اچ‌پی',
-'user-mail-no-addy' => 'تلاش برای ارسال نامه بدون یک آدرس رایانامه.',
-'user-mail-no-body' => 'تلاش برای فرستادن پست‌الکترونیک بی‌دلیل کوتاه یا خالی',
+'user-mail-no-addy' => 'تلاش برای ارسال نامه بدون یک نشانی رایانامه.',
+'user-mail-no-body' => 'تلاش برای فرستادن رایانامه بی‌دلیل کوتاه یا خالی',
 
 # Change password dialog
 'resetpass' => 'تغییر گذرواژه',
@@ -1433,7 +1445,7 @@ $1",
 'revdel-restore-visible' => 'نسخه‌های پیدا',
 'pagehist' => 'تاریخچهٔ صفحه',
 'deletedhist' => 'تاریخچهٔ حذف‌شده',
-'revdelete-hide-current' => 'خطا در پنهان کردن مورد مورخ $2 ساعت $1: این نسخه، نسخهٔ اخیر می‌باشد و قابل پنهان کردن نیست.',
+'revdelete-hide-current' => 'خطا در پنهان‌کردن مورد مورخ $2 ساعت $1: این نسخه، نسخهٔ اخیر است و قابل پنهان‌کردن نیست.',
 'revdelete-show-no-access' => 'خطا در پنهان کردن مورد مورخ $2 ساعت $1: این نسخه علامت «محدودیت» دارد و شما به آن دسترسی ندارید.',
 'revdelete-modify-no-access' => 'خطا در پنهان کردن مورد مورخ $2 ساعت $1: این نسخه علامت «محدودیت» دارد و شما به آن دسترسی ندارید.',
 'revdelete-modify-missing' => 'خطا در پنهان کردن مورد شمارهٔ $1: این نسخه در پایگاه داده وجود ندارد!',
@@ -1579,7 +1591,7 @@ $1",
 'prefs-skin' => 'پوسته',
 'skin-preview' => 'پیش‌نمایش',
 'datedefault' => 'بدون ترجیح',
-'prefs-beta' => 'ویژگی های بتا',
+'prefs-beta' => 'ویژگی‌های آزمایشی',
 'prefs-datetime' => 'تاریخ و زمان',
 'prefs-labs' => 'گزینه‌های آزمایشی',
 'prefs-user-pages' => 'صفحه‌های کاربری',
@@ -1599,7 +1611,7 @@ $1",
 'prefs-rendering' => 'نمایش صفحه',
 'saveprefs' => 'ذخیره',
 'resetprefs' => 'صفرکردن ترجیحات',
-'restoreprefs' => 'برگرداندن تمام تنظیمات پیش‌فرض',
+'restoreprefs' => 'برگرداندن تمام تنظیمات پیش‌فرض (در تمامی قسمت‌ها)',
 'prefs-editing' => 'ویرایش',
 'rows' => 'تعداد سطرها:',
 'columns' => 'تعداد ستون‌ها:',
@@ -1662,8 +1674,9 @@ $1",
 'gender-unknown' => 'ترجیح می‌دهم مشخص نکنم',
 'gender-male' => 'مرد',
 'gender-female' => 'زن',
-'prefs-help-gender' => 'اختیاری: برای خطاب‌شدن با جنسیت درست توسط نرم‌افزار به کار می‌رود.
-این اطلاعات عمومی خواهد بود.',
+'prefs-help-gender' => 'انجام این تنظیم اختیاری است.
+نرم‌افزار از این مقدار برای اشارهٔ صحیح به جنسیت شما و ذکر شما برای دیگران با استفاده از قوائد درست دستور زبان استفاده می‌کند.
+این اطلاعات عمومی خواهند بود.',
 'email' => 'رایانامه',
 'prefs-help-realname' => 'نام واقعی اختیاری است.
 اگر آن را وارد کنید هنگام ارجاع به آثارتان و انتساب آن‌ها به شما از نام واقعی‌تان استفاده خواهد شد.',
@@ -1686,7 +1699,9 @@ $1",
 'prefs-displayrc' => 'گزینه‌های نمایش',
 'prefs-displaysearchoptions' => 'گزینه‌های نمایش',
 'prefs-displaywatchlist' => 'گزینه‌های نمایش',
+'prefs-tokenwatchlist' => 'نشانه',
 'prefs-diffs' => 'تفاوت‌ها',
+'prefs-help-prefershttps' => 'تأثیر این ترجیح بعد از ورود بعدی شما اعمال خواهد شد.',
 
 # User preference: email validation using jQuery
 'email-address-validity-valid' => 'نشانی رایانامه معتبر به نظر می‌رسد',
@@ -1710,10 +1725,10 @@ $1",
 'userrights-no-interwiki' => 'شما اجازهٔ تغییر اختیارات کاربران دیگر ویکی‌ها را ندارید.',
 'userrights-nodatabase' => 'پایگاه دادهٔ $1 وجود ندارد یا محلی نیست.',
 'userrights-nologin' => 'شما باید با یک حساب کاربری مدیر [[Special:UserLogin|به سامانه وارد شوید]] تا بتوانید اختیارات کاربران را تعیین کنید.',
-'userrights-notallowed' => 'حساب کاربری شما اجازه افزودن یا حذف کردن اختیارات کاربری را ندارد.',
+'userrights-notallowed' => 'شما مجوز برای افزودن یا حذف حقوق کاربر را ندارید.',
 'userrights-changeable-col' => 'گروه‌هایی که می‌توانید تغییر دهید',
 'userrights-unchangeable-col' => 'گروه‌هایی که نمی‌توانید تغییر دهید',
-'userrights-conflict' => 'تعارض دسترسی‌های کاربری! لطفاً تغییراتتان را دوباره اعمال کنید.',
+'userrights-conflict' => 'تعارض دسترسی‌های کاربری! لطفاً بررسی کنید و تغییرات را تأیید کنید.',
 'userrights-removed-self' => 'شما با موفقیت دسترسی‌های خود را واستاندید. به این ترتیب شما دیگر به این صفحه دسترسی ندارید.',
 
 # Groups
@@ -1844,8 +1859,8 @@ $1",
 'action-block' => 'قطع دسترسی این کاربر از ویرایش کردن',
 'action-protect' => 'تغییر سطح محافظت این صفحه',
 'action-rollback' => 'واگردانی سریع ویرایش‌های آخرین کاربری که یک صفحه را ویرایش کرده‌است',
-'action-import' => 'وارد کردن این صفحه از یک ویکی دیگر',
-'action-importupload' => 'وارد کردن این صفحه از طریق بارگذاری پرونده',
+'action-import' => 'وارد کردن صفحه از ویکی های دیگر',
+'action-importupload' => 'واردکردن صفحه از طریق بارگذاری پرونده',
 'action-patrol' => 'گشت زدن ویرایش دیگران',
 'action-autopatrol' => 'گشت زدن ویرایش خودتان',
 'action-unwatchedpages' => 'مشاهدهٔ صفحه‌های پی‌گیری نشده',
@@ -1861,6 +1876,8 @@ $1",
 
 # Recent changes
 'nchanges' => '$1 تغییر',
+'enhancedrc-since-last-visit' => '$1 {{PLURAL:$1|از آخرین بازدید}}',
+'enhancedrc-history' => 'تاریخچه',
 'recentchanges' => 'تغییرات اخیر',
 'recentchanges-legend' => 'گزینه‌های تغییرات اخیر',
 'recentchanges-summary' => 'آخرین تغییرات ویکی را در این صفحه پی‌گیری کنید.',
@@ -1892,7 +1909,7 @@ $1",
 'rc_categories_any' => 'هر کدام',
 'rc-change-size-new' => '$1 {{PLURAL:$1|بایت}} پس از تغییر',
 'newsectionsummary' => '/* $1 */ بخش جدید',
-'rc-enhanced-expand' => 'نمایش جزئیات (نیازمند جاوااسکریپت)',
+'rc-enhanced-expand' => 'نمایش جزئیات',
 'rc-enhanced-hide' => 'نهفتن جزئیات',
 'rc-old-title' => 'ایجادشده با عنوان اصلی «$1»',
 
@@ -2156,8 +2173,7 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'upload_source_file' => '(پرونده‌ای در رایانهٔ شما)',
 
 # Special:ListFiles
-'listfiles-summary' => 'این صفحهٔ ویژه تمام پرونده‌های بارگذاری شده را نمایش می‌دهد.
-در صورت پالایش بر اساس کاربر، تنها پرونده‌هایی که آخرین نسخه‌شان توسط کاربر موردنظر بارگذاری شده باشد نمایش می‌یابند.',
+'listfiles-summary' => 'این صفحهٔ ویژه تمام پرونده‌های بارگذاری‌شده را نمایش می‌دهد.',
 'listfiles_search_for' => 'جستجو به دنبال نام پرونده چندرسانه‌ای:',
 'imgfile' => 'پرونده',
 'listfiles' => 'فهرست پرونده‌ها',
@@ -2168,6 +2184,10 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'listfiles_size' => 'اندازه',
 'listfiles_description' => 'توضیح',
 'listfiles_count' => 'نسخه‌ها',
+'listfiles-show-all' => 'شامل نسخه‌های قدیمی عکس‌ها',
+'listfiles-latestversion' => 'نسخهٔ فعلی',
+'listfiles-latestversion-yes' => 'بله',
+'listfiles-latestversion-no' => 'خیر',
 
 # File description page
 'file-anchor-link' => 'پرونده',
@@ -2265,6 +2285,13 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'randompage' => 'مقالهٔ تصادفی',
 'randompage-nopages' => 'هیچ صفحه‌ای در این {{PLURAL:$2|فضای نام|فضاهای نام}} موجود نیست: $1.',
 
+# Random page in category
+'randomincategory' => 'صفحهٔ تصادفی در رده',
+'randomincategory-invalidcategory' => '«$1» نامی معتبر برای یک ردهٔ نیست.',
+'randomincategory-nopages' => 'هیج صفحه‌ای در رده [[:Category:$1|$1]] وجود ندارد.',
+'randomincategory-selectcategory' => 'دریافت صفحه‌ای تصادفی از دسته‌بندی: $1 $2.',
+'randomincategory-selectcategory-submit' => 'برو',
+
 # Random redirect
 'randomredirect' => 'تغییرمسیر تصادفی',
 'randomredirect-nopages' => 'هیج صفحهٔ تغییرمسیری در فضای نام «$1» موجود نیست.',
@@ -2290,17 +2317,13 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'statistics-users-active-desc' => 'کاربرانی که در {{PLURAL:$1|روز|$1 روز}} قبل فعالیتی انجام داده‌اند',
 'statistics-mostpopular' => 'صفحه‌هایی که بیشترین تعداد بازدیدکننده را داشته‌اند',
 
-'disambiguations' => 'صفحه‌های دارای پیوند به صفحه‌های ابهام‌زدایی',
-'disambiguationspage' => 'Template:ابهام‌زدایی',
-'disambiguations-text' => "صفحه‌های زیر حاوی حداقل یک پیوند به یک '''صفحهٔ ابهام‌زدایی''' هستند.
-این صفحه‌ها شاید در عوض به موضوعات مرتبط پیوند داده شوند.<br />
-یک صفحه هنگامی صفحهٔ ابهام‌زدایی در نظر گرفته می‌شود که در آن از الگویی که به [[MediaWiki:Disambiguationspage]] پیوند دارد استفاده شده باشد.",
-
 'pageswithprop' => 'صفحه‌های دارای خاصیت صفحه',
 'pageswithprop-legend' => 'صفحه‌های دارای خاصیت صفحه',
 'pageswithprop-text' => 'این صفحه فهرستی است از صفحه‌هایی که از یک خاصیت صفحهٔ خاص استفاده می‌کنند.',
 'pageswithprop-prop' => 'نام خاصیت:',
 'pageswithprop-submit' => 'برو',
+'pageswithprop-prophidden-long' => 'جزییات مخفی متن طولانی ($1)',
+'pageswithprop-prophidden-binary' => 'جزییات مقدار مخفی باینری ($1)',
 
 'doubleredirects' => 'تغییرمسیرهای دوتایی',
 'doubleredirectstext' => 'این صفحه فهرستی از صفحه‌های تغییرمسیری را ارائه می‌کند که به صفحهٔ تغییرمسیر دیگری اشاره می‌کنند.
@@ -2358,6 +2381,7 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'mostrevisions' => 'صفحه‌های دارای بیشترین نسخه',
 'prefixindex' => 'تمام صفحه‌ها با پیشوند',
 'prefixindex-namespace' => 'همهٔ صفحه‌های دارای پیشوند (فضای‌نام $1)',
+'prefixindex-strip' => 'حذف پیشوند در فهرست',
 'shortpages' => 'صفحه‌های کوتاه',
 'longpages' => 'صفحه‌های بلند',
 'deadendpages' => 'صفحه‌های بن‌بست',
@@ -2373,6 +2397,7 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'listusers' => 'فهرست کاربران',
 'listusers-editsonly' => 'فقط کاربرانی که ویرایش دارند را نشان بده',
 'listusers-creationsort' => 'مرتب کردن بر اساس تاریخ ایجاد',
+'listusers-desc' => 'ترتیب نزولی',
 'usereditcount' => '$1 {{PLURAL:$1|ویرایش|ویرایش}}',
 'usercreated' => '{{GENDER:$3|ایجادشده}} در تاریخ $1 در ساعت $2',
 'newpages' => 'صفحه‌های تازه',
@@ -2478,8 +2503,8 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'listgrouprights' => 'اختیارات گروه‌های کاربری',
 'listgrouprights-summary' => 'فهرست زیر شامل گروه‌های کاربری تعریف شده در این ویکی و اختیارات داده شده به آن‌ها است.
 اطلاعات بیشتر در مورد هر یک از اختیارات را در [[{{MediaWiki:Listgrouprights-helppage}}]] بیابید.',
-'listgrouprights-key' => '* <span class="listgrouprights-granted">اختیارات داده شده</span>
-* <span class="listgrouprights-revoked">اختیارات گرفته شده</span>',
+'listgrouprights-key' => '* <span class="listgrouprights-granted">اختیارات داده‌شده</span>
+* <span class="listgrouprights-revoked">اختیارات گرفته‌شده</span>',
 'listgrouprights-group' => 'گروه',
 'listgrouprights-rights' => 'دسترسی‌ها',
 'listgrouprights-helppage' => 'Help:دسترسی‌های گروهی',
@@ -2566,7 +2591,7 @@ https://www.mediawiki.org/wiki/Manual:Image_Authorization را ببینید.',
 'watcherrortext' => 'ایرادی در هنگام عوض کردن تنظیمات فهرست پیگیرتان برای «$1» رخ داد.',
 
 'enotif_mailer' => 'رایانامهٔ اطلاع‌رسانی {{SITENAME}}',
-'enotif_reset' => 'علامت‌گذاری همهٔ صفحه‌ها به عنوان بازدید شده',
+'enotif_reset' => 'نشان‌گذاری همهٔ صفحه‌ها به‌عنوان بازدیدشده',
 'enotif_impersonal_salutation' => 'کاربر {{SITENAME}}',
 'enotif_subject_deleted' => '{{SITENAME}} صفحهٔ $1 توسط {{gender:$2|$2}} حذف شد.',
 'enotif_subject_created' => '{{SITENAME}} صفحهٔ $1 توسط {{gender:$2|$2}} ایجاد شده.',
@@ -2634,9 +2659,11 @@ $PAGEINTRO $NEWPAGE
 'deleteotherreason' => 'دلیل دیگر/اضافی:',
 'deletereasonotherlist' => 'دلیل دیگر',
 'deletereason-dropdown' => '*دلایل متداول حذف
-** درخواست کاربر
+** هرزنگار
+** خرابکاری
 ** نقض حق تکثیر
-** خرابکاری',
+** درخواست کاربر
+** تغییرمسیر شکسته',
 'delete-edit-reasonlist' => 'ویرایش دلایل حذف',
 'delete-toobig' => 'این صفحه تاریخچهٔ ویرایشی بزرگی دارد، که شامل بیش از $1 {{PLURAL:$1|نسخه|نسخه}} است.
 به منظور جلوگیری از اختلال ناخواسته در {{SITENAME}} حذف این گونه صفحه‌ها محدود شده‌است.',
@@ -2659,7 +2686,7 @@ $PAGEINTRO $NEWPAGE
 آخرین ویرایش توسط [[User:$3|$3]] ([[User talk:$3|بحث]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]) انجام شده‌است.',
 'editcomment' => "خلاصهٔ ویرایش این بود: «''$1''».",
 'revertpage' => 'ویرایش [[Special:Contributions/$2|$2]] ([[User talk:$2|بحث]]) به آخرین تغییری که [[User:$1|$1]] انجام داده بود واگردانده شد',
-'revertpage-nouser' => 'ویرایش‌های انجام‌شده توسط (کاربری پنهان شده) به آخرین ویرایش [[User:$1|$1]] واگردانی شد.',
+'revertpage-nouser' => 'ویرایش‌های انجام‌شده توسط (نام کاربری حذف شده) به آخرین ویرایش [[User:$1|$1]] واگردانی شد.',
 'rollback-success' => 'ویرایش‌های $1 واگردانی شد؛
 صفحه به آخرین ویرایش $2 برگردانده شد.',
 
@@ -2805,7 +2832,7 @@ $1',
 'contributions' => 'مشارکت‌های {{GENDER:$1|کاربر}}',
 'contributions-title' => 'مشارکت‌های کاربری $1',
 'mycontris' => 'مشارکت‌ها',
-'contribsub2' => 'برای $1 ($2)',
+'contribsub2' => 'برای {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'هیچ تغییری با این مشخصات یافت نشد.',
 'uctop' => '(بالا)',
 'month' => 'در این ماه (و پیش از آن):',
@@ -3326,19 +3353,19 @@ $2',
 'pageinfo-header-basic' => 'اطلاعات اولیه',
 'pageinfo-header-edits' => 'ویرایش تاریخچه',
 'pageinfo-header-restrictions' => 'حفاظت از صفحه',
-'pageinfo-header-properties' => 'ويژگيهای صفحه',
+'pageinfo-header-properties' => 'ويژگی‌های صفحه',
 'pageinfo-display-title' => 'نمایش عنوان',
 'pageinfo-default-sort' => 'کلید مرتب‌سازی پیش‌فرض',
 'pageinfo-length' => 'حجم صفحه  (بایت)',
 'pageinfo-article-id' => 'شناسهٔ صفحه',
 'pageinfo-language' => 'زبان محتوای صفحه',
-'pageinfo-robot-policy' => 'وضعیت موتور جستجو',
-'pageinfo-robot-index' => 'فهرست‌پذیر',
-'pageinfo-robot-noindex' => 'عدم فهرست‌پذیری',
+'pageinfo-robot-policy' => '‌فهرست‌کردن توسط ربات‌ها',
+'pageinfo-robot-index' => 'مجاز',
+'pageinfo-robot-noindex' => 'غیر مجاز',
 'pageinfo-views' => 'شمار بازدیدها',
 'pageinfo-watchers' => 'شمار پی‌گیری‌کنندگان صفحه',
 'pageinfo-few-watchers' => 'کمتر از  $1 {{PLURAL:$1| پی‌گیر|پی‌گیر}}',
-'pageinfo-redirects-name' => 'تغییرمسیرها به این صفحه',
+'pageinfo-redirects-name' => 'تعداد تغییرمسیرها به این صفحه',
 'pageinfo-subpages-name' => 'زیرصفحه‌های این صفحه',
 'pageinfo-subpages-value' => '$1 ($2 {{PLURAL:$2|تغییرمسیر|تغییرمسیر}}; $3 {{PLURAL:$3|غیرتغییرمسیر|غیرتغییرمسیر}})',
 'pageinfo-firstuser' => 'به‌وجود آورندهٔ صفحه',
@@ -3455,8 +3482,8 @@ $1',
 'just-now' => 'هم‌اکنون',
 
 # Human-readable timestamps
-'hours-ago' => '$1 {{PLURAL:$1|ساعت|ساعت}} قبل',
-'minutes-ago' => '$1 {{PLURAL:$1|دقیقه|دقیقه}} قبل',
+'hours-ago' => '$1 ساعت قبل',
+'minutes-ago' => '$1 دقیقه قبل',
 'seconds-ago' => '$1 {{PLURAL:$1|ثانیه|ثانیه}} قبل',
 'monday-at' => 'دوشنبهٔ $1',
 'tuesday-at' => 'سه‌شنبهٔ $1',
@@ -3465,7 +3492,7 @@ $1',
 'friday-at' => 'جمعهٔ $1',
 'saturday-at' => 'شنبهٔ $1',
 'sunday-at' => 'یک‌شنبهٔ $1',
-'yesterday-at' => 'دیروز $1',
+'yesterday-at' => 'دیروز در $1',
 
 # Bad image list
 'bad_image_list' => 'اطلاعات را باید اینگونه وارد کنید:
@@ -3942,7 +3969,8 @@ $3
 $5
 
 این تأییدیه در $4 منقضی می‌گردد.',
-'confirmemail_body_set' => 'یک نفر، احتمالاً خود شما، از نشانی آی‌پی $1 نشانی رایانامه حساب «$2» در {{SITENAME}} را به این نشانی تغییر داده‌است.
+'confirmemail_body_set' => 'یک نفر، احتمالاً خود شما، از نشانی آی‌پی $1,
+نشانی رایانامه حساب «$2» در {{SITENAME}} را به این نشانی تغییر داده‌است.
 
 برای تأیید این که این حساب واقعاً به شما تعلق دارد و فعال کردن دوبارهٔ ویژگی رایانامه در {{SITENAME}}، پیوند زیر را در مرورگرتان باز کنید:
 
@@ -3984,6 +4012,7 @@ $5
 # Separators for various lists, etc.
 'semicolon-separator' => '؛&#32;',
 'comma-separator' => '،&#32;',
+'percent' => '$1٪',
 
 # Multipage image navigation
 'imgmultipageprev' => '&rarr; صفحهٔ پیشین',
@@ -4136,6 +4165,7 @@ $5
 'version-license' => 'اجازه‌نامه',
 'version-poweredby-credits' => "این ویکی توسط '''[//www.mediawiki.org/ مدیاویکی]''' پشتیبانی می‌شود، کلیهٔ حقوق محفوظ است © 2001-$1 $2.",
 'version-poweredby-others' => 'دیگران',
+'version-poweredby-translators' => 'مترجمان translatewiki.net',
 'version-credits-summary' => 'افراد زیر را به خاطر ویرایش‌هایش در [[Special:Version|مدیاویکی]] معرفی می‌نمائیم.',
 'version-license-info' => 'مدیاویکی نرم‌افزاری رایگان است؛ می‌توانید آن را تحت شرایط مجوز عمومی همگانی گنو که توسط بنیاد نرم‌افزار رایگان منتشر شده‌است، بازنشر کنید؛ یا نسخهٔ ۲ از این مجوز، یا (بنا به اختیار) نسخه‌های بعدی.
 
@@ -4216,7 +4246,10 @@ $5
 'tags-tag' => 'نام برچسب',
 'tags-display-header' => 'نمایش در فهرست‌های تغییرات',
 'tags-description-header' => 'توضیح کامل معنی',
+'tags-active-header' => 'فعال؟',
 'tags-hitcount-header' => 'تغییرهای برچسب‌دار',
+'tags-active-yes' => 'بله',
+'tags-active-no' => 'خیر',
 'tags-edit' => 'ویرایش',
 'tags-hitcount' => '$1 {{PLURAL:$1|تغییر|تغییر}}',
 
@@ -4234,10 +4267,10 @@ $5
 
 # Database error messages
 'dberr-header' => 'این ویکی یک ایراد دارد',
-'dberr-problems' => 'شرمنده!
-این تارنما از مشکلات فنی رنج می‌برد.',
+'dberr-problems' => 'شرمنده! این تارنما از مشکلات فنی رنج می‌برد.',
 'dberr-again' => 'چند دقیقه صبر کند و دوباره صفحه را بارگیری کنید.',
 'dberr-info' => '(امکان برقراری ارتباط با کارساز پایگاه داده وجود ندارد: $1)',
+'dberr-info-hidden' => '(امکان تماس با پایگاه‌داده‌ها کارساز امکان‌پذیر نیست)',
 'dberr-usegoogle' => 'شما در این مدت می‌توانید با استفاده از گوگل جستجو کنید.',
 'dberr-outofdate' => 'توجه کنید که نمایه‌های آن‌ها از محتوای ما ممکن است به روز نباشد.',
 'dberr-cachederror' => 'آن‌چه در ادامه می‌آید یک کپی از صفحهٔ درخواست شده است که در کاشه قرار دارد، و ممکن است به روز نباشد.',
@@ -4298,7 +4331,7 @@ $5
 'rightsnone' => '(هیچ)',
 
 # Feedback
-'feedback-bugornote' => 'اگر آماده‌اید تا مشکلی فنی را با جزئیاتش شرح دهید لطفاً [$1 یک ایراد گزارش دهید]. در غیر این صورت می‌توانید از فرم سادهٔ زیر استفاده کنید. نظر شما به همراه نام کاربری و مرورگرتان به صفحهٔ «[$2 $3]» افزوده خواهد شد.',
+'feedback-bugornote' => 'اگر آماده‌اید تا مشکلی فنی را با جزئیاتش شرح دهید لطفاً [$1 یک ایراد گزارش دهید]. در غیر این صورت می‌توانید از فرم سادهٔ زیر استفاده کنید. نظر شما به همراه نام کاربری و مرورگرتان به صفحهٔ «[$3 $2]» افزوده خواهد شد.',
 'feedback-subject' => 'موضوع:',
 'feedback-message' => 'پیغام:',
 'feedback-cancel' => 'لغو',
@@ -4374,5 +4407,17 @@ $5
 
 # Limit report
 'limitreport-title' => 'داده‌های رخ‌نمانگاری تجزیه‌کننده:',
+'limitreport-cputime' => 'زمان مصرف سی‌پی‌یو',
+'limitreport-cputime-value' => '$1 {{PLURAL:$1|ثانیه}}',
+'limitreport-walltime' => 'استفاده زمان واقعی',
+'limitreport-walltime-value' => '$1 {{PLURAL:$1|ثانیه|ثانیه}}',
+'limitreport-ppvisitednodes' => 'شمارش گرهٔ پیش‌پردازنده مشاهده‌شده',
+'limitreport-ppgeneratednodes' => 'شمارش گره پیش‌پردازنده تولیدشده',
+'limitreport-postexpandincludesize' => 'شامل اندازه پس گسترش',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|بایت|بایت}}',
+'limitreport-templateargumentsize' => 'اندازه عملگر الگو',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|بایت|بایت}}',
+'limitreport-expansiondepth' => 'بیشترین عمق گسترش',
+'limitreport-expensivefunctioncount' => 'تعداد تابع تجزیه‌گر پرمصرف',
 
 );

@@ -48,7 +48,7 @@ class LoginForm extends SpecialPage {
 	var $mLoginattempt, $mRemember, $mEmail, $mDomain, $mLanguage;
 	var $mSkipCookieCheck, $mReturnToQuery, $mToken, $mStickHTTPS;
 	var $mType, $mReason, $mRealName;
-	var $mAbortLoginErrorMsg = 'login-abort-generic';
+	var $mAbortLoginErrorMsg = null;
 	private $mLoaded = false;
 	private $mSecureLoginUrl;
 
@@ -168,19 +168,19 @@ class LoginForm extends SpecialPage {
 
 		// If logging in and not on HTTPS, either redirect to it or offer a link.
 		global $wgSecureLogin;
-		if (
-			$this->mType !== 'signup' &&
-			WebRequest::detectProtocol() !== 'https'
-		) {
+		if ( WebRequest::detectProtocol() !== 'https' ) {
 			$title = $this->getFullTitle();
 			$query = array(
 				'returnto' => $this->mReturnTo,
 				'returntoquery' => $this->mReturnToQuery,
-			);
+				'title' => null,
+			) + $this->mRequest->getQueryValues();
 			$url = $title->getFullURL( $query, false, PROTO_HTTPS );
 			if ( $wgSecureLogin && wfCanIPUseHTTPS( $this->getRequest()->getIP() ) ) {
 				$url = wfAppendQuery( $url, 'fromhttp=1' );
 				$this->getOutput()->redirect( $url );
+				// Since we only do this redir to change proto, always vary
+				$this->getOutput()->addVaryHeader( 'X-Forwarded-Proto' );
 				return;
 			} else {
 				// A wiki without HTTPS login support should set $wgServer to
@@ -583,7 +583,9 @@ class LoginForm extends SpecialPage {
 
 		// Give general extensions, such as a captcha, a chance to abort logins
 		$abort = self::ABORTED;
-		if ( !wfRunHooks( 'AbortLogin', array( $u, $this->mPassword, &$abort, &$this->mAbortLoginErrorMsg ) ) ) {
+		$msg = null;
+		if ( !wfRunHooks( 'AbortLogin', array( $u, $this->mPassword, &$abort, &$msg ) ) ) {
+			$this->mAbortLoginErrorMsg = $msg;
 			return $abort;
 		}
 
@@ -781,51 +783,62 @@ class LoginForm extends SpecialPage {
 				break;
 
 			case self::NEED_TOKEN:
-				$this->mainLoginForm( $this->msg( 'nocookiesforlogin' )->parse() );
+				$error = $this->mAbortLoginErrorMsg ?: 'nocookiesforlogin';
+				$this->mainLoginForm( $this->msg( $error )->parse() );
 				break;
 			case self::WRONG_TOKEN:
-				$this->mainLoginForm( $this->msg( 'sessionfailure' )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'sessionfailure';
+				$this->mainLoginForm( $this->msg( $error )->text() );
 				break;
 			case self::NO_NAME:
 			case self::ILLEGAL:
-				$this->mainLoginForm( $this->msg( 'noname' )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'noname';
+				$this->mainLoginForm( $this->msg( $error )->text() );
 				break;
 			case self::WRONG_PLUGIN_PASS:
-				$this->mainLoginForm( $this->msg( 'wrongpassword' )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'wrongpassword';
+				$this->mainLoginForm( $this->msg( $error )->text() );
 				break;
 			case self::NOT_EXISTS:
 				if ( $this->getUser()->isAllowed( 'createaccount' ) ) {
-					$this->mainLoginForm( $this->msg( 'nosuchuser',
+					$error = $this->mAbortLoginErrorMsg ?: 'nosuchuser';
+					$this->mainLoginForm( $this->msg( $error,
 						wfEscapeWikiText( $this->mUsername ) )->parse() );
 				} else {
-					$this->mainLoginForm( $this->msg( 'nosuchusershort',
+					$error = $this->mAbortLoginErrorMsg ?: 'nosuchusershort';
+					$this->mainLoginForm( $this->msg( $error,
 						wfEscapeWikiText( $this->mUsername ) )->text() );
 				}
 				break;
 			case self::WRONG_PASS:
-				$this->mainLoginForm( $this->msg( 'wrongpassword' )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'wrongpassword';
+				$this->mainLoginForm( $this->msg( $error )->text() );
 				break;
 			case self::EMPTY_PASS:
-				$this->mainLoginForm( $this->msg( 'wrongpasswordempty' )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'wrongpasswordempty';
+				$this->mainLoginForm( $this->msg( $error )->text() );
 				break;
 			case self::RESET_PASS:
-				$this->resetLoginForm( $this->msg( 'resetpass_announce' )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'resetpass_announce';
+				$this->resetLoginForm( $this->msg( $error )->text() );
 				break;
 			case self::CREATE_BLOCKED:
 				$this->userBlockedMessage( $this->getUser()->isBlockedFromCreateAccount() );
 				break;
 			case self::THROTTLED:
-				$this->mainLoginForm( $this->msg( 'login-throttled' )
+				$error = $this->mAbortLoginErrorMsg ?: 'login-throttled';
+				$this->mainLoginForm( $this->msg( $error )
 				->params ( $this->getLanguage()->formatDuration( $wgPasswordAttemptThrottle['seconds'] ) )
 				->text()
 				);
 				break;
 			case self::USER_BLOCKED:
-				$this->mainLoginForm( $this->msg( 'login-userblocked',
-					$this->mUsername )->escaped() );
+				$error = $this->mAbortLoginErrorMsg ?: 'login-userblocked';
+				$this->mainLoginForm( $this->msg( $error, $this->mUsername )->escaped() );
 				break;
 			case self::ABORTED:
-				$this->mainLoginForm( $this->msg( $this->mAbortLoginErrorMsg )->text() );
+				$error = $this->mAbortLoginErrorMsg ?: 'login-abort-generic';
+				$this->mainLoginForm( $this->msg( $error )->text() );
 				break;
 			default:
 				throw new MWException( 'Unhandled case value' );
@@ -1155,12 +1168,8 @@ class LoginForm extends SpecialPage {
 		$template->set( 'remember', $user->getOption( 'rememberpassword' ) || $this->mRemember );
 		$template->set( 'cansecurelogin', ( $wgSecureLogin === true ) );
 		$template->set( 'stickhttps', (int)$this->mStickHTTPS );
-
-		if ( $this->mType === 'signup' && $user->isLoggedIn() ) {
-			$template->set( 'createAnother', true );
-		} else {
-			$template->set( 'createAnother', false );
-		}
+		$template->set( 'loggedin', $user->isLoggedIn() );
+		$template->set( 'loggedinuser', $user->getName() );
 
 		if ( $this->mType == 'signup' ) {
 			if ( !self::getCreateaccountToken() ) {
@@ -1219,9 +1228,7 @@ class LoginForm extends SpecialPage {
 	 * @return bool
 	 */
 	private function showCreateOrLoginLink( &$user ) {
-		if ( $user->isLoggedIn() ) {
-			return false;
-		} elseif ( $this->mType == 'signup' ) {
+		if ( $this->mType == 'signup' ) {
 			return true;
 		} elseif ( $user->isAllowed( 'createaccount' ) ) {
 			return true;

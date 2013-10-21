@@ -92,8 +92,18 @@ return array(
 			'common/commonElements.css' => array( 'media' => 'screen' ),
 			'common/commonContent.css' => array( 'media' => 'screen' ),
 			'common/commonInterface.css' => array( 'media' => 'screen' ),
-			'vector/screen.css' => array( 'media' => 'screen' ),
-			'vector/screen-hd.css' => array( 'media' => 'screen and (min-width: 982px)' ),
+			'vector/styles.less',
+		),
+		'remoteBasePath' => $GLOBALS['wgStylePath'],
+		'localBasePath' => $GLOBALS['wgStyleDirectory'],
+	),
+	'skins.vector.beta' => array(
+		// Keep in sync with skins.vector
+		'styles' => array(
+			'common/commonElements.css' => array( 'media' => 'screen' ),
+			'common/commonContent.css' => array( 'media' => 'screen' ),
+			'common/commonInterface.css' => array( 'media' => 'screen' ),
+			'vector/styles-beta.less' => array( 'media' => 'screen' ),
 		),
 		'remoteBasePath' => $GLOBALS['wgStylePath'],
 		'localBasePath' => $GLOBALS['wgStyleDirectory'],
@@ -107,6 +117,22 @@ return array(
 		'dependencies' => 'jquery.delayedBind',
 		'remoteBasePath' => $GLOBALS['wgStylePath'],
 		'localBasePath' => $GLOBALS['wgStyleDirectory'],
+	),
+	'skins.vector.collapsibleNav' => array(
+		'scripts' => array(
+			'vector/collapsibleNav.js',
+		),
+		'messages' => array(
+			'vector-collapsiblenav-more',
+		),
+		'dependencies' => array(
+			'jquery.client',
+			'jquery.cookie',
+			'jquery.tabIndex',
+		),
+		'remoteBasePath' => $GLOBALS['wgStylePath'],
+		'localBasePath' => $GLOBALS['wgStyleDirectory'],
+		'position' => 'bottom',
 	),
 
 	/* jQuery */
@@ -140,6 +166,7 @@ return array(
 	),
 	'jquery.byteLength' => array(
 		'scripts' => 'resources/jquery/jquery.byteLength.js',
+		'targets' => array( 'desktop', 'mobile' ),
 	),
 	'jquery.byteLimit' => array(
 		'scripts' => 'resources/jquery/jquery.byteLimit.js',
@@ -261,7 +288,10 @@ return array(
 		'scripts' => 'resources/jquery/jquery.tablesorter.js',
 		'styles' => 'resources/jquery/jquery.tablesorter.css',
 		'messages' => array( 'sort-descending', 'sort-ascending' ),
-		'dependencies' => 'jquery.mwExtension',
+		'dependencies' => array(
+			'jquery.mwExtension',
+			'mediawiki.language.months',
+		),
 	),
 	'jquery.textSelection' => array(
 		'scripts' => 'resources/jquery/jquery.textSelection.js',
@@ -623,6 +653,11 @@ return array(
 		// must be loaded on the bottom
 		'position' => 'bottom',
 	),
+	'mediawiki.inspect' => array(
+		'scripts' => 'resources/mediawiki/mediawiki.inspect.js',
+		'dependencies' => 'jquery.byteLength',
+		'targets' => array( 'desktop', 'mobile' ),
+	),
 	'mediawiki.feedback' => array(
 		'scripts' => 'resources/mediawiki/mediawiki.feedback.js',
 		'styles' => 'resources/mediawiki/mediawiki.feedback.css',
@@ -687,7 +722,10 @@ return array(
 	),
 	'mediawiki.Title' => array(
 		'scripts' => 'resources/mediawiki/mediawiki.Title.js',
-		'dependencies' => 'mediawiki.util',
+		'dependencies' => array(
+			'jquery.byteLength',
+			'mediawiki.util',
+		),
 	),
 	'mediawiki.Uri' => array(
 		'scripts' => 'resources/mediawiki/mediawiki.Uri.js',
@@ -963,6 +1001,9 @@ return array(
 		'scripts' => 'resources/mediawiki.special/mediawiki.special.movePage.js',
 		'dependencies' => 'jquery.byteLimit',
 	),
+	'mediawiki.special.pagesWithProp' => array(
+		'styles' => 'resources/mediawiki.special/mediawiki.special.pagesWithProp.css',
+	),
 	'mediawiki.special.preferences' => array(
 		'scripts' => 'resources/mediawiki.special/mediawiki.special.preferences.js',
 		'styles' => 'resources/mediawiki.special/mediawiki.special.preferences.css',
@@ -1116,11 +1157,6 @@ return array(
 			'mediawiki.util',
 		),
 		'position' => 'top',
-	),
-	'mediawiki.legacy.wikiprintable' => array(
-		'styles' => array( 'common/wikiprintable.css' => array( 'media' => 'print' ) ),
-		'remoteBasePath' => $GLOBALS['wgStylePath'],
-		'localBasePath' => $GLOBALS['wgStyleDirectory'],
 	),
 	'mediawiki.ui' => array(
 		'skinStyles' => array(

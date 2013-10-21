@@ -498,10 +498,10 @@ $1',
 'pool-queuefull' => 'A cola está chea',
 'pool-errorunknown' => 'Erro descoñecido',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Acerca de {{SITENAME}}',
 'aboutpage' => 'Project:Acerca de',
-'copyright' => 'Todo o texto está dispoñible baixo $1.',
+'copyright' => 'Todo o contido está dispoñible baixo a licenza $1, agás que se indique o contrario.',
 'copyrightpage' => '{{ns:project}}:Dereitos de autor',
 'currentevents' => 'Actualidade',
 'currentevents-url' => 'Project:Actualidade',
@@ -714,6 +714,9 @@ Non esqueza personalizar as súas [[Special:Preferences|preferencias de {{SITENA
 'userlogin-resetpassword-link' => 'Restablecer o seu contrasinal',
 'helplogin-url' => 'Help:Rexistro',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Axuda co rexistro]]',
+'userlogin-loggedin' => 'Xa accedeu ao sistema como {{GENDER:$1|$1}}.
+Utilice o formulario inferior para acceder como outro usuario.',
+'userlogin-createanother' => 'Crear outra conta',
 'createacct-join' => 'Insira a súa información embaixo.',
 'createacct-another-join' => 'Insira a información da nova conta embaixo.',
 'createacct-emailrequired' => 'Enderezo de correo electrónico',
@@ -749,7 +752,7 @@ Por favor, habilíteas e inténteo de novo.',
 'nocookiesfornew' => 'Non se creou a conta de usuario porque non puidemos confirmar a súa orixe.
 Asegúrese de que ten as cookies habilitadas, volva cargar a páxina e inténteo de novo.',
 'noname' => 'Non especificou un nome de usuario válido.',
-'loginsuccesstitle' => 'Acceso exitoso',
+'loginsuccesstitle' => 'Accedeu correctamente',
 'loginsuccess' => "'''Accedeu ao sistema {{SITENAME}} como \"\$1\".'''",
 'nosuchuser' => 'Non existe ningún usuario chamado "$1".
 Os nomes de usuario diferencian entre maiúsculas e minúsculas.
@@ -1484,7 +1487,7 @@ Este cambio non se poderá desfacer.',
 'badsig' => 'Sinatura non válida; comprobe o código HTML utilizado.',
 'badsiglength' => 'A súa sinatura é demasiado longa.
 Ha de ter menos {{PLURAL:$1|dun carácter|de $1 caracteres}}.',
-'yourgender' => 'Como prefire describirse?',
+'yourgender' => 'Cal das seguintes oracións referidas a vostede é a máis axeitada?',
 'gender-unknown' => 'Prefiro non indicalo',
 'gender-male' => 'El edita as páxinas do wiki',
 'gender-female' => 'Ela edita as páxinas do wiki',
@@ -1672,8 +1675,8 @@ Se escolle dalo utilizarase para atribuírlle o seu traballo.',
 'action-block' => 'bloquear o usuario fronte á edición',
 'action-protect' => 'cambiar o nivel de protección desta páxina',
 'action-rollback' => 'reverter rapidamente as edicións do último usuario que editou unha páxina en particular',
-'action-import' => 'importar esta páxina doutro wiki',
-'action-importupload' => 'importar esta páxina da carga dun ficheiro',
+'action-import' => 'importar páxinas doutro wiki',
+'action-importupload' => 'importar páxinas desde un ficheiro cargado',
 'action-patrol' => 'marcar a edición doutro como patrullada',
 'action-autopatrol' => 'marcar a súa edición como patrullada',
 'action-unwatchedpages' => 'ver a lista das páxinas non vixiadas',
@@ -1852,10 +1855,10 @@ Non están permitidas as cargas de ficheiros Java, dado que poden causar restric
 Debe comprobar o $1 antes de proceder a cargalo outra vez.',
 'filename-bad-prefix' => "O nome do ficheiro que está cargando comeza con '''\"\$1\"''', que é un típico nome non descritivo asignado automaticamente polas cámaras dixitais.
 Por favor, escolla un nome máis descritivo para o seu ficheiro.",
-'filename-prefix-blacklist' => ' #<!-- deixe esta liña exactamente como está --> <pre>
+'filename-prefix-blacklist' => ' #<!-- Deixe esta liña tal e como está --> <pre>
 # A sintaxe é a seguinte:
-#   * Todo o que estea desde o carácter "#" até o final da liña é un comentario
-#   * Cada liña que non está en branco é un prefixo para os nomes típicos dos ficheiros asignados automaticamente polas cámaras dixitais
+#   * Todo o que vaia despois dun carácter "#" ata o final da liña é un comentario
+#   * Toda liña que non estea en branco é un prefixo para os nomes típicos dos ficheiros asignados automaticamente polas cámaras dixitais
 CIMG # Casio
 DSC_ # Nikon
 DSCF # Fuji
@@ -1864,8 +1867,8 @@ DUW # algúns teléfonos móbiles
 IMG # xenérico
 JD # Jenoptik
 MGP # Pentax
-PICT # varias
- #</pre> <!-- deixe esta liña exactamente como está -->',
+PICT # varios
+ #</pre> <!-- Deixe esta liña tal e como está -->',
 'upload-success-subj' => 'A carga realizouse correctamente',
 'upload-success-msg' => 'A súa carga desde [$2] rematou correctamente e está dispoñible aquí: [[:{{ns:file}}:$1]]',
 'upload-failure-subj' => 'Problema ao cargar',
@@ -2139,12 +2142,6 @@ Lembre verificar outras ligazóns cara aos modelos antes de borralos.',
 'statistics-users-active-desc' => 'Usuarios que teñen levado a cabo unha acción {{PLURAL:$1|no último día|nos últimos $1 días}}',
 'statistics-mostpopular' => 'Páxinas máis vistas',
 
-'disambiguations' => 'Páxinas que ligan con páxinas de homónimos',
-'disambiguationspage' => 'Template:Homónimos',
-'disambiguations-text' => "As seguintes páxinas conteñen, polo menos, unha ligazón cara a unha '''páxina de homónimos'''.
-No canto de ligar cos homónimos deben apuntar cara á páxina apropiada.<br />
-Unha páxina trátase como páxina de homónimos cando nela se usa un modelo que está ligado desde [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Páxinas cunha propiedade de páxina',
 'pageswithprop-legend' => 'Páxinas cunha propiedade de páxina',
 'pageswithprop-text' => 'Esta páxina lista aquelas páxinas que utilizan unha propiedade de páxina determinada.',
@@ -2220,11 +2217,12 @@ As entradas <del>riscadas</del> xa foron resoltas.',
 'protectedpagestext' => 'As seguintes páxinas están protexidas fronte á edición ou traslado',
 'protectedpagesempty' => 'Actualmente non hai ningunha páxina protexida con eses parámetros.',
 'protectedtitles' => 'Títulos protexidos',
-'protectedtitlestext' => 'Os seguintes títulos están protexidos da creación',
+'protectedtitlestext' => 'Os seguintes títulos están protexidos fronte á creación',
 'protectedtitlesempty' => 'Actualmente non hai ningún título protexido con eses parámetros.',
 'listusers' => 'Lista de usuarios',
 'listusers-editsonly' => 'Mostrar só os usuarios con edicións',
 'listusers-creationsort' => 'Ordenar por data de creación',
+'listusers-desc' => 'Ordenar de xeito descendente',
 'usereditcount' => '$1 {{PLURAL:$1|edición|edicións}}',
 'usercreated' => '{{GENDER:$3|Creado|Creada}} o $1 ás $2',
 'newpages' => 'Páxinas novas',
@@ -2487,10 +2485,12 @@ No $2 pode ver unha lista cos borrados máis recentes.',
 'deletecomment' => 'Motivo:',
 'deleteotherreason' => 'Outro motivo:',
 'deletereasonotherlist' => 'Outro motivo',
-'deletereason-dropdown' => '*Motivos frecuentes para borrar
-** Solicitado pola persoa que o creou
+'deletereason-dropdown' => '* Motivos frecuentes para borrar
+** Spam
+** Vandalismo
 ** Violación dos dereitos de autoría
-** Vandalismo',
+** Solicitado pola persoa que creou a páxina
+** Redirección rota',
 'delete-edit-reasonlist' => 'Editar os motivos de borrado',
 'delete-toobig' => 'Esta páxina conta cun historial longo, de máis {{PLURAL:$1|dunha revisión|de $1 revisións}}.
 Limitouse a eliminación destas páxinas para previr problemas de funcionamento accidentais en {{SITENAME}}.',
@@ -2511,7 +2511,7 @@ proceda con coidado.',
 A última edición fíxoa [[User:$3|$3]] ([[User talk:$3|conversa]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "O resumo de edición foi: \"''\$1''\".",
 'revertpage' => 'Desfixéronse as edicións de [[Special:Contributions/$2|$2]] ([[User talk:$2|conversa]]); cambiado á última versión feita por [[User:$1|$1]]',
-'revertpage-nouser' => 'Desfixéronse as edicións dun usuario agochado; cambiado á última versión feita por [[User:$1|$1]]',
+'revertpage-nouser' => 'Desfixéronse as edicións dun usuario agochado; cambiado á última versión feita por {{GENDER:$1|[[User:$1|$1]]}}',
 'rollback-success' => 'Desfixéronse as edicións de $1;
 volveuse á última edición, feita por $2.',
 
@@ -2655,7 +2655,7 @@ $1',
 'contributions' => 'Contribucións {{GENDER:$1|do usuario|da usuaria}}',
 'contributions-title' => 'Contribucións de $1',
 'mycontris' => 'Contribucións',
-'contribsub2' => 'De $1 ($2)',
+'contribsub2' => 'De {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'Non se deron atopado cambios con eses criterios.',
 'uctop' => '(última revisión)',
 'month' => 'Desde o mes de (e anteriores):',
@@ -2734,7 +2734,7 @@ Explique a razón específica do bloqueo (por exemplo, citando as páxinas concr
 'ipb-change-block' => 'Volver bloquear o usuario con estas configuracións',
 'ipb-confirm' => 'Confirmar o bloqueo',
 'badipaddress' => 'O enderezo IP non é válido',
-'blockipsuccesssub' => 'Bloqueo exitoso',
+'blockipsuccesssub' => 'O bloqueo realizouse correctamente',
 'blockipsuccesstext' => '[[Special:Contributions/$1|$1]] foi {{GENDER:$1|bloqueado|bloqueada}}.<br />
 Olle a [[Special:BlockList|lista de bloqueos]] para revisalo.',
 'ipb-blockingself' => 'Está a piques de se bloquear! Está seguro de querer facelo?',
@@ -4021,7 +4021,10 @@ Debería recibir [{{SERVER}}{{SCRIPTPATH}}/COPYING unha copia da licenza públic
 'tags-tag' => 'Nome da etiqueta',
 'tags-display-header' => 'Aparición nas listas de cambios',
 'tags-description-header' => 'Descrición completa do significado',
+'tags-active-header' => 'Activa?',
 'tags-hitcount-header' => 'Edicións etiquetadas',
+'tags-active-yes' => 'Si',
+'tags-active-no' => 'Non',
 'tags-edit' => 'editar',
 'tags-hitcount' => '$1 {{PLURAL:$1|modificación|modificacións}}',
 
@@ -4187,9 +4190,9 @@ En caso contrario, pode empregar o formulario sinxelo inferior. O seu comentario
 'limitreport-ppvisitednodes' => 'Número de nodos do preprocesador visitados',
 'limitreport-ppgeneratednodes' => 'Número de nodos do preprocesador xerados',
 'limitreport-postexpandincludesize' => 'Tamaño de inclusión logo da expansión',
-'limitreport-postexpandincludesize-value' => '$1/$2 bytes',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
 'limitreport-templateargumentsize' => 'Tamaño dos argumentos do modelo',
-'limitreport-templateargumentsize-value' => '$1/$2 bytes',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
 'limitreport-expansiondepth' => 'Máxima profundidade de expansión',
 'limitreport-expensivefunctioncount' => 'Número de funcións de análise custosas',
 

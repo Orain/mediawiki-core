@@ -1,5 +1,5 @@
 <?php
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  *
  * See MessagesQqq.php for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
@@ -269,7 +269,7 @@ $1',
 'pool-queuefull' => 'Суроо жыйнагыч толгон',
 'pool-errorunknown' => 'Белгисиз ката',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => '{{SITENAME}} тууралуу',
 'aboutpage' => 'Project:Долбоор тууралуу',
 'copyright' => '$1 лицензиясына ылайык жеткиликтүү мазмун.',
@@ -1090,8 +1090,6 @@ To include a file in a page, use a link in one of the following forms:
 'statistics-articles' => 'Макалалар',
 'statistics-pages' => 'Барактар',
 'statistics-files' => 'Жүктөлгөн файлдар',
-
-'disambiguationspage' => 'Template:көп маанилүү',
 
 'brokenredirects-edit' => 'оңдоо',
 'brokenredirects-delete' => 'өчүрүү',

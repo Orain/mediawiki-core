@@ -264,7 +264,7 @@ $messages = array(
 'cancel' => 'Cancelar',
 'moredotdotdot' => 'Más...',
 'mypage' => 'A mía pachina',
-'mytalk' => 'Pachina de descusión',
+'mytalk' => 'Pachina de discusión',
 'anontalk' => "Pachina de descusión d'ista IP",
 'navigation' => 'Navego',
 'and' => '&#32;y',
@@ -360,7 +360,7 @@ $1",
 'pool-queuefull' => 'A coda de treballo ye plena',
 'pool-errorunknown' => 'Error desconoixida',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Información sobre {{SITENAME}}',
 'aboutpage' => 'Project:Sobre',
 'copyright' => 'O conteniu ye disponible baixo a licencia $1.',
@@ -731,8 +731,8 @@ Diferents usuarios pueden compartir una mesma adreza IP.
 Si vusté ye un usuario anonimo y creye que l'han escrito comentarios no relevants, [[Special:UserLogin/signup|creye una cuenta]] u [[Special:UserLogin/signup|identifique-se]] ta privar confusions futuras con atros usuarios anonimos.''",
 'noarticletext' => 'Por agora no bi ha garra texto en ista pachina. Puet [[Special:Search/{{PAGENAME}}|mirar o títol d\'ista pachina]] en atras pachinas, <span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} mirar os rechistros relacionatos] u [{{fullurl:{{FULLPAGENAME}}|action=edit}} escribir ista pachina]</span>.',
 'noarticletext-nopermission' => 'Por l\'inte no i hai garra texto en ista pachina.
-Puet [[Special:Search/{{PAGENAME}}|mirar iste títol]] en atras páginas,
-u bien <span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} mirar en os rechistros relacionatos]</span>.',
+Puede [[Special:Search/{{PAGENAME}}|mirar iste titol]] en atras pachinas,
+u bien <span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} mirar en os rechistros relacionatos]</span>, pero no tien permiso ta creyar ista pachina.',
 'userpage-userdoesnotexist' => 'A cuenta d\'usuario "<nowiki>$1</nowiki>" no ye rechistrada. Piense si quiere creyar u editar ista pachina.',
 'userpage-userdoesnotexist-view' => 'A cuenta d\'usuario "$1" no ye rechistrada.',
 'blocked-notice-logextract' => "Ista cuenta d'usuario ye actualment bloqueyata.
@@ -755,7 +755,7 @@ A zaguera dentrada d'o rechistro de bloqueyos s'amuestra contino:",
 'userinvalidcssjstitle' => "'''Pare cuenta:''' No bi ha garra aparencia clamata \"\$1\". Remere que as pachinas presonalizatas .css y .js tienen un títol en minusclas, p.e. {{ns:user}}:Foo/vector.css en cuenta de {{ns:user}}:Foo/Vector.css.",
 'updated' => '(Esviellato)',
 'note' => "'''Nota:'''",
-'previewnote' => "'''Pare cuenta que isto no ye que l'anvista previa d'a pachina; os cambeos encara no s'ha alzato!'''",
+'previewnote' => "'''Pare cuenta que isto no ye que l'anvista previa.''' Os cambeos encara no s'ha alzato!",
 'previewconflict' => "L'anvista previa li amostrará l'aparencia d'o texto dimpués d'alzar os cambeos.",
 'session_fail_preview' => "'''Ya lo sentimos, pero no hemos puesto alzar a suya edición por una perda d'os datos de sesion. Por favor, prebe de fer-lo una atra vez, y si encara no funciona, [[Special:UserLogout|salga d'a sesión]] y torne a identificar-se.'''",
 'session_fail_preview_html' => "'''Ya lo sentimos, pero no s'ha puesto procesar a suya edición por haber-se trafegato os datos de sesión.'''
@@ -870,8 +870,8 @@ A razón indicada por $3 ye ''$2''",
 Leyenda: '''({{int:cur}})''' = esferencias con a versión actual, '''({{int:last}})''' = esferencias con a versión anterior, '''{{int:minoreditletter}}''' = edición menor",
 'history-fieldset-title' => 'Mirar en o historial',
 'history-show-deleted' => 'Nomás os borratos',
-'histfirst' => 'Primeras contrebucions',
-'histlast' => 'Zagueras',
+'histfirst' => 'primeras',
+'histlast' => 'zagueras',
 'historysize' => '({{PLURAL:$1|1 byte|$1 bytes}})',
 'historyempty' => '(buedo)',
 
@@ -1383,7 +1383,7 @@ Habría de tener menos de $1 {{PLURAL:$1|carácter|carácters}}.',
 'rc_categories_any' => 'Todas',
 'rc-change-size-new' => "$1 {{PLURAL:$1|byte|bytes}} dimpués d'o cambio",
 'newsectionsummary' => 'Nueva sección: /* $1 */',
-'rc-enhanced-expand' => 'Amostrar detalles (cal JavaScript)',
+'rc-enhanced-expand' => 'Amostrar detalles',
 'rc-enhanced-hide' => 'Amagar detalles',
 
 # Recent changes linked
@@ -1755,12 +1755,6 @@ Debaixo s'amuestra a descripción d'a suya [$2 pachina de descripción].",
 'statistics-users-active' => 'Usuarios activos',
 'statistics-users-active-desc' => 'Usuarios que han feito qualsiquier acción en {{PLURAL:$1|o zaguer día|os zaguers $1 días}}',
 'statistics-mostpopular' => 'Pachinas más vistas',
-
-'disambiguations' => 'Pachinas con vinclos enta pachinas de desambigación',
-'disambiguationspage' => 'Template:Desambigación',
-'disambiguations-text' => "As siguients pachinas tienen vinclos ta una '''pachina de desambigación'''.
-Ixos vinclos habrían de ir millor t'a pachina especifica apropiada.<br />
-Una pachina se considera pachina de desambigación si fa servir una plantilla provenient de  [[MediaWiki:Disambiguationspage]].",
 
 'doubleredirects' => 'Reendreceras dobles',
 'doubleredirectstext' => "En ista pachina s'amuestran as pachinas que son reendreceras enta atras pachinas reendrezatas.
@@ -2218,10 +2212,10 @@ $1",
 'blanknamespace' => '(Prencipal)',
 
 # Contributions
-'contributions' => "Contrebucions de l'usuario",
+'contributions' => "Contribucions de {{GENDER:$1|l'usuario|la usuaria}}",
 'contributions-title' => "Contribucions de l'usuario $1",
-'mycontris' => 'Contrebucions',
-'contribsub2' => 'De $1 ($2)',
+'mycontris' => 'Contribucions',
+'contribsub2' => 'Ta {{GENDER:$3|$1}} ($2)',
 'nocontribs' => "No s'han trobato cambeos que concordasen con ixos criterios",
 'uctop' => '(zaguer cambeo)',
 'month' => 'Dende o mes (y anteriors):',

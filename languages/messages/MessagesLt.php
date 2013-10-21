@@ -28,6 +28,7 @@
  * @author Siggis
  * @author Tomasdd
  * @author Urhixidur
+ * @author Vilius2001
  * @author Vpovilaitis
  * @author לערי ריינהארט
  */
@@ -428,7 +429,7 @@ $1',
 'pool-queuefull' => 'Telkinio eilė pilna',
 'pool-errorunknown' => 'Nežinoma klaida',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Apie {{SITENAME}}',
 'aboutpage' => 'Project:Apie',
 'copyright' => 'Turinys pateikiamas pagal $1 licenciją.',
@@ -1526,8 +1527,8 @@ teisės",
 'action-block' => 'neleisti šiam naudotojui redaguoti',
 'action-protect' => 'pakeisti apsaugos lygius šiam puslapiui',
 'action-rollback' => 'greitai atmesti paskutinio naudotojo atliktų tam tikro puslapio pakeitimų',
-'action-import' => 'importuoti šį puslapį iš kitos wiki',
-'action-importupload' => 'importuoti šį puslapį iš įkelto failo',
+'action-import' => 'importuoti puslapius iš kitos wiki',
+'action-importupload' => 'importuoti puslapius iš įkelto failo',
 'action-patrol' => 'pažymėti kitų keitimus kaip patikrintus',
 'action-autopatrol' => 'savo keitimų pažymėjimas patikrintais',
 'action-unwatchedpages' => 'žiūrėti nestebimų puslapių sąrašą',
@@ -1573,7 +1574,7 @@ teisės",
 'rc_categories_any' => 'Bet kokia',
 'rc-change-size-new' => '$1 {{PLURAL:$1|baitas|baitai|baitų}} po pakeitimo',
 'newsectionsummary' => '/* $1 */ naujas skyrius',
-'rc-enhanced-expand' => 'Rodyti detales (reikia JavaScript)',
+'rc-enhanced-expand' => 'Rodyti detales',
 'rc-enhanced-hide' => 'Slėpti detales',
 'rc-old-title' => 'iš pradžių sukurtas kaip " $1 "',
 
@@ -1939,12 +1940,6 @@ Informacija iš [$2 failo aprašymo puslapio] yra pateikiama žemiau.',
 'statistics-users-active-desc' => 'Naudotojai, kurie per {{PLURAL:$1|paskutinę dieną|paskutines $1 dienų}} padarė keitimų',
 'statistics-mostpopular' => 'Daugiausiai rodyti puslapiai',
 
-'disambiguations' => 'Puslapiai rodantys į daugiaprasmių žodžių puslapius',
-'disambiguationspage' => 'Template:Daugiareikšmis',
-'disambiguations-text' => "Žemiau išvardinti puslapiai nurodo į '''daugiaprasmių žodžių puslapius'''.
-Nuorodos turėtų būti patikslintos, kad rodytų į konkretų puslapį.<br />
-Puslapis laikomas daugiaprasmiu puslapiu, jei jis naudoja šabloną, kuris yra nurodomas iš [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Puslapiai su puslapio atributais',
 'pageswithprop-legend' => 'Puslapiai su puslapio atributais',
 'pageswithprop-text' => 'Šiame puslapyje pateikiami puslapiai, kurie ypač naudoja puslapio atributus.',
@@ -2308,7 +2303,7 @@ kažkas jau pakeitė puslapį arba suspėjo pirmas atmesti keitimą.
 Paskutimas keitimas darytas naudotojo [[User:$3|$3]] ([[User talk:$3|Aptarimas]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "Redagavimo komentaras: „''$1''“.",
 'revertpage' => 'Atmestas [[Special:Contributions/$2|$2]] ([[User talk:$2|Aptarimas]]) pakeitimas; sugrąžinta [[User:$1|$1]] versija',
-'revertpage-nouser' => 'Atmesti (naudotojo vardas pašalintas) pakeitimai, grąžinta prieš tai buvusi [[User:$1|$1]] versija',
+'revertpage-nouser' => 'Atversti pakeitimai paslėpto vartotojo, grąžino prieš tai buvusią versiją {{GENDER:$1|[[User:$1|$1]]}}',
 'rollback-success' => 'Atmesti $1 pakeitimai;
 grąžinta prieš tai buvusi $2 versija.',
 
@@ -2448,7 +2443,7 @@ $1',
 'contributions' => '{{GENDER:$1|Naudotojo}} įndėlis',
 'contributions-title' => '{{GENDER:$1|Naudotojo|Naudotojos}} $1 indėlis',
 'mycontris' => 'Įnašai',
-'contribsub2' => 'Naudotojo $1 ($2)',
+'contribsub2' => 'Dėl {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'Jokie keitimai neatitiko šių kriterijų.',
 'uctop' => '(dabartinis)',
 'month' => 'Nuo mėnesio (ir anksčiau):',

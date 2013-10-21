@@ -252,7 +252,7 @@ $messages = array(
 'jumptosearch' => 'исканиѥ',
 'pool-errorunknown' => 'нєвѣдома блаꙁна',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'О {{grammar:instrumental|{{SITENAME}}}}',
 'aboutpage' => 'Project:О сѥмь опꙑтьствовании',
 'copyright' => 'подъ прощєниѥмь $1 пьсано ѥстъ',
@@ -648,9 +648,6 @@ $messages = array(
 'statistics-files' => 'положєнꙑ дѣла',
 'statistics-users-active' => 'дѣꙗтєльнꙑ польꙃєватєлє',
 
-'disambiguations' => 'страницѧ ижє съвѧꙁи съ мъногосъмꙑслиꙗ имѫтъ',
-'disambiguationspage' => 'Template:мъногосъмꙑслиѥ',
-
 'brokenredirects-edit' => 'исправи',
 'brokenredirects-delete' => 'поничьжєниѥ',
 
@@ -817,7 +814,7 @@ $messages = array(
 'blocklink' => 'ꙁагради',
 'contribslink' => 'добродѣꙗниꙗ',
 'blocklogpage' => 'ꙁаграждєниꙗ їсторїꙗ',
-'blocklogentry' => 'ꙁаградихъ [[$1]] на врѣмѧ $2 $3',
+'blocklogentry' => 'ꙁаградилъ [[$1]] на врѣмѧ $2 $3',
 'block-log-flags-anononly' => 'тъкъмо анѡнѷмьнꙑ польꙃєватєлє',
 
 # Move page

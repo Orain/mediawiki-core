@@ -71,10 +71,12 @@
  * @author Muro de Aguas
  * @author Omnipaedista
  * @author Orgullomoore
+ * @author Ovruni
  * @author Paucabot
  * @author Penarc
  * @author PerroVerd
  * @author Pertile
+ * @author Pginer
  * @author Piolinfax
  * @author Platonides
  * @author PoLuX124
@@ -517,7 +519,7 @@ $messages = array(
 'newwindow' => '(se abre en una ventana nueva)',
 'cancel' => 'Cancelar',
 'moredotdotdot' => 'Más...',
-'morenotlisted' => 'Más no en la lista...',
+'morenotlisted' => 'Esta lista no está completa.',
 'mypage' => 'Mi página',
 'mytalk' => 'Discusión',
 'anontalk' => 'Discusión para esta IP',
@@ -617,10 +619,10 @@ $1',
 'pool-queuefull' => 'La cola de trabajo está llena',
 'pool-errorunknown' => 'Error desconocido',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Acerca de {{SITENAME}}',
 'aboutpage' => 'Project:Acerca de',
-'copyright' => 'El contenido está disponible bajo los términos de la $1.',
+'copyright' => 'El contenido está disponible bajo  $1  a menos que se indique lo contrario.',
 'copyrightpage' => '{{ns:project}}:Derechos de autor',
 'currentevents' => 'Actualidad',
 'currentevents-url' => 'Project:Actualidad',
@@ -702,6 +704,12 @@ Puedes ver una lista de las páginas especiales en [[Special:SpecialPages|{{int:
 # General errors
 'error' => 'Error',
 'databaseerror' => 'Error de la base de datos',
+'databaseerror-text' => 'Se ha producido un error en la base de datos.
+Esto puede indicar un bug en el software.',
+'databaseerror-textcl' => 'Se ha producido un error en la base de datos.',
+'databaseerror-query' => 'Consulta: $1',
+'databaseerror-function' => 'Función: $1',
+'databaseerror-error' => 'Error: $1',
 'laggedslavemode' => "'''Aviso:''' puede que falten las actualizaciones más recientes en esta página.",
 'readonly' => 'Base de datos bloqueada',
 'enterlockreason' => 'Explique el motivo del bloqueo, incluyendo una estimación de cuándo se producirá el desbloqueo',
@@ -784,9 +792,9 @@ El administrador que lo ha bloqueado ofrece esta explicación: "$3".',
 # Login and logout pages
 'logouttext' => '"\'Usted está ahora desconectado."\'
 Tenga en cuenta que algunas páginas pueden continuar mostrándose como si todavía estuviera conectado, hasta que borres la caché de tu navegador.',
-'welcomeuser' => '¡Bienvenido, $1!',
-'welcomecreation-msg' => 'Tu cuenta ha sido creada.
-No olvides cambiar tus [[Special:Preferences|preferencias de {{SITENAME}} ]].',
+'welcomeuser' => '¡Te damos la bienvenida, $1!',
+'welcomecreation-msg' => 'Se ha creado tu cuenta.
+No olvides personalizar tus [[Special:Preferences|preferencias de {{SITENAME}}]].',
 'yourname' => 'Nombre de usuario:',
 'userlogin-yourname' => 'Usuario',
 'userlogin-yourname-ph' => 'Escribe tu nombre de usuario',
@@ -799,7 +807,7 @@ No olvides cambiar tus [[Special:Preferences|preferencias de {{SITENAME}} ]].',
 'createacct-yourpasswordagain' => 'Confirma la contraseña',
 'createacct-yourpasswordagain-ph' => 'Repite la contraseña',
 'remembermypassword' => 'Mantenerme conectado en este navegador (hasta $1 {{PLURAL:$1|día|días}})',
-'userlogin-remembermypassword' => 'Mantener mi sesión',
+'userlogin-remembermypassword' => 'Mantener mi sesión iniciada',
 'userlogin-signwithsecure' => 'Usar conexión segura',
 'yourdomainname' => 'Dominio',
 'password-change-forbidden' => 'No puedes cambiar las contraseñas de este wiki.',
@@ -823,6 +831,9 @@ No olvides cambiar tus [[Special:Preferences|preferencias de {{SITENAME}} ]].',
 'userlogin-resetpassword-link' => 'Restablecer la contraseña',
 'helplogin-url' => 'Help:Inicio de sesión',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Ayuda]]',
+'userlogin-loggedin' => 'Ya estás conectado como {{GENDER:$1|$1}}.
+Usa el formulario de abajo para iniciar sesión como otro usuario.',
+'userlogin-createanother' => 'Crear otra cuenta',
 'createacct-join' => 'Introduce tus datos debajo.',
 'createacct-another-join' => 'Introduzca la información de la nueva cuenta a continuación.',
 'createacct-emailrequired' => 'Dirección de correo electrónico',
@@ -907,7 +918,7 @@ La contraseña asignada automáticamente es «$3». Por favor entra ahora y camb
 
 Puedes ignorar este mensaje si esta cuenta fue creada por error.',
 'usernamehasherror' => 'El nombre de usuario no puede contener símbolos de almohadilla/numeral',
-'login-throttled' => 'Has intentado demasiadas veces iniciar sesión. Por favor espera antes de intentarlo nuevamente.',
+'login-throttled' => 'Has intentado demasiadas veces iniciar sesión. Por favor espera $1 antes de intentarlo nuevamente.',
 'login-abort-generic' => 'Tu inicio de sesión no fue exitoso - Cancelado',
 'loginlanguagelabel' => 'Idioma: $1',
 'suspicious-userlogout' => 'Tu solicitud de desconexión ha sido denegada, pues parece haber sido enviada desde un navegador defectuoso o un proxy caché.',
@@ -929,8 +940,7 @@ Por favor, introduce una nueva contraseña aquí:',
 'newpassword' => 'Contraseña nueva:',
 'retypenew' => 'Confirmar la contraseña nueva:',
 'resetpass_submit' => 'Establecer contraseña e iniciar sesión',
-'changepassword-success' => 'La contraseña ha sido cambiada con éxito.
-Iniciando sesión...',
+'changepassword-success' => 'La contraseña ha sido cambiada con éxito.',
 'resetpass_forbidden' => 'No se pueden cambiar las contraseñas',
 'resetpass-no-info' => 'Debes iniciar sesión para acceder directamente a esta página.',
 'resetpass-submit-loggedin' => 'Cambiar contraseña',
@@ -979,7 +989,7 @@ Contraseña temporal: $2',
 
 # Special:ChangeEmail
 'changeemail' => 'Cambiar la dirección de correo electrónico',
-'changeemail-header' => 'Cambiar la dirección de correo electrónico de la cuenta',
+'changeemail-header' => 'Cambiar la dirección de correo de la cuenta',
 'changeemail-text' => 'Rellena este formulario para cambiar tu dirección de correo electrónico. Debes introducir la contraseña para confirmar este cambio.',
 'changeemail-no-info' => 'Debes iniciar sesión para acceder directamente a esta página.',
 'changeemail-oldemail' => 'Dirección de correo electrónico actual:',
@@ -998,7 +1008,7 @@ Deberías hacerlo si accidentalmente la has compartido con alguien o si su cuent
 'resettokens-legend' => 'Restablecer claves',
 'resettokens-tokens' => 'Claves:',
 'resettokens-token-label' => '$1 (valor actual: $2)',
-'resettokens-watchlist-token' => 'Lista de seguimiento de la red de claves',
+'resettokens-watchlist-token' => 'Clave para la lista de seguimiento (RSS/Atom) de los [[Special:Watchlist|cambios a las páginas en tu lista de seguimiento]]',
 'resettokens-done' => 'Restablecimiento de claves.',
 'resettokens-resetbutton' => 'Restablecer las claves',
 
@@ -1536,9 +1546,9 @@ Mientras tanto puedes buscar mediante Google, pero ten en cuenta que sus índice
 'recentchangesdays-max' => '(máximo {{PLURAL:$1|un día|$1 días}})',
 'recentchangescount' => 'Número de ediciones a mostrar de manera predeterminada:',
 'prefs-help-recentchangescount' => 'Esto incluye cambios recientes, historiales de página, y registros.',
-'prefs-help-watchlist-token2' => 'Esta es la llave secreta al feed de tu lista de seguimiento web.
-Toda persona que la sepa será capaz de leer tu lista, así que no la compartiremos.
-[[Special:ResetTokens|Has clic aquí si necesitas reiniciarlo]].',
+'prefs-help-watchlist-token2' => 'Esta es la clave secreta para el canal de contenido web de tu lista de seguimiento.
+Cualquier persona que la conozca podría leer tu lista, así que no la compartas.
+[[Special:ResetTokens|Pulsa aquí si necesitas restablecerla]].',
 'savedprefs' => 'Tus preferencias han sido guardadas.',
 'timezonelegend' => 'Zona horaria:',
 'localtime' => 'Hora local:',
@@ -1600,6 +1610,7 @@ Tu dirección de correo no se revela cuando otros usuarios te contactan.',
 'prefs-dateformat' => 'Formato de fecha',
 'prefs-timeoffset' => 'Diferencia horaria',
 'prefs-advancedediting' => 'Opciones generales',
+'prefs-editor' => 'Editor',
 'prefs-preview' => 'Previsualización',
 'prefs-advancedrc' => 'Opciones avanzadas',
 'prefs-advancedrendering' => 'Opciones avanzadas',
@@ -1610,6 +1621,7 @@ Tu dirección de correo no se revela cuando otros usuarios te contactan.',
 'prefs-displaywatchlist' => 'Opciones de visualización',
 'prefs-tokenwatchlist' => 'Clave',
 'prefs-diffs' => 'Diferencias',
+'prefs-help-prefershttps' => 'Esta preferencia tendrá efecto en tu próximo inicio de sesión.',
 
 # User preference: email validation using jQuery
 'email-address-validity-valid' => 'La dirección de correo electrónico parece ser válida',
@@ -1767,8 +1779,8 @@ Tu dirección de correo no se revela cuando otros usuarios te contactan.',
 'action-block' => 'bloquear a este usuario para que no edite',
 'action-protect' => 'cambiar los niveles de protección para esta página',
 'action-rollback' => 'revertir rápidamente las ediciones del último usuario que modificó una página en particular',
-'action-import' => 'importar esta página desde otro wiki',
-'action-importupload' => 'importar esta página mediante la carga de un archivo',
+'action-import' => 'importar páginas desde otro wiki',
+'action-importupload' => 'importar páginas mediante la carga de un archivo',
 'action-patrol' => 'marcar ediciones de otros como patrulladas',
 'action-autopatrol' => 'marcar como patrulladas tus propias ediciones',
 'action-unwatchedpages' => 'ver la lista de páginas no vigiladas',
@@ -1784,6 +1796,8 @@ Tu dirección de correo no se revela cuando otros usuarios te contactan.',
 
 # Recent changes
 'nchanges' => '$1 {{PLURAL:$1|cambio|cambios}}',
+'enhancedrc-since-last-visit' => '$1 {{PLURAL:$1|desde la última visita}}',
+'enhancedrc-history' => 'historial',
 'recentchanges' => 'Cambios recientes',
 'recentchanges-legend' => 'Opciones sobre cambios recientes',
 'recentchanges-summary' => 'Sigue los cambios más recientes de la wiki en esta página.',
@@ -1815,7 +1829,7 @@ Tu dirección de correo no se revela cuando otros usuarios te contactan.',
 'rc_categories_any' => 'Cualquiera',
 'rc-change-size-new' => '$1 {{PLURAL:$1|byte|bytes}} después del cambio',
 'newsectionsummary' => 'Nueva sección: /* $1 */',
-'rc-enhanced-expand' => 'Mostrar detalles (requiere JavaScript)',
+'rc-enhanced-expand' => 'Mostrar detalles',
 'rc-enhanced-hide' => 'Ocultar detalles',
 'rc-old-title' => 'originalmente creado como "$1"',
 
@@ -2088,6 +2102,10 @@ Cuando el usuario la filtra, solo se muestran los archivos cargados por el usuar
 'listfiles_size' => 'Tamaño (bytes)',
 'listfiles_description' => 'Descripción',
 'listfiles_count' => 'Versiones',
+'listfiles-show-all' => 'Incluir versiones antiguas de las imágenes',
+'listfiles-latestversion' => 'Versión actual',
+'listfiles-latestversion-yes' => 'Sí',
+'listfiles-latestversion-no' => 'No',
 
 # File description page
 'file-anchor-link' => 'Archivo',
@@ -2218,19 +2236,13 @@ Entrada: contenttype/subtype, p. ej. <code>image/jpeg</code>.',
 'statistics-users-active-desc' => 'Usuarios que han ejecutado una acción en {{PLURAL:$1|el último día|los últimos $1 días}}',
 'statistics-mostpopular' => 'Páginas más vistas',
 
-'disambiguations' => 'Páginas que enlazan con páginas de desambiguación',
-'disambiguationspage' => 'Template:Desambiguación',
-'disambiguations-text' => "Las siguientes páginas contienen al menos un enlace a una '''página de desambiguación'''.
-En lugar de ello deberían enlazar a una página más apropiada.<br />
-Una página es considerada página de desambiguación si utiliza la plantilla que está enlazada desde [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Páginas con una propiedad de página',
 'pageswithprop-legend' => 'Páginas con una propiedad de página',
 'pageswithprop-text' => 'Esta página muestra las páginas que usan la propiedad de una página en particular',
 'pageswithprop-prop' => 'Nombre de la propiedad',
 'pageswithprop-submit' => 'Ir',
-'pageswithprop-prophidden-long' => 'hay un largo valor en la propiedad texto ocultada ($1  kilobytes)',
-'pageswithprop-prophidden-binary' => 'valor de la propiedad binaria ocultada ($1 kilobytes)',
+'pageswithprop-prophidden-long' => 'hay un largo valor en la propiedad texto oculta ($1)',
+'pageswithprop-prophidden-binary' => 'valor de la propiedad binaria oculta ($1)',
 
 'doubleredirects' => 'Redirecciones dobles',
 'doubleredirectstext' => 'Esta página contiene una lista de páginas que redirigen a otras páginas de redirección.
@@ -2288,6 +2300,7 @@ Las entradas <del>tachadas</del> han sido resueltas.',
 'mostrevisions' => 'Artículos con más ediciones',
 'prefixindex' => 'Todas las páginas con prefijo',
 'prefixindex-namespace' => 'Todas las páginas con el prefijo (espacio de nombres $1)',
+'prefixindex-strip' => 'Prefijo de la hilera en la lista',
 'shortpages' => 'Páginas cortas',
 'longpages' => 'Páginas largas',
 'deadendpages' => 'Páginas sin salida',
@@ -2303,6 +2316,7 @@ Las entradas <del>tachadas</del> han sido resueltas.',
 'listusers' => 'Lista de usuarios',
 'listusers-editsonly' => 'Muestra sólo usuarios con ediciones',
 'listusers-creationsort' => 'Ordenado por fecha de creación',
+'listusers-desc' => 'Ordenar de forma descendente',
 'usereditcount' => '$1 {{PLURAL:$1|edición|ediciones}}',
 'usercreated' => '{{GENDER:$3|Registrado|Registrada}} el $1 a las $2',
 'newpages' => 'Páginas nuevas',
@@ -2561,9 +2575,11 @@ Véase $2 para un registro de los borrados recientes.',
 'deleteotherreason' => 'Otro motivo:',
 'deletereasonotherlist' => 'Otro motivo',
 'deletereason-dropdown' => '*Razones comunes de borrado
-** A petición del mismo autor
+** Spam
+** Vandalismo
 ** Violación de copyright
-** Vandalismo',
+** A petición del mismo autor
+** Redirección incorrecta',
 'delete-edit-reasonlist' => 'Editar razones de borrado',
 'delete-toobig' => 'Esta página tiene un historial muy grande, con más de $1 {{PLURAL:$1|revisión|revisiones}}. Borrar este tipo de páginas ha sido restringido para prevenir posibles problemas en {{SITENAME}}.',
 'delete-warning-toobig' => 'Esta página tiene un historial de más de $1 {{PLURAL:$1|revisión|revisiones}}. Eliminarla puede perturbar las operaciones de la base de datos de {{SITENAME}}. Ten cuidado al borrar.',
@@ -2722,7 +2738,7 @@ $1',
 'contributions' => 'Contribuciones {{GENDER:$1|del usuario|de la usuaria}}',
 'contributions-title' => 'Contribuciones {{GENDER:$1|del usuario|de la usuaria}} $1',
 'mycontris' => 'Contribuciones',
-'contribsub2' => '$1 ($2)',
+'contribsub2' => 'Para {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'No se encontraron cambios que cumplieran estos criterios.',
 'uctop' => '(edición actual)',
 'month' => 'Desde el mes (y anteriores):',
@@ -3259,7 +3275,7 @@ Esto podría estar causado por un enlace a un sitio externo incluido en la lista
 'pageinfo-length' => 'Longitud de la página (en bytes)',
 'pageinfo-article-id' => 'Identificador ID de la página',
 'pageinfo-language' => 'Idioma de la página',
-'pageinfo-robot-policy' => 'Indexación por robots',
+'pageinfo-robot-policy' => 'Indización por robots',
 'pageinfo-robot-index' => 'Permitido',
 'pageinfo-robot-noindex' => 'No permitido',
 'pageinfo-views' => 'Número de vistas',
@@ -4083,7 +4099,9 @@ Has recibido [{{SERVER}}{{SCRIPTPATH}}/COPYING una copia de la Licencia Pública
 'tags-tag' => 'Nombre de etiqueta',
 'tags-display-header' => 'Apariencia de la lista de cambios',
 'tags-description-header' => 'Descripción completa de significado',
+'tags-active-header' => '¿Activo?',
 'tags-hitcount-header' => 'Cambios etiquetados',
+'tags-active-yes' => 'Sí',
 'tags-edit' => 'editar',
 'tags-hitcount' => '$1 {{PLURAL:$1|cambio|cambios}}',
 
@@ -4101,10 +4119,10 @@ Has recibido [{{SERVER}}{{SCRIPTPATH}}/COPYING una copia de la Licencia Pública
 
 # Database error messages
 'dberr-header' => 'Este wiki tiene un problema',
-'dberr-problems' => 'Lo sentimos.
-Este sitio está experimentando dificultades técnicas.',
+'dberr-problems' => 'Lo sentimos. Este sitio está experimentando dificultades técnicas.',
 'dberr-again' => 'Prueba a recargar dentro de unos minutos.',
 'dberr-info' => '(No se puede contactar con la base de datos del servidor: $1)',
+'dberr-info-hidden' => '(No se puede contactar con la base de datos del servidor)',
 'dberr-usegoogle' => 'Mientras tanto puedes probar buscando a través de Google.',
 'dberr-outofdate' => 'Ten en cuenta que su índice de nuestro contenido puede estar desactualizado.',
 'dberr-cachederror' => 'La siguiente es una página guardada de la página solicitada, y puede no estar actualizada.',
@@ -4242,15 +4260,18 @@ En otro caso, puedes usar el siguiente formulario. Tu comentario será añadido 
 'rotate-comment' => 'Imagen girada por $1 {{PLURAL:$1|grado|grados}} en el sentido de las agujas del reloj',
 
 # Limit report
-'limitreport-title' => 'Analizador de datos de perfiles:',
+'limitreport-title' => 'Datos de perfilado del analizador:',
 'limitreport-cputime' => 'Tiempo de uso de CPU',
 'limitreport-cputime-value' => '$1 {{PLURAL:$1|segundo|segundos}}',
-'limitreport-walltime' => 'Tiempo Real de uso',
+'limitreport-walltime' => 'Tiempo real de uso',
 'limitreport-walltime-value' => '$1 {{PLURAL:$1|segundo|segundos}}',
-'limitreport-ppvisitednodes' => 'Preprocesador visitó la cantidad de nodos',
-'limitreport-ppgeneratednodes' => 'Preprocesador genera el número de nodos',
-'limitreport-postexpandincludesize' => 'Post-Expand incluyen el tamaño',
+'limitreport-ppvisitednodes' => 'N.º de nodos visitados por el preprocesador',
+'limitreport-ppgeneratednodes' => 'N.º de nodos generados por el preprocesador',
+'limitreport-postexpandincludesize' => 'Tamaño de inclusión posexpansión',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
 'limitreport-templateargumentsize' => 'Argumento del tamaño de la plantilla',
-'limitreport-expansiondepth' => 'Máxima expansión de profundidad',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
+'limitreport-expansiondepth' => 'Profundidad máxima de expansión',
+'limitreport-expensivefunctioncount' => 'Cuenta de la funcion expansiva del analizador',
 
 );

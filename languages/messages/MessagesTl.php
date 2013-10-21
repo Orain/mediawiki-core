@@ -390,7 +390,7 @@ $1',
 'pool-queuefull' => 'Puno na ang pisan ng mga pila',
 'pool-errorunknown' => 'Hindi nalalamang kamalian',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Tungkol sa {{SITENAME}}',
 'aboutpage' => 'Project:Patungkol',
 'copyright' => 'Maaaring gamitin ang nilalaman sa ilalim ng $1.',
@@ -525,7 +525,7 @@ Ang mga dato dito ay hindi pa masasariwa sa kasalukuyan.',
 'wrong_wfQuery_params' => 'Maling mga parametro sa wfQuery()<br />
 Tungkulin: $1<br />
 Tanong: $2',
-'viewsource' => 'Tingnan ang pinagmulan',
+'viewsource' => 'Tingnan ang batayan',
 'viewsource-title' => 'Tingnan ang pinagmulan para sa $1',
 'actionthrottled' => 'Hinadlangan ang gawain',
 'actionthrottledtext' => "Bilang paraang panglaban sa ''spam'', pinigalan kang magawa ang galaw na ito nang maraming ulit sa loob ng maikling panahon, at lumabis ka na sa limitasyong ito.
@@ -1323,11 +1323,13 @@ Hindi ito maibabalik sa dating gawi.',
 Pakisuri ang mga tatak ng HTML.',
 'badsiglength' => 'Napakahaba ng iyong lagda.
 Dapat na mas mababa kaysa $1 {{PLURAL:$1|panitik|mga panitik}}.',
-'yourgender' => 'Kasarian:',
-'gender-unknown' => 'Hindi tinukoy',
-'gender-male' => 'Lalaki',
-'gender-female' => 'Babae',
-'prefs-help-gender' => 'Maaaring wala nito: ginagamit para sa pagbanggit ng tamang kasarian sa pamamagitan ng sopwer. Magging pangmadla ang kabatiran ito.',
+'yourgender' => 'Sa anong paraan nais mo bang ilarawan ang sarili mo?',
+'gender-unknown' => 'Hindi ko nais itukoy',
+'gender-male' => 'Binabago ko ang mga pahinang wiki bilang lalaki',
+'gender-female' => 'Binabago ko ang mga pahinang wiki bilang babae',
+'prefs-help-gender' => 'Opsiyonal ang pagtatakda ng kagustuhang ito.
+Ginagamit ng software ang halagang ito upang tukuyan ka at upang mailarawan ka sa iba gamit ang akmang kasariang pambalarila.
+Isasapubliko ang impormasyong ito.',
 'email' => 'E-liham',
 'prefs-help-realname' => "Opsyonal ('di-talaga kailangan) ang tunay na pangalan.
 Kung pipiliin mong ibigay ito, gagamitin ito para mabigyan ka ng pagkilala para iyong mga ginawa.",
@@ -1939,12 +1941,6 @@ Marahil ay naisa mong baguhin ang paglalarawan doon sa [$2 pahina ng paglalarawa
 'statistics-users-active-desc' => 'Mga tagagamit na nagsagawa ng isang galaw/gawain sa huling {{PLURAL:$1|araw|$1 mga araw}}',
 'statistics-mostpopular' => 'Mga pinakarinarayong pahina',
 
-'disambiguations' => 'Mga pahinang nakakawing sa mga pahina ng paglilinaw',
-'disambiguationspage' => 'Template:disambig',
-'disambiguations-text' => "Ang sumusunod na mga pahina ay naglalaman ng kahit na isang kawing na papunta sa isang '''pahina ng paglilinaw'''.
-Sa halip, maaaring kailanganing kumawing ang mga ito sa isang mas naaangkop na pahina.<br />
-Ang isang pahina ay itinuturing bilang pahina ng paglilinaw kung gumagamit ito ng isang suleras na nakakawing magmula sa [[MediaWiki:Disambiguationspage|MediaWiki:Pahina ng mga paglilinaw]].",
-
 'doubleredirects' => 'Mga dobleng karga',
 'doubleredirectstext' => 'Nagtatala ang pahinang ito ng mga pahinang pumupunta sa iba pang mga pahinang nililipatan.  Naglalaman ang bawat hanay ng mga kawing sa una ang pangalawang kapupuntahan, maging ng puntiryang pangalawang kapupuntahan, na karaniwang "tunay" na puntiryang pahina, na dapat kinatuturuan ng unang pupuntahan.
 Nasugpo na ang mga ipinasok na <del>inekisan</del>.',
@@ -2554,7 +2550,7 @@ Tingnan ang [[Special:BlockList|talaan ng mga hinadlangan]] upang suriin ang mga
 'anononlyblock' => 'di kilala lamang',
 'noautoblockblock' => 'hindi gumagana ang awtomatikong pagharang',
 'createaccountblock' => 'isinalanta ang paglikha ng kuwenta',
-'emailblock' => 'Hinarang/hinadlangan ang e-liham',
+'emailblock' => 'Hinarang ang e-liham',
 'blocklist-nousertalk' => 'hindi mo mababago ang iyong pansariling pahina ng usapan',
 'ipblocklist-empty' => 'Walang laman ang talaan ng pagharang/paghadlang.',
 'ipblocklist-no-results' => 'Nakaharang ang hiniling na IP address o bansag.',
@@ -2579,7 +2575,7 @@ Tingnan ang [[Special:BlockList|talaan ng pagharang]] para sa lista ng kasalukuy
 'block-log-flags-anononly' => 'mga di-kilalang tagagamit lamang',
 'block-log-flags-nocreate' => 'isinalanta ang paglikha ng kuwenta',
 'block-log-flags-noautoblock' => 'Nakapatay ang awtomatikong pagharang',
-'block-log-flags-noemail' => 'hinadlangan/hinarang ang e-liham',
+'block-log-flags-noemail' => 'hinarang ang e-liham',
 'block-log-flags-nousertalk' => 'hindi mo mababago ang iyong pansariling pahina ng usapan',
 'block-log-flags-angry-autoblock' => 'pinaandar ang pinainam/pinagibayong kusang paghadlang o awtomatikong pagharang',
 'block-log-flags-hiddenname' => 'nakatago ang pangalan ng tagagamit',
@@ -2588,7 +2584,7 @@ Tingnan ang [[Special:BlockList|talaan ng pagharang]] para sa lista ng kasalukuy
 'ipb_expiry_temp' => 'Kinakailangang pamalagian ang mga nakatagong paghadlang ng pangalan ng tagagamit.',
 'ipb_hide_invalid' => 'Hindi maisupil ang kuwentang ito; maaaring may napakaraming pagbabago ito.',
 'ipb_already_blocked' => 'Nakaharang na ang "$1"',
-'ipb-needreblock' => 'Hinarang/hinadlangan na si $1.  Ibig mo bang baguhin ang mga pagtatakda?',
+'ipb-needreblock' => 'Hinarang na si $1.  Nais mo bang baguhin ang mga pagtatakda?',
 'ipb-otherblocks-header' => 'Ibang {{PLURAL:$1|harang|mga harang}}',
 'unblock-hideuser' => 'Hindi mo matatanggal ang paghadlang sa tagagamit na ito, dahil naitago ang kanilang pangalan ng tagagamit.',
 'ipb_cant_unblock' => 'Kamalian: Hindi natagpuan ang ID ng pagharang/paghadlang na $1.  Maaaring natanggal na ang pagkakaharang nito/paghahadlang dito.',
@@ -2681,7 +2677,7 @@ Sa mga kasong ganoon, kailangan mong ilipat o pagsamahin/pagsanibin ang pahina s
 pangalang pinili mo ay hindi tanggap.
 Pumili muli ng ibang pangalan.',
 'cantmove-titleprotected' => 'Hindi mo malilipatan ang isang pahina sa lokasyong ito, dahil nakasanggalang sa paglikha ang baong pamagat',
-'talkexists' => "'''Tagumpay na nailipat ang pahina mismo, ngunit hindi mailipat ang pahina ng usapan dahil mayroon ng ganito sa bagong pamagat. Ipagsama ito sa manwal na paraan.'''",
+'talkexists' => "'''Matagumpay na nailipat ang pahina mismo, ngunit hindi mailipat ang pahinang usapan dahil may ganito na sa bagong pamagat.  Mangyaring isanib ito nang manwal.'''",
 'movedto' => 'inilipat sa',
 'movetalk' => 'Ilipat ang kaugnay na pahinang usapan',
 'move-subpages' => 'Ilipat ang kabahaging mga pahina (hanggang sa $1)',
@@ -2856,7 +2852,8 @@ Sagipin mo ito sa iyong kompyuter at papaitaas na ikarga ito rito.',
 'tooltip-ca-talk' => 'Usapan tungkol sa nilalaman ng pahinang ito',
 'tooltip-ca-edit' => 'Maaaring baguhin ang pahinang ito. Paki gamit ang buton ng paunang tingin bago itala.',
 'tooltip-ca-addsection' => 'Magsimula ng isang bagong seksiyon',
-'tooltip-ca-viewsource' => 'Nakaprotekta ang pahinang ito. Makikita mo lamang ang pinagmulan (source) nito.',
+'tooltip-ca-viewsource' => 'Nakasanggalang ang pahinang ito.
+Maaari mong tingnan ang batayan nito.',
 'tooltip-ca-history' => 'Nakaraang bersyon ng pahinang ito.',
 'tooltip-ca-protect' => 'Iprotekta ang pahinang ito',
 'tooltip-ca-unprotect' => 'Baguhin ang pruteksiyon ng pahinang ito',
@@ -3608,7 +3605,7 @@ $8',
 'confirmemail_text' => "Pinagagawa ng {{SITENAME}} na patotohanan mo ang iyong adres ng e-liham bago gamitin ang mga kasangkapang-katangian ng e-liham.  Pindutin at buhayin ang pindutan sa ibaba para makapagpadala ng isang makapagpapatotoong e-liham (kompirmasyon) patungo sa iyong adres.
 Makakasama sa liham ang isang kawing na naglalaman ng kodigo;
 Ikarga ang kawing sa iyong pantingin-tingin (''browser'') para mapatotohanang katanggap-tanggap ang iyong adres ng e-liham.",
-'confirmemail_pending' => 'Naipadala na sa iyong e-liham ang kodigo ng pagpapatotoo (kumpirmasyon); kung kamakailan mo lamang nilikha ang iyong kuwenta/akawnt, maaaring ibigin mong maghintay ng ilang minuto para makarating muna ito bago subuking humiling ng isang bagong kodigo.',
+'confirmemail_pending' => 'Naipadala na sa iyong e-liham ang kodigo ng pagpapatotoo (kumpirmasyon); kung kamakailan mo lamang nilikha ang iyong kuwenta, maaaring ibigin mong maghintay ng ilang minuto para makarating muna ito bago subuking humiling ng isang bagong kodigo.',
 'confirmemail_send' => 'Magpadala ng isang kodigo ng pagpapatotoo (kumpirmasyon)',
 'confirmemail_sent' => 'Naipadala na ang magpapatotoong e-liham (kumpirmasyon).',
 'confirmemail_oncreate' => 'Nagpadala na ng isang kodigo ng pagpapatotoo (kumpirmasyon) patungo sa iyong adres ng e-liham.  Hindi kailangan ang kodigong ito para makalagda, ngunit kailangan mong ibigay muna ito bago paganahin/paandarin ang anumang pang e-liham na kasangkapang-katangiang nasa loob ng wiki.',
@@ -3622,19 +3619,19 @@ Ibinalik ng tagapagpadala ang: $1',
 'confirmemail_loggedin' => 'Natiyak na ngayon ang tirahan ng e-liham mo.',
 'confirmemail_error' => 'May nangyaring kamalian sa pagsasagip ng iyong kumpirmasyon.',
 'confirmemail_subject' => 'Kumpirmasyon/pagpapatotoong pang-adres ng e-liham ng {{SITENAME}}',
-'confirmemail_body' => 'May isa, maaaring ikaw, na mula sa adres ng IP na $1,
-ang nagtala ng isang akawnt/kuwentang "$2" na mayroong ganitong adres ng e-liham sa {{SITENAME}}.
+'confirmemail_body' => 'May isa, maaaring ikaw, na mula sa direksiyong IP na $1,
+ang nagtala ng isang kuwentang "$2" na mayroong ganitong direksiyong e-liham sa {{SITENAME}}.
 
-Para patotohanang ikaw nga ang may-ari ng kuwentang ito at para buhayin ang mga kasangkapang-katanginan ng e-liham sa {{SITENAME}}, buksan ang kawing na ito sa iyong pantingin-tingin (\'\'browser\'\'):
+Para patotohanang ikaw nga ang may-ari ng kuwentang ito at para buhayin ang mga kasangkapang-katanginan ng e-liham sa {{SITENAME}}, buksan ang kawing na ito sa iyong pambasa-basa (\'\'browser\'\'):
 
 $3
 
-Kung *hindi* mo itinala/inirehistro ang kuwenta, sundan mo ang kawing na ito
-para kanselahin o huwag nang ituloy ang pagpapatotoo (kumpirmasyon) ng adres ng e-liham:
+Kung *hindi* mo itinala ang kuwenta, sundan mo ang kawing na ito
+para kanselahin o huwag nang ituloy ang pagpapatotoo (kumpirmasyon) ng direksiyong e-liham:
 
 $5
 
-Magwawakas ang pagiging mabisa ng kodigo ng pagpapatotoong ito sa $4.',
+Magwawalang-saysay ang kodigo ng pagpapatotoong ito sa $4.',
 'confirmemail_body_changed' => 'May isa, maaaring ikaw, na mula sa adres ng IP na $1,
 ang nagbago ng adres ng e-liham ng akawnt na "$2" sa ganitong adres sa {{SITENAME}}.
 
@@ -3752,7 +3749,8 @@ Pakitiyak kung ibig mo talagang likhain muli ang pahinang ito.",
 'livepreview-loading' => 'Ikinakarga...',
 'livepreview-ready' => 'Ikinakarga… Handa na!',
 'livepreview-failed' => 'Nabigo ang umiiral na paunang tingin!  Subukan ang normal/pangkaraniwang paunang tingin.',
-'livepreview-error' => 'Hindi tagumpay ang pagkabit (connect): $1 "$2". Subukan ang karaniwang paunang tingin.',
+'livepreview-error' => 'Hindi matagumpay ang pagkonekta: $1 "$2".
+Subukan ang karaniwang paunang tingin.',
 
 # Friendlier slave lag warnings
 'lag-warn-normal' => 'Maaaring hindi naipapakita sa talaang ito ang mga pagbabagong mas bago pa kaysa $1 {{PLURAL:$1|segundo|mga segundo}}.',
@@ -4010,12 +4008,12 @@ Dapat na nakatanggap ka ng [{{SERVER}}{{SCRIPTPATH}}/COPYING isang sipi ng Pangk
 'rightsnone' => '(wala)',
 
 # Feedback
-'feedback-bugornote' => 'Kung handa ka nang detalyadong maglarawan ng isang suliraning teknikal mangyaring [$1 iulat ang sira].
-O kaya, maaari mong gamitin ang maginhawang pormularyo sa ibaba. Ang iyong pagpuna ay idaragdag sa pahinang "[$3 $2]", kasama ang iyong pangalan na pangtagagamit at kung anong pantingin-tingin ang ginagamit mo.',
+'feedback-bugornote' => 'Kung handa ka nang detalyadong maglarawan ng isang suliraning teknikal mangyaring [$1 iulat ang kamalian].
+O kaya, maaari mo ring gamitin ang pinadaling pormularyo sa ibaba.  Madadagdagan ang komento mo sa pahinang "[$3 $2]", kasama ang iyong pangalan ng tagagamit.',
 'feedback-subject' => 'Paksa:',
 'feedback-message' => 'Mensahe:',
 'feedback-cancel' => 'Huwag ituloy',
-'feedback-submit' => 'Ipasa ang Pakaing-tugon',
+'feedback-submit' => 'Magbigay ng komento',
 'feedback-adding' => 'Idinaragdag ang pakaing-tugon sa pahina...',
 'feedback-error1' => 'Kamalian: Hindi nakikilalang kinalabasan mula sa API',
 'feedback-error2' => 'Kamalian: Nabigo ang pagpatnugot',

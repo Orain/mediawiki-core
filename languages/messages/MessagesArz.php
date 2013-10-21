@@ -9,6 +9,7 @@
  *
  * @author Alnokta
  * @author Dudi
+ * @author Ebraminio
  * @author Ghaly
  * @author Meno25
  * @author Ouda
@@ -528,7 +529,7 @@ $1',
 'pool-queuefull' => 'طابور الانتخاب مليان',
 'pool-errorunknown' => 'غلط مش معروف',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'عن {{SITENAME}}',
 'aboutpage' => 'Project:معلومات عن',
 'copyright' => 'المحتوى موجود تحت $1.',
@@ -1834,12 +1835,6 @@ PICT # misc.
 'statistics-users-active' => 'يوزرز نشطين',
 'statistics-users-active-desc' => 'اليوزرز اللى نفذو عمليه فى الـ {{PLURAL:$1|يوم|$1 ايام}} اللى فاتو',
 'statistics-mostpopular' => 'اكتر صفحات اتشافت',
-
-'disambiguations' => 'صفحات التوضيح',
-'disambiguationspage' => 'Template:توضيح',
-'disambiguations-text' => "الصفحات دى بتوصل لـ '''صفحة توضيح'''.
-المفروض على العكس انهم يوصلو ل للصفحات المناسبة. <br />
-أى صفحة بتتعامل على انها صفحة توضيح إذا كانت بتستعمل قالب موجود فى [[MediaWiki:Disambiguationspage]]",
 
 'doubleredirects' => 'تحويلات مزدوجه',
 'doubleredirectstext' => 'الصفحة دى فيها لستة الصفحات اللى فيها تحويلة لصفحة تانية فيها تحويلة.

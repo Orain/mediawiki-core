@@ -368,8 +368,8 @@ $messages = array(
 'underline-default' => 'Drakt- eller nettlesarstandard',
 
 # Font style option in Special:Preferences
-'editfont-style' => 'Endre stilen for skrifttypen i området:',
-'editfont-default' => 'Nettlesar i utgangspunktet',
+'editfont-style' => 'Skrifttype i endringsboksen:',
+'editfont-default' => 'Nettlesarstandard',
 'editfont-monospace' => 'Skrift med fast breidd',
 'editfont-sansserif' => 'Skrifttype utan seriffar',
 'editfont-serif' => 'Skrifttype med seriffar',
@@ -564,7 +564,7 @@ $1',
 'pool-queuefull' => 'Køen er full.',
 'pool-errorunknown' => 'Ukjend feil',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Om {{SITENAME}}',
 'aboutpage' => 'Project:Om',
 'copyright' => 'Innhaldet er utgjeve under $1.',
@@ -941,7 +941,7 @@ Mellombels passord: $2',
 'preview' => 'Førehandsvising',
 'showpreview' => 'Førehandsvis',
 'showlivepreview' => 'Levande førehandsvising',
-'showdiff' => 'Vis skilnader',
+'showdiff' => 'Sjå skilnader',
 'anoneditwarning' => "'''Åtvaring:''' Du er ikkje innlogga.
 IP-adressa di vert lagra i endringshistorikken til sida.",
 'anonpreviewwarning' => "''Du er ikkje innlogga. Lagrar du vil IP-adressa di verta ført opp i endringshistorikken til denne sida.''",
@@ -2085,12 +2085,6 @@ Du vil kan henda endra skildringa på [$2 filskildringssida] hennar der.',
 'statistics-users-active-desc' => 'Brukarar som har utført handlingar {{PLURAL:$1|i dag|dei siste $1 dagane}}',
 'statistics-mostpopular' => 'Mest viste sider',
 
-'disambiguations' => 'Sider som lenkjer til fleirtydingssider',
-'disambiguationspage' => 'Template:Fleirtyding',
-'disambiguations-text' => "Dei fylgjande sidene inneheld minst éi lenkje til ei '''fleirtydingsside'''.
-Dei bør kan henda lenkja til ei meir passande side i staden.<br />
-Ei side vert handsama som ei fleirtydingsside om ho nyttar ein mal som er lenkja til frå [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Sider med ein sideeigenskap',
 'pageswithprop-legend' => 'Sider med ein sideeigenskap',
 'pageswithprop-text' => 'Denne sida listar opp sider som nyttar ein viss sideeigenskap.',
@@ -3020,7 +3014,7 @@ Vitja [//www.mediawiki.org/wiki/Localisation MediaWiki Localisation] og [//trans
 'tooltip-ca-nstab-category' => 'Vis kategoriside',
 'tooltip-minoredit' => 'Merk dette som småplukk',
 'tooltip-save' => 'Lagra endringane dine',
-'tooltip-preview' => 'Førehandsvis endringane dine, bruk denne funksjonen før du lagrar!',
+'tooltip-preview' => 'Førehandsvis endringane dine. Helst brukar du denne funksjonen før du lagrar.',
 'tooltip-diff' => 'Sjå kva endringar du gjorde i teksten',
 'tooltip-compareselectedversions' => 'Sjå endringane mellom dei valde versjonane av denne sida.',
 'tooltip-watch' => 'Legg sida til i overvakingslista di [alt-w]',
@@ -3895,7 +3889,10 @@ Du skal ha motteke [{{SERVER}}{{SCRIPTPATH}}/COPYING ein kopi av GNU General Pub
 'tags-tag' => 'Merkenamn',
 'tags-display-header' => 'Utsjånad på endringslister',
 'tags-description-header' => 'Tyding',
+'tags-active-header' => 'Verksamt?',
 'tags-hitcount-header' => 'Merkte endringar',
+'tags-active-yes' => 'Ja',
+'tags-active-no' => 'Nei',
 'tags-edit' => 'endra',
 'tags-hitcount' => '{{PLURAL:$1|éi endring|$1 endringar}}',
 

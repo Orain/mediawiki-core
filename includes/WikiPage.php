@@ -23,7 +23,8 @@
 /**
  * Abstract class for type hinting (accepts WikiPage, Article, ImagePage, CategoryPage)
  */
-interface Page {}
+interface Page {
+}
 
 /**
  * Class representing a MediaWiki article and history.
@@ -541,6 +542,7 @@ class WikiPage implements Page, IDBAccessObject {
 		$db = wfGetDB( DB_SLAVE );
 		$revSelectFields = Revision::selectFields();
 
+		$row = null;
 		while ( $continue ) {
 			$row = $db->selectRow(
 				array( 'page', 'revision' ),
@@ -1023,8 +1025,8 @@ class WikiPage implements Page, IDBAccessObject {
 
 	/**
 	 * Get the last N authors
-	 * @param $num Integer: number of revisions to get
-	 * @param string $revLatest the latest rev_id, selected from the master (optional)
+	 * @param int $num Number of revisions to get
+	 * @param int|string $revLatest the latest rev_id, selected from the master (optional)
 	 * @return array Array of authors, duplicates not removed
 	 */
 	public function getLastNAuthors( $num, $revLatest = 0 ) {
@@ -1095,8 +1097,8 @@ class WikiPage implements Page, IDBAccessObject {
 	 * The parser cache will be used if possible.
 	 *
 	 * @since 1.19
-	 * @param $parserOptions ParserOptions to use for the parse operation
-	 * @param $oldid Revision ID to get the text from, passing null or 0 will
+	 * @param ParserOptions $parserOptions ParserOptions to use for the parse operation
+	 * @param null|int $oldid Revision ID to get the text from, passing null or 0 will
 	 *               get the current revision (default value)
 	 *
 	 * @return ParserOutput or false if the revision was not found
@@ -1622,7 +1624,7 @@ class WikiPage implements Page, IDBAccessObject {
 	 * edit-already-exists error will be returned. These two conditions are also possible with
 	 * auto-detection due to MediaWiki's performance-optimised locking strategy.
 	 *
-	 * @param bool|\the $baseRevId the revision ID this edit was based off, if any
+	 * @param bool|int $baseRevId the revision ID this edit was based off, if any
 	 * @param $user User the user doing the edit
 	 * @param $serialisation_format String: format for storing the content in the database
 	 *
@@ -1710,6 +1712,10 @@ class WikiPage implements Page, IDBAccessObject {
 
 		$editInfo = $this->prepareContentForEdit( $content, null, $user, $serialisation_format );
 		$serialized = $editInfo->pst;
+
+		/**
+		 * @var Content $content
+		 */
 		$content = $editInfo->pstContent;
 		$newsize = $content->getSize();
 
@@ -1979,16 +1985,18 @@ class WikiPage implements Page, IDBAccessObject {
 	 * Prepare content which is about to be saved.
 	 * Returns a stdclass with source, pst and output members
 	 *
-	 * @param \Content $content
-	 * @param null $revid
-	 * @param null|\User $user
-	 * @param null $serialization_format
+	 * @param Content $content
+	 * @param int|null $revid
+	 * @param User|null $user
+	 * @param string|null $serialization_format
 	 *
 	 * @return bool|object
 	 *
 	 * @since 1.21
 	 */
-	public function prepareContentForEdit( Content $content, $revid = null, User $user = null, $serialization_format = null ) {
+	public function prepareContentForEdit( Content $content, $revid = null, User $user = null,
+		$serialization_format = null
+	) {
 		global $wgContLang, $wgUser;
 		$user = is_null( $user ) ? $wgUser : $user;
 		//XXX: check $user->getId() here???
@@ -2174,7 +2182,7 @@ class WikiPage implements Page, IDBAccessObject {
 		ContentHandler::deprecated( __METHOD__, "1.21" );
 
 		$content = ContentHandler::makeContent( $text, $this->getTitle() );
-		return $this->doQuickEditContent( $content, $user, $comment, $minor );
+		$this->doQuickEditContent( $content, $user, $comment, $minor );
 	}
 
 	/**
@@ -2182,13 +2190,15 @@ class WikiPage implements Page, IDBAccessObject {
 	 * The article must already exist; link tables etc
 	 * are not updated, caches are not flushed.
 	 *
-	 * @param $content Content: content submitted
-	 * @param $user User The relevant user
+	 * @param Content $content Content submitted
+	 * @param User $user The relevant user
 	 * @param string $comment comment submitted
-	 * @param $serialisation_format String: format for storing the content in the database
-	 * @param $minor Boolean: whereas it's a minor modification
+	 * @param string $serialisation_format Format for storing the content in the database
+	 * @param bool $minor Whereas it's a minor modification
 	 */
-	public function doQuickEditContent( Content $content, User $user, $comment = '', $minor = 0, $serialisation_format = null ) {
+	public function doQuickEditContent( Content $content, User $user, $comment = '', $minor = false,
+		$serialisation_format = null
+	) {
 		wfProfileIn( __METHOD__ );
 
 		$serialized = $content->serialize( $serialisation_format );
@@ -2346,6 +2356,14 @@ class WikiPage implements Page, IDBAccessObject {
 						'pr_type' => $action ), __METHOD__ );
 				}
 			}
+
+			// Clear out legacy restriction fields
+			$dbw->update(
+				'page',
+				array( 'page_restrictions' => '' ),
+				array( 'page_id' => $id ),
+				__METHOD__
+			);
 
 			wfRunHooks( 'NewRevisionFromEditComplete', array( $this, $nullRevision, $latest, $user ) );
 			wfRunHooks( 'ArticleProtectComplete', array( &$this, &$user, $limit, $reason ) );
@@ -2686,6 +2704,10 @@ class WikiPage implements Page, IDBAccessObject {
 			$dbw->rollback( __METHOD__ );
 			$status->error( 'cannotdelete', wfEscapeWikiText( $this->getTitle()->getPrefixedText() ) );
 			return $status;
+		}
+
+		if ( !$dbw->cascadingDeletes() ) {
+			$dbw->delete( 'revision', array( 'rev_page' => $id ), __METHOD__ );
 		}
 
 		$this->doDeleteUpdates( $id, $content );
@@ -3345,7 +3367,7 @@ class WikiPage implements Page, IDBAccessObject {
 	public function viewUpdates() {
 		wfDeprecated( __METHOD__, '1.18' );
 		global $wgUser;
-		return $this->doViewUpdates( $wgUser );
+		$this->doViewUpdates( $wgUser );
 	}
 
 	/**
@@ -3430,7 +3452,7 @@ class PoolWorkArticleView extends PoolCounterWork {
 	/**
 	 * Constructor
 	 *
-	 * @param $page Page
+	 * @param $page Page|WikiPage
 	 * @param $revid Integer: ID of the revision being parsed
 	 * @param $useParserCache Boolean: whether to use the parser cache
 	 * @param $parserOptions parserOptions to use for the parse operation
@@ -3510,6 +3532,9 @@ class PoolWorkArticleView extends PoolCounterWork {
 			return false;
 		}
 
+		// Reduce effects of race conditions for slow parses (bug 46014)
+		$cacheTime = wfTimestampNow();
+
 		$time = - microtime( true );
 		$this->parserOutput = $content->getParserOutput( $this->page->getTitle(), $this->revid, $this->parserOptions );
 		$time += microtime( true );
@@ -3521,7 +3546,8 @@ class PoolWorkArticleView extends PoolCounterWork {
 		}
 
 		if ( $this->cacheable && $this->parserOutput->isCacheable() ) {
-			ParserCache::singleton()->save( $this->parserOutput, $this->page, $this->parserOptions );
+			ParserCache::singleton()->save(
+				$this->parserOutput, $this->page, $this->parserOptions, $cacheTime );
 		}
 
 		// Make sure file cache is not used on uncacheable content.

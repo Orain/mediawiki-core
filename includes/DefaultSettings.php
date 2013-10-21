@@ -63,7 +63,7 @@ $wgConf = new SiteConfiguration;
  * MediaWiki version number
  * @since 1.2
  */
-$wgVersion = '1.22wmf16';
+$wgVersion = '1.22wmf22';
 
 /**
  * Name of the site. It must be changed in LocalSettings.php
@@ -1126,13 +1126,6 @@ $wgMimeTypeFile = 'includes/mime.types';
 $wgMimeInfoFile = 'includes/mime.info';
 
 /**
- * Switch for loading the FileInfo extension by PECL at runtime.
- * This should be used only if fileinfo is installed as a shared object
- * or a dynamic library.
- */
-$wgLoadFileinfoExtension = false;
-
-/**
  * Sets an external mime detector program. The command must print only
  * the mime type to standard output.
  * The name of the file to process will be appended to the command given here.
@@ -1623,7 +1616,6 @@ $wgSharedTables = array( 'user', 'user_properties' );
  *                  - DBO_DEFAULT -- turns on DBO_TRX only if !$wgCommandLineMode (recommended)
  *                  - DBO_DEBUG -- equivalent of $wgDebugDumpSql
  *                  - DBO_TRX -- wrap entire request in a transaction
- *                  - DBO_IGNORE -- ignore errors (not useful in LocalSettings.php)
  *                  - DBO_NOBUFFER -- turn off buffering (not useful in LocalSettings.php)
  *                  - DBO_PERSISTENT -- enables persistent database connections
  *                  - DBO_SSL -- uses SSL/TLS encryption in database connections, if available
@@ -1879,11 +1871,6 @@ $wgAllowSlowParserFunctions = false;
  * Allow schema updates
  */
 $wgAllowSchemaUpdates = true;
-
-/**
- * Do DELETE/INSERT for link updates instead of incremental
- */
-$wgUseDumbLinkUpdate = false;
 
 /**
  * Anti-lock flags - bitfield
@@ -3282,6 +3269,59 @@ $wgResourceLoaderValidateStaticJS = false;
  */
 $wgResourceLoaderExperimentalAsyncLoading = false;
 
+/**
+ * Global LESS variables. An associative array binding variable names to CSS
+ * string values.
+ *
+ * Because the hashed contents of this array are used to construct the cache key
+ * that ResourceLoader uses to look up LESS compilation results, updating this
+ * array can be used to deliberately invalidate the set of cached results.
+ *
+ * @par Example:
+ * @code
+ *   $wgResourceLoaderLESSVars = array(
+ *     'baseFontSize'  => '1em',
+ *     'smallFontSize' => '0.75em',
+ *     'WikimediaBlue' => '#006699',
+ *   );
+ * @endcode
+ * @since 1.22
+ */
+$wgResourceLoaderLESSVars = array();
+
+/**
+ * Custom LESS functions. An associative array mapping function name to PHP
+ * callable.
+ *
+ * Changes to LESS functions do not trigger cache invalidation. If you update
+ * the behavior of a LESS function and need to invalidate stale compilation
+ * results, you can touch one of values in $wgResourceLoaderLESSVars, as
+ * documented above.
+ *
+ * @since 1.22
+ */
+$wgResourceLoaderLESSFunctions = array(
+	'embeddable' => 'ResourceLoaderLESSFunctions::embeddable',
+	'embed' => 'ResourceLoaderLESSFunctions::embed',
+);
+
+/**
+ * Default import paths for LESS modules. LESS files referenced in @import
+ * statements will be looked up here first, and relative to the importing file
+ * second. To avoid collisions, it's important for the LESS files in these
+ * directories to have a common, predictable file name prefix.
+ *
+ * Extensions need not (and should not) register paths in
+ * $wgResourceLoaderLESSImportPaths. The import path includes the path of the
+ * currently compiling LESS file, which allows each extension to freely import
+ * files from its own tree.
+ *
+ * @since 1.22
+ */
+$wgResourceLoaderLESSImportPaths = array(
+	"$IP/resources/mediawiki.less/",
+);
+
 /** @} */ # End of resource loader settings }
 
 /*************************************************************************//**
@@ -3952,6 +3992,7 @@ $wgDefaultUserOptions = array(
 	'underline' => 2,
 	'uselivepreview' => 0,
 	'usenewrc' => 0,
+	'vector-simplesearch' => 1,
 	'watchcreations' => 0,
 	'watchdefault' => 0,
 	'watchdeletion' => 0,
@@ -4594,11 +4635,25 @@ $wgRateLimits = array(
 		'ip' => null,
 		'subnet' => null,
 	),
-	'mailpassword' => array(
+	'mailpassword' => array( // triggering password resets emails
 		'anon' => null,
 	),
-	'emailuser' => array(
+	'emailuser' => array( // emailing other users using MediaWiki
 		'user' => null,
+	),
+	'linkpurge' => array( // purges of link tables
+		'anon' => null,
+		'user' => null,
+		'newbie' => null,
+		'ip' => null,
+		'subnet' => null,
+	),
+	'renderfile' => array( // files rendered via thumb.php or thumb_handler.php
+		'anon' => null,
+		'user' => null,
+		'newbie' => null,
+		'ip' => null,
+		'subnet' => null,
 	),
 );
 
@@ -4881,6 +4936,37 @@ $wgShowSQLErrors = false;
 $wgShowExceptionDetails = false;
 
 /**
+ * Array of functions which need parameters redacted from stack traces shown to
+ * clients and logged. Keys are in the format '[class::]function', and the
+ * values should be either an integer or an array of integers. These are the
+ * indexes of the parameters which need to be kept secret.
+ * @since 1.22
+ */
+$wgRedactedFunctionArguments = array(
+	'AuthPlugin::setPassword' => 1,
+	'AuthPlugin::authenticate' => 1,
+	'AuthPlugin::addUser' => 1,
+
+	'DatabaseBase::__construct' => 2,
+	'DatabaseBase::open' => 2,
+
+	'SpecialChangeEmail::attemptChange' => 1,
+	'SpecialChangePassword::attemptReset' => 0,
+
+	'User::setPassword' => 0,
+	'User::setInternalPassword' => 0,
+	'User::checkPassword' => 0,
+	'User::setNewpassword' => 0,
+	'User::comparePasswords' => array( 0, 1 ),
+	'User::checkTemporaryPassword' => 0,
+	'User::setToken' => 0,
+	'User::crypt' => 0,
+	'User::oldCrypt' => 0,
+	'User::getPasswordValidity' => 0,
+	'User::isValidPassword' => 0,
+);
+
+/**
  * If true, show a backtrace for database errors
  */
 $wgShowDBErrorBacktrace = false;
@@ -4962,6 +5048,17 @@ $wgUDPProfilerHost = '127.0.0.1';
 $wgUDPProfilerPort = '3811';
 
 /**
+ * Format string for the UDP profiler. The UDP profiler invokes sprintf() with
+ * (profile id, count, cpu, cpu_sq, real, real_sq, entry name) as arguments.
+ * You can use sprintf's argument numbering/swapping capability to repeat,
+ * re-order or omit fields.
+ *
+ * @see $wgStatsFormatString
+ * @since 1.22
+ */
+$wgUDPProfilerFormatString = "%s - %d %f %f %f %f %s\n";
+
+/**
  * Detects non-matching wfProfileIn/wfProfileOut calls
  */
 $wgDebugProfiling = false;
@@ -4986,6 +5083,19 @@ $wgStatsMethod = 'cache';
  * will be used.
  */
 $wgAggregateStatsID = false;
+
+/**
+ * When $wgStatsMethod is 'udp', this variable specifies how stats should be
+ * formatted. Its value should be a format string suitable for a sprintf()
+ * invocation with (id, count, key) arguments, where 'id' is either
+ * $wgAggregateStatsID or the DB name, 'count' is the value by which the metric
+ * is being incremented, and 'key' is the metric name.
+ *
+ * @see $wgUDPProfilerFormatString
+ * @see $wgAggregateStatsID
+ * @since 1.22
+ */
+$wgStatsFormatString = "stats/%s - %s 1 1 1 1 %s\n";
 
 /**
  * Whereas to count the number of time an article is viewed.
@@ -5802,6 +5912,13 @@ $wgExtensionFunctions = array();
  * @endcode
  */
 $wgExtensionMessagesFiles = array();
+
+/**
+ * Array of files with list(s) of extension entry points to be used in
+ * maintenance/mergeMessageFileList.php
+ * @since 1.22
+ */
+$wgExtensionEntryPointListFiles = array();
 
 /**
  * Parser output hooks.

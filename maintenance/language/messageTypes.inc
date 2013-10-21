@@ -141,6 +141,7 @@ $wgIgnoredMessages = array(
 	'statistics-footer',
 	'talkpagetext',
 	'uploadfooter',
+	'upload-default-description',
 	'listgrouprights-link',
 	'search-interwiki-custom',
 	'allpages-summary',
@@ -260,6 +261,7 @@ $wgIgnoredMessages = array(
 	'redirect-text',
 	'edithelppage',
 	'autocomment-prefix',
+	'move-redirect-text',
 );
 
 /** Optional messages, which may be translated only if changed in the target language. */
@@ -483,6 +485,7 @@ $wgOptionalMessages = array(
 	'limitreport-ppgeneratednodes-value',
 	'limitreport-expansiondepth-value',
 	'limitreport-expensivefunctioncount-value',
+	'tooltip-iwiki',
 );
 
 /** Exif messages, which may be set as optional in several checks, but are generally mandatory */

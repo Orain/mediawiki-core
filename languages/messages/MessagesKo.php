@@ -19,6 +19,7 @@
  * @author Gjue
  * @author Ha98574
  * @author Hoo
+ * @author Hym411
  * @author IRTC1015
  * @author ITurtle
  * @author Idh0854
@@ -357,12 +358,12 @@ $messages = array(
 'tog-hidepatrolled' => '최근 바뀜에서 검토한 편집을 숨기기',
 'tog-newpageshidepatrolled' => '새 문서 목록에서 검토한 문서를 숨기기',
 'tog-extendwatchlist' => '주시문서 목록에서 가장 최근의 편집만이 아닌 모든 편집을 보기',
-'tog-usenewrc' => '최근 바뀜 및 주시 문서 목록에서 문서별 그룹 바뀜 (자바스크립트 필요)',
+'tog-usenewrc' => '최근 바뀜과 주시문서 목록에서 문서별 그룹 바뀜',
 'tog-numberheadings' => '머릿글 번호 매기기',
-'tog-showtoolbar' => '편집창에 툴바 보이기 (자바스크립트 필요)',
-'tog-editondblclick' => '더블 클릭으로 문서 편집하기 (자바스크립트 필요)',
+'tog-showtoolbar' => '편집에 툴바 보이기',
+'tog-editondblclick' => '더블 클릭으로 문서 편집하기',
 'tog-editsection' => '[편집] 링크로 부분 편집하기',
-'tog-editsectiononrightclick' => '제목을 오른쪽 클릭해서 부분 편집하기 (자바스크립트 필요)',
+'tog-editsectiononrightclick' => '제목을 오른쪽 클릭해서 문단 편집하기 활성화',
 'tog-showtoc' => '문서의 차례 보여주기 (머릿글이 4개 이상인 경우)',
 'tog-rememberpassword' => '이 브라우저에서 로그인 상태를 저장하기 (최대 $1{{PLURAL:$1|일}})',
 'tog-watchcreations' => '내가 만드는 문서와 내가 올린 파일을 주시문서 목록에 추가',
@@ -380,7 +381,7 @@ $messages = array(
 'tog-shownumberswatching' => '주시 사용자 수 보기',
 'tog-oldsig' => '현재 서명:',
 'tog-fancysig' => '서명을 위키텍스트로 취급 (자동으로 링크를 걸지 않음)',
-'tog-uselivepreview' => '실시간 미리 보기 사용하기 (자바스크립트 필요) (실험 기능)',
+'tog-uselivepreview' => '실시간 미리 보기 사용하기 (실험 기능)',
 'tog-forceeditsummary' => '편집 요약을 쓰지 않았을 때 알려주기',
 'tog-watchlisthideown' => '주시문서 목록에서 내 편집을 숨기기',
 'tog-watchlisthidebots' => '주시문서 목록에서 봇 편집을 숨기기',
@@ -551,7 +552,7 @@ $messages = array(
 'create-this-page' => '이 문서 만들기',
 'delete' => '삭제',
 'deletethispage' => '이 문서 삭제하기',
-'undeletethispage' => '이 문서 되살리기',
+'undeletethispage' => '이 문서를 되살리기',
 'undelete_short' => '{{PLURAL:$1|편집 $1개}} 되살리기',
 'viewdeleted_short' => '{{PLURAL:$1|삭제된 편집 $1개}} 보기',
 'protect' => '보호',
@@ -595,10 +596,10 @@ $1',
 'pool-queuefull' => '풀 큐가 가득 찼습니다',
 'pool-errorunknown' => '알 수 없는 오류',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => '{{SITENAME}} 소개',
 'aboutpage' => 'Project:소개',
-'copyright' => '내용은 $1 라이선스에 따라 사용할 수 있습니다.',
+'copyright' => '내용은 별도로 명시하지 않을 경우 $1에 따라 사용할 수 있습니다.',
 'copyrightpage' => '{{ns:project}}:저작권',
 'currentevents' => '요즘 화제',
 'currentevents-url' => 'Project:요즘 화제',
@@ -611,8 +612,8 @@ $1',
 'policy-url' => 'Project:정책',
 'portal' => '사용자 모임',
 'portal-url' => 'Project:사용자 모임',
-'privacy' => '개인정보 정책',
-'privacypage' => 'Project:개인정보 정책',
+'privacy' => '개인 정보 정책',
+'privacypage' => 'Project:개인 정보 정책',
 
 'badaccess' => '권한 오류',
 'badaccess-group0' => '요청한 동작을 실행할 권한이 없습니다.',
@@ -682,6 +683,12 @@ URL을 잘못 입력하였거나, 잘못된 링크를 따라갔을 수 있습니
 # General errors
 'error' => '오류',
 'databaseerror' => '데이터베이스 오류',
+'databaseerror-text' => '데이터베이스 쿼리에 오류가 발생했습니다.
+소프트웨어의 버그가 있을 수 있습니다.',
+'databaseerror-textcl' => '데이터베이스 쿼리에 오류가 발생했습니다.',
+'databaseerror-query' => '쿼리: $1',
+'databaseerror-function' => '함수: $1',
+'databaseerror-error' => '오류: $1',
 'laggedslavemode' => "'''경고:''' 문서가 최근에 바뀐 내용이 아닐 수도 있습니다.",
 'readonly' => '데이터베이스 잠김',
 'enterlockreason' => '데이터베이스를 잠그는 이유와 예상되는 기간을 적어 주세요.',
@@ -798,7 +805,7 @@ $2',
 'userlogin-noaccount' => '계정이 없나요?',
 'userlogin-joinproject' => '{{SITENAME}}에 가입하세요',
 'nologin' => '계정이 없나요? $1.',
-'nologinlink' => '계정을 만들 수 있습니다',
+'nologinlink' => '계정을 만드세요',
 'createaccount' => '계정 만들기',
 'gotaccount' => '계정이 이미 있다면, $1.',
 'gotaccountlink' => '로그인하세요',
@@ -806,6 +813,8 @@ $2',
 'userlogin-resetpassword-link' => '내 비밀번호 재설정',
 'helplogin-url' => 'Help:로그인',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|로그인에 관한 도움말]]',
+'userlogin-loggedin' => '이미 $1로 로그인되어 있습니다. 아래의 양식으로 다른 계정으로 로그인하세요.',
+'userlogin-createanother' => '다른 계정 만들기',
 'createacct-join' => '아래에 정보를 입력하세요.',
 'createacct-another-join' => '아래에 새 계정의 정보를 입력하세요.',
 'createacct-emailrequired' => '이메일 주소',
@@ -950,7 +959,7 @@ $2
 이 비밀번호로 로그인한 후 비밀번호를 바꾸십시오. 만약 당신이 아닌 다른 사람이 요청하였거나,
 원래의 비밀번호를 기억해냈다면, 이 메시지를 무시하고
 이전의 비밀번호를 계속 사용할 수 있습니다.',
-'passwordreset-emailtext-user' => '{{SITENAME}} ($4)의 사용자 $1이 비밀번호 재설정dmf 요청하였습니다.
+'passwordreset-emailtext-user' => '{{SITENAME}} ($4)의 사용자 $1이 비밀번호 재설정을 요청하였습니다.
 이 이메일 주소와 연관된 {{PLURAL:$3|계정}}의 목록입니다:
 
 $2
@@ -1174,7 +1183,7 @@ IP 주소는 여러 사용자가 공유할 수 있습니다.
 'hiddencategories' => '이 문서는 다음 {{PLURAL:$1|숨은 분류 1개|숨은 분류 $1개}}에 속해 있습니다:',
 'edittools' => '<!-- 이 문서는 편집 창과 파일 올리기 창에 출력됩니다. -->',
 'nocreatetext' => '{{SITENAME}}에서 새로운 문서를 만드는 것은 제한되어 있습니다.
-이미 존재하는 다른 문서를 편집하거나, [[Special:UserLogin|로그인하거나 계정을 만들 수 있습니다]].',
+이미 존재하는 다른 문서를 편집하거나, [[Special:UserLogin|로그인하거나 계정을 만들]] 수 있습니다.',
 'nocreate-loggedin' => '새 문서를 만들 권한이 없습니다.',
 'sectioneditnotsupported-title' => '부분 편집 지원 안됨',
 'sectioneditnotsupported-text' => '이 문서에서는 문단 편집을 지원하지 않습니다.',
@@ -1412,7 +1421,7 @@ $1",
 'mergelogpagetext' => '다음은 한 문서의 역사를 다른 문서의 역사와 합친 최근 기록입니다.',
 
 # Diffs
-'history-title' => '"$1"의 판 내역',
+'history-title' => '"$1"의 편집 역사',
 'difference-title' => '"$1"의 두 판 사이의 차이',
 'difference-title-multipage' => '"$1" 문서와 "$2" 문서 사이의 차이',
 'difference-multipage' => '(문서 사이의 차이)',
@@ -1771,7 +1780,7 @@ HTML 태그를 확인하세요.',
 'action-block' => '이 사용자를 편집하지 못하도록 차단',
 'action-protect' => '이 문서의 보호 설정을 바꾸기',
 'action-rollback' => '특정 문서를 마지막으로 편집한 사용자의 모든 편집을 간편하게 되돌리기',
-'action-import' => '다른 위키에서 이 문서를 가져오기',
+'action-import' => '다른 위키에서 문서 가져오기',
 'action-importupload' => '파일 올리기를 통해 문서를 가져올',
 'action-patrol' => '다른 사용자의 편집을 검토된 것으로 표시하기',
 'action-autopatrol' => '자신의 편집을 검토된 것으로 표시할',
@@ -1821,7 +1830,7 @@ HTML 태그를 확인하세요.',
 'rc_categories_any' => '모두',
 'rc-change-size-new' => '바꾼 후 $1 {{PLURAL:$1|바이트}}',
 'newsectionsummary' => '새 주제: /* $1 */',
-'rc-enhanced-expand' => '자세한 기록 보기 (자바스크립트 필요)',
+'rc-enhanced-expand' => '자세한 내용 보기',
 'rc-enhanced-hide' => '자세한 기록 숨기기',
 'rc-old-title' => '처음에 "$1"라는 제목으로 만들어졌습니다',
 
@@ -1956,8 +1965,8 @@ $2 {{PLURAL:$3|형식만 사용할 수 있습니다}}.',
 파일에 대해 알기 쉬운 이름을 골라주세요.',
 'filename-prefix-blacklist' => ' #<!-- 이 줄은 그대로 두십시오 --> <pre>
 # 문법은 다음과 같습니다:
-#   * "#"에서 그 줄의 끝까지는 코멘트입니다.
-#   * 비어 있지 않은 줄은 디지털 카메라에서 자동적으로 부여하는 파일 접두어입니다.
+#   * "#" 문자에서 줄의 끝까지는 주석입니다
+#   * 비어 있지 않은 줄은 디지털 카메라에서 자동적으로 부여하는 파일 접두어입니다
 CIMG # 카시오
 DSC_ # 니콘
 DSCF # 후지
@@ -2242,12 +2251,6 @@ URL이 맞고 해당 웹사이트가 작동하는지 확인해주세요.',
 'statistics-users-active-desc' => '최근 {{PLURAL:$1|$1일}} 동안 활동한 사용자',
 'statistics-mostpopular' => '가장 많이 읽힌 문서',
 
-'disambiguations' => '동음이의 문서를 가리키는 문서 목록',
-'disambiguationspage' => 'Template:동음이의',
-'disambiguations-text' => "다음 문서는 적어도 하나 이상 '''동음이의 문서'''를 가리키고 있습니다.
-그 링크는 다른 적절한 문서로 연결할 필요가 있습니다.<br />
-[[MediaWiki:Disambiguationspage]]에서 링크된 틀을 사용하는 문서를 동음이의 문서로 간주합니다.",
-
 'pageswithprop' => '문서 속성이 있는 문서',
 'pageswithprop-legend' => '문서 속성이 있는 문서',
 'pageswithprop-text' => '이 문서는 특정 문서 속성을 사용한 문서를 나타냅니다.',
@@ -2329,6 +2332,7 @@ URL이 맞고 해당 웹사이트가 작동하는지 확인해주세요.',
 'listusers' => '사용자 목록',
 'listusers-editsonly' => '기여가 있는 사용자만 보기',
 'listusers-creationsort' => '계정을 만든 날짜 순으로 정렬',
+'listusers-desc' => '내림차순으로 정렬',
 'usereditcount' => '{{PLURAL:$1|편집}} $1회',
 'usercreated' => '$1 $2에 계정 {{GENDER:$3|만들어짐}}',
 'newpages' => '새 문서 목록',
@@ -2353,7 +2357,7 @@ URL이 맞고 해당 웹사이트가 작동하는지 확인해주세요.',
 'booksources-search-legend' => '책 찾기',
 'booksources-isbn' => 'ISBN:',
 'booksources-go' => '찾기',
-'booksources-text' => '아래의 목록은 새 책이나 중고 책을 판매하는 바깥 사이트로, 원하는 책의 정보를 얻을 수 있습니다:',
+'booksources-text' => '아래의 목록은 새 책이나 중고 책을 판매하는 바깥 사이트로, 원하는 책의 정보를 얻을 수 있습니다.',
 'booksources-invalid-isbn' => '입력한 ISBN이 잘못된 것으로 보입니다. 원본과 대조해 보세요.',
 
 # Special:Log
@@ -2592,10 +2596,12 @@ $UNWATCHURL
 'deletecomment' => '이유:',
 'deleteotherreason' => '다른 이유/추가적인 이유:',
 'deletereasonotherlist' => '다른 이유',
-'deletereason-dropdown' => '*일반적인 삭제 이유
-** 작성자의 요청
+'deletereason-dropdown' => '* 일반적인 삭제 이유
+** 스팸
+** 훼손 행위
 ** 저작권 침해
-** 훼손 행위',
+** 작성자의 요청
+** 깨진 넘겨주기',
 'delete-edit-reasonlist' => '삭제 이유 편집',
 'delete-toobig' => '이 문서에는 {{PLURAL:$1|편집 역사}}가 $1개 있습니다.
 편집 역사가 긴 문서를 삭제하면 {{SITENAME}}에 큰 혼란을 줄 수 있기 때문에 삭제할 수 없습니다.',
@@ -2618,7 +2624,7 @@ $UNWATCHURL
 마지막으로 이 문서를 편집한 사용자는 [[User:$3|$3]] ([[User talk:$3|토론]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]])입니다.',
 'editcomment' => '편집 요약: "$1"',
 'revertpage' => '[[Special:Contributions/$2|$2]]([[User talk:$2|토론]])의 편집을 [[User:$1|$1]]의 마지막 버전으로 되돌림',
-'revertpage-nouser' => '숨긴 사용자의 편집을 [[User:$1|$1]]의 마지막 편집으로 되돌림',
+'revertpage-nouser' => '숨긴 사용자의 편집을 {{GENDER:$1|[[User:$1|$1]]}}의 마지막 판으로 되돌림',
 'rollback-success' => '$1의 편집을 $2의 마지막 버전으로 되돌렸습니다.',
 
 # Edit tokens
@@ -2763,7 +2769,7 @@ $1',
 'contributions' => '{{GENDER:$1|사용자}} 기여',
 'contributions-title' => '$1 사용자의 기여 목록',
 'mycontris' => '기여 목록',
-'contribsub2' => '$1($2)의 기여',
+'contribsub2' => '{{GENDER:$3|$1}}($2)의 기여',
 'nocontribs' => '지정한 조건과 일치하는 바뀜을 찾을 수 없습니다.',
 'uctop' => '(최신)',
 'month' => '월:',
@@ -3001,7 +3007,7 @@ $1 사용자가 차단된 이유는 다음과 같습니다: "$2"',
 'cant-move-user-page' => '사용자 문서를 옮길 권한이 없습니다(하위 문서는 예외).',
 'cant-move-to-user-page' => '문서를 사용자 문서로 옮길 권한이 없습니다(하위 문서는 예외).',
 'newtitle' => '새 문서 이름',
-'move-watch' => '문서 주시하기',
+'move-watch' => '원본 문서와 대상 문서를 주시하기',
 'movepagebtn' => '이동',
 'pagemovedsub' => '옮기기 성공',
 'movepage-moved' => '\'\'\'"$1" 문서를 "$2" 문서로 옮겼습니다.\'\'\'',
@@ -3249,6 +3255,7 @@ $2',
 'tooltip-undo' => '"편집 취소" 기능을 사용하면 이 편집이 되돌려지고 차이 보기 기능이 미리 보기 형식으로 나타납니다. 편집 요약에 이 편집을 왜 되돌리는지에 대한 이유를 쓸 수 있습니다.',
 'tooltip-preferences-save' => '환경 설정 저장하기',
 'tooltip-summary' => '짧은 요약을 적어주세요',
+'tooltip-iwiki' => '$2 - $1',
 
 # Stylesheets
 'common.css' => '/* 이 CSS 설정은 모든 스킨에 동일하게 적용됩니다 */',
@@ -3319,11 +3326,11 @@ $2',
 'pageinfo-few-watchers' => '{{PLURAL:$1|주시하는 사용자}} $1명 미만',
 'pageinfo-redirects-name' => '이 문서의 넘겨주기 수',
 'pageinfo-redirects-value' => '$1개',
-'pageinfo-subpages-name' => '이 문서의 하위 문서',
+'pageinfo-subpages-name' => '이 문서의 하위 문서 수',
 'pageinfo-subpages-value' => '$1개 ({{PLURAL:$2|넘겨주기}} $2개, {{PLURAL:$3|넘겨주기 아님}} $3개)',
 'pageinfo-firstuser' => '문서 작성자',
 'pageinfo-firsttime' => '문서 작성 날짜',
-'pageinfo-lastuser' => '최근 편집자',
+'pageinfo-lastuser' => '마지막 편집자',
 'pageinfo-lasttime' => '최근 편집 날짜',
 'pageinfo-edits' => '총 편집 수',
 'pageinfo-authors' => '총 서로 다른 편집자 수',
@@ -3423,20 +3430,20 @@ $1',
 'sp-newimages-showfrom' => '$1 $2부터 올라온 파일 목록 보기',
 
 # Video information, used by Language::formatTimePeriod() to format lengths in the above messages
-'seconds' => '{{PLURAL:$1|$1초}}',
-'minutes' => '{{PLURAL:$1|$1분}}',
-'hours' => '{{PLURAL:$1|$1시간}}',
-'days' => '{{PLURAL:$1|$1일}}',
+'seconds' => '$1초',
+'minutes' => '$1분',
+'hours' => '$1시간',
+'days' => '$1일',
 'weeks' => '{{PLURAL:$1|$1주}}',
-'months' => '{{PLURAL:$1|$1월}}',
-'years' => '{{PLURAL:$1|$1년}}',
+'months' => '$1달',
+'years' => '$1년',
 'ago' => '$1 전',
 'just-now' => '방금',
 
 # Human-readable timestamps
-'hours-ago' => '$1{{PLURAL:$1|시간}} 전',
-'minutes-ago' => '$1{{PLURAL:$1|분}} 전',
-'seconds-ago' => '$1{{PLURAL:$1|초}} 전',
+'hours-ago' => '$1시간 전',
+'minutes-ago' => '$1분 전',
+'seconds-ago' => '$1초 전',
 'monday-at' => '월요일 $1',
 'tuesday-at' => '화요일 $1',
 'wednesday-at' => '수요일 $1',
@@ -3595,7 +3602,7 @@ Variants for Chinese language
 'exif-gpsareainformation' => 'GPS 구역 이름',
 'exif-gpsdatestamp' => 'GPS 날짜',
 'exif-gpsdifferential' => 'GPS 차이 보정',
-'exif-jpegfilecomment' => 'JPEG 파일의 주석',
+'exif-jpegfilecomment' => 'JPEG 파일 주석',
 'exif-keywords' => '핵심 단어',
 'exif-worldregioncreated' => '사진을 촬영한 곳의 대륙/지역',
 'exif-countrycreated' => '사진을 촬영한 곳의 국가',
@@ -3839,7 +3846,7 @@ Variants for Chinese language
 'exif-ycbcrpositioning-1' => '중앙',
 'exif-ycbcrpositioning-2' => '코사이티드',
 
-'exif-dc-contributor' => '조력자',
+'exif-dc-contributor' => '기여자',
 'exif-dc-coverage' => '미디어의 시공간적 범위',
 'exif-dc-date' => '날짜',
 'exif-dc-publisher' => '출판사',
@@ -4135,13 +4142,13 @@ $5
 #정규 표현식(// 사이에 있는 부분)을 아래에 입력하세요.
 #이 목록은 바깥 그림의 URL과 대조할 것입니다.
 #이 목록과 일치하는 것은 그림이 직접 보여지지만, 그렇지 않은 경우 그림을 가리키는 링크만 보이게 될 것입니다.
-# "#"으로 시작하는 줄은 주석으로 간주됩니다.
-#이 목록은 대소문자를 구별하지 않습니다.
+#"#" 문자에서 줄의 끝까지는 주석입니다
+#이 목록은 대소문자를 구별하지 않습니다
 
 #모든 정규 표현식은 이 줄 위에 넣어 주십시오. 그리고 이 줄은 그대로 두십시오.</pre>',
 
 # Special:Tags
-'tags' => '올바른 편집 태그',
+'tags' => '유효한 편집 태그',
 'tag-filter' => '[[Special:Tags|태그]] 필터:',
 'tag-filter-submit' => '필터',
 'tag-list-wrapper' => '([[Special:Tags|{{PLURAL:$1|태그}}]]: $2)',
@@ -4150,7 +4157,10 @@ $5
 'tags-tag' => '태그 이름',
 'tags-display-header' => '바뀜 목록의 모양',
 'tags-description-header' => '태그에 대한 설명',
+'tags-active-header' => '활성하겠습니까?',
 'tags-hitcount-header' => '태그된 바뀜',
+'tags-active-yes' => '예',
+'tags-active-no' => '아니오',
 'tags-edit' => '편집',
 'tags-hitcount' => '$1개 {{PLURAL:$1|바뀜}}',
 
@@ -4168,10 +4178,10 @@ $5
 
 # Database error messages
 'dberr-header' => '이 위키에 문제가 있습니다',
-'dberr-problems' => '죄송합니다!
-이 사이트는 기술적인 문제가 있습니다.',
+'dberr-problems' => '죄송합니다! 이 사이트에 기술적인 문제가 발생하고 있습니다.',
 'dberr-again' => '잠시 기다리고 나서 다시 불러오세요.',
 'dberr-info' => '(데이터베이스 서버에 연결할 수 없습니다: $1)',
+'dberr-info-hidden' => '(데이터베이스 서버에 연결할 수 없습니다)',
 'dberr-usegoogle' => '그 동안 Google을 통해 검색할 수도 있습니다.',
 'dberr-outofdate' => '수집된 내용은 오래된 것일 수도 있음을 참고하세요.',
 'dberr-cachederror' => '다음은 요청한 문서의 캐시된 복사본이며, 최신이 아닐 수도 있습니다.',
@@ -4316,9 +4326,9 @@ $5
 'limitreport-ppvisitednodes' => '전처리기가 방문한 노드 수',
 'limitreport-ppgeneratednodes' => '전처리기가 생성한 노드 수',
 'limitreport-postexpandincludesize' => '전개한 뒤 포함 크기',
-'limitreport-postexpandincludesize-value' => '$1/$2 바이트',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|바이트}}',
 'limitreport-templateargumentsize' => '틀 인수 크기',
-'limitreport-templateargumentsize-value' => '$1/$2 바이트',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|바이트}}',
 'limitreport-expansiondepth' => '최대 전개 깊이',
 'limitreport-expensivefunctioncount' => '부하 높은 파서 함수 수',
 

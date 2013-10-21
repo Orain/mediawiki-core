@@ -297,7 +297,7 @@ $messages = array(
 $1',
 'pool-errorunknown' => 'အမည်မသိအမှား',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => '{{SITENAME}} အကြောင်း',
 'aboutpage' => 'Project: အကြောင်းအရာ',
 'copyright' => '$1 အောက်တွင် ဤအကြောင်းအရာကို ရရှိနိုင်သည်။',
@@ -1165,8 +1165,6 @@ Your e-mail address is not revealed when other users contact you.
 'statistics-users-active' => 'လက်ရှိလုပ်ကိုင်နေသော အသုံးပြုသူများ',
 'statistics-mostpopular' => 'အများဆုံးကြည့်သော စာမျက်နှာများ',
 
-'disambiguationspage' => 'Template:သံတူကြောင်းကွဲများ',
-
 'doubleredirects' => 'နှစ်ဆင့်ပြန် ပြန်ညွှန်းများ',
 'double-redirect-fixed-move' => '[[$1]] ကို ရွှေ့ပြောင်းပြီးဖြစ်သည်။ ယခုအခါ [[$2]] သို့ ပြန်ညွှန်းထားသည်။',
 
@@ -1901,8 +1899,7 @@ Your e-mail address is not revealed when other users contact you.
 
 # Database error messages
 'dberr-header' => 'ဤဝီကီတွင် ပြဿနာတစ်ခု ရှိနေသည်',
-'dberr-problems' => 'ဝမ်းနည်းပါသည်။
-ဤဆိုက်သည် နည်းပညာပိုင်းဆိုင်ရာ အခက်အခဲများ ကြုံတွေ့နေရပါသည်။',
+'dberr-problems' => 'ဝမ်းနည်းပါသည်။ ဤဆိုက်သည် နည်းပညာပိုင်းဆိုင်ရာ အခက်အခဲများ ကြုံတွေ့နေရပါသည်။',
 
 # HTML forms
 'htmlform-required' => 'ဤတန်ဖိုး လိုအပ်သည်',

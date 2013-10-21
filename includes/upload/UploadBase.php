@@ -618,9 +618,10 @@ abstract class UploadBase {
 		// Check whether the file extension is on the unwanted list
 		global $wgCheckFileExtensions, $wgFileExtensions;
 		if ( $wgCheckFileExtensions ) {
-			if ( !$this->checkFileExtension( $this->mFinalExtension, $wgFileExtensions ) ) {
+			$extensions = array_unique( $wgFileExtensions );
+			if ( !$this->checkFileExtension( $this->mFinalExtension, $extensions ) ) {
 				$warnings['filetype-unwanted-type'] = array( $this->mFinalExtension,
-					$wgLang->commaList( $wgFileExtensions ), count( $wgFileExtensions ) );
+					$wgLang->commaList( $extensions ), count( $extensions ) );
 			}
 		}
 
@@ -1323,7 +1324,7 @@ abstract class UploadBase {
 		# NOTE: there's a 50 line workaround to make stderr redirection work on windows, too.
 		#      that does not seem to be worth the pain.
 		#      Ask me (Duesentrieb) about it if it's ever needed.
-		$output = wfShellExec( "$command 2>&1", $exitCode );
+		$output = wfShellExecWithStderr( $command, $exitCode );
 
 		# map exit code to AV_xxx constants.
 		$mappedCode = $exitCode;

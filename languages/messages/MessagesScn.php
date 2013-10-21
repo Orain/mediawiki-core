@@ -195,10 +195,11 @@ $messages = array(
 'tog-showhiddencats' => 'Ammustra li catigurìi ammucciati.',
 'tog-norollbackdiff' => "Umettiri li ''diff'' doppu aviri fattu nu ''rollback''",
 'tog-useeditwarning' => 'Avvisa quannu si lasaa na paggina di canci cu canci nu sarbati',
+'tog-prefershttps' => 'Usa sempri na cunnissioni sicura quannu trasi',
 
 'underline-always' => 'sempri',
 'underline-never' => 'mai',
-'underline-default' => 'manteni li mpustazzioni dû browser',
+'underline-default' => 'manteni li mpustazzioni dû browser o dû tema',
 
 # Font style option in Special:Preferences
 'editfont-style' => 'Stili da casedda di canciamentu:',
@@ -295,7 +296,7 @@ $messages = array(
 'newwindow' => '(grapi na finestra nova)',
 'cancel' => 'annulla',
 'moredotdotdot' => 'Àutru...',
-'morenotlisted' => 'cchiossai non ntâ lista',
+'morenotlisted' => 'Sta lista è ncumpreta',
 'mypage' => 'Pàggina',
 'mytalk' => 'la mè pàggina di discussioni',
 'anontalk' => 'Discussione pi stu IP',
@@ -393,7 +394,7 @@ $1",
 'pool-queuefull' => 'La cuda dû pool è china',
 'pool-errorunknown' => 'Erruri scanusciutu',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Àutri nfurmazzioni supra {{SITENAME}}',
 'aboutpage' => 'Project:Àutri nformazzioni',
 'copyright' => 'Lu cuntinutu è utilizzàbbili secunnu la $1.',
@@ -1608,11 +1609,6 @@ Appressu veni ammustrata la discrizioni prisenti nâ [$2 paggina di discrizzioni
 'statistics-users-active' => 'Utilizzatura attivi',
 'statistics-users-active-desc' => "Utilizzatura chi fìciru n'azzioni {{PLURAL:$1|ni l'ultimu ionnu|nî l'ultimi $1 ionna}}",
 'statistics-mostpopular' => 'Pàggini cchiù visitati',
-
-'disambiguations' => 'Pàggini cu liami ambìgui',
-'disambiguationspage' => 'Template:Disambigua',
-'disambiguations-text' => "Li pàggini ntâ lista ca sequi cuntèninu dî culligamenti a '''pàggini di disambiguazzioni''' e nun a l'argumentu cui avìssiru a fari rifirimentu.<br />
-Vèninu cunzidirati pàggini di disambiguazzioni tutti chiddi ca cuntèninu li template alincati 'n [[MediaWiki:Disambiguationspage]]",
 
 'doubleredirects' => 'Rinnirizzamenti duppi',
 'doubleredirectstext' => 'Chista pàggina alenca li pàggini chi rinnirìzzanu a àutri pàggini di rinnirizzamentu.

@@ -1026,30 +1026,37 @@ var mw = ( function ( $, undefined ) {
 					mw.messages.set( registry[module].messages );
 				}
 
-				// Make sure we don't run the scripts until all (potentially asynchronous)
-				// stylesheet insertions have completed.
-				( function () {
-					var pending = 0;
-					checkCssHandles = function () {
-						// cssHandlesRegistered ensures we don't take off too soon, e.g. when
-						// one of the cssHandles is fired while we're still creating more handles.
-						if ( cssHandlesRegistered && pending === 0 && runScript ) {
-							runScript();
-							runScript = undefined; // Revoke
-						}
-					};
-					cssHandle = function () {
-						var check = checkCssHandles;
-						pending++;
-						return function () {
-							if (check) {
-								pending--;
-								check();
-								check = undefined; // Revoke
+				if ( $.isReady || registry[module].async ) {
+					// Make sure we don't run the scripts until all (potentially asynchronous)
+					// stylesheet insertions have completed.
+					( function () {
+						var pending = 0;
+						checkCssHandles = function () {
+							// cssHandlesRegistered ensures we don't take off too soon, e.g. when
+							// one of the cssHandles is fired while we're still creating more handles.
+							if ( cssHandlesRegistered && pending === 0 && runScript ) {
+								runScript();
+								runScript = undefined; // Revoke
 							}
 						};
-					};
-				}() );
+						cssHandle = function () {
+							var check = checkCssHandles;
+							pending++;
+							return function () {
+								if (check) {
+									pending--;
+									check();
+									check = undefined; // Revoke
+								}
+							};
+						};
+					}() );
+				} else {
+					// We are in blocking mode, and so we can't afford to wait for CSS
+					cssHandle = function () {};
+					// Run immediately
+					checkCssHandles = runScript;
+				}
 
 				// Process styles (see also mw.loader.implement)
 				// * back-compat: { <media>: css }
@@ -1190,7 +1197,7 @@ var mw = ( function ( $, undefined ) {
 			 * @param {Object} moduleMap Module map, see #buildModulesString
 			 * @param {Object} currReqBase Object with other parameters (other than 'modules') to use in the request
 			 * @param {string} sourceLoadScript URL of load.php
-			 * @param {boolean} async If true, use an asynchrounous request even if document ready has not yet occurred
+			 * @param {boolean} async If true, use an asynchronous request even if document ready has not yet occurred
 			 */
 			function doRequest( moduleMap, currReqBase, sourceLoadScript, async ) {
 				var request = $.extend(
@@ -1205,6 +1212,16 @@ var mw = ( function ( $, undefined ) {
 
 			/* Public Methods */
 			return {
+				/**
+				 * The module registry is exposed as an aid for debugging and inspecting page
+				 * state; it is not a public interface for modifying the registry.
+				 *
+				 * @see #registry
+				 * @property
+				 * @private
+				 */
+				moduleRegistry: registry,
+
 				/**
 				 * @inheritdoc #newStyleTag
 				 * @method
@@ -1682,7 +1699,18 @@ var mw = ( function ( $, undefined ) {
 				 */
 				go: function () {
 					mw.loader.load( 'mediawiki.user' );
+				},
+
+				/**
+				 * @inheritdoc mw.inspect#inspectModules
+				 * @method
+				 */
+				inspect: function () {
+					mw.loader.using( 'mediawiki.inspect', function () {
+						mw.inspect.inspectModules();
+					} );
 				}
+
 			};
 		}() ),
 

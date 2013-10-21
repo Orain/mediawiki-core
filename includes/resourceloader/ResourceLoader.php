@@ -153,6 +153,7 @@ class ResourceLoader {
 		$cache = wfGetCache( CACHE_ANYTHING );
 		$cacheEntry = $cache->get( $key );
 		if ( is_string( $cacheEntry ) ) {
+			wfIncrStats( "rl-$filter-cache-hits" );
 			wfProfileOut( __METHOD__ );
 			return $cacheEntry;
 		}
@@ -160,6 +161,7 @@ class ResourceLoader {
 		$result = '';
 		// Run the filter - we've already verified one of these will work
 		try {
+			wfIncrStats( "rl-$filter-cache-misses" );
 			switch ( $filter ) {
 				case 'minify-js':
 					$result = JavaScriptMinifier::minify( $data,
@@ -176,11 +178,12 @@ class ResourceLoader {
 
 			// Save filtered text to Memcached
 			$cache->set( $key, $result );
-		} catch ( Exception $exception ) {
-			wfDebugLog( 'resourceloader', __METHOD__ . ": minification failed: $exception" );
+		} catch ( Exception $e ) {
+			MWExceptionHandler::logException( $e );
+			wfDebugLog( 'resourceloader', __METHOD__ . ": minification failed: $e" );
 			$this->hasErrors = true;
 			// Return exception as a comment
-			$result = self::formatException( $exception );
+			$result = self::formatException( $e );
 		}
 
 		wfProfileOut( __METHOD__ );
@@ -474,6 +477,7 @@ class ResourceLoader {
 		try {
 			$this->preloadModuleInfo( array_keys( $modules ), $context );
 		} catch ( Exception $e ) {
+			MWExceptionHandler::logException( $e );
 			wfDebugLog( 'resourceloader', __METHOD__ . ": preloading module info failed: $e" );
 			$this->hasErrors = true;
 			// Add exception to the output as a comment
@@ -493,6 +497,7 @@ class ResourceLoader {
 				// Calculate maximum modified time
 				$mtime = max( $mtime, $module->getModifiedTime( $context ) );
 			} catch ( Exception $e ) {
+				MWExceptionHandler::logException( $e );
 				wfDebugLog( 'resourceloader', __METHOD__ . ": calculating maximum modified time failed: $e" );
 				$this->hasErrors = true;
 				// Add exception to the output as a comment
@@ -607,15 +612,7 @@ class ResourceLoader {
 				// See also http://bugs.php.net/bug.php?id=51579
 				// To work around this, we tear down all output buffering before
 				// sending the 304.
-				// On some setups, ob_get_level() doesn't seem to go down to zero
-				// no matter how often we call ob_get_clean(), so instead of doing
-				// the more intuitive while ( ob_get_level() > 0 ) ob_get_clean();
-				// we have to be safe here and avoid an infinite loop.
-				// Caching the level is not an option, need to allow it to
-				// shorten the loop on-the-fly (bug 46836)
-				for ( $i = 0; $i < ob_get_level(); $i++ ) {
-					ob_end_clean();
-				}
+				wfResetOutputBuffers( /* $resetGzipEncoding = */ true );
 
 				header( 'HTTP/1.0 304 Not Modified' );
 				header( 'Status: 304 Not Modified' );
@@ -727,6 +724,7 @@ class ResourceLoader {
 			try {
 				$blobs = MessageBlobStore::get( $this, $modules, $context->getLanguage() );
 			} catch ( Exception $e ) {
+				MWExceptionHandler::logException( $e );
 				wfDebugLog( 'resourceloader', __METHOD__ . ": pre-fetching blobs from MessageBlobStore failed: $e" );
 				$this->hasErrors = true;
 				// Add exception to the output as a comment
@@ -834,6 +832,7 @@ class ResourceLoader {
 						break;
 				}
 			} catch ( Exception $e ) {
+				MWExceptionHandler::logException( $e );
 				wfDebugLog( 'resourceloader', __METHOD__ . ": generating module package failed: $e" );
 				$this->hasErrors = true;
 				// Add exception to the output as a comment
@@ -1213,5 +1212,42 @@ class ResourceLoader {
 	 */
 	public static function isValidModuleName( $moduleName ) {
 		return !preg_match( '/[|,!]/', $moduleName ) && strlen( $moduleName ) <= 255;
+	}
+
+	/**
+	 * Returns LESS compiler set up for use with MediaWiki
+	 *
+	 * @since 1.22
+	 * @return lessc
+	 */
+	public static function getLessCompiler() {
+		global $wgResourceLoaderLESSFunctions, $wgResourceLoaderLESSImportPaths;
+
+		$less = new lessc();
+		$less->setPreserveComments( true );
+		$less->setVariables( self::getLESSVars() );
+		$less->setImportDir( $wgResourceLoaderLESSImportPaths );
+		foreach ( $wgResourceLoaderLESSFunctions as $name => $func ) {
+			$less->registerFunction( $name, $func );
+		}
+		return $less;
+	}
+
+	/**
+	 * Get global LESS variables.
+	 *
+	 * $since 1.22
+	 * @return array: Map of variable names to string CSS values.
+	 */
+	public static function getLESSVars() {
+		global $wgResourceLoaderLESSVars;
+
+		static $lessVars = null;
+		if ( $lessVars === null ) {
+			$lessVars = $wgResourceLoaderLESSVars;
+			// Sort by key to ensure consistent hashing for cache lookups.
+			ksort( $lessVars );
+		}
+		return $lessVars;
 	}
 }

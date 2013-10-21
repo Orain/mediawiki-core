@@ -539,7 +539,7 @@ class LocalFile extends File {
 				'img_media_type' => $this->media_type,
 				'img_major_mime' => $major,
 				'img_minor_mime' => $minor,
-				'img_metadata' => $this->metadata,
+				'img_metadata' => $dbw->encodeBlob($this->metadata),
 				'img_sha1' => $this->sha1,
 			),
 			array( 'img_name' => $this->getName() ),
@@ -610,7 +610,11 @@ class LocalFile extends File {
 		$this->load();
 
 		if ( $this->isMultipage() ) {
-			$dim = $this->getHandler()->getPageDimensions( $this, $page );
+			$handler = $this->getHandler();
+			if ( !$handler ) {
+				return 0;
+			}
+			$dim = $handler->getPageDimensions( $this, $page );
 			if ( $dim ) {
 				return $dim['width'];
 			} else {
@@ -633,7 +637,11 @@ class LocalFile extends File {
 		$this->load();
 
 		if ( $this->isMultipage() ) {
-			$dim = $this->getHandler()->getPageDimensions( $this, $page );
+			$handler = $this->getHandler();
+			if ( !$handler ) {
+				return 0;
+			}
+			$dim = $handler->getPageDimensions( $this, $page );
 			if ( $dim ) {
 				return $dim['height'];
 			} else {
@@ -780,10 +788,12 @@ class LocalFile extends File {
 
 		$backend = $this->repo->getBackend();
 		$files = array( $dir );
-		$iterator = $backend->getFileList( array( 'dir' => $dir ) );
-		foreach ( $iterator as $file ) {
-			$files[] = $file;
-		}
+		try {
+			$iterator = $backend->getFileList( array( 'dir' => $dir ) );
+			foreach ( $iterator as $file ) {
+				$files[] = $file;
+			}
+		} catch ( FileBackendError $e ) {} // suppress (bug 54674)
 
 		return $files;
 	}
@@ -1215,7 +1225,7 @@ class LocalFile extends File {
 				'img_description' => $comment,
 				'img_user' => $user->getId(),
 				'img_user_text' => $user->getName(),
-				'img_metadata' => $this->metadata,
+				'img_metadata' => $dbw->encodeBlob($this->metadata),
 				'img_sha1' => $this->sha1
 			),
 			__METHOD__,
@@ -1266,7 +1276,7 @@ class LocalFile extends File {
 					'img_description' => $comment,
 					'img_user'        => $user->getId(),
 					'img_user_text'   => $user->getName(),
-					'img_metadata'    => $this->metadata,
+					'img_metadata'    => $dbw->encodeBlob($this->metadata),
 					'img_sha1'        => $this->sha1
 				),
 				array( 'img_name' => $this->getName() ),
@@ -1664,9 +1674,11 @@ class LocalFile extends File {
 	 * Get the HTML text of the description page
 	 * This is not used by ImagePage for local files, since (among other things)
 	 * it skips the parser cache.
+	 *
+	 * @param $lang Language What language to get description in (Optional)
 	 * @return bool|mixed
 	 */
-	function getDescriptionText() {
+	function getDescriptionText( $lang = null ) {
 		$revision = Revision::newFromTitle( $this->title, false, Revision::READ_NORMAL );
 		if ( !$revision ) {
 			return false;
@@ -1675,7 +1687,7 @@ class LocalFile extends File {
 		if ( !$content ) {
 			return false;
 		}
-		$pout = $content->getParserOutput( $this->title, null, new ParserOptions() );
+		$pout = $content->getParserOutput( $this->title, null, new ParserOptions( null, $lang ) );
 		return $pout->getText();
 	}
 
@@ -1752,6 +1764,16 @@ class LocalFile extends File {
 				$this->lockedOwnTrx = true;
 			}
 			$this->locked++;
+			// Bug 54736: use simple lock to handle when the file does not exist.
+			// SELECT FOR UPDATE only locks records not the gaps where there are none.
+			$cache = wfGetMainCache();
+			$key = $this->getCacheKey();
+			if ( !$cache->lock( $key, 60 ) ) {
+				throw new MWException( "Could not acquire lock for '{$this->getName()}.'" );
+			}
+			$dbw->onTransactionIdle( function() use ( $cache, $key ) {
+				$cache->unlock( $key ); // release on commit
+			} );
 		}
 
 		return $dbw->selectField( 'image', '1',

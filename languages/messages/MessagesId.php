@@ -34,6 +34,7 @@
  * @author Rex
  * @author Rv77ax
  * @author Urhixidur
+ * @author William Surya Permana
  * @author לערי ריינהארט
  */
 
@@ -346,12 +347,12 @@ $messages = array(
 'tog-hidepatrolled' => 'Sembunyikan suntingan terpatroli di perubahan terbaru',
 'tog-newpageshidepatrolled' => 'Sembunyikan halaman terpatroli dari daftar halaman baru',
 'tog-extendwatchlist' => 'Kembangkan daftar pantauan untuk menunjukkan semua perubahan, tidak hanya yang terbaru',
-'tog-usenewrc' => 'Gunakan tampilan perubahan terbaru tingkat lanjut (memerlukan JavaScript)',
+'tog-usenewrc' => 'Kelompokkan suntingan di tampilan perubahan terbaru dan daftar pantauan berdasarkan halaman',
 'tog-numberheadings' => 'Beri nomor judul secara otomatis',
-'tog-showtoolbar' => 'Perlihatkan bilah alat penyuntingan',
-'tog-editondblclick' => 'Sunting halaman dengan klik ganda (JavaScript)',
+'tog-showtoolbar' => 'Tampilkan bilah alat penyuntingan',
+'tog-editondblclick' => 'Sunting halaman dengan klik ganda',
 'tog-editsection' => 'Fungsikan penyuntingan subbagian melalui pranala [sunting]',
-'tog-editsectiononrightclick' => 'Fungsikan penyuntingan subbagian dengan mengeklik kanan pada judul bagian (JavaScript)',
+'tog-editsectiononrightclick' => 'Fungsikan penyuntingan bagian dengan mengeklik kanan pada judul bagian',
 'tog-showtoc' => 'Perlihatkan daftar isi (untuk halaman yang mempunyai lebih dari 3 subbagian)',
 'tog-rememberpassword' => 'Ingat kata sandi saya di peramban ini (selama $1 {{PLURAL:$1|hari}})',
 'tog-watchcreations' => 'Tambahkan halaman yang saya buat ke daftar pantauan',
@@ -369,7 +370,7 @@ $messages = array(
 'tog-shownumberswatching' => 'Tunjukkan jumlah pemantau',
 'tog-oldsig' => 'Tanda tangan sekarang:',
 'tog-fancysig' => 'Perlakukan tanda tangan sebagai teks wiki (tanpa suatu pranala otomatis)',
-'tog-uselivepreview' => 'Gunakan pratayang langsung (JavaScript) (eksperimental)',
+'tog-uselivepreview' => 'Gunakan pratayang langsung (eksperimental)',
 'tog-forceeditsummary' => 'Ingatkan saya bila kotak ringkasan suntingan masih kosong',
 'tog-watchlisthideown' => 'Sembunyikan suntingan saya di daftar pantauan',
 'tog-watchlisthidebots' => 'Sembunyikan suntingan bot di daftar pantauan',
@@ -383,6 +384,7 @@ $messages = array(
 'tog-noconvertlink' => 'Matikan konversi judul pranala',
 'tog-norollbackdiff' => 'Jangan tampilkan perbedaan setelah melakukan pengembalian',
 'tog-useeditwarning' => 'Ingatkan saya bila meninggalkan halaman penyuntingan sebelum menyimpan perubahan',
+'tog-prefershttps' => 'Selalu gunakan koneksi aman ketika masuk log',
 
 'underline-always' => 'Selalu',
 'underline-never' => 'Tidak pernah',
@@ -486,7 +488,7 @@ $messages = array(
 'newwindow' => '(buka di jendela baru)',
 'cancel' => 'Batalkan',
 'moredotdotdot' => 'Lainnya...',
-'morenotlisted' => 'Selanjutnya...',
+'morenotlisted' => 'Daftar ini belum lengkap.',
 'mypage' => 'Halaman',
 'mytalk' => 'Pembicaraan',
 'anontalk' => 'Pembicaraan IP ini',
@@ -586,10 +588,10 @@ $1',
 'pool-queuefull' => 'Kumpulan antrean penuh',
 'pool-errorunknown' => 'Kesalahan yang tidak diketahui',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Tentang {{SITENAME}}',
 'aboutpage' => 'Project:Perihal',
-'copyright' => 'Seluruh teks tersedia sesuai dengan $1.',
+'copyright' => 'Konten tersedia sesuai di bawah $1.',
 'copyrightpage' => '{{ns:project}}:Hak cipta',
 'currentevents' => 'Peristiwa terkini',
 'currentevents-url' => 'Project:Peristiwa terkini',
@@ -675,6 +677,12 @@ Daftar halaman istimewa yang sah dapat dilihat di [[Special:SpecialPages|{{int:s
 # General errors
 'error' => 'Kesalahan',
 'databaseerror' => 'Kesalahan basis data',
+'databaseerror-text' => 'Sebuah galat kueri basis data telah terjadi.
+Hal ini mungkin mengindikasikan ada kesalahan pada perangkat lunaknya.',
+'databaseerror-textcl' => 'Sebuah galat kueri basis data telah terjadi.',
+'databaseerror-query' => 'Kueri: $1',
+'databaseerror-function' => 'Fungsi: $1',
+'databaseerror-error' => 'Kesalahan: $1',
 'laggedslavemode' => 'Peringatan: Halaman mungkin tidak berisi perubahan terbaru.',
 'readonly' => 'Basis data dikunci',
 'enterlockreason' => 'Masukkan alasan penguncian, termasuk perkiraan kapan kunci akan dibuka',
@@ -790,6 +798,9 @@ Ingatlah bahwa beberapa halaman mungkin masih menampilkan anda seperti masih mas
 'userlogin-resetpassword-link' => 'Buat ulang kata sandi',
 'helplogin-url' => 'Help:Masuk log',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Bantuan masuk log]]',
+'userlogin-loggedin' => 'Andan telah masuk log sebagai $1.
+Gunakan formulir di bawah untuk masuk log sebagai pengguna lain.',
+'userlogin-createanother' => 'Buat akun lain',
 'createacct-join' => 'Masukkan informasi Anda di bawah ini.',
 'createacct-another-join' => 'Masukkan informasi akun baru di bawah ini.',
 'createacct-emailrequired' => 'Alamat surel',
@@ -867,11 +878,13 @@ Harap masukkan alamat surel dalam format yang benar atau kosongkan isian tersebu
 
 Anda dapat mengabaikan pesan ini jika akun ini dibuat karena suatu kesalahan.',
 'usernamehasherror' => 'Nama pengguna tidak bisa mengandung tanda pagar',
-'login-throttled' => 'Anda telah berkali-kali mencoba masuk log.
+'login-throttled' => 'Anda sudah terlalu sering mencoba masuk log.
 Silakan menunggu sebelum mencoba lagi.',
 'login-abort-generic' => 'Proses masuk Anda tidak berhasil - Dibatalkan',
 'loginlanguagelabel' => 'Bahasa: $1',
 'suspicious-userlogout' => 'Permintaan Anda untuk keluar log ditolak karena tampaknya dikirim oleh penjelajah yang rusak atau proksi penyinggah.',
+'createacct-another-realname-tip' => 'Nama asli bersifat opsional.
+Jika Anda memberikannya, nama asli Anda akan digunakan untuk memberi pengenalan atas hasil kerja Anda.',
 
 # Email sending
 'php-mail-error-unknown' => 'Kesalahan yang tidak dikenal dalam fungsi mail() PHP',
@@ -887,7 +900,7 @@ Silakan menunggu sebelum mencoba lagi.',
 'newpassword' => 'Kata sandi baru:',
 'retypenew' => 'Ketik ulang kata sandi baru:',
 'resetpass_submit' => 'Atur kata sandi dan masuk log',
-'changepassword-success' => 'Kata sandi Anda telah berhasil diubah! Sekarang memproses masuk log Anda...',
+'changepassword-success' => 'Kata sandi Anda telah berhasil diubah!',
 'resetpass_forbidden' => 'Kata sandi tidak dapat diubah',
 'resetpass-no-info' => 'Anda harus masuk log untuk mengakses halaman ini secara langsung.',
 'resetpass-submit-loggedin' => 'Ganti kata sandi',
@@ -956,7 +969,7 @@ Anda harus melakukannya jika Anda secara tidak sengaja berbagi dengan seseorang 
 'resettokens-legend' => 'Reset token',
 'resettokens-tokens' => 'Token:',
 'resettokens-token-label' => '$1 (nilai saat ini: $2)',
-'resettokens-watchlist-token' => 'Daftar pantauan token web feed',
+'resettokens-watchlist-token' => 'Token untuk sindikasi web (Atom/RSS) dari [[Special:Watchlist|perubahan di daftar pantauan Anda]]',
 'resettokens-done' => 'Reset token.',
 'resettokens-resetbutton' => 'Reset token yang dipilih',
 
@@ -1039,7 +1052,7 @@ Subbagian ini mungkin dipindahkan atau dihapus ketika Anda membukanya.',
 'loginreqlink' => 'masuk log',
 'loginreqpagetext' => 'Anda harus $1 untuk dapat melihat halaman lainnya.',
 'accmailtitle' => 'Kata sandi telah terkirim.',
-'accmailtext' => "Sebuah kata sandi acak untuk [[User talk:$1|$1]] telah dibuat dan dikirimkan ke $2.
+'accmailtext' => "Sebuah kata sandi acak untuk [[User talk:$1|$1]] telah dikirimkan ke $2.
 
 Kata sandi untuk akun baru ini dapat diubah di halaman ''[[Special:ChangePassword|pengubahan kata sandi]]'' setelah masuk log.",
 'newarticle' => '(Baru)',
@@ -1543,7 +1556,8 @@ Jangan lebih dari $1 {{PLURAL:$1|karakter|karakter}}.',
 'gender-unknown' => 'Tak dinyatakan',
 'gender-male' => 'Laki-laki',
 'gender-female' => 'Perempuan',
-'prefs-help-gender' => 'Opsional: digunakan untuk perbaikan penyebutan gender oleh perangkat lunak. Informasi ini akan terbuka untuk umum.',
+'prefs-help-gender' => 'Opsional: digunakan untuk perbaikan penyebutan jender oleh perangkat lunak. 
+Informasi ini akan terbuka untuk umum.',
 'email' => 'Surel',
 'prefs-help-realname' => 'Nama asli bersifat opsional.
 Jika Anda memberikannya, nama asli Anda akan digunakan untuk memberi pengenalan atas hasil kerja Anda.',
@@ -1567,6 +1581,7 @@ Jika Anda memberikannya, nama asli Anda akan digunakan untuk memberi pengenalan 
 'prefs-displaywatchlist' => 'Pilihan tampilan',
 'prefs-tokenwatchlist' => 'Tanda',
 'prefs-diffs' => 'Beda',
+'prefs-help-prefershttps' => 'Preferensi ini akan diaktifkan kali berikutnya Anda masuk log.',
 
 # User preference: email validation using jQuery
 'email-address-validity-valid' => 'Alamat surel tampaknya sah',
@@ -1743,6 +1758,8 @@ Jika Anda memberikannya, nama asli Anda akan digunakan untuk memberi pengenalan 
 
 # Recent changes
 'nchanges' => '$1 {{PLURAL:$1|perubahan|perubahan}}',
+'enhancedrc-since-last-visit' => '$1 {{PLURAL:$1|sejak kunjungan terakhir}}',
+'enhancedrc-history' => 'riwayat',
 'recentchanges' => 'Perubahan terbaru',
 'recentchanges-legend' => 'Opsi perubahan terbaru',
 'recentchanges-summary' => "Temukan perubahan terbaru dalam wiki di halaman ini.<br />
@@ -1777,7 +1794,7 @@ Jika Anda memberikannya, nama asli Anda akan digunakan untuk memberi pengenalan 
 'rc-change-size' => '$1',
 'rc-change-size-new' => '$1 {{PLURAL:$1|bita|bita}} setelah perubahan',
 'newsectionsummary' => '/* $1 */ bagian baru',
-'rc-enhanced-expand' => 'Tampilkan rincian (memerlukan JavaScript)',
+'rc-enhanced-expand' => 'Tampilkan rincian',
 'rc-enhanced-hide' => 'Sembunyikan rincian',
 'rc-old-title' => 'awalnya dibuat sebagai "$1"',
 
@@ -2036,7 +2053,7 @@ Untuk pilihan keamanan, img_auth.php dinonaktifkan.',
 
 # Special:ListFiles
 'listfiles-summary' => 'Halaman istimewa ini menampilkan semua berkas yang telah diunggah.
-Ketika disaring oleh pengguna, hanya vesi berkas terbaru dari berkas yang pengguna unggah yang ditampilkan.',
+Ketika disaring oleh pengguna, hanya versi berkas terbaru dari berkas yang diunggah oleh pengguna tersebut yang ditampilkan.',
 'listfiles_search_for' => 'Cari nama berkas:',
 'imgfile' => 'berkas',
 'listfiles' => 'Daftar berkas',
@@ -2047,6 +2064,10 @@ Ketika disaring oleh pengguna, hanya vesi berkas terbaru dari berkas yang penggu
 'listfiles_size' => 'Ukuran',
 'listfiles_description' => 'Deskripsi',
 'listfiles_count' => 'Versi',
+'listfiles-show-all' => 'Termasuk versi lama gambar',
+'listfiles-latestversion' => 'Versi terkini',
+'listfiles-latestversion-yes' => 'Ya',
+'listfiles-latestversion-no' => 'Tidak',
 
 # File description page
 'file-anchor-link' => 'Berkas',
@@ -2176,19 +2197,13 @@ Cek dahulu pranala lain ke templat tersebut sebelum menghapusnya.',
 'statistics-users-active-desc' => 'Pengguna yang telah melakukan suatu aktivitas dalam {{PLURAL:$1|sehari|$1 hari}} terakhir.',
 'statistics-mostpopular' => 'Halaman yang paling banyak ditampilkan',
 
-'disambiguations' => 'Halaman yang terhubung ke halaman disambiguasi',
-'disambiguationspage' => 'Template:Disambig',
-'disambiguations-text' => "Halaman-halaman berikut memiliki pranala ke suatu '''halaman disambiguasi'''.
-Halaman-halaman tersebut seharusnya berpaut ke topik-topik yang sesuai.<br />
-Suatu halaman dianggap sebagai halaman disambiguasi apabila halaman tersebut menggunakan templat yang terhubung ke [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Halaman dengan halaman properti',
 'pageswithprop-legend' => 'Halaman dengan halaman properti',
 'pageswithprop-text' => 'Halaman ini berisi daftar halaman yang menggunakan properti halaman tertentu.',
 'pageswithprop-prop' => 'Nama properti:',
 'pageswithprop-submit' => 'Lanjut',
-'pageswithprop-prophidden-long' => 'teks panjang nilai properti tersembunyi ($1 kilobita)',
-'pageswithprop-prophidden-binary' => 'nilai properti biner yang tersembunyi ($1 kilobita)',
+'pageswithprop-prophidden-long' => 'nilai properti teks panjang tersembunyi ($1 kilobita)',
+'pageswithprop-prophidden-binary' => 'nilai properti biner tersembunyi ($1 kilobita)',
 
 'doubleredirects' => 'Pengalihan ganda',
 'doubleredirectstext' => 'Halaman ini memuat daftar halaman yang dialihkan ke halaman pengalihan yang lain.
@@ -2262,6 +2277,7 @@ Nama yang telah <del>dicoret</del> berarti telah dibetulkan.',
 'listusers' => 'Daftar pengguna',
 'listusers-editsonly' => 'Tampilkan hanya pengguna yang memiliki kontribusi',
 'listusers-creationsort' => 'Urutkan menurut tanggal pendaftaran',
+'listusers-desc' => 'Urutkan menurun',
 'usereditcount' => '$1 {{PLURAL:$1|suntingan|suntingan}}',
 'usercreated' => '{{GENDER:$3|Dibuat}} pada $1 pukul $2',
 'newpages' => 'Halaman baru',
@@ -2548,7 +2564,7 @@ pengguna lain telah menyunting atau melakukan pengembalian terhadap halaman ini.
 Suntingan terakhir dilakukan oleh [[User:$3|$3]] ([[User talk:$3|bicara]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "Komentar penyuntingan adalah: \"''\$1''\".",
 'revertpage' => '←Suntingan [[Special:Contributions/$2|$2]] ([[User talk:$2|bicara]]) dibatalkan ke versi terakhir oleh [[User:$1|$1]]',
-'revertpage-nouser' => 'Mengembalikan suntingan oleh pengguna tersembunyi ke suntingan terakhir oleh [[User:$1|$1]]',
+'revertpage-nouser' => 'Mengembalikan suntingan oleh (nama pengguna dihapus) ke suntingan terakhir oleh [[User:$1|$1]]',
 'rollback-success' => 'Pembatalan suntingan oleh $1; dibatalkan ke versi terakhir oleh $2.',
 
 # Edit tokens
@@ -2684,7 +2700,7 @@ $1',
 'contributions' => 'Kontribusi {{GENDER:$1|pengguna}}',
 'contributions-title' => 'Kontribusi pengguna untuk $1',
 'mycontris' => 'Kontribusi',
-'contribsub2' => 'Untuk $1 ($2)',
+'contribsub2' => 'Untuk {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'Tidak ada perubahan yang sesuai dengan kriteria tersebut.',
 'uctop' => '(saat ini)',
 'month' => 'Sejak bulan (dan sebelumnya):',
@@ -2699,7 +2715,7 @@ $1',
 'sp-contributions-logs' => 'log',
 'sp-contributions-talk' => 'bicara',
 'sp-contributions-userrights' => 'pengelolaan hak pengguna',
-'sp-contributions-blocked-notice' => 'Pengguna ini sedang di blok. log pemblokiran terakhir ditampilkan berikut untuk referensi:',
+'sp-contributions-blocked-notice' => 'Pengguna ini sedang diblok. Log pemblokiran terakhir ditampilkan berikut untuk referensi:',
 'sp-contributions-blocked-notice-anon' => 'Alamat IP ini diblokir pada saat ini.
 Catatan log pemblokiran terakhir tersedia di bawah ini sebagai rujukan:',
 'sp-contributions-search' => 'Cari kontribusi',
@@ -4170,7 +4186,10 @@ Anda seharusnya telah menerima [{{SERVER}}{{SCRIPTPATH}}/COPYING salinan Lisensi
 'tags-tag' => 'Nama tag',
 'tags-display-header' => 'Tampilan di daftar perubahan',
 'tags-description-header' => 'Deskripsi lengkap atau makna',
+'tags-active-header' => 'Aktif?',
 'tags-hitcount-header' => 'Perubahan bertag',
+'tags-active-yes' => 'Ya',
+'tags-active-no' => 'Tidak',
 'tags-edit' => 'sunting',
 'tags-hitcount' => '$1 {{PLURAL:$1|perubahan|perubahan}}',
 
@@ -4191,6 +4210,7 @@ Anda seharusnya telah menerima [{{SERVER}}{{SCRIPTPATH}}/COPYING salinan Lisensi
 'dberr-problems' => 'Maaf! Situs ini mengalami masalah teknis.',
 'dberr-again' => 'Cobalah menunggu beberapa menit dan muat ulang.',
 'dberr-info' => '(Tak dapat tersambung dengan server basis data: $1)',
+'dberr-info-hidden' => '(Tidak dapat menghubungi peladen basis data)',
 'dberr-usegoogle' => 'Anda dapat mencoba pencarian melalui Google untuk sementara waktu.',
 'dberr-outofdate' => 'Harap diperhatikan bahwa indeks mereka terhadap isi kami mungkin sudah kedaluwarsa.',
 'dberr-cachederror' => 'Berikut adalah salinan tersimpan halaman yang diminta, dan mungkin bukan yang terbaru.',
@@ -4325,5 +4345,14 @@ Jika tidak, Anda dapat menggunakan formulir mudah di bawah ini. Komentar Anda ak
 
 # Image rotation
 'rotate-comment' => 'Gambar diputar $1 {{PLURAL:$1|derajat}} searah jarum jam',
+
+# Limit report
+'limitreport-cputime' => 'Penggunaan waktu CPU',
+'limitreport-cputime-value' => '$1 {{PLURAL:$1|detik|detik}}',
+'limitreport-walltime' => 'Penggunaan waktu riil',
+'limitreport-walltime-value' => '$1 {{PLURAL:$1|detik|detik}}',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|bita|bita}}',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|bita|bita}}',
+'limitreport-expensivefunctioncount' => 'Perhitungan fungsi parser yang mahal',
 
 );

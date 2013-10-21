@@ -240,7 +240,7 @@ $1',
 'pool-queuefull' => 'Safka shaqeenta Pool woo buuxsamay',
 'pool-errorunknown' => 'Qalad la aqoon',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Ku saabsan {{SITENAME}}',
 'aboutpage' => 'Project:ku saabsan',
 'copyright' => 'Qoraalka wuxuu ku salaysanyahay $1.',
@@ -892,6 +892,7 @@ E-mailkaada mala sheegaayo markii ee dadka kale kula soo xiriirayaan.',
 'recentchanges' => 'Isbedelada dhow',
 'recentchanges-legend' => 'Dooqyada isbedelada dhow',
 'recentchanges-summary' => 'Dabagal isbedelada dhow ee wikiga ee ku dhacay bogaan.',
+'recentchanges-noresult' => 'Ma jiraan wax is bedel ah xilliga aad soo koobtay ee u dhigma habkaan.',
 'recentchanges-feed-description' => 'Dabagal isbedelada dhow ee wikiga oo ku dhacay feedkaan',
 'recentchanges-label-newpage' => 'Wax bedelkaan wuxuu sameeyay bog cusub',
 'recentchanges-label-minor' => 'Kan waa bedel yar',

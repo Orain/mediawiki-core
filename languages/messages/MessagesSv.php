@@ -23,6 +23,7 @@
  * @author Habjchen
  * @author Hangsna
  * @author Hannibal
+ * @author Haxpett
  * @author Jon Harald Søby
  * @author Jopparn
  * @author Kaganer
@@ -332,12 +333,12 @@ $messages = array(
 'tog-hidepatrolled' => 'Dölj patrullerade redigeringar i senaste ändringar',
 'tog-newpageshidepatrolled' => 'Göm patrullerade sidor från listan över nya sidor',
 'tog-extendwatchlist' => 'Utöka bevakningslistan till att visa alla ändringar, inte bara den senaste',
-'tog-usenewrc' => 'Använd avancerad senaste ändringar (kräver JavaScript)',
+'tog-usenewrc' => 'Gruppera ändringar efter sida i senaste ändringar och bevakningslistan',
 'tog-numberheadings' => 'Numrerade rubriker',
-'tog-showtoolbar' => 'Visa verktygsrad (Javascript)',
-'tog-editondblclick' => 'Redigera sidor med dubbelklick (Javascript)',
+'tog-showtoolbar' => 'Visa redigerings-verktygsraden',
+'tog-editondblclick' => 'Redigera sidor med dubbelklick',
 'tog-editsection' => 'Aktivera redigering av avsnitt genom [redigera]-länkar',
-'tog-editsectiononrightclick' => 'Aktivera redigering av avsnitt genom högerklick på underrubriker (Javascript)',
+'tog-editsectiononrightclick' => 'Aktivera redigering av avsnitt genom högerklick på underrubriker',
 'tog-showtoc' => 'Visa innehållsförteckning (för sidor som har minst fyra rubriker)',
 'tog-rememberpassword' => 'Kom ihåg min inloggning på den här webbläsaren (i maximalt $1 {{PLURAL:$1|dygn|dygn}})',
 'tog-watchcreations' => 'Lägg till sidor jag skapar i min bevakningslista',
@@ -355,7 +356,7 @@ $messages = array(
 'tog-shownumberswatching' => 'Visa antalet användare som bevakar',
 'tog-oldsig' => 'Nuvarande signatur:',
 'tog-fancysig' => 'Rå signatur som wikitext (utan en automatisk länk)',
-'tog-uselivepreview' => 'Använd direktuppdaterad förhandsgranskning (Javascript, på försöksstadiet)',
+'tog-uselivepreview' => 'Använd direktuppdaterad förhandsgranskning (experimentell)',
 'tog-forceeditsummary' => 'Påminn mig om jag inte fyller i en redigeringskommentar',
 'tog-watchlisthideown' => 'Visa inte mina redigeringar i bevakningslistan',
 'tog-watchlisthidebots' => 'Visa inte robotredigeringar i bevakningslistan',
@@ -570,7 +571,7 @@ $1',
 'pool-queuefull' => 'Kön är full',
 'pool-errorunknown' => 'Okänt fel',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Om {{SITENAME}}',
 'aboutpage' => 'Project:Om',
 'copyright' => 'Innehållet är tillgängligt under $1.',
@@ -656,6 +657,12 @@ I [[Special:SpecialPages|listan över specialsidor]] kan du se vilka specialsido
 # General errors
 'error' => 'Fel',
 'databaseerror' => 'Databasfel',
+'databaseerror-text' => 'Ett fel inträffade vid en databasfråga.
+Detta kan tyda på en bugg i mjukvaran.',
+'databaseerror-textcl' => 'Ett fel inträffade vid en databasfråga.',
+'databaseerror-query' => 'Fråga: $1',
+'databaseerror-function' => 'Funktion: $1',
+'databaseerror-error' => 'Fel: $1',
 'laggedslavemode' => 'Varning: Sidan kan sakna de senaste uppdateringarna.',
 'readonly' => 'Databasen är skrivskyddad',
 'enterlockreason' => 'Ange varför sidan skrivskyddats, och ge en uppskattning av hur länge skrivskyddet bör behållas.',
@@ -777,6 +784,9 @@ Glöm inte att justera dina [[Special:Preferences|{{SITENAME}}-inställningar]].
 'userlogin-resetpassword-link' => 'Återställ ditt lösenord',
 'helplogin-url' => 'Help:Logga in',
 'userlogin-helplink' => '[[{{MediaWiki:helplogin-url}}|Hjälp med inloggning]]',
+'userlogin-loggedin' => 'Du är redan inloggad som {{GENDER:$1|$1}}.
+Använd formuläret nedan för att logga in som en annan användare.',
+'userlogin-createanother' => 'Skapa ett annat konto',
 'createacct-join' => 'Ange din information nedan.',
 'createacct-another-join' => 'Ange information för det nya kontot nedan.',
 'createacct-emailrequired' => 'E-postadress',
@@ -1349,6 +1359,7 @@ Se till att sidhistorikens kontinuitet behålls när du sammanfogar historik.',
 'mergehistory-comment' => 'Infogade [[:$1]] i [[:$2]]: $3',
 'mergehistory-same-destination' => 'Käll- och målsidor kan inte vara samma',
 'mergehistory-reason' => 'Anledning:',
+'mergehistory-revisionrow' => '$1($2) $3 . .$4 $5 $6',
 
 # Merge log
 'mergelog' => 'Sammanfogningslogg',
@@ -1713,8 +1724,8 @@ Om du väljer att ange ditt riktiga namn, kommer det att användas för att till
 'action-block' => 'blockera denna användare från redigering',
 'action-protect' => 'ändra skyddsnivå för denna sida',
 'action-rollback' => 'snabbt rulla tillbaka ändringarna gjorda av den användare som senast redigerade en viss sida',
-'action-import' => 'importera denna sida från en annan wiki',
-'action-importupload' => 'importera denna sida från en uppladdad fil',
+'action-import' => 'importera sidor från en annan wiki',
+'action-importupload' => 'importera sidor från en filuppladdning',
 'action-patrol' => 'märka annans redigering som patrullerad',
 'action-autopatrol' => 'få din redigering märkt som patrullerad',
 'action-unwatchedpages' => 'se listan över obevakade sidor',
@@ -1763,7 +1774,7 @@ Om du väljer att ange ditt riktiga namn, kommer det att användas för att till
 'rc_categories_any' => 'Vilken som helst',
 'rc-change-size-new' => '$1 {{PLURAL:$1|byte|bytes}} efter ändring',
 'newsectionsummary' => '/* $1 */ nytt avsnitt',
-'rc-enhanced-expand' => 'Visa detaljer (kräver JavaScript)',
+'rc-enhanced-expand' => 'Visa detaljer',
 'rc-enhanced-hide' => 'Göm detaljer',
 'rc-old-title' => 'skapades ursprungligen som "$1"',
 
@@ -2170,12 +2181,6 @@ Innan mallarna raderas, kontrollera att det inte finns andra länkar till dem.',
 'statistics-users-active-desc' => 'Användare som utfört någon åtgärd under {{PLURAL:$1|det senaste dygnet|de senaste $1 dygnen}}',
 'statistics-mostpopular' => 'Mest besökta sidor',
 
-'disambiguations' => 'Sidor som länkar till förgreningssidor',
-'disambiguationspage' => 'Template:Förgrening',
-'disambiguations-text' => "Följande sidorna innehåller minst en länk till en '''förgreningssida'''.
-De bör troligtvis ändras så att de länkar till en mer passande sida istället.<br />
-En sida anses vara en förgreningssida om den inkluderar en mall som länkas till från [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Sidor med en sidegenskap',
 'pageswithprop-legend' => 'Sidor med en sidegenskap',
 'pageswithprop-text' => 'Denna sida listar sidor som använder en speciell sidegenskap.',
@@ -2256,6 +2261,7 @@ Varje rad innehåller länkar till den första och andra omdirigeringsidan, samt
 'listusers' => 'Användarlista',
 'listusers-editsonly' => 'Visa endast användare som redigerat',
 'listusers-creationsort' => 'Sortera efter datum skapat',
+'listusers-desc' => 'Sortera i fallande ordning',
 'usereditcount' => '$1 {{PLURAL:$1|redigering|redigeringar}}',
 'usercreated' => '{{GENDER:$3|Skapat}} $1 $2',
 'newpages' => 'Nya sidor',
@@ -2396,7 +2402,7 @@ Den e-postadress du har angivit i [[Special:Preferences|dina användarinställni
 'emailnotarget' => 'Icke-existerande eller ogiltigt användarnamn för mottagaren.',
 'emailtarget' => 'Ange mottagarens användarnamn',
 'emailusername' => 'Användarnamn:',
-'emailusernamesubmit' => 'Skicka',
+'emailusernamesubmit' => 'Skicka in',
 'email-legend' => 'Skicka ett mail till en annan användare på {{SITENAME}}',
 'emailfrom' => 'Från:',
 'emailto' => 'Till:',
@@ -2517,10 +2523,12 @@ Se $2 för noteringar om de senaste raderingarna.',
 'deletecomment' => 'Anledning:',
 'deleteotherreason' => 'Annan/ytterligare anledning:',
 'deletereasonotherlist' => 'Annan anledning',
-'deletereason-dropdown' => '*Vanliga anledningar till radering
-** Författarens begäran
+'deletereason-dropdown' => '* Vanliga anledningar till radering
+** Spam
+** Vandalism
 ** Upphovsrättsbrott
-** Vandalism',
+** Författarens begäran
+** Trasig omdirigering',
 'delete-edit-reasonlist' => 'Redigera anledningar för radering',
 'delete-toobig' => 'Denna sida har en lång redigeringshistorik med mer än $1 {{PLURAL:$1|sidversion|sidversioner}}. Borttagning av sådana sidor har begränsats för att förhindra oavsiktliga driftstörningar på {{SITENAME}}.',
 'delete-warning-toobig' => 'Denna sida har en lång redigeringshistorik med mer än $1 {{PLURAL:$1|sidversion|sidversioner}}. Att radera sidan kan skapa problem med hanteringen av databasen på {{SITENAME}}; var försiktig.',
@@ -2538,7 +2546,7 @@ Se $2 för noteringar om de senaste raderingarna.',
 Sidan ändrades senast av [[User:$3|$3]] ([[User talk:$3|diskussion]]{{int:pipe-separator}}[[Special:Contributions/$2|{{int:contribslink}}]]).',
 'editcomment' => "Redigeringskommentaren var: \"''\$1''\".",
 'revertpage' => 'Återställde redigeringar av  [[Special:Contributions/$2|$2]] ([[User talk:$2|användardiskussion]]) till senaste versionen av [[User:$1|$1]]',
-'revertpage-nouser' => 'Återställde redigeringar av en dold användare till den senaste versionen av [[User:$1|$1]]',
+'revertpage-nouser' => 'Återställde redigeringar av en dold användare till den senaste versionen av {{GENDER:$1|[[User:$1|$1]]}}',
 'rollback-success' => 'Återställde ändringar av $1;
 ändrade tillbaka till senaste version av $2.',
 
@@ -2678,7 +2686,7 @@ $1',
 'contributions' => '{{GENDER:$1|Användarbidrag}}',
 'contributions-title' => 'Bidrag av $1',
 'mycontris' => 'Bidrag',
-'contribsub2' => 'För $1 ($2)',
+'contribsub2' => 'För {{GENDER:$3|$1}} ($2)',
 'nocontribs' => 'Inga ändringar som motsvarar dessa kriterier hittades.',
 'uctop' => '(senaste)',
 'month' => 'Från månad (och tidigare):',
@@ -3156,6 +3164,7 @@ Vänligen använd förhandsgranskningsknappen innan du sparar.',
 Ger möjlighet att skriva en motivering i redigeringssammanfattningen',
 'tooltip-preferences-save' => 'Spara inställningar',
 'tooltip-summary' => 'Skriv en kort sammanfattning',
+'tooltip-iwiki' => '$1 - $2',
 
 # Stylesheets
 'common.css' => '/* CSS som skrivs här påverkar alla skal */',
@@ -3309,7 +3318,7 @@ Om du kör den kan din dator skadas.",
 'show-big-image-other' => '{{PLURAL:$2|Annan upplösning|Andra upplösningar}}: $1.',
 'show-big-image-size' => '$1 × $2 pixlar',
 'file-info-gif-looped' => 'upprepad',
-'file-info-gif-frames' => '$1 {{PLURAL:$1|ram|ramar}}',
+'file-info-gif-frames' => '$1 {{PLURAL:$1|bildruta|bildrutor}}',
 'file-info-png-looped' => 'upprepad',
 'file-info-png-repeat' => 'spelad $1 {{PLURAL:$1|gång|gånger}}',
 'file-info-png-frames' => '$1 {{PLURAL:$1|bild|bilder}}',
@@ -4040,7 +4049,10 @@ Du bör ha fått [{{SERVER}}{{SCRIPTPATH}}/COPYING en kopia av GNU General Publi
 'tags-tag' => 'Märkesnamn',
 'tags-display-header' => 'Utseende på listor över ändringar',
 'tags-description-header' => 'Full beskrivning av betydelse',
+'tags-active-header' => 'Aktiv?',
 'tags-hitcount-header' => 'Märkta ändringar',
+'tags-active-yes' => 'Ja',
+'tags-active-no' => 'Nej',
 'tags-edit' => 'redigera',
 'tags-hitcount' => '$1 {{PLURAL:$1|ändring|ändringar}}',
 
@@ -4061,6 +4073,7 @@ Du bör ha fått [{{SERVER}}{{SCRIPTPATH}}/COPYING en kopia av GNU General Publi
 'dberr-problems' => 'Ursäkta! Denna sajt har just nu tekniska problem.',
 'dberr-again' => 'Pröva med att vänta några minuter och ladda om.',
 'dberr-info' => '(Kan inte kontakta databasservern: $1)',
+'dberr-info-hidden' => '(Kan inte kontakta databasservern)',
 'dberr-usegoogle' => 'Du kan pröva att söka med Google under tiden.',
 'dberr-outofdate' => 'Observera att deras index av vårt innehåll kan vara föråldrat.',
 'dberr-cachederror' => 'Följande är en cachad kopia av den efterfrågade sidan, och kan vara föråldrad.',
@@ -4204,11 +4217,11 @@ Annars kan du använda det enkla formuläret nedan. Din kommentar kommer att lä
 'limitreport-walltime-value' => '$1 {{PLURAL:$1|sekund|sekunder}}',
 'limitreport-ppvisitednodes' => 'Antal nodbesök för preprocessor',
 'limitreport-ppgeneratednodes' => 'Antal noder genererade av preprocessor',
-'limitreport-postexpandincludesize' => 'Inkludera storlek efter utvidgning',
-'limitreport-postexpandincludesize-value' => '$1/$2 byte',
+'limitreport-postexpandincludesize' => 'Inkluderad storlek efter mallutvidgning',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|byte}}',
 'limitreport-templateargumentsize' => 'Storlek på mallargument',
-'limitreport-templateargumentsize-value' => '$1/$2 byte',
-'limitreport-expansiondepth' => 'Högsta expansionsdjup',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|byte}}',
+'limitreport-expansiondepth' => 'Största expansionsdjup',
 'limitreport-expensivefunctioncount' => 'Antal dyra parser-funktioner',
 
 );

@@ -390,7 +390,7 @@ $1',
 'pool-queuefull' => 'Һорауҙар сираты тулы',
 'pool-errorunknown' => 'Билдәһеҙ хата',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => '{{SITENAME}} тураһында',
 'aboutpage' => 'Project:Тасуирлама',
 'copyright' => '$1 ярашлы эстәлеге менән һәр кем файҙалана ала.',
@@ -1892,12 +1892,6 @@ $1',
 'statistics-users-active' => 'Әүҙем ҡатнашыусылар',
 'statistics-users-active-desc' => 'Һуңғы {{PLURAL:$1|көндә|$1 көндә}} ниндәйҙер эшмәкәрлек башҡарған ҡатнашыусылар',
 'statistics-mostpopular' => 'Иң күп ҡаралған биттәр',
-
-'disambiguations' => 'Күп мәғәнәле төшөнсәләр биттәренә һылтанған биттәр',
-'disambiguationspage' => 'Template:Күп_мәғәнәлелек',
-'disambiguations-text' => "Киләһе биттәрҙә кәмендә бер '''күп мәғәнәле биттәргә''' һылтанма бар.
-Бының урынына улар фәҡәт үҙенә кәрәкле мәҡәләгә һылтанырға тейеш.<br />
-Әгәр биттә исеме [[MediaWiki:Disambiguationspage]] битендә күрһәтелгән ҡалып ҡулланылһа, ул күп мәғәнәле тип иҫәпләнә.",
 
 'doubleredirects' => 'Икеле йүнәлтеүҙәр',
 'doubleredirectstext' => 'Был биттә икенсе йүнәлтеү биттәренә йүнәлткән биттәр исемлеге килтерелгән.
@@ -3718,8 +3712,7 @@ MediaWiki файҙалы булыр, тигән өмөттә, ләкин БЕР 
 
 # Database error messages
 'dberr-header' => 'Был вики проектта ҡыйынлыҡтар бар',
-'dberr-problems' => 'Ғәфү итегеҙ!
-Был сайтта техник ҡыйынлыҡтар тыуҙы.',
+'dberr-problems' => 'Ғәфү итегеҙ! Был сайтта техник ҡыйынлыҡтар тыуҙы.',
 'dberr-again' => 'Битте бер нисә минуттан яңыртып ҡарағыҙ.',
 'dberr-info' => '(Мәғлүмәттәр базаһы серверы менән тоташтырылып булмай: $1)',
 'dberr-usegoogle' => 'Әлегә һеҙ Google ярҙамында эҙләп ҡарай алһығыҙ.',

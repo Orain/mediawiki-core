@@ -367,7 +367,7 @@ $1',
 'pool-queuefull' => 'Foleni ya michakato imejaa',
 'pool-errorunknown' => 'Hitilafu isiyojulikana',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Kuhusu {{SITENAME}}',
 'aboutpage' => 'Project:Kuhusu',
 'copyright' => 'Yaliyomo yafuata $1.',
@@ -1748,12 +1748,6 @@ Kumbuka kuhakikisha kwamba hakuna viungo vingine vinavyoelekea kigezo fulani kab
 'statistics-users-active-desc' => 'Watumiaji waliofanya kazi katika siku {{PLURAL:$1|iliyopita|$1 zilizopita}}',
 'statistics-mostpopular' => 'Kurasa zinazotazamwa sana',
 
-'disambiguations' => 'Kurasa zinazoungana na kurasa za uanishaji',
-'disambiguationspage' => 'Template:Maana',
-'disambiguations-text' => "Kurasa zinazofuata zina angalau kiungo kimoja kinachoelekea kwa '''kurasa ya kutofautishana maana'''.
-Ni afadhali kiungo kiende makala yanayostahili moja kwa moja.<br />
-Ukurasa unatibiwa kama ukurasa wa kutofautishana maana inazotumia kigezo kinachoorodheshwa katika ukurasa wa [[MediaWiki:Disambiguationspage]].",
-
 'doubleredirects' => 'Maelekezo mawilimawili',
 'doubleredirectstext' => 'Ukurasa huu unaorodhesha kurasa zinazoelekeza kurasa zingine za kuelekeza.
 Katika kila mstari kuna viungo vinavyokwenda katika kurasa za kuelekeza zote mbili, pamoja na ukurasa wa mwishilio mwa elekezo la pili. Ukurasa huu wa mwishilio huwa ni ukurasa unaostahili kuelekezwa kutoka kwa ukurasa wa kuelekeza wa kwanza. Vitu <del>vilivyokatwa kwa mstari</del> vimeshatatuliwa.',
@@ -3093,8 +3087,7 @@ Huwa unapokea [{{SERVER}}{{SCRIPTPATH}}/COPYING nakala ya GNU General Public Lic
 
 # Database error messages
 'dberr-header' => 'Wiki imekuta tatizo',
-'dberr-problems' => 'Kumradhi!
-Tovuti hii inapata matatatizo wakati huu.',
+'dberr-problems' => 'Kumradhi! Tovuti hii inapata matatatizo wakati huu.',
 'dberr-again' => 'Jaribu tena baada ya kusubiri dakika chache.',
 'dberr-info' => '(Hamna mawasiliano na seva ya hifadhidata: $1)',
 'dberr-usegoogle' => 'Unaposubiri unaweza kujaribu kutafuta kwa kutumia Google.',

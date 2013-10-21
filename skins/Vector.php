@@ -57,7 +57,7 @@ class SkinVector extends SkinTemplate {
 				"/{$this->stylename}/csshover{$min}.htc\")}</style><![endif]-->"
 		);
 
-		$out->addModules( 'skins.vector.js' );
+		$out->addModules( array( 'skins.vector.js', 'skins.vector.collapsibleNav' ) );
 	}
 
 	/**
@@ -66,7 +66,10 @@ class SkinVector extends SkinTemplate {
 	 */
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
-		$out->addModuleStyles( 'skins.vector' );
+
+		$styles = array( 'skins.vector' );
+		wfRunHooks( 'SkinVectorStyleModules', array( &$this, &$styles ) );
+		$out->addModuleStyles( $styles );
 	}
 
 	/**

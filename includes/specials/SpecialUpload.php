@@ -93,7 +93,6 @@ class SpecialUpload extends SpecialPage {
 		if ( !$this->mDesiredDestName && $request->getFileName( 'wpUploadFile' ) !== null ) {
 			$this->mDesiredDestName = $request->getFileName( 'wpUploadFile' );
 		}
-		$this->mComment = $request->getText( 'wpUploadDescription' );
 		$this->mLicense = $request->getText( 'wpLicense' );
 
 		$this->mDestWarningAck = $request->getText( 'wpDestFileWarningAck' );
@@ -104,6 +103,14 @@ class SpecialUpload extends SpecialPage {
 		$this->mCopyrightSource = $request->getText( 'wpUploadSource' );
 
 		$this->mForReUpload = $request->getBool( 'wpForReUpload' ); // updating a file
+
+		$commentDefault = '';
+		$commentMsg = wfMessage( 'upload-default-description' )->inContentLanguage();
+		if ( !$this->mForReUpload && !$commentMsg->isDisabled() ) {
+			$commentDefault = $commentMsg->plain();
+		}
+		$this->mComment = $request->getText( 'wpUploadDescription', $commentDefault );
+
 		$this->mCancelUpload = $request->getCheck( 'wpCancelUpload' )
 			|| $request->getCheck( 'wpReUpload' ); // b/w compat
 
@@ -214,6 +221,8 @@ class SpecialUpload extends SpecialPage {
 	 */
 	protected function getUploadForm( $message = '', $sessionKey = '', $hideIgnoreWarning = false ) {
 		# Initialize form
+		$context = new DerivativeContext( $this->getContext() );
+		$context->setTitle( $this->getTitle() ); // Remove subpage
 		$form = new UploadForm( array(
 			'watch' => $this->getWatchCheck(),
 			'forreupload' => $this->mForReUpload,
@@ -225,8 +234,7 @@ class SpecialUpload extends SpecialPage {
 			'texttop' => $this->uploadFormTextTop,
 			'textaftersummary' => $this->uploadFormTextAfterSummary,
 			'destfile' => $this->mDesiredDestName,
-		), $this->getContext() );
-		$form->setTitle( $this->getTitle() );
+		), $context );
 
 		# Check the token, but only if necessary
 		if (
@@ -563,8 +571,9 @@ class SpecialUpload extends SpecialPage {
 				} else {
 					$msg->params( $details['finalExt'] );
 				}
-				$msg->params( $this->getLanguage()->commaList( $wgFileExtensions ),
-					count( $wgFileExtensions ) );
+				$extensions = array_unique( $wgFileExtensions );
+				$msg->params( $this->getLanguage()->commaList( $extensions ),
+					count( $extensions ) );
 
 				// Add PLURAL support for the first parameter. This results
 				// in a bit unlogical parameter sequence, but does not break
@@ -870,16 +879,16 @@ class UploadForm extends HTMLForm {
 				# Everything not permitted is banned
 				$extensionsList =
 					'<div id="mw-upload-permitted">' .
-					$this->msg( 'upload-permitted', $this->getContext()->getLanguage()->commaList( $wgFileExtensions ) )->parseAsBlock() .
+					$this->msg( 'upload-permitted', $this->getContext()->getLanguage()->commaList( array_unique( $wgFileExtensions ) ) )->parseAsBlock() .
 					"</div>\n";
 			} else {
 				# We have to list both preferred and prohibited
 				$extensionsList =
 					'<div id="mw-upload-preferred">' .
-						$this->msg( 'upload-preferred', $this->getContext()->getLanguage()->commaList( $wgFileExtensions ) )->parseAsBlock() .
+						$this->msg( 'upload-preferred', $this->getContext()->getLanguage()->commaList( array_unique( $wgFileExtensions ) ) )->parseAsBlock() .
 					"</div>\n" .
 					'<div id="mw-upload-prohibited">' .
-						$this->msg( 'upload-prohibited', $this->getContext()->getLanguage()->commaList( $wgFileBlacklist ) )->parseAsBlock() .
+						$this->msg( 'upload-prohibited', $this->getContext()->getLanguage()->commaList( array_unique( $wgFileBlacklist ) ) )->parseAsBlock() .
 					"</div>\n";
 			}
 		} else {

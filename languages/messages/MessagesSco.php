@@ -14,6 +14,7 @@
  * @author OchAyeTheNoo
  * @author Omnipaedista
  * @author Purodha
+ * @author Shirayuki
  * @author The Evil IP address
  * @author Urhixidur
  * @author Ushanka
@@ -229,7 +230,7 @@ $messages = array(
 'jumptonavigation' => 'navigation',
 'jumptosearch' => 'rake',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Aboot {{SITENAME}}',
 'aboutpage' => 'Project:Aboot',
 'copyright' => 'Aa text is available unner $1',
@@ -945,8 +946,6 @@ Th' description oan tis [$2 file description page] thare is shown below.",
 'statistics-header-users' => 'Uiser statistics',
 'statistics-header-hooks' => 'Ither statistics',
 'statistics-pages' => 'Pages',
-
-'disambiguationspage' => 'Template:disambig',
 
 'doubleredirects' => 'Dooble reguidals',
 'doubleredirectstext' => 'Ilka raw hauds airtins tae the first an saicont reguidal, as weel as the first line o the saicont reguidal text, for usual giein the "rael" tairget page, that the first reguidal shuid pynt til.',

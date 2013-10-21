@@ -354,7 +354,7 @@ $1',
 'pool-queuefull' => 'Antrian panuah',
 'pool-errorunknown' => 'Kasalahan indak jaleh',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Tantang {{SITENAME}}',
 'aboutpage' => 'Project:Tantang_{{SITENAME}}',
 'copyright' => 'Isi tasadio dalam $1',
@@ -1590,12 +1590,6 @@ Pariso dulu "pautan baliak" ka templat tasabuik sabalun manghapuihnyo.',
 'statistics-users-active-desc' => 'Pangguno nan aktip dalam {{PLURAL:$1|$1 ari}} tarakhia.',
 'statistics-mostpopular' => 'Laman nan paliang banyak ditampilkan',
 
-'disambiguations' => 'Laman nan tahubuang ka laman disambiguasi',
-'disambiguationspage' => 'Template:Disambig',
-'disambiguations-text' => "Laman-laman barikuik punyo pautan ka '''laman disambiguasi'''.
-Laman tasabuik saharuihnyo bapauik ka topik-topik nan sasuai.<br />
-Laman nan dianggap sabagai laman disambiguasi jikok laman tasabuik manggunoan templat nan tahubuang ka [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Laman jo laman properti',
 'pageswithprop-legend' => 'Laman jo laman properti',
 'pageswithprop-text' => 'Laman ko barisi daftar laman nan manggunoan properti laman tatantu.',
@@ -2615,8 +2609,7 @@ Sanak mustilah alah manarimo [{{SERVER}}{{SCRIPTPATH}}/COPYING salinan Lisensi P
 
 # Database error messages
 'dberr-header' => 'Wiki ko bamasalah',
-'dberr-problems' => 'Maaf!
-Situs ko mangalami masalah teknis.',
+'dberr-problems' => 'Maaf! Situs ko mangalami masalah teknis.',
 
 # HTML forms
 'htmlform-required' => 'Nilai ko diparaluan',

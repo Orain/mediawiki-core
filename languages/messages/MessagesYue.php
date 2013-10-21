@@ -463,7 +463,7 @@ $1',
 'pool-queuefull' => '隊池已滿',
 'pool-errorunknown' => '未知嘅錯誤',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => '關於{{SITENAME}}',
 'aboutpage' => 'Project:關於',
 'copyright' => '響版度嘅內容係根據$1嘅條款發佈。',
@@ -1760,11 +1760,6 @@ $1',
 'statistics-users-active' => '活躍用戶',
 'statistics-users-active-desc' => '響$1日前做過動作嘅用戶',
 'statistics-mostpopular' => '最多人睇嘅頁',
-
-'disambiguations' => '搞清楚頁',
-'disambiguationspage' => 'Template:disambig
-Template:搞清楚',
-'disambiguations-text' => "以下呢啲頁面連結去一個'''搞清楚頁'''。佢哋先至應該指去正確嘅主題。<br />如果一個頁面連結自[[MediaWiki:Disambiguationspage]]，噉就會當佢係搞清楚頁。",
 
 'doubleredirects' => '雙重跳轉',
 'doubleredirectstext' => '每一行都順次序寫住第一頁名，佢嘅目的頁，同埋目的頁再指去邊度。改嘅時候，應該將第一個跳轉頁轉入第三頁。
@@ -3283,8 +3278,7 @@ MediaWiki是基於使用目的而加以發佈，但係就唔會負上任何嘅�
 
 # Database error messages
 'dberr-header' => '呢個 wiki 出咗問題',
-'dberr-problems' => '對唔住！
-呢一版出現咗一啲技術性問題。',
+'dberr-problems' => '對唔住！呢一版出現咗一啲技術性問題。',
 'dberr-again' => '試吓等多幾分種然後開試。',
 'dberr-info' => '(唔能夠連繫個資料伺服器: $1)',
 'dberr-usegoogle' => '響現階段你可以用 Google 去搵嘢。',

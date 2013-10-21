@@ -13,6 +13,7 @@
  * @author Beau
  * @author BeginaFelicysym
  * @author Chrumps
+ * @author Clamira
  * @author Cysioland
  * @author Debeet
  * @author Derbeth
@@ -315,12 +316,12 @@ $messages = array(
 'tog-hidepatrolled' => 'Ukryj sprawdzone edycje w ostatnich zmianach',
 'tog-newpageshidepatrolled' => 'Ukryj sprawdzone strony na liście nowych stron',
 'tog-extendwatchlist' => 'Pokaż na liście obserwowanych wszystkie zmiany, nie tylko ostatnie',
-'tog-usenewrc' => 'Grupuj zmiany według stron na liście ostatnich zmian i obserwowanych (wymaga JavaScript)',
+'tog-usenewrc' => 'Grupuj zmiany według stron na liście ostatnich zmian i obserwowanych',
 'tog-numberheadings' => 'Automatyczna numeracja nagłówków',
-'tog-showtoolbar' => 'Pokaż pasek narzędzi (JavaScript)',
-'tog-editondblclick' => 'Podwójne kliknięcie rozpoczyna edycję (JavaScript)',
+'tog-showtoolbar' => 'Pokaż pasek narzędzi',
+'tog-editondblclick' => 'Podwójne kliknięcie rozpoczyna edycję',
 'tog-editsection' => 'Możliwość edycji poszczególnych sekcji strony (link [edytuj])',
-'tog-editsectiononrightclick' => 'Kliknięcie prawym klawiszem myszy na tytule sekcji rozpoczyna jej edycję (JavaScript)',
+'tog-editsectiononrightclick' => 'Kliknięcie prawym klawiszem myszy na tytule sekcji rozpoczyna jej edycję',
 'tog-showtoc' => 'Pokazuj spis treści (na stronach z więcej niż 3 nagłówkami)',
 'tog-rememberpassword' => 'Zapamiętaj moje hasło w przeglądarce (maksymalnie przez $1 {{PLURAL:$1|dzień|dni}})',
 'tog-watchcreations' => 'Dodawaj do obserwowanych tworzone przeze mnie strony oraz wgrywane przeze mnie pliki',
@@ -338,7 +339,7 @@ $messages = array(
 'tog-shownumberswatching' => 'Pokaż liczbę użytkowników obserwujących stronę',
 'tog-oldsig' => 'Twój obecny podpis',
 'tog-fancysig' => 'Traktuj podpis jako wikikod (nie linkuj automatycznie całości)',
-'tog-uselivepreview' => 'Używaj dynamicznego podglądu (JavaScript; eksperymentalny)',
+'tog-uselivepreview' => 'Używaj dynamicznego podglądu (eksperymentalny)',
 'tog-forceeditsummary' => 'Informuj o niewypełnieniu opisu zmian',
 'tog-watchlisthideown' => 'Ukryj moje edycje na liście obserwowanych',
 'tog-watchlisthidebots' => 'Ukryj edycje botów na liście obserwowanych',
@@ -553,10 +554,10 @@ $1',
 'pool-queuefull' => 'Kolejka zadań jest pełna',
 'pool-errorunknown' => 'Błąd nieznany',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'O {{GRAMMAR:MS.lp|{{SITENAME}}}}',
 'aboutpage' => 'Project:O {{GRAMMAR:MS.lp|{{SITENAME}}}}',
-'copyright' => 'Treść udostępniana na licencji $1.',
+'copyright' => 'Treść udostępniana na licencji $1, jeśli nie podano inaczej.',
 'copyrightpage' => '{{ns:project}}:Prawa_autorskie',
 'currentevents' => 'Bieżące wydarzenia',
 'currentevents-url' => 'Project:Aktualności',
@@ -640,6 +641,9 @@ Listę dostępnych stron specjalnych znajdziesz [[Special:SpecialPages|tutaj]].'
 # General errors
 'error' => 'Błąd',
 'databaseerror' => 'Błąd bazy danych',
+'databaseerror-text' => 'Wystąpił błąd podczas wykonywania zapytania do bazy danych.
+Może to wskazywać na błąd w oprogramowaniu.',
+'databaseerror-textcl' => 'Wystąpił błąd podczas wykonywania zapytania do bazy danych.',
 'databaseerror-query' => 'Zapytanie: $1',
 'databaseerror-function' => 'Funkcja: $1',
 'databaseerror-error' => 'Błąd: $1',
@@ -844,7 +848,7 @@ Poniższe funkcje poczty nie działają.",
 Wpisz poprawny adres e‐mail lub wyczyść pole.',
 'cannotchangeemail' => 'Na tej wiki nie ma możliwości zmiany adresu e‐mail przypisanego do konta.',
 'emaildisabled' => 'Ta witryna nie może wysłać wiadomości e-mail.',
-'accountcreated' => 'Konto zostało utworzone',
+'accountcreated' => 'Utworzono konto',
 'accountcreatedtext' => 'Konto dla [[{{ns:User}}:$1|$1]] ([[{{ns:User talk}}:$1|dyskusja]]) zostało utworzone.',
 'createaccount-title' => 'Utworzenie konta w {{GRAMMAR:MS.lp|{{SITENAME}}}}',
 'createaccount-text' => 'Ktoś utworzył w {{GRAMMAR:MS.lp|{{SITENAME}}}} ($4), podając Twój adres e‐mail, konto „$2”. Aktualnym hasłem jest „$3”.
@@ -903,13 +907,13 @@ Być może właśnie zmienił{{GENDER:|eś|aś|eś(‐aś)}} swoje hasło lub po
 $2
 
 {{PLURAL:$3|Tymczasowego hasła|Tymczasowych haseł}} można użyć w ciągu {{PLURAL:$5|jednego dnia|$5 dni}}.
-Powinieneś zalogować się i zmienić hasło na nowe. Jeśli to ktoś inni poprosił o wysłanie przypomnienia lub jeśli pamiętasz aktualne hasło i nie chce go zmieniać wystarczy, że zignorujesz tę wiadomość i będziesz nadal korzystał ze swojego starego hasła.',
+Powinieneś zalogować się i zmienić hasło na nowe. Jeśli to ktoś inny poprosił o wysłanie przypomnienia lub jeśli pamiętasz aktualne hasło i nie chcesz go zmieniać wystarczy, że zignorujesz tę wiadomość i będziesz nadal korzystać ze swojego starego hasła.',
 'passwordreset-emailtext-user' => 'Użytkownik $1 poprosił o zresetowanie twojego hasła w {{GRAMMAR:MS.lp{{SITENAME}}}} ($4). Z tym adresem e‐mailowym powiązane {{PLURAL:$3|jest konto użytkownika|są następujące konta użytkowników:}}
 
 $2
 
 {{PLURAL:$3|Tymczasowego hasła|Tymczasowych haseł}} można użyć w ciągu {{PLURAL:$5|jednego dnia|$5 dni}}.
-Powinieneś zalogować się i zmienić hasło na nowe. Jeśli to ktoś inni poprosił o wysłanie przypomnienia lub jeśli pamiętasz aktualne hasło i nie chce go zmieniać wystarczy, że zignorujesz tę wiadomość i będziesz nadal korzystał ze swojego starego hasła.',
+Powinieneś zalogować się i zmienić hasło na nowe. Jeśli to ktoś inny poprosił o wysłanie przypomnienia lub jeśli pamiętasz aktualne hasło i nie chcesz go zmieniać wystarczy, że zignorujesz tę wiadomość i będziesz nadal korzystać ze swojego starego hasła.',
 'passwordreset-emailelement' => 'Nazwa użytkownika – $1
 Tymczasowe hasło – $2',
 'passwordreset-emailsent' => 'E‐mail pozwalający na zresetowanie hasła został wysłany.',
@@ -1712,8 +1716,8 @@ Jeśli zdecydujesz się je podać, zostaną użyte, by udokumentować Twoje auto
 'action-block' => 'zablokowania temu użytkownikowi możliwości edycji',
 'action-protect' => 'zmiany poziomu zabezpieczenia tej strony',
 'action-rollback' => 'szybkiego wycofania zmian wprowadzonych przez użytkownika, który jako ostatni edytował tę stronę',
-'action-import' => 'importu tej strony z innej wiki',
-'action-importupload' => 'importu tej strony poprzez przesłanie pliku',
+'action-import' => 'importu stron z innej wiki',
+'action-importupload' => 'importu stron poprzez przesłanie pliku',
 'action-patrol' => 'oznaczenia cudzej edycji jako „sprawdzonej”',
 'action-autopatrol' => 'oznaczenia własnej edycji jako „sprawdzonej”',
 'action-unwatchedpages' => 'podglądu listy nieobserwowanych stron',
@@ -1762,7 +1766,7 @@ Jeśli zdecydujesz się je podać, zostaną użyte, by udokumentować Twoje auto
 'rc_categories_any' => 'Wszystkie',
 'rc-change-size-new' => '$1 {{PLURAL:$1|bajt|bajty|bajtów}} po zmianie',
 'newsectionsummary' => '/* $1 */ nowa sekcja',
-'rc-enhanced-expand' => 'Pokaż szczegóły (wymagany JavaScript)',
+'rc-enhanced-expand' => 'Pokaż szczegóły',
 'rc-enhanced-hide' => 'Ukryj szczegóły',
 'rc-old-title' => 'oryginalnie utworzono jako "$1"',
 
@@ -1786,7 +1790,7 @@ Strony z [[Special:Watchlist|listy obserwowanych]] są '''wytłuszczone'''.",
 'upload_directory_missing' => 'Katalog dla przesyłanych plików ($1) nie istnieje i nie może zostać utworzony przez serwer WWW.',
 'upload_directory_read_only' => 'Serwer nie może zapisywać do katalogu ($1) przeznaczonego na przesyłane pliki.',
 'uploaderror' => 'Błąd wysyłania',
-'upload-recreate-warning' => "'''Uwaga – plik o tej nazwie został wcześniej usunięty lub przrniesiony.'''
+'upload-recreate-warning' => "'''Uwaga: plik o tej nazwie został wcześniej usunięty lub przeniesiony.''' 
 
 Poniżej znajduje się rejestr usunięć i zmian nazwy tej strony:",
 'uploadtext' => "Użyj poniższego formularza do przesłania plików.
@@ -1810,7 +1814,7 @@ Przejdź na stronę [[Special:NewFiles|galerii nowych plików]], by zobaczyć pl
 'filestatus' => 'Status prawny',
 'filesource' => 'Źródło',
 'uploadedfiles' => 'Przesłane pliki',
-'ignorewarning' => 'Zignoruj ostrzeżenia i wymuś zapisanie pliku.',
+'ignorewarning' => 'Zignoruj ostrzeżenia i wymuś zapisanie pliku',
 'ignorewarnings' => 'Ignoruj wszystkie ostrzeżenia',
 'minlength1' => 'Nazwa pliku musi składać się co najmniej z jednej litery.',
 'illegalfilename' => 'Nazwa pliku „$1” zawiera znaki niedozwolone w tytułach stron.
@@ -2043,6 +2047,7 @@ Możesz także spróbować w czasie mniejszego obciążenia serwera.',
 'listfiles_size' => 'Wielkość',
 'listfiles_description' => 'Opis',
 'listfiles_count' => 'Wersje',
+'listfiles-show-all' => 'Uwzględnij starsze wersje zdjęć',
 'listfiles-latestversion' => 'Aktualna wersja',
 'listfiles-latestversion-yes' => 'Tak',
 'listfiles-latestversion-no' => 'Nie',
@@ -2175,12 +2180,6 @@ Sprawdź inne linki do szablonów, zanim usuniesz tę stronę.',
 'statistics-users-active-desc' => 'Użytkownicy, którzy byli aktywni w ciągu {{PLURAL:$1|ostatniego dnia|ostatnich $1 dni}}',
 'statistics-mostpopular' => 'Najczęściej odwiedzane strony',
 
-'disambiguations' => 'Strony linkujące do stron ujednoznaczniających',
-'disambiguationspage' => 'Template:disambig',
-'disambiguations-text' => "Poniższe strony odwołują się do '''stron ujednoznaczniających''',
-a powinny odwoływać się bezpośrednio do stron treści.<br />
-Strona uznawana jest za ujednoznaczniającą, jeśli zawiera szablon linkowany przez stronę [[MediaWiki:Disambiguationspage]]",
-
 'pageswithprop' => 'Strony z właściwościami',
 'pageswithprop-legend' => 'Strony z właściwościami',
 'pageswithprop-text' => 'Ta strona zawiera listę stron korzystających z właściwości.',
@@ -2261,6 +2260,7 @@ Każdy wiersz zawiera linki do pierwszego i drugiego przekierowania oraz link, d
 'listusers' => 'Lista użytkowników',
 'listusers-editsonly' => 'Pokaż tylko użytkowników z edycjami',
 'listusers-creationsort' => 'Sortuj według daty utworzenia',
+'listusers-desc' => 'Sortuj w kolejności malejącej',
 'usereditcount' => '$1 {{PLURAL:$1|edycja|edycje|edycji}}',
 'usercreated' => '{{GENDER:$3|Utworzył|Utworzyła|Utworzone}} $1 o $2',
 'newpages' => 'Nowe strony',
@@ -2518,14 +2518,16 @@ Zobacz na stronie $2 rejestr ostatnio wykonanych usunięć.',
 'deletecomment' => 'Powód',
 'deleteotherreason' => 'Inny lub dodatkowy powód:',
 'deletereasonotherlist' => 'Inny powód',
-'deletereason-dropdown' => '* Najczęstsze powody usunięcia
+'deletereason-dropdown' => '* Najczęstsze przyczyny usunięcia
+** Spam
+** Wandalizm
+** Naruszenia praw autorskich
 ** Prośba autora
-** Naruszenie praw autorskich
-** Wandalizm',
+** Zerwane przekierowanie',
 'delete-edit-reasonlist' => 'Edytuj listę przyczyn usunięcia',
-'delete-toobig' => 'Ta strona ma bardzo długą historię edycji, ponad $1 {{PLURAL:$1|zmianę|zmiany|zmian}}.
-Usunięcie jej mogłoby spowodować zakłócenia w pracy {{GRAMMAR:D.lp|{{SITENAME}}}} i dlatego zostało ograniczone.',
-'delete-warning-toobig' => 'Ta strona ma bardzo długą historię edycji, ponad $1 {{PLURAL:$1|zmianę|zmiany|zmian}}.
+'delete-toobig' => 'Ta strona ma bardzo długą historię edycji – ponad $1 {{PLURAL:$1|zmianę|zmiany|zmian}}.<br />
+Usuwanie jej zostało ograniczone ze względu na możliwość zakłócenia pracy {{GRAMMAR:D.lp|{{SITENAME}}}}.',
+'delete-warning-toobig' => 'Ta strona ma bardzo długą historię edycji – ponad $1 {{PLURAL:$1|zmianę|zmiany|zmian}}.<br />
 Bądź ostrożny, ponieważ usunięcie jej może spowodować zakłócenia w pracy {{GRAMMAR:D.lp|{{SITENAME}}}}.',
 
 # Rollback
@@ -2542,7 +2544,7 @@ Ktoś inny zdążył już to zrobić lub wprowadził własne poprawki do treści
 Autorem ostatniej zmiany jest teraz [[User:$3|$3]] ([[User talk:$3|dyskusja]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "Edycję opisał „''$1''”.",
 'revertpage' => 'Wycofano edycje użytkownika [[Special:Contributions/$2|$2]] ([[User talk:$2|dyskusja]]). Autor przywróconej wersji to [[User:$1|$1]].',
-'revertpage-nouser' => 'Wycofano edycje ukrytego użytkownika. Autor przywróconej wersji to [[User:$1|$1]].',
+'revertpage-nouser' => 'Wycofano edycje ukrytego użytkownika. Autor przywróconej wersji to {{GENDER:$1|[[User:$1|$1]]}}.',
 'rollback-success' => 'Wycofano edycje użytkownika $1;
 przywrócono ostatnią wersję autorstwa $2.',
 
@@ -2685,7 +2687,7 @@ $1',
 'contributions' => 'Wkład {{GENDER:$1|użytkownika|użytkowniczki}}',
 'contributions-title' => 'Wkład {{GENDER:$1|użytkownika|użytkowniczki}} $1',
 'mycontris' => 'Edycje',
-'contribsub2' => 'Dla użytkownika $1 ($2)',
+'contribsub2' => 'Dla {{GENDER:$3|użytkownika|użytkowniczki}}$1 ($2)',
 'nocontribs' => 'Brak zmian odpowiadających tym kryteriom.',
 'uctop' => '(ostatnia)',
 'month' => 'Do miesiąca (włącznie)',
@@ -4101,7 +4103,10 @@ Powinieneś otrzymać [{{SERVER}}{{SCRIPTPATH}}/COPYING kopię licencji GNU Gene
 'tags-tag' => 'Nazwa znacznika',
 'tags-display-header' => 'Wystąpienia na listach zmian',
 'tags-description-header' => 'Pełny opis znaczenia',
+'tags-active-header' => 'Aktywny?',
 'tags-hitcount-header' => 'Oznaczone zmiany',
+'tags-active-yes' => 'Tak',
+'tags-active-no' => 'Nie',
 'tags-edit' => 'edytuj',
 'tags-hitcount' => '$1 {{PLURAL:$1|zmiana|zmiany|zmian}}',
 
@@ -4267,9 +4272,9 @@ W przeciwnym wypadku można użyć prostego formularza poniżej. Komentarz zosta
 'limitreport-ppvisitednodes' => 'Liczba odwiedzonych węzłów preprocesora',
 'limitreport-ppgeneratednodes' => 'Liczba wygenerowanych węzłów preprocesora',
 'limitreport-postexpandincludesize' => 'Rozmiar dołączonych elementów po ekspansji',
-'limitreport-postexpandincludesize-value' => '$1/$2 bajtów',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|bajt|bajty|bajtów}}',
 'limitreport-templateargumentsize' => 'Rozmiar argumentów szablonów',
-'limitreport-templateargumentsize-value' => '$1/$2 bajtów',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|bajt|bajty|bajtów}}',
 'limitreport-expansiondepth' => 'Największa głębokość ekspansji',
 'limitreport-expensivefunctioncount' => 'Liczba wywołań kosztownych funkcji parsera',
 

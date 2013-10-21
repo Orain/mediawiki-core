@@ -191,6 +191,7 @@ class Parser {
 	var $mRevisionId;   # ID to display in {{REVISIONID}} tags
 	var $mRevisionTimestamp; # The timestamp of the specified revision ID
 	var $mRevisionUser; # User to display in {{REVISIONUSER}} tag
+	var $mRevisionSize; # Size to display in {{REVISIONSIZE}} variable
 	var $mRevIdForTs;   # The revision ID which was used to fetch the timestamp
 	var $mInputSize = false; # For {{PAGESIZE}} on current page.
 
@@ -292,7 +293,7 @@ class Parser {
 		$this->mLinkHolders = new LinkHolderArray( $this );
 		$this->mLinkID = 0;
 		$this->mRevisionObject = $this->mRevisionTimestamp =
-			$this->mRevisionId = $this->mRevisionUser = null;
+			$this->mRevisionId = $this->mRevisionUser = $this->mRevisionSize = null;
 		$this->mVarCache = array();
 		$this->mUser = null;
 		$this->mLangLinkLanguages = array();
@@ -375,11 +376,13 @@ class Parser {
 		$oldRevisionObject = $this->mRevisionObject;
 		$oldRevisionTimestamp = $this->mRevisionTimestamp;
 		$oldRevisionUser = $this->mRevisionUser;
+		$oldRevisionSize = $this->mRevisionSize;
 		if ( $revid !== null ) {
 			$this->mRevisionId = $revid;
 			$this->mRevisionObject = null;
 			$this->mRevisionTimestamp = null;
 			$this->mRevisionUser = null;
+			$this->mRevisionSize = null;
 		}
 
 		wfRunHooks( 'ParserBeforeStrip', array( &$this, &$text, &$this->mStripState ) );
@@ -566,6 +569,7 @@ class Parser {
 		$this->mRevisionObject = $oldRevisionObject;
 		$this->mRevisionTimestamp = $oldRevisionTimestamp;
 		$this->mRevisionUser = $oldRevisionUser;
+		$this->mRevisionSize = $oldRevisionSize;
 		$this->mInputSize = false;
 		wfProfileOut( $fname );
 		wfProfileOut( __METHOD__ );
@@ -1414,7 +1418,8 @@ class Parser {
 	 */
 	public function doQuotes( $text ) {
 		$arr = preg_split( "/(''+)/", $text, -1, PREG_SPLIT_DELIM_CAPTURE );
-		if ( count( $arr ) == 1 ) {
+		$countarr = count( $arr );
+		if ( $countarr == 1 ) {
 			return $text;
 		}
 
@@ -1423,26 +1428,29 @@ class Parser {
 		// of bold and italics mark-ups.
 		$numbold = 0;
 		$numitalics = 0;
-		for ( $i = 1; $i < count( $arr ); $i += 2 ) {
+		for ( $i = 1; $i < $countarr; $i += 2 ) {
+			$thislen = strlen( $arr[$i] );
 			// If there are ever four apostrophes, assume the first is supposed to
 			// be text, and the remaining three constitute mark-up for bold text.
 			// (bug 13227: ''''foo'''' turns into ' ''' foo ' ''')
-			if ( strlen( $arr[$i] ) == 4 ) {
+			if ( $thislen == 4 ) {
 				$arr[$i - 1] .= "'";
 				$arr[$i] = "'''";
-			} elseif ( strlen( $arr[$i] ) > 5 ) {
+				$thislen = 3;
+			} elseif ( $thislen > 5 ) {
 				// If there are more than 5 apostrophes in a row, assume they're all
 				// text except for the last 5.
 				// (bug 13227: ''''''foo'''''' turns into ' ''''' foo ' ''''')
-				$arr[$i - 1] .= str_repeat( "'", strlen( $arr[$i] ) - 5 );
+				$arr[$i - 1] .= str_repeat( "'", $thislen - 5 );
 				$arr[$i] = "'''''";
+				$thislen = 5;
 			}
 			// Count the number of occurrences of bold and italics mark-ups.
-			if ( strlen( $arr[$i] ) == 2 ) {
+			if ( $thislen == 2 ) {
 				$numitalics++;
-			} elseif ( strlen( $arr[$i] ) == 3 ) {
+			} elseif ( $thislen == 3 ) {
 				$numbold++;
-			} elseif ( strlen( $arr[$i] ) == 5 ) {
+			} elseif ( $thislen == 5 ) {
 				$numitalics++;
 				$numbold++;
 			}
@@ -1456,7 +1464,7 @@ class Parser {
 			$firstsingleletterword = -1;
 			$firstmultiletterword = -1;
 			$firstspace = -1;
-			for ( $i = 1; $i < count( $arr ); $i += 2 ) {
+			for ( $i = 1; $i < $countarr; $i += 2 ) {
 				if ( strlen( $arr[$i] ) == 3 ) {
 					$x1 = substr( $arr[$i - 1], -1 );
 					$x2 = substr( $arr[$i - 1], -2, 1 );
@@ -1467,6 +1475,9 @@ class Parser {
 					} elseif ( $x2 === ' ' ) {
 						if ( $firstsingleletterword == -1 ) {
 							$firstsingleletterword = $i;
+							// if $firstsingleletterword is set, we don't
+							// look at the other options, so we can bail early.
+							break;
 						}
 					} else {
 						if ( $firstmultiletterword == -1 ) {
@@ -1506,7 +1517,8 @@ class Parser {
 					$output .= $r;
 				}
 			} else {
-				if ( strlen( $r ) == 2 ) {
+				$thislen = strlen( $r );
+				if ( $thislen == 2 ) {
 					if ( $state === 'i' ) {
 						$output .= '</i>';
 						$state = '';
@@ -1523,7 +1535,7 @@ class Parser {
 						$output .= '<i>';
 						$state .= 'i';
 					}
-				} elseif ( strlen( $r ) == 3 ) {
+				} elseif ( $thislen == 3 ) {
 					if ( $state === 'b' ) {
 						$output .= '</b>';
 						$state = '';
@@ -1540,7 +1552,7 @@ class Parser {
 						$output .= '<b>';
 						$state .= 'b';
 					}
-				} elseif ( strlen( $r ) == 5 ) {
+				} elseif ( $thislen == 5 ) {
 					if ( $state === 'b' ) {
 						$output .= '</b><i>';
 						$state = 'i';
@@ -2354,6 +2366,7 @@ class Parser {
 		$this->mDTopen = $inBlockElem = false;
 		$prefixLength = 0;
 		$paragraphStack = false;
+		$inBlockquote = false;
 
 		foreach ( $textLines as $oLine ) {
 			# Fix up $linestart
@@ -2447,10 +2460,10 @@ class Parser {
 				wfProfileIn( __METHOD__ . "-paragraph" );
 				# No prefix (not in list)--go to paragraph mode
 				# XXX: use a stack for nestable elements like span, table and div
-				$openmatch = preg_match( '/(?:<table|<blockquote|<h1|<h2|<h3|<h4|<h5|<h6|<pre|<tr|<p|<ul|<ol|<dl|<li|<\\/tr|<\\/td|<\\/th)/iS', $t );
+				$openmatch = preg_match( '/(?:<table|<h1|<h2|<h3|<h4|<h5|<h6|<pre|<tr|<p|<ul|<ol|<dl|<li|<\\/tr|<\\/td|<\\/th)/iS', $t );
 				$closematch = preg_match(
-					'/(?:<\\/table|<\\/blockquote|<\\/h1|<\\/h2|<\\/h3|<\\/h4|<\\/h5|<\\/h6|' .
-					'<td|<th|<\\/?div|<hr|<\\/pre|<\\/p|' . $this->mUniqPrefix . '-pre|<\\/li|<\\/ul|<\\/ol|<\\/dl|<\\/?center)/iS', $t );
+					'/(?:<\\/table|<\\/h1|<\\/h2|<\\/h3|<\\/h4|<\\/h5|<\\/h6|' .
+					'<td|<th|<\\/?blockquote|<\\/?div|<hr|<\\/pre|<\\/p|' . $this->mUniqPrefix . '-pre|<\\/li|<\\/ul|<\\/ol|<\\/dl|<\\/?center)/iS', $t );
 				if ( $openmatch or $closematch ) {
 					$paragraphStack = false;
 					# TODO bug 5718: paragraph closed
@@ -2458,9 +2471,14 @@ class Parser {
 					if ( $preOpenMatch and !$preCloseMatch ) {
 						$this->mInPre = true;
 					}
+					$bqOffset = 0;
+					while ( preg_match( '/<(\\/?)blockquote[\s>]/i', $t, $bqMatch, PREG_OFFSET_CAPTURE, $bqOffset ) ) {
+						$inBlockquote = !$bqMatch[1][0]; // is this a close tag?
+						$bqOffset = $bqMatch[0][1] + strlen( $bqMatch[0][0] );
+					}
 					$inBlockElem = !$closematch;
 				} elseif ( !$inBlockElem && !$this->mInPre ) {
-					if ( ' ' == substr( $t, 0, 1 ) and ( $this->mLastSection === 'pre' || trim( $t ) != '' ) ) {
+					if ( ' ' == substr( $t, 0, 1 ) and ( $this->mLastSection === 'pre' || trim( $t ) != '' ) and !$inBlockquote ) {
 						# pre
 						if ( $this->mLastSection !== 'pre' ) {
 							$paragraphStack = false;
@@ -2889,6 +2907,13 @@ class Parser {
 				$this->mOutput->setFlag( 'vary-revision' );
 				wfDebug( __METHOD__ . ": {{REVISIONUSER}} used, setting vary-revision...\n" );
 				$value = $this->getRevisionUser();
+				break;
+			case 'revisionsize':
+				# Let the edit saving system know we should parse the page
+				# *after* a revision ID has been assigned. This is for null edits.
+				$this->mOutput->setFlag( 'vary-revision' );
+				wfDebug( __METHOD__ . ": {{REVISIONSIZE}} used, setting vary-revision...\n" );
+				$value = $this->getRevisionSize();
 				break;
 			case 'namespace':
 				$value = str_replace( '_', ' ', $wgContLang->getNsText( $this->mTitle->getNamespace() ) );
@@ -4422,7 +4447,8 @@ class Parser {
 
 			# Add the section to the section tree
 			# Find the DOM node for this header
-			while ( $node && !$isTemplate ) {
+			$noOffset = ( $isTemplate || $sectionIndex === false );
+			while ( $node && !$noOffset ) {
 				if ( $node->getName() === 'h' ) {
 					$bits = $node->splitHeading();
 					if ( $bits['i'] == $sectionIndex ) {
@@ -4440,7 +4466,7 @@ class Parser {
 				'number' => $numbering,
 				'index' => ( $isTemplate ? 'T-' : '' ) . $sectionIndex,
 				'fromtitle' => $titleText,
-				'byteoffset' => ( $isTemplate ? null : $byteOffset ),
+				'byteoffset' => ( $noOffset ? null : $byteOffset ),
 				'anchor' => $anchor,
 			);
 
@@ -5787,6 +5813,27 @@ class Parser {
 			}
 		}
 		return $this->mRevisionUser;
+	}
+
+	/**
+	 * Get the size of the revision
+	 *
+	 * @return int|null revision size
+	 */
+	function getRevisionSize() {
+		if ( is_null( $this->mRevisionSize ) ) {
+			$revObject = $this->getRevisionObject();
+
+			# if this variable is subst: the revision id will be blank,
+			# so just use the parser input size, because the own substituation
+			# will change the size.
+			if ( $revObject ) {
+				$this->mRevisionSize = $revObject->getSize();
+			} elseif ( $this->ot['wiki'] || $this->mOptions->getIsPreview() ) {
+				$this->mRevisionSize = $this->mInputSize;
+			}
+		}
+		return $this->mRevisionSize;
 	}
 
 	/**

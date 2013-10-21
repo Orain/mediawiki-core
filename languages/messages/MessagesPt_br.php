@@ -45,6 +45,7 @@
  * @author Luckas Blade
  * @author Malafaya
  * @author ManoDbo
+ * @author Matheus Sousa L.T
  * @author McDutchie
  * @author MetalBrasil
  * @author MisterSanderson
@@ -332,12 +333,12 @@ $messages = array(
 'tog-hidepatrolled' => 'Ocultar edições patrulhadas nas mudanças recentes',
 'tog-newpageshidepatrolled' => 'Ocultar páginas patrulhadas da lista de páginas novas',
 'tog-extendwatchlist' => 'Expandir a lista de páginas vigiadas para mostrar todas as mudanças, não apenas as mais recentes',
-'tog-usenewrc' => 'Agrupar alterações por páginas nas mudanças recentes e na lista de páginas vigiadas (requer JavaScript)',
+'tog-usenewrc' => 'Agrupar alterações por páginas nas mudanças recentes e nas páginas vigiadas',
 'tog-numberheadings' => 'Auto-numerar cabeçalhos',
-'tog-showtoolbar' => 'Mostrar barra de ferramentas de edição (requer JavaScript)',
-'tog-editondblclick' => 'Editar páginas quando houver clique duplo (JavaScript)',
+'tog-showtoolbar' => 'Mostrar barra de ferramentas de edição',
+'tog-editondblclick' => 'Editar páginas quando houver clique duplo (requer JavaScript)',
 'tog-editsection' => 'Ativar a edição de seções com links [editar]',
-'tog-editsectiononrightclick' => 'Habilitar edição de seção por clique com o botão direito no título da seção (JavaScript)',
+'tog-editsectiononrightclick' => 'Habilitar edição de seção por clique com o botão direito no título da seção (requer JavaScript)',
 'tog-showtoc' => 'Mostrar Tabela de Conteúdos (para páginas com mais de três cabeçalhos)',
 'tog-rememberpassword' => 'Recordar meus dados de acesso neste navegador (por no máximo $1 {{PLURAL:$1|dia|dias}})',
 'tog-watchcreations' => 'Adicionar as páginas e arquivos que eu criar à minha lista de páginas vigiadas',
@@ -355,7 +356,7 @@ $messages = array(
 'tog-shownumberswatching' => 'Mostrar o número de usuários que estão vigiando',
 'tog-oldsig' => 'Assinatura existente:',
 'tog-fancysig' => 'Tratar assinatura como wikitexto (sem link automático)',
-'tog-uselivepreview' => 'Utilizar pré-visualização em tempo real (JavaScript) (Experimental)',
+'tog-uselivepreview' => 'Utilizar pré-visualização em tempo real (experimental)',
 'tog-forceeditsummary' => 'Avisar-me ao introduzir um sumário de edição vazio',
 'tog-watchlisthideown' => 'Ocultar as minhas edições da lista de páginas vigiadas',
 'tog-watchlisthidebots' => 'Ocultar edições de bots da lista de páginas vigiadas',
@@ -470,7 +471,7 @@ $messages = array(
 'newwindow' => '(abre em uma nova janela)',
 'cancel' => 'Cancelar',
 'moredotdotdot' => 'Mais...',
-'morenotlisted' => 'Outros não listados...',
+'morenotlisted' => 'Esta lista não está completa.',
 'mypage' => 'Página',
 'mytalk' => 'Discussão',
 'anontalk' => 'Discussão para este IP',
@@ -536,7 +537,7 @@ $messages = array(
 'unprotectthispage' => 'Alterar a proteção desta página',
 'newpage' => 'Página nova',
 'talkpage' => 'Dialogar sobre esta página',
-'talkpagelinktext' => 'disc',
+'talkpagelinktext' => 'Discussão',
 'specialpage' => 'Página especial',
 'personaltools' => 'Ferramentas pessoais',
 'postcomment' => 'Nova seção',
@@ -570,10 +571,10 @@ $1',
 'pool-queuefull' => 'A fila de processos está cheia',
 'pool-errorunknown' => 'Erro desconhecido',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Sobre {{SITENAME}}',
 'aboutpage' => 'Project:Sobre',
-'copyright' => 'Conteúdo disponível sob $1.',
+'copyright' => 'Conteúdo disponível sob $1, salvo indicação em contrário.',
 'copyrightpage' => '{{ns:project}}:Direitos_de_autor',
 'currentevents' => 'Eventos atuais',
 'currentevents-url' => 'Project:Eventos atuais',
@@ -657,6 +658,12 @@ Uma lista de páginas especiais válidas poderá ser encontrada em [[Special:Spe
 # General errors
 'error' => 'Erro',
 'databaseerror' => 'Erro no banco de dados',
+'databaseerror-text' => 'Houve um erro na consulta ao banco de dados.
+Isto pode indicar um bug no software.',
+'databaseerror-textcl' => 'Houve um erro na consulta ao banco de dados.',
+'databaseerror-query' => 'Consulta: $1',
+'databaseerror-function' => 'Função: $1',
+'databaseerror-error' => 'Erro: $1',
 'laggedslavemode' => 'Aviso: a página poderá não conter atualizações recentes.',
 'readonly' => 'Banco de dados disponível no modo "somente leitura"',
 'enterlockreason' => 'Entre com um motivo para trancá-lo, incluindo uma estimativa de quando poderá novamente ser destrancado',
@@ -1300,7 +1307,7 @@ Outros administradores no {{SITENAME}} continuarão podendo acessar ao conteúdo
 'revdelete-unsuppress' => 'Remover restrições das edições restauradas',
 'revdelete-log' => 'Motivo:',
 'revdelete-submit' => 'Aplicar {{PLURAL:$1|à revisão selecionada|às revisões selecionadas}}',
-'revdelete-success' => "'''A visibilidade da revisão foi definida com sucesso.'''",
+'revdelete-success' => "'''A visibilidade da revisão foi atualizada.'''",
 'revdelete-failure' => "'''A visibilidade da revisão não foi atualizada:'''
 $1",
 'logdelete-success' => "'''Visibilidade de evento definida com sucesso.'''",
@@ -1564,6 +1571,7 @@ Caso decida fornecê-lo, este será utilizado para dar-lhe crédito pelo seu tra
 'prefs-displayrc' => 'Opções de exibição',
 'prefs-displaysearchoptions' => 'Opções de exibição',
 'prefs-displaywatchlist' => 'Opções de exibição',
+'prefs-tokenwatchlist' => 'Senha',
 'prefs-diffs' => 'Diferenças',
 'prefs-help-prefershttps' => 'Esta preferência terá efeito no seu próximo início de sessão.',
 
@@ -1723,8 +1731,8 @@ Caso decida fornecê-lo, este será utilizado para dar-lhe crédito pelo seu tra
 'action-block' => 'impedir que este usuário edite',
 'action-protect' => 'alterar os níveis de proteção desta página',
 'action-rollback' => 'reverter rapidamente as edições do último usuário que editou uma página em particular',
-'action-import' => 'importar esta página a partir de outro wiki',
-'action-importupload' => 'importar esta página através do carregamento de um arquivo',
+'action-import' => 'importar páginas a partir de outra wiki',
+'action-importupload' => 'importar páginas de um arquivo carregado',
 'action-patrol' => 'marcar as edições de outros usuários como patrulhadas',
 'action-autopatrol' => 'ter suas edições marcadas como patrulhadas',
 'action-unwatchedpages' => 'ver a lista de páginas não-vigiadas',
@@ -1773,7 +1781,7 @@ Caso decida fornecê-lo, este será utilizado para dar-lhe crédito pelo seu tra
 'rc_categories_any' => 'Qualquer',
 'rc-change-size-new' => '$1 {{PLURAL:$1|byte|bytes}} após alterações',
 'newsectionsummary' => '/* $1 */ nova seção',
-'rc-enhanced-expand' => 'Exibir detalhes (requer JavaScript)',
+'rc-enhanced-expand' => 'Exibir detalhes',
 'rc-enhanced-hide' => 'Ocultar detalhes',
 'rc-old-title' => 'criado originalmente como "$1"',
 
@@ -2049,9 +2057,7 @@ Para melhor segurança, o img_auth.php está desativado.',
 'upload_source_file' => ' (um arquivo no seu computador)',
 
 # Special:ListFiles
-'listfiles-summary' => 'Esta página especial mostra todos os arquivos carregados.
-Por padrão, os últimos arquivos carregados são mostrados no topo da lista.
-Um clique sobre um cabeçalho de coluna altera a ordenação.',
+'listfiles-summary' => 'Esta página especial mostra todos os arquivos carregados.',
 'listfiles_search_for' => 'Pesquisar por nome de mídia:',
 'imgfile' => 'arquivo',
 'listfiles' => 'Lista de arquivo',
@@ -2193,12 +2199,6 @@ Talvez você deseje editar a descrição na sua [$2 página de descrição de ar
 'statistics-users-active-desc' => 'Usuários que efetuaram uma ação {{PLURAL:$1|no último dia|nos últimos $1 dias}}',
 'statistics-mostpopular' => 'Páginas mais visitadas',
 
-'disambiguations' => 'Páginas com links para páginas de desambiguação',
-'disambiguationspage' => 'Template:disambig',
-'disambiguations-text' => "As páginas a seguir possuem pelo menos um link para uma '''página de desambiguação'''.
-Talvez fosse melhor que possuissem links para uma página mais específica.</br>
-Uma página é considerada como de desambiguação se utilizar uma predefinição que esteja definida em [[MediaWiki:Disambiguationspage]].",
-
 'pageswithprop' => 'Páginas com uma propriedade de página',
 'pageswithprop-legend' => 'Páginas com uma propriedade de página',
 'pageswithprop-text' => 'Esta página lista as páginas que usam uma determinada propriedade de página.',
@@ -2277,6 +2277,7 @@ Entradas <del>riscadas</del> foram resolvidas.',
 'listusers' => 'Lista de usuários',
 'listusers-editsonly' => 'Mostrar apenas usuários com edições',
 'listusers-creationsort' => 'Ordenar por data de criação',
+'listusers-desc' => 'Listar em ordem decrescente',
 'usereditcount' => '$1 {{PLURAL:$1|edição|edições}}',
 'usercreated' => '{{GENDER:$3|Criado|Criada}} em $1 às $2',
 'newpages' => 'Páginas novas',
@@ -2563,7 +2564,7 @@ alguém já editou ou reverteu a página.
 A última edição da página foi feita por [[User:$3|$3]] ([[User talk:$3|discussão]]{{int:pipe-separator}}[[Special:Contributions/$3|{{int:contribslink}}]]).',
 'editcomment' => "O sumário de edição era: \"''\$1''\".",
 'revertpage' => 'Foram revertidas as edições de [[Special:Contributions/$2|$2]] ([[User talk:$2|disc]]) para a última versão por [[User:$1|$1]]',
-'revertpage-nouser' => 'Revertidas as edições por um usuário oculto para a última revisão por [[User:$1|$1]]',
+'revertpage-nouser' => 'Revertidas as edições de um usuário oculto para a última revisão de {{GENDER:$1|[[User:$1|$1]]}}',
 'rollback-success' => 'Foram revertidas as edições de $1, com o conteúdo passando a estar como na última edição de $2.',
 
 # Edit tokens
@@ -4067,6 +4068,7 @@ Em conjunto com este programa deve ter recebido [{{SERVER}}{{SCRIPTPATH}}/COPYIN
 'dberr-problems' => 'Desculpe! Este sítio está passando por dificuldades técnicas.',
 'dberr-again' => 'Experimente esperar alguns minutos e atualizar.',
 'dberr-info' => '(Não foi possível contactar o servidor de base de dados: $1)',
+'dberr-info-hidden' => '(Não foi possível contatar o banco de dados do servidor)',
 'dberr-usegoogle' => 'Você pode tentar pesquisar no Google entretanto.',
 'dberr-outofdate' => 'Note que os seus índices relativos ao nosso conteúdo podem estar desatualizados.',
 'dberr-cachederror' => 'A seguinte página é uma cópia em cache da página pedida e pode não ser atual.',
@@ -4208,6 +4210,10 @@ Caso contrário, você poderá usar o formulário simplificado a seguir. Seu com
 'limitreport-cputime-value' => '$1 {{PLURAL:$1|segundo|segundos}}',
 'limitreport-walltime' => 'Tempo de uso real',
 'limitreport-walltime-value' => '$1 {{PLURAL:$1|segundo|segundos}}',
-'limitreport-postexpandincludesize-value' => '$1/$2 bytes',
+'limitreport-ppvisitednodes' => 'Número de nós visitados pelo pré-processador',
+'limitreport-ppgeneratednodes' => 'Número de nós gerados pelo pré-processador',
+'limitreport-postexpandincludesize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
+'limitreport-templateargumentsize-value' => '$1/$2 {{PLURAL:$2|byte|bytes}}',
+'limitreport-expansiondepth' => 'Máxima profundidade de expansão',
 
 );

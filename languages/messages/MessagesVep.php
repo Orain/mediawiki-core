@@ -316,7 +316,7 @@ $1",
 'pool-queuefull' => 'Ecindoiden varadim om üläkormatud.',
 'pool-errorunknown' => 'Tundmatoi petuz',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Informacii saitas {{SITENAME}}',
 'aboutpage' => 'Project:Informacii',
 'copyright' => 'südäiolend kävutadas $1-licenzijan mödhe.',
@@ -783,8 +783,8 @@ Mugomad argumentad čutihe.",
 Znamoičendad: '''({{int:cur}})''' = erod nügüdläižes versijaspäi, '''({{int:last}})''' = erod enččes vepsijaspäi, '''{{int:minoreditletter}}''' = pen' toižetuz.",
 'history-fieldset-title' => 'Lehtelta istorii',
 'history-show-deleted' => 'Vaiše čutud',
-'histfirst' => 'Kaikiš vanhembad',
-'histlast' => 'Tantoižed',
+'histfirst' => 'vanhembad',
+'histlast' => 'udembad',
 'historysize' => '({{PLURAL:$1|1 bait|$1 baitad}})',
 'historyempty' => "(pall'az)",
 
@@ -1251,7 +1251,7 @@ Ku tö kirjutat sen, nece nimi kävutadas, miše ozutada lehtpolen toižetajad.'
 'rc-change-size' => '$1',
 'rc-change-size-new' => "$1 {{PLURAL:$1|bait|baitad}} jäl'ges toižetamišt",
 'newsectionsummary' => "/* $1 */ uz' jaguz",
-'rc-enhanced-expand' => 'Ozutada detalid (JavaScript)',
+'rc-enhanced-expand' => 'Ozutada detalid',
 'rc-enhanced-hide' => 'Peitta detalid',
 'rc-old-title' => 'Om sätud ezmässai kut "$1"',
 
@@ -1515,9 +1515,6 @@ Informacijad sen [$2 andmusiden lehtpolelpäi] om anttud alemba.',
 'statistics-users-active' => 'Activižed kävutajad',
 'statistics-users-active-desc' => "Kävutajad, kudambad ozutiba aktivižut {{PLURAL:$1|jäl’gmäižen päivän|$1 jäl'gmäižil päivil}}",
 'statistics-mostpopular' => 'Kaikiš populärižembad lehtpoled',
-
-'disambiguations' => 'Lehtpoled, kudambil om kosketusid lehtpolihe, kus om äiznamoičendusen laskendoid.',
-'disambiguationspage' => 'Template:Äiznamoičenduz',
 
 'doubleredirects' => 'Kaksitadud läbikosketused',
 'double-redirect-fixed-move' => "[[$1]]-lehtpol' om udesnimitadud. Se läbikosketab nügüd' [[$2]]-lehtpolele.",
@@ -1940,7 +1937,7 @@ $1',
 'contributions-title' => '$1-kävutajan tond',
 'mycontris' => 'Minun tond',
 'contribsub2' => '$1-kävutajan ($2) tond',
-'uctop' => "(jäl'gmäine)",
+'uctop' => '(nügüdläine)',
 'month' => 'Ku:',
 'year' => 'Voz’:',
 

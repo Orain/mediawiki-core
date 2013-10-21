@@ -432,6 +432,10 @@ sites general information.
 $module: the current ApiQuerySiteInfo module
 &$results: array of results, add things here
 
+'APIQuerySiteInfoStatisticsInfo': Use this hook to add extra information to the
+sites statistics information.
+&$results: array of results, add things here
+
 'APIQueryUsersTokens': Use this hook to add custom token to list=users. Every
 token has an action, which will be used in the ustoken parameter and in the
 output (actiontoken="..."), and a callback function which should return the
@@ -1077,6 +1081,7 @@ change the tables headers.
 
 'ExtractThumbParameters': Called when extracting thumbnail parameters from a
 thumbnail file name.
+DEPRECATED: Media handler should override MediaHandler::parseParamString instead.
 $thumbname: the base name of the thumbnail file
 &$params: the currently extracted params (has source name, temp or archived zone)
 
@@ -1221,6 +1226,16 @@ $out: OutputPage object (to check what type of page the user is on)
 'GetPreferences': Modify user preferences.
 $user: User whose preferences are being modified.
 &$preferences: Preferences description array, to be fed to an HTMLForm object
+
+'GetRelativeTimestamp': Pre-emptively override the relative timestamp generated
+by MWTimestamp::getRelativeTimestamp(). Return false in this hook to use the custom
+output.
+&$output: string for the output timestamp
+&$diff: DateInterval representing the difference between the timestamps
+$timestamp: MWTimestamp object of the current (user-adjusted) timestamp
+$relativeTo: MWTimestamp object of the relative (user-adjusted) timestamp
+$user: User whose preferences are being used to make timestamp
+$lang: Language that will be used to render the timestamp
 
 'getUserPermissionsErrors': Add a permissions error when permissions errors are
 checked for. Use instead of userCan for most cases. Return false if the user
@@ -1879,6 +1894,7 @@ $action : Action being performed
 &$result : Whether or not the action should be prevented
 Change $result and return false to give a definitive answer, otherwise
 the built-in rate limiting checks are used, if enabled.
+$incrBy: Amount to increment counter by
 
 'PlaceNewSection': Override placement of new sections. Return false and put the
 merged text into $text to override the default behavior.
@@ -2418,6 +2434,11 @@ $title: Title object that is being checked
 $result: Boolean; whether MediaWiki currently thinks this is a wikitext page.
   Hooks may change this value to override the return value of
   Title::isWikitextPage()
+
+'TitleMove': Before moving an article (title).
+$old: old title
+$nt: new title
+$user: user who does the move
 
 'TitleMoveComplete': After moving an article (title).
 $old: old title

@@ -270,7 +270,7 @@ $1',
 'pool-queuefull' => 'La colona da spetga dil pool è plaina',
 'pool-errorunknown' => 'Errur nunenconuschenta',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'Davart {{SITENAME}}',
 'aboutpage' => 'Project:Davart',
 'copyright' => 'Cuntegn disponibel sut $1.',
@@ -1788,12 +1788,6 @@ Betg emblida da controllar sche autras colliaziuns mainan als models avant ch'al
 'statistics-users-active' => 'Utilisaders activs',
 'statistics-users-active-desc' => "Utilisaders che han fatg almain ina acziun {{PLURAL:$1|l'ultim di|ils ultims $1 dis}}",
 'statistics-mostpopular' => 'Paginas visitadas il pli savens',
-
-'disambiguations' => 'Paginas cun colliaziuns sin paginas per la decleraziun da noziuns',
-'disambiguationspage' => 'Template:disambiguiziun',
-'disambiguations-text' => "Las suandantas paginas cuntegnan almain ina colliaziun ad ina '''pagina per la decleraziun da noziuns'''.
-Eventualmain duessan ellas plitost esser cun il dretg artitgel. 
-Ina pagina vegn tractada sco pagina per la decleraziun da noziuns sch'ella cuntegna almain in dals models enumerads sin [[MediaWiki:Disambiguationspage]].",
 
 'doubleredirects' => 'Renviaments dubels',
 'doubleredirectstext' => "Questa glista mussa renviaments che mainan puspè a renviaments.
@@ -3625,8 +3619,7 @@ Ti duessas avair retschavì [{{SERVER}}{{SCRIPTPATH}}/COPYING ina copia da la GN
 
 # Database error messages
 'dberr-header' => 'Questa wiki ha in problem',
-'dberr-problems' => 'Stgisa!
-Questa pagina ha actualmain difficultads tecnicas.',
+'dberr-problems' => 'Stgisa! Questa pagina ha actualmain difficultads tecnicas.',
 'dberr-again' => 'Spetga in per minutas ed emprova alura da chargiar danovamain.',
 'dberr-info' => '(Betg pussaivel da contactar il server da la banca da datas: $1)',
 'dberr-usegoogle' => 'Ti pos empruvar da tschertgar cun Google en il fratemp.',

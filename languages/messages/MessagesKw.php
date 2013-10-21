@@ -427,7 +427,7 @@ Gortewgh pols kyns hwi dhe assaya hedhas an folen-ma arta, mar pleg.
 $1',
 'pool-errorunknown' => 'Gwall ankoth',
 
-# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage) and the disambiguation template definition (see disambiguations).
+# All link text and link target definitions of links into project namespace that get used by other message strings, with the exception of user group pages (see grouppage).
 'aboutsite' => 'A-dro dhe {{SITENAME}}',
 'aboutpage' => 'Project:Kedhlow',
 'copyright' => 'Kavadow yw an dalgh yn-dann $1.',
@@ -1523,8 +1523,7 @@ Hwi a yll [[Special:EditWatchlist|devnydhya an janjyel usadow]] ynwedh.',
 
 # Database error messages
 'dberr-header' => "An wiki-ma a'n jeves kudyn",
-'dberr-problems' => "Drog yw genen!
-An wiasva-ma a's teves kaletter teknogel.",
+'dberr-problems' => "Drog yw genen! An wiasva-ma a's teves kaletter teknogel.",
 'dberr-again' => 'Assayewgh gortos pols ha daskarga.',
 'dberr-info' => '(Ny yllir kestava orth servyer an database: $1)',
 'dberr-usegoogle' => 'Hwi a yll assaya hwilas dre Google.',
