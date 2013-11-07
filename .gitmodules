@@ -94,6 +94,9 @@
 [submodule "extensions/CreditsSource"]
 	path = extensions/CreditsSource
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CreditsSource.git
+[submodule "extensions/CSS"]
+	path = extensions/CSS
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CSS.git
 [submodule "extensions/CustomData"]
 	path = extensions/CustomData
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CustomData.git
@@ -316,6 +319,9 @@
 [submodule "extensions/ShortUrl"]
 	path = extensions/ShortUrl
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ShortUrl.git
+[submodule "extensions/SideBarMenu"]
+	path = extensions/SideBarMenu
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SideBarMenu.git
 [submodule "extensions/SimpleAntiSpam"]
 	path = extensions/SimpleAntiSpam
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SimpleAntiSpam.git
