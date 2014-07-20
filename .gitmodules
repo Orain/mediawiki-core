@@ -25,6 +25,10 @@
 	path = extensions/Babel
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Babel.git
 	branch = REL1_23
+[submodule "extensions/BetaFeatures"]
+	path = extensions/BetaFeatures
+	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/BetaFeatures.git
+	branch = REL1_23
 [submodule "extensions/CategoryTree"]
 	path = extensions/CategoryTree
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CategoryTree.git
@@ -200,6 +204,10 @@
 [submodule "extensions/Poem"]
 	path = extensions/Poem
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Poem.git
+	branch = REL1_23
+[submodule "extensions/Popups"]
+	path = extensions/Popups
+	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups.git
 	branch = REL1_23
 [submodule "extensions/Quiz"]
 	path = extensions/Quiz
