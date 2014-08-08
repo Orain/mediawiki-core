@@ -1,77 +1,77 @@
 [submodule "extensions/AbuseFilter"]
 	path = extensions/AbuseFilter
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AbuseFilter.git
+	url = https://github.com/wikimedia/mediawiki-extensions-AbuseFilter.git
 	branch = REL1_23
 [submodule "extensions/AdminLinks"]
 	path = extensions/AdminLinks
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AdminLinks.git
+	url = https://github.com/wikimedia/mediawiki-extensions-AdminLinks.git
 	branch = REL1_23
 [submodule "extensions/AJAXPoll"]
 	path = extensions/AJAXPoll
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AJAXPoll.git
+	url = https://github.com/wikimedia/mediawiki-extensions-AJAXPoll.git
 	branch = REL1_23
 [submodule "extensions/AntiSpoof"]
 	path = extensions/AntiSpoof
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoof.git
+	url = https://github.com/wikimedia/mediawiki-extensions-AntiSpoof.git
 	branch = REL1_23
 [submodule "extensions/ApiSandbox"]
 	path = extensions/ApiSandbox
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ApiSandbox.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ApiSandbox.git
 	branch = REL1_23
 [submodule "extensions/Arrays"]
 	path = extensions/Arrays
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Arrays.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Arrays.git
 [submodule "extensions/Babel"]
 	path = extensions/Babel
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Babel.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Babel.git
 	branch = REL1_23
 [submodule "extensions/CategoryTree"]
 	path = extensions/CategoryTree
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CategoryTree.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CategoryTree.git
 	branch = REL1_23
 [submodule "extensions/CentralAuth"]
 	path = extensions/CentralAuth
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CentralAuth.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CentralAuth.git
 	branch = REL1_23
 [submodule "extensions/CentralNotice"]
 	path = extensions/CentralNotice
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CentralNotice.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CentralNotice.git
 	branch = REL1_23
 [submodule "extensions/CharInsert"]
 	path = extensions/CharInsert
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CharInsert.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CharInsert.git
 	branch = REL1_23
 [submodule "extensions/CheckUser"]
 	path = extensions/CheckUser
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CheckUser.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CheckUser.git
 	branch = REL1_23
 [submodule "extensions/CirrusSearch"]
 	path = extensions/CirrusSearch
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CirrusSearch.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CirrusSearch.git
 	branch = REL1_23
 [submodule "extensions/Cite"]
 	path = extensions/Cite
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Cite.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Cite.git
 	branch = REL1_23
 [submodule "extensions/cldr"]
 	path = extensions/cldr
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/cldr.git
+	url = https://github.com/wikimedia/mediawiki-extensions-cldr.git
 	branch = REL1_23
 [submodule "extensions/CodeEditor"]
 	path = extensions/CodeEditor
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CodeEditor.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CodeEditor.git
 	branch = REL1_23
 [submodule "extensions/Collection"]
 	path = extensions/Collection
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Collection.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Collection.git
 	branch = REL1_23
 [submodule "extensions/Comments"]
 	path = extensions/Comments
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Comments.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Comments.git
 	branch = REL1_23
 [submodule "extensions/ConfirmEdit"]
 	path = extensions/ConfirmEdit
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmEdit.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ConfirmEdit.git
 	branch = REL1_23
 [submodule "extensions/CreateWiki"]
 	path = extensions/CreateWiki
@@ -79,35 +79,35 @@
 	branch = master
 [submodule "extensions/CSS"]
 	path = extensions/CSS
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CSS.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CSS.git
 	branch = REL1_23
 [submodule "extensions/Disambiguator"]
 	path = extensions/Disambiguator
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Disambiguator.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Disambiguator.git
 	branch = REL1_23
 [submodule "extensions/DismissableSiteNotice"]
 	path = extensions/DismissableSiteNotice
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DismissableSiteNotice.git
+	url = https://github.com/wikimedia/mediawiki-extensions-DismissableSiteNotice.git
 	branch = REL1_23
 [submodule "extensions/DPLforum"]
 	path = extensions/DPLforum
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DPLforum.git
+	url = https://github.com/wikimedia/mediawiki-extensions-DPLforum.git
 	branch = REL1_23
 [submodule "extensions/Elastica"]
 	path = extensions/Elastica
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Elastica.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Elastica.git
 	branch = REL1_23
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Gadgets.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Gadgets.git
 	branch = REL1_23
 [submodule "extensions/GlobalBlocking"]
 	path = extensions/GlobalBlocking
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GlobalBlocking.git
+	url = https://github.com/wikimedia/mediawiki-extensions-GlobalBlocking.git
 	branch = REL1_23
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/googleAnalytics.git
+	url = https://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
 	branch = REL1_23
 [submodule "extensions/GoogleSiteVerification"]
 	path = extensions/GoogleSiteVerification
@@ -115,7 +115,7 @@
 	branch = master
 [submodule "extensions/HeaderTabs"]
 	path = extensions/HeaderTabs
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/HeaderTabs.git
+	url = https://github.com/wikimedia/mediawiki-extensions-HeaderTabs.git
 	branch = REL1_23
 [submodule "extensions/HighlightLinksInCategory"]
 	path = extensions/HighlightLinksInCategory
@@ -123,47 +123,47 @@
 	branch = master
 [submodule "extensions/ImageMap"]
 	path = extensions/ImageMap
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ImageMap.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ImageMap.git
 	branch = REL1_23
 [submodule "extensions/InputBox"]
 	path = extensions/InputBox
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/InputBox.git
+	url = https://github.com/wikimedia/mediawiki-extensions-InputBox.git
 	branch = REL1_23
 [submodule "extensions/intersection"]
 	path = extensions/intersection
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/intersection.git
+	url = https://github.com/wikimedia/mediawiki-extensions-intersection.git
 	branch = REL1_23
 [submodule "extensions/Interwiki"]
 	path = extensions/Interwiki
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Interwiki.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Interwiki.git
 	branch = REL1_23
 [submodule "extensions/InterwikiMagic"]
 	path = extensions/InterwikiMagic
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/InterwikiMagic.git
+	url = https://github.com/wikimedia/mediawiki-extensions-InterwikiMagic.git
 	branch = REL1_23
 [submodule "extensions/LabeledSectionTransclusion"]
 	path = extensions/LabeledSectionTransclusion
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LabeledSectionTransclusion.git
+	url = https://github.com/wikimedia/mediawiki-extensions-LabeledSectionTransclusion.git
 	branch = REL1_23
 [submodule "extensions/LiquidThreads"]
 	path = extensions/LiquidThreads
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LiquidThreads.git
+	url = https://github.com/wikimedia/mediawiki-extensions-LiquidThreads.git
 	branch = REL1_23
 [submodule "extensions/LocalisationUpdate"]
 	path = extensions/LocalisationUpdate
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LocalisationUpdate.git
+	url = https://github.com/wikimedia/mediawiki-extensions-LocalisationUpdate.git
 	branch = REL1_23
 [submodule "extensions/Math"]
 	path = extensions/Math
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Math.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Math.git
 	branch = REL1_23
 [submodule "extensions/MassMessage"]
 	path = extensions/MassMessage
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MassMessage.git
+	url = https://github.com/wikimedia/mediawiki-extensions-MassMessage.git
 	branch = REL1_23
 [submodule "extensions/MobileFrontend"]
 	path = extensions/MobileFrontend
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
+	url = https://github.com/wikimedia/mediawiki-extensions-MobileFrontend.git
 	branch = REL1_23
 [submodule "extensions/MultiBoilerplate"]
 	path = extensions/MultiBoilerplate
@@ -171,7 +171,7 @@
 	branch = master
 [submodule "extensions/MyVariables"]
 	path = extensions/MyVariables
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MyVariables.git
+	url = https://github.com/wikimedia/mediawiki-extensions-MyVariables.git
 	branch = REL1_23
 [submodule "extensions/NativeSvgHandler"]
 	path = extensions/NativeSvgHandler
@@ -179,11 +179,11 @@
 	branch = master
 [submodule "extensions/NewUserMessage"]
 	path = extensions/NewUserMessage
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NewUserMessage.git
+	url = https://github.com/wikimedia/mediawiki-extensions-NewUserMessage.git
 	branch = REL1_23
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Nuke.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Nuke.git
 	branch = REL1_23
 [submodule "extensions/OrainMessages"]
 	path = extensions/OrainMessages
@@ -191,115 +191,115 @@
 	branch = master
 [submodule "extensions/ParserFunctions"]
 	path = extensions/ParserFunctions
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ParserFunctions.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
 	branch = REL1_23
 [submodule "extensions/PdfBook"]
 	path = extensions/PdfBook
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PdfBook.git
+	url = https://github.com/wikimedia/mediawiki-extensions-PdfBook.git
 	branch = master
 [submodule "extensions/Poem"]
 	path = extensions/Poem
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Poem.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Poem.git
 	branch = REL1_23
 [submodule "extensions/Quiz"]
 	path = extensions/Quiz
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Quiz.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Quiz.git
 	branch = REL1_23
 [submodule "extensions/RegexFun"]
 	path = extensions/RegexFun
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RegexFun.git
+	url = https://github.com/wikimedia/mediawiki-extensions-RegexFun.git
 	branch = REL1_23
 [submodule "extensions/Renameuser"]
 	path = extensions/Renameuser
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Renameuser.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Renameuser.git
 	branch = REL1_23
 [submodule "extensions/ReplaceText"]
 	path = extensions/ReplaceText
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ReplaceText.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ReplaceText.git
 	branch = REL1_23
 [submodule "extensions/Scribunto"]
 	path = extensions/Scribunto
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Scribunto.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Scribunto.git
 	branch = REL1_23
 [submodule "extensions/SimpleAntiSpam"]
 	path = extensions/SimpleAntiSpam
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SimpleAntiSpam.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SimpleAntiSpam.git
 	branch = REL1_23
 [submodule "extensions/SiteMatrix"]
 	path = extensions/SiteMatrix
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SiteMatrix.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SiteMatrix.git
 	branch = REL1_23
 [submodule "extensions/SkinPerPage"]
 	path = extensions/SkinPerPage
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SkinPerPage.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SkinPerPage.git
 	branch = REL1_23
 [submodule "extensions/skins"]
 	path = extensions/skins
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/skins.git
+	url = https://github.com/wikimedia/mediawiki-extensions-skins.git
 	branch = REL1_23
 [submodule "extensions/SpamBlacklist"]
 	path = extensions/SpamBlacklist
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SpamBlacklist.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SpamBlacklist.git
 	branch = REL1_23
 [submodule "extensions/SubpageFun"]
 	path = extensions/SubpageFun
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SubpageFun.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SubpageFun.git
 	branch = REL1_23
 [submodule "extensions/SubPageList3"]
 	path = extensions/SubPageList3
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SubPageList3.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SubPageList3.git
 	branch = REL1_23
 [submodule "extensions/SyntaxHighlight_GeSHi"]
 	path = extensions/SyntaxHighlight_GeSHi
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SyntaxHighlight_GeSHi.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi.git
 	branch = REL1_23
 [submodule "extensions/Tabber"]
 	path = extensions/Tabber
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabber.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Tabber.git
 	branch = REL1_23
 [submodule "extensions/Tabs"]
 	path = extensions/Tabs
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabs.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Tabs.git
 	branch = master
 [submodule "extensions/TemplateSandbox"]
 	path = extensions/TemplateSandbox
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateSandbox.git
+	url = https://github.com/wikimedia/mediawiki-extensions-TemplateSandbox.git
 	branch = REL1_23
 [submodule "extensions/Thanks"]
 	path = extensions/Thanks
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Thanks.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Thanks.git
 	branch = REL1_23
 [submodule "extensions/TitleBlacklist"]
 	path = extensions/TitleBlacklist
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TitleBlacklist.git
+	url = https://github.com/wikimedia/mediawiki-extensions-TitleBlacklist.git
 	branch = REL1_23
 [submodule "extensions/TitleKey"]
 	path = extensions/TitleKey
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TitleKey.git
+	url = https://github.com/wikimedia/mediawiki-extensions-TitleKey.git
 	branch = REL1_23
 [submodule "extensions/Translate"]
 	path = extensions/Translate
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Translate.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Translate.git
 	branch = REL1_23
 [submodule "extensions/UniversalLanguageSelector"]
 	path = extensions/UniversalLanguageSelector
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UniversalLanguageSelector.git
+	url = https://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
 	branch = REL1_23
 [submodule "extensions/Variables"]
 	path = extensions/Variables
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Variables.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Variables.git
 	branch = REL1_23
 [submodule "extensions/VoteNY"]
 	path = extensions/VoteNY
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VoteNY.git
+	url = https://github.com/wikimedia/mediawiki-extensions-VoteNY.git
 	branch = REL1_23
 [submodule "extensions/WikiEditor"]
 	path = extensions/WikiEditor
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiEditor.git
+	url = https://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
 	branch = REL1_23
 [submodule "extensions/WikiLove"]
 	path = extensions/WikiLove
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiLove.git
+	url = https://github.com/wikimedia/mediawiki-extensions-WikiLove.git
 	branch = REL1_23
 [submodule "skins/filament"]
 	path = skins/filament
@@ -315,86 +315,86 @@
 	branch = master
 [submodule "extensions/TorBlock"]
 	path = extensions/TorBlock
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TorBlock.git
+	url = https://github.com/wikimedia/mediawiki-extensions-TorBlock.git
 	branch = REL1_23
 [submodule "extensions/Josa"]
 	path = extensions/Josa
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Josa.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Josa.git
 	branch = REL1_23
 [submodule "extensions/BetaFeatures"]
 	path = extensions/BetaFeatures
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/BetaFeatures.git
+	url = https://github.com/wikimedia/mediawiki-extensions-BetaFeatures.git
 	branch = REL1_23
 [submodule "extensions/MultimediaViewer"]
 	path = extensions/MultimediaViewer
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MultimediaViewer.git
+	url = https://github.com/wikimedia/mediawiki-extensions-MultimediaViewer.git
 	branch = REL1_23
 [submodule "extensions/PageImages"]
 	path = extensions/PageImages
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageImages.git
+	url = https://github.com/wikimedia/mediawiki-extensions-PageImages.git
 	branch = REL1_23
 [submodule "extensions/VectorBeta"]
 	path = extensions/VectorBeta
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VectorBeta.git
+	url = https://github.com/wikimedia/mediawiki-extensions-VectorBeta.git
 	branch = wmf/1.23wmf22
 [submodule "extensions/Echo"]
 	path = extensions/Echo
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Echo.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Echo.git
 	branch = REL1_23
 [submodule "extensions/GlobalUsage"]
 	path = extensions/GlobalUsage
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GlobalUsage.git
+	url = https://github.com/wikimedia/mediawiki-extensions-GlobalUsage.git
 [submodule "extensions/RefreshSpecial"]
 	path = extensions/RefreshSpecial
-	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/RefreshSpecial
+	url = https://github.com/wikimedia/mediawiki-extensions-RefreshSpecial
 [submodule "extensions/CategoryTagSorter"]
 	path = extensions/CategoryTagSorter
-	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/CategoryTagSorter
+	url = https://github.com/wikimedia/mediawiki-extensions-CategoryTagSorter
 [submodule "extensions/MultiCategorySearch"]
 	path = extensions/MultiCategorySearch
 	url = https://github.com/Orain/MultiCategorySearch.git
 [submodule "extensions/TocTree"]
 	path = extensions/TocTree
-	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/TocTree
+	url = https://github.com/wikimedia/mediawiki-extensions-TocTree
 [submodule "extensions/MagicNoCache"]
 	path = extensions/MagicNoCache
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MagicNoCache.git
+	url = https://github.com/wikimedia/mediawiki-extensions-MagicNoCache.git
 [submodule "extensions/PageTools"]
 	path = extensions/PageTools
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageTools.git
+	url = https://github.com/wikimedia/mediawiki-extensions-PageTools.git
 [submodule "extensions/ParserFun"]
 	path = extensions/ParserFun
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ParserFun.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ParserFun.git
 [submodule "extensions/Validator"]
 	path = extensions/Validator
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Validator.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Validator.git
 [submodule "extensions/Widgets"]
 	path = extensions/Widgets
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Widgets.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Widgets.git
 [submodule "extensions/UrlShortener"]
 	path = extensions/UrlShortener
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UrlShortener.git
+	url = https://github.com/wikimedia/mediawiki-extensions-UrlShortener.git
 [submodule "extensions/Popups"]
 	path = extensions/Popups
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Popups.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Popups.git
 [submodule "extensions/TextExtracts"]
 	path = extensions/TextExtracts
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TextExtracts.git
+	url = https://github.com/wikimedia/mediawiki-extensions-TextExtracts.git
 [submodule "extensions/EventLogging"]
 	path = extensions/EventLogging
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/EventLogging.git
+	url = https://github.com/wikimedia/mediawiki-extensions-EventLogging.git
 [submodule "extensions/OAuth"]
 	path = extensions/OAuth
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OAuth.git
+	url = https://github.com/wikimedia/mediawiki-extensions-OAuth.git
 [submodule "skins/Erudite"]
 	path = skins/Erudite
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/skins/erudite.git
+	url = https://github.com/wikimedia/mediawiki-skins-erudite.git
 [submodule "extensions/OnlineStatus"]
 	path = extensions/OnlineStatus
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OnlineStatus.git
+	url = https://github.com/wikimedia/mediawiki-extensions-OnlineStatus.git
 [submodule "extensions/CustomData"]
 	path = extensions/CustomData
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CustomData.git
+	url = https://github.com/wikimedia/mediawiki-extensions-CustomData.git
 [submodule "extensions/RelatedArticles"]
 	path = extensions/RelatedArticles
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RelatedArticles.git
+	url = https://github.com/wikimedia/mediawiki-extensions-RelatedArticles.git
