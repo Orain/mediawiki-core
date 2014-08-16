@@ -398,3 +398,6 @@
 [submodule "extensions/RelatedArticles"]
 	path = extensions/RelatedArticles
 	url = https://github.com/wikimedia/mediawiki-extensions-RelatedArticles.git
+[submodule "extensions/DynamicSidebar"]
+	path = extensions/DynamicSidebar
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DynamicSidebar.git
