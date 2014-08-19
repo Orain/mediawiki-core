@@ -401,3 +401,6 @@
 [submodule "extensions/DynamicSidebar"]
 	path = extensions/DynamicSidebar
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DynamicSidebar.git
+[submodule "extensions/Lockdown"]
+	path = extensions/Lockdown
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Lockdown.git
