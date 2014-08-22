@@ -225,7 +225,6 @@ class RedisConnectionPool {
 		}
 
 		if ( $conn ) {
-			$conn->setOption( Redis::OPT_READ_TIMEOUT, $this->readTimeout );
 			$conn->setOption( Redis::OPT_SERIALIZER, $this->serializer );
 			$this->connections[$server][] = array( 'conn' => $conn, 'free' => false );
 
@@ -349,7 +348,6 @@ class RedisConnectionPool {
 	 * @param int $timeout Optional
 	 */
 	public function resetTimeout( Redis $conn, $timeout = null ) {
-		$conn->setOption( Redis::OPT_READ_TIMEOUT, $timeout ?: $this->readTimeout );
 	}
 
 	/**
@@ -421,10 +419,9 @@ class RedisConnRef {
 			$this->pool->resetTimeout( $conn, $arguments[2] + 1 );
 		}
 
-		$conn->clearLastError();
 		try {
 			$res = call_user_func_array( array( $conn, $name ), $arguments );
-			if ( preg_match( '/^ERR operation not permitted\b/', $conn->getLastError() ) ) {
+			if ( preg_match( '/^ERR operation not permitted\b/' ) ) {
 				$this->pool->reauthenticateConnection( $this->server, $conn );
 				$conn->clearLastError();
 				$res = call_user_func_array( array( $conn, $name ), $arguments );
@@ -455,7 +452,6 @@ class RedisConnRef {
 		$server = $this->server; // convenience
 
 		// Try to run the server-side cached copy of the script
-		$conn->clearLastError();
 		$res = $conn->evalSha( $sha1, $params, $numKeys );
 		// If we got a permission error reply that means that (a) we are not in
 		// multi()/pipeline() and (b) some connection problem likely occurred. If
