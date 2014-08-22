@@ -391,16 +391,33 @@ class RedisConnRef {
 	public function __call( $name, $arguments ) {
 		$conn = $this->conn; // convenience
 
+		// Work around https://github.com/nicolasff/phpredis/issues/70
+		$lname = strtolower( $name );
+		if ( ( $lname === 'blpop' || $lname == 'brpop' )
+			&& is_array( $arguments[0] ) && isset( $arguments[1] )
+		) {
+			$this->pool->resetTimeout( $conn, $arguments[1] + 1 );
+		} elseif ( $lname === 'brpoplpush' && isset( $arguments[2] ) ) {
+			$this->pool->resetTimeout( $conn, $arguments[2] + 1 );
+		}
+
 		$conn->clearLastError();
-		$res = call_user_func_array( array( $conn, $name ), $arguments );
-		if ( preg_match( '/^ERR operation not permitted\b/', $conn->getLastError() ) ) {
-			$this->pool->reauthenticateConnection( $this->server, $conn );
-			$conn->clearLastError();
+		try {
 			$res = call_user_func_array( array( $conn, $name ), $arguments );
-			wfDebugLog( 'redis', "Used automatic re-authentication for method '$name'." );
+			if ( preg_match( '/^ERR operation not permitted\b/', $conn->getLastError() ) ) {
+				$this->pool->reauthenticateConnection( $this->server, $conn );
+				$conn->clearLastError();
+				$res = call_user_func_array( array( $conn, $name ), $arguments );
+				wfDebugLog( 'redis', "Used automatic re-authentication for method '$name'." );
+			}
+		} catch ( RedisException $e ) {
+			$this->pool->resetTimeout( $conn ); // restore
+			throw $e;
 		}
 
 		$this->lastError = $conn->getLastError() ?: $this->lastError;
+
+		$this->pool->resetTimeout( $conn ); // restore
 
 		return $res;
 	}
