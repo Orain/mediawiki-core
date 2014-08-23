@@ -432,8 +432,6 @@ class RedisConnRef {
 			throw $e;
 		}
 
-		$this->lastError = $conn->getLastError() ?: $this->lastError;
-
 		$this->pool->resetTimeout( $conn ); // restore
 
 		return $res;
