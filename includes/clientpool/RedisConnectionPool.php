@@ -421,12 +421,12 @@ class RedisConnRef {
 
 		try {
 			$res = call_user_func_array( array( $conn, $name ), $arguments );
-			if ( preg_match( '/^ERR operation not permitted\b/' ) ) {
-				$this->pool->reauthenticateConnection( $this->server, $conn );
-				$conn->clearLastError();
-				$res = call_user_func_array( array( $conn, $name ), $arguments );
-				wfDebugLog( 'redis', "Used automatic re-authentication for method '$name'." );
-			}
+			//if ( preg_match( '/^ERR operation not permitted\b/' ) ) { // Comment out as it 502s with above hacks --John
+			//	$this->pool->reauthenticateConnection( $this->server, $conn );
+			//	$conn->clearLastError();
+			//	$res = call_user_func_array( array( $conn, $name ), $arguments );
+			//	wfDebugLog( 'redis', "Used automatic re-authentication for method '$name'." );
+			//}
 		} catch ( RedisException $e ) {
 			$this->pool->resetTimeout( $conn ); // restore
 			throw $e;
