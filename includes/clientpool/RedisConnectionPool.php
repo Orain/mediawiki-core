@@ -449,30 +449,6 @@ class RedisConnRef {
 		$conn = $this->conn; // convenience
 		$server = $this->server; // convenience
 
-		// Try to run the server-side cached copy of the script
-		$res = $conn->evalSha( $sha1, $params, $numKeys );
-		// If we got a permission error reply that means that (a) we are not in
-		// multi()/pipeline() and (b) some connection problem likely occurred. If
-		// the password the client gave was just wrong, an exception should have
-		// been thrown back in getConnection() previously.
-		if ( preg_match( '/^ERR operation not permitted\b/', $conn->getLastError() ) ) {
-			$this->pool->reauthenticateConnection( $server, $conn );
-			$conn->clearLastError();
-			$res = $conn->eval( $script, $params, $numKeys );
-			wfDebugLog( 'redis', "Used automatic re-authentication for Lua script $sha1." );
-		}
-		// If the script is not in cache, use eval() to retry and cache it
-		if ( preg_match( '/^NOSCRIPT/', $conn->getLastError() ) ) {
-			$conn->clearLastError();
-			$res = $conn->eval( $script, $params, $numKeys );
-			wfDebugLog( 'redis', "Used eval() for Lua script $sha1." );
-		}
-
-		if ( $conn->getLastError() ) { // script bug?
-			wfDebugLog( 'redis', "Lua script error on server $server: " . $conn->getLastError() );
-		}
-
-
 		return $res;
 	}
 
