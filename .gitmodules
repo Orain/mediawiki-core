@@ -404,3 +404,7 @@
 [submodule "extensions/Lockdown"]
 	path = extensions/Lockdown
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Lockdown.git
+[submodule "extensions/WebChat"]
+	path = extensions/WebChat
+	url = https://github.com/wikimedia/mediawiki-extensions-WebChat.git
+	branch = REL1_23
