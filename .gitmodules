@@ -408,3 +408,6 @@
 	path = extensions/WebChat
 	url = https://github.com/wikimedia/mediawiki-extensions-WebChat.git
 	branch = REL1_23
+[submodule "skins/BlueSky"]
+	path = skins/BlueSky
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/skins/BlueSky.git
