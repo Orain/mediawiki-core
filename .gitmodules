@@ -411,3 +411,6 @@
 [submodule "skins/BlueSky"]
 	path = skins/BlueSky
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/skins/BlueSky.git
+[submodule "extensions/GoogleAdSense"]
+	path = extensions/GoogleAdSense
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GoogleAdSense.git
