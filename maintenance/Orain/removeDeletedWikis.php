@@ -30,7 +30,7 @@ class RemoveDeletedWikis extends Maintenance {
 	}
 
 	function execute() {
-		$wikis = file( '/usr/share/nginx/.orain.org/w/deleted.dblist' );
+		$wikis = file( '/srv/mediawiki/w/deleted.dblist' );
 		if ( $wikis === false ) {
 			$this->error( 'Unable to open deleted.dblist', 1 );
 		}
