@@ -51,7 +51,7 @@ class CheckWikiActivity extends Maintenance {
             $timezone = 'UTC';
         }
 
-        # Generates a timestamp in yearmonthdayhourminutesecond format of the current time when running script
+        # Generates a timestamp in yearmonthdayhourminutesecond format of the current time
 
         date_default_timezone_set( $timezone );
         $date = date( "YmdHis", strtotime( "-$inactivitydays days" ) );
