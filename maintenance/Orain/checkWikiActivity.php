@@ -32,6 +32,7 @@ class CheckWikiActivity extends Maintenance {
     public function __construct() {
         parent::__construct();
         $this->addOption( 'days', 'Max amount of inactivity in days allowed to not be marked as an inactive wiki. Default is 30.', false, true );
+        $this->addOption( 'display-active', 'Outputs a message if the wiki meets the activity requirements. By default set to false.', false, false );
         $this->addOption( 'timezone', 'Timezone, default is UTC. Example of allowed values are "UTC", "Europe/Amsterdam", etc.', false, true );
         $this->mDescription = 'Checks the amount of RecentChanges entries on wikis to determine inactivity';
     }
@@ -70,23 +71,26 @@ class CheckWikiActivity extends Maintenance {
         );
 
         if ( $res->numRows() > 0 ) {
-			foreach ( $res as $row ) {
-				$this->output( "The wiki \"$wgDBname\" does NOT meet the inactivity requirements, date of last RecentChanges log entry: " . wfTimestamp( TS_DB, $row->rc_timestamp ) . "\n" );
-			}
+            if ( $this->hasOption( 'display-active' ) ) {
+                foreach ( $res as $row ) {
+                        $this->output( "The wiki \"$wgDBname\" does NOT meet the inactivity requirements, date of last RecentChanges log entry: " . wfTimestamp( TS_DB, $row->rc_timestamp ) . "\n" );
+                }
+            }
         } else {
-			$res = $dbw->select(
-				'recentchanges',
-				'rc_timestamp',
-				'rc_timestamp < ' . $dbw->addQuotes( $date ),
-				__METHOD__,
-				array(
-					'ORDER BY' => 'rc_timestamp DESC',
-					'LIMIT' => 1,
-				)
-			);
-				foreach ( $res as $row ) {
-					$this->output( "The wiki \"$wgDBname\" DOES meet the inactivity requirements, date of last RecentChanges log entry: " . wfTimeStamp( TS_DB, $row->rc_timestamp ) . "\n" );
-				}
+                $res = $dbw->select(
+                        'recentchanges',
+                        'rc_timestamp',
+                        'rc_timestamp < ' . $dbw->addQuotes( $date ),
+                        __METHOD__,
+                        array(
+                                'ORDER BY' => 'rc_timestamp DESC',
+                                'LIMIT' => 1,
+                        )
+                );
+
+                foreach ( $res as $row ) {
+                        $this->output( "The wiki \"$wgDBname\" DOES meet the inactivity requirements, date of last RecentChanges log entry: " . wfTimeStamp( TS_DB, $row->rc_timestamp ) . "\n" );
+                }
         }
 
     }
