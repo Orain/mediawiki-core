@@ -68,6 +68,7 @@ class RebuildTextIndex extends Maintenance {
 
 		if ( $this->db->getType() == 'mysql' ) {
 			$this->dropMysqlTextIndex();
+			$this->clearSearchIndex();
 			$this->populateSearchIndex();
 			$this->createMysqlTextIndex();
 		} else {
