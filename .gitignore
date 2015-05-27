@@ -13,6 +13,7 @@
 .project
 cscope.files
 cscope.out
+*.orig
 ## NetBeans
 nbproject*
 project.index
@@ -47,6 +48,7 @@ node_modules/
 /vendor
 /composer.lock
 /composer.json
+/composer.local.json
 
 # MediaWiki UI documentation
 /docs/kss/static

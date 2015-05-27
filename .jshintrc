@@ -20,11 +20,9 @@
 
 	"globals": {
 		"mediaWiki": true,
+		"JSON": true,
 		"jQuery": false,
-		"QUnit": false
-	},
-
-	// Legacy (to be handled by jscs once supported)
-	"camelcase": true,
-	"nomen": true
+		"QUnit": false,
+		"sinon": false
+	}
 }

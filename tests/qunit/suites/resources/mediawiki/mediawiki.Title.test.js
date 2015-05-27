@@ -46,8 +46,8 @@
 			// Note: The ones with # are commented out as those are interpreted as fragment and
 			// as such end up being valid.
 			'A &eacute; B',
-			//'A &#233; B',
-			//'A &#x00E9; B',
+			// 'A &#233; B',
+			// 'A &#x00E9; B',
 			// Subject of NS_TALK does not roundtrip to NS_MAIN
 			'Talk:File:Example.svg',
 			// Directory navigation
@@ -437,33 +437,34 @@
 	} );
 
 	QUnit.test( 'getRelativeText', 5, function ( assert ) {
-		var cases = [
-			{
-				text: 'asd',
-				relativeTo: 123,
-				expectedResult: ':Asd'
-			},
-			{
-				text: 'dfg',
-				relativeTo: 0,
-				expectedResult: 'Dfg'
-			},
-			{
-				text: 'Template:Ghj',
-				relativeTo: 0,
-				expectedResult: 'Template:Ghj'
-			},
-			{
-				text: 'Template:1',
-				relativeTo: 10,
-				expectedResult: '1'
-			},
-			{
-				text: 'User:Hi',
-				relativeTo: 10,
-				expectedResult: 'User:Hi'
-			}
-		], i, thisCase, title;
+		var i, thisCase, title,
+			cases = [
+				{
+					text: 'asd',
+					relativeTo: 123,
+					expectedResult: ':Asd'
+				},
+				{
+					text: 'dfg',
+					relativeTo: 0,
+					expectedResult: 'Dfg'
+				},
+				{
+					text: 'Template:Ghj',
+					relativeTo: 0,
+					expectedResult: 'Template:Ghj'
+				},
+				{
+					text: 'Template:1',
+					relativeTo: 10,
+					expectedResult: '1'
+				},
+				{
+					text: 'User:Hi',
+					relativeTo: 10,
+					expectedResult: 'User:Hi'
+				}
+			];
 
 		for ( i = 0; i < cases.length; i++ ) {
 			thisCase = cases[i];
@@ -615,10 +616,10 @@
 					extensionDesired: 'png'
 				},
 				{
-					fileName: '𠜎𠜱𠝹𠱓𠱸𠲖𠳏𠳕𠴕𠵼𠵿𠸎𠸏𠹷𠺝𠺢𠻗𠻹𠻺𠼭𠼮𠽌𠾴𠾼𠿪𡁜𡁯𡁵𡁶𡁻𡃁𡃉𡇙𢃇𢞵𢫕𢭃𢯊𢱑𢱕𢳂𠻹𠻺𠼭𠼮𠽌𠾴𠾼𠿪𡁜𡁯𡁵𡁶𡁻𡃁𡃉𡇙𢃇𢞵𢫕𢭃𢯊𢱑𢱕𢳂.png',
+					fileName: 'ࠜ챰ݹ࠱㰠Ḱಖ࠳ﰠ㕰ക࠵찠忰ฎ࠸ﰠ鷰ຝ࠺Ⱐ뗰໹࠻갠쭰༮࠽찠ྼ࠿갡ᜰၯࡁ尡ᶰၻࡃᰡ㉰ᇙࢃ簢⫕ࢭ㰢ⱑࢱ尢グ໹࠻갠쭰༮࠽찠ྼ࠿갡ᜰၯࡁ尡ᶰၻࡃᰡ㉰ᇙࢃ簢⫕ࢭ㰢ⱑࢱ尢ギpng',
 					typeOfName: 'File name longer than 240 bytes',
-					nameText: '𠜎𠜱𠝹𠱓𠱸𠲖𠳏𠳕𠴕𠵼𠵿𠸎𠸏𠹷𠺝𠺢𠻗𠻹𠻺𠼭𠼮𠽌𠾴𠾼𠿪𡁜𡁯𡁵𡁶𡁻𡃁𡃉𡇙𢃇𢞵𢫕𢭃𢯊𢱑𢱕𢳂𠻹𠻺𠼭𠼮𠽌𠾴𠾼𠿪𡁜𡁯𡁵𡁶𡁻𡃁𡃉𡇙𢃇𢞵',
-					prefixedText: 'File:𠜎𠜱𠝹𠱓𠱸𠲖𠳏𠳕𠴕𠵼𠵿𠸎𠸏𠹷𠺝𠺢𠻗𠻹𠻺𠼭𠼮𠽌𠾴𠾼𠿪𡁜𡁯𡁵𡁶𡁻𡃁𡃉𡇙𢃇𢞵𢫕𢭃𢯊𢱑𢱕𢳂𠻹𠻺𠼭𠼮𠽌𠾴𠾼𠿪𡁜𡁯𡁵𡁶𡁻𡃁𡃉𡇙𢃇𢞵.png'
+					nameText: 'ࠜ챰ݹ࠱㰠Ḱಖ࠳ﰠ㕰ക࠵찠忰ฎ࠸ﰠ鷰ຝ࠺Ⱐ뗰໹࠻갠쭰༮࠽찠ྼ࠿갡ᜰၯࡁ尡ᶰၻࡃᰡ㉰ᇙࢃ簢⫕ࢭ㰢ⱑࢱ尢グ໹࠻갠쭰༮࠽찠ྼ࠿갡ᜰၯࡁ尡ᶰၻࡃᰡ㉰ᇙࢃ簢,
+					prefixedText: 'File:ࠜ챰ݹ࠱㰠Ḱಖ࠳ﰠ㕰ക࠵찠忰ฎ࠸ﰠ鷰ຝ࠺Ⱐ뗰໹࠻갠쭰༮࠽찠ྼ࠿갡ᜰၯࡁ尡ᶰၻࡃᰡ㉰ᇙࢃ簢⫕ࢭ㰢ⱑࢱ尢グ໹࠻갠쭰༮࠽찠ྼ࠿갡ᜰၯࡁ尡ᶰၻࡃᰡ㉰ᇙࢃ簢png'
 				},
 				{
 					fileName: '',
