@@ -338,7 +338,8 @@ class MagicWord {
 		if ( !$this->mSynonyms ) {
 			$this->mSynonyms = array( 'brionmademeputthishere' );
 			wfProfileOut( __METHOD__ );
-			throw new MWException( "Error: invalid magic word '$id'" );
+			wfDebugLog( 'magic', "Error: invalid magic word '$id'" );
+			//throw new MWException( "Error: invalid magic word '$id'" );
 		}
 		wfProfileOut( __METHOD__ );
 	}
